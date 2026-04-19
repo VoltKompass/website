@@ -7,5 +7,302 @@
   <script defer src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script defer src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
-<body></body>
+<body>
+<script>
+  const CHECK_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4L19 7"/></svg>';
+
+  const AREA_ICONS = [
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17h2l1-5h12l1 5h2M5 12V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v5"/><circle cx="7.5" cy="17.5" r="2.5"/><circle cx="16.5" cy="17.5" r="2.5"/></svg>',
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="M3 10h18M3 14h18M9 5v14M15 5v14"/></svg>',
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg>',
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 8 5 11 5 15a7 7 0 0 0 14 0c0-4-3-7-7-13z"/></svg>',
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c.5 3-2 4-2 7a2 2 0 0 0 4 0c0-1-.5-1.5-.5-2.5 1.5 1 3.5 3 3.5 6a5 5 0 0 1-10 0c0-3 2-5 3-7 .8-1.6 1.5-2.5 2-3.5z"/></svg>',
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>'
+  ];
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const waitForCMS = setInterval(function() {
+      if (typeof CMS === 'undefined' || !CMS.registerPreviewStyle) return;
+      clearInterval(waitForCMS);
+
+      CMS.registerPreviewStyle('/styles.css');
+      CMS.registerPreviewStyle('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@700;800&family=Inter:wght@400;500;600&display=swap');
+
+      var Preview = createClass({
+        render: function() {
+          var d = this.props.entry.get('data').toJS();
+          if (!d || !d.meta) return h('div', {}, 'Lade Vorschau...');
+
+          return h('div', {},
+            // NAV
+            h('header', {className: 'nav'},
+              h('div', {className: 'wrap nav-inner'},
+                h('a', {className: 'brand'},
+                  h('span', {className: 'v'}, 'Volt'),
+                  h('span', {className: 'k'}, 'Kompass')
+                ),
+                h('ul', {},
+                  (d.nav && d.nav.links || []).map(function(l, i) {
+                    return h('li', {key: i}, h('a', {href: l.href}, l.text));
+                  })
+                ),
+                h('div', {style: {display: 'flex', alignItems: 'center'}},
+                  d.nav && h('a', {className: 'cta'}, d.nav.cta)
+                )
+              )
+            ),
+
+            // HERO
+            h('section', {className: 'hero'},
+              h('div', {className: 'wrap'},
+                d.hero && h('span', {className: 'eyebrow'}, d.hero.eyebrow),
+                h('h1', {style: {marginTop: '22px'}},
+                  h('span', {className: 'v'}, 'Volt'),
+                  h('span', {className: 'k'}, 'Kompass')
+                ),
+                d.hero && h('p', {className: 'claim', dangerouslySetInnerHTML: {__html: d.hero.claim}}),
+                d.hero && h('div', {className: 'hero-ctas'},
+                  h('a', {className: 'btn btn-primary'}, d.hero.ctaPrimary),
+                  h('a', {className: 'btn btn-ghost'}, d.hero.ctaSecondary)
+                ),
+                d.hero && d.hero.stats && h('div', {className: 'hero-meta'},
+                  d.hero.stats.map(function(s, i) {
+                    return h('div', {key: i},
+                      h('b', {}, s.value),
+                      h('span', {}, s.label)
+                    );
+                  })
+                )
+              )
+            ),
+
+            // PROBLEM
+            d.problem && h('section', {className: 'problem'},
+              h('div', {className: 'wrap'},
+                h('div', {className: 'section-head'},
+                  h('div', {},
+                    h('span', {className: 'eyebrow'}, d.problem.eyebrow),
+                    h('h2', {style: {marginTop: '18px'}, dangerouslySetInnerHTML: {__html: d.problem.heading}})
+                  ),
+                  h('p', {}, d.problem.subtext)
+                ),
+                h('div', {className: 'problem-grid'},
+                  (d.problem.cards || []).map(function(c, i) {
+                    return h('div', {className: 'pain', key: i},
+                      h('div', {className: 'num'}, c.num),
+                      h('h3', {}, c.title),
+                      h('p', {}, c.text)
+                    );
+                  })
+                )
+              )
+            ),
+
+            // FACHBEREICHE
+            d.fachbereiche && h('section', {},
+              h('div', {className: 'wrap'},
+                h('div', {className: 'section-head'},
+                  h('div', {},
+                    h('span', {className: 'eyebrow'}, d.fachbereiche.eyebrow),
+                    h('h2', {style: {marginTop: '18px'}, dangerouslySetInnerHTML: {__html: d.fachbereiche.heading}})
+                  ),
+                  h('p', {}, d.fachbereiche.subtext)
+                ),
+                h('div', {className: 'areas'},
+                  (d.fachbereiche.areas || []).map(function(a, i) {
+                    return h('div', {className: 'area', key: i},
+                      h('div', {className: 'ico', dangerouslySetInnerHTML: {__html: AREA_ICONS[i] || ''}}),
+                      h('h3', {}, a.title),
+                      h('p', {}, a.text)
+                    );
+                  })
+                )
+              )
+            ),
+
+            // ABLAUF
+            d.ablauf && h('section', {className: 'process'},
+              h('div', {className: 'wrap'},
+                h('div', {className: 'section-head'},
+                  h('div', {},
+                    h('span', {className: 'eyebrow'}, d.ablauf.eyebrow),
+                    h('h2', {style: {marginTop: '18px'}, dangerouslySetInnerHTML: {__html: d.ablauf.heading}})
+                  ),
+                  h('p', {}, d.ablauf.subtext)
+                ),
+                h('div', {className: 'steps'},
+                  (d.ablauf.steps || []).map(function(s, i) {
+                    return h('div', {className: 'step', key: i},
+                      h('div', {className: 'n'}, i + 1),
+                      h('h3', {}, s.title),
+                      h('p', {}, s.text)
+                    );
+                  })
+                )
+              )
+            ),
+
+            // PREISE
+            d.preise && h('section', {},
+              h('div', {className: 'wrap'},
+                h('div', {className: 'section-head'},
+                  h('div', {},
+                    h('span', {className: 'eyebrow'}, d.preise.eyebrow),
+                    h('h2', {style: {marginTop: '18px'}, dangerouslySetInnerHTML: {__html: d.preise.heading}})
+                  ),
+                  h('p', {}, d.preise.subtext)
+                ),
+                h('div', {className: 'pricing'},
+                  (d.preise.plans || []).map(function(p, i) {
+                    var cls = p.featured ? 'plan featured' : 'plan';
+                    return h('div', {className: cls, key: i},
+                      h('h3', {}, p.name),
+                      h('div', {className: 'price'},
+                        h('b', {}, p.price),
+                        h('span', {}, p.unit)
+                      ),
+                      h('p', {className: 'sub'}, p.subtitle),
+                      h('ul', {},
+                        (p.features || []).map(function(f, j) {
+                          return h('li', {key: j},
+                            h('span', {dangerouslySetInnerHTML: {__html: CHECK_SVG}}),
+                            f
+                          );
+                        })
+                      ),
+                      h('a', {className: 'btn ' + (p.featured ? 'btn-primary' : 'btn-ghost')}, p.cta)
+                    );
+                  })
+                )
+              )
+            ),
+
+            // ÜBER MICH
+            d.about && h('section', {className: 'about'},
+              h('div', {className: 'wrap about-grid'},
+                h('div', {},
+                  h('span', {className: 'eyebrow'}, d.about.eyebrow),
+                  h('h2', {style: {marginTop: '18px'}, dangerouslySetInnerHTML: {__html: d.about.heading}}),
+                  h('div', {},
+                    (d.about.paragraphs || []).map(function(p, i) {
+                      return h('p', {key: i, dangerouslySetInnerHTML: {__html: p}});
+                    })
+                  ),
+                  d.about.stats && h('div', {className: 'about-stats'},
+                    d.about.stats.map(function(s, i) {
+                      return h('div', {className: 'stat', key: i},
+                        h('b', {}, s.value),
+                        h('span', {}, s.label)
+                      );
+                    })
+                  )
+                ),
+                h('figure', {className: 'about-visual'},
+                  d.about.image && h('img', {src: d.about.image, alt: d.about.imageAlt || ''}),
+                  h('figcaption', {},
+                    h('b', {}, d.about.captionName),
+                    h('span', {}, d.about.captionSub)
+                  )
+                )
+              )
+            ),
+
+            // VIDEO
+            d.video && h('section', {className: 'video'},
+              h('div', {className: 'wrap'},
+                h('div', {className: 'section-head'},
+                  h('div', {},
+                    h('span', {className: 'eyebrow'}, d.video.eyebrow),
+                    h('h2', {style: {marginTop: '18px'}, dangerouslySetInnerHTML: {__html: d.video.heading}})
+                  ),
+                  h('p', {}, d.video.subtext)
+                ),
+                d.video.youtubeId && h('div', {className: 'video-box'},
+                  h('img', {src: 'https://i.ytimg.com/vi/' + d.video.youtubeId + '/hqdefault.jpg', alt: d.video.videoAlt || ''}),
+                  h('div', {className: 'video-play'})
+                )
+              )
+            ),
+
+            // TESTIMONIALS
+            d.testimonials && h('section', {className: 'testimonial'},
+              h('div', {className: 'wrap'},
+                h('div', {className: 'section-head'},
+                  h('div', {},
+                    h('span', {className: 'eyebrow'}, d.testimonials.eyebrow),
+                    h('h2', {style: {marginTop: '18px'}, dangerouslySetInnerHTML: {__html: d.testimonials.heading}})
+                  ),
+                  h('p', {}, d.testimonials.subtext)
+                ),
+                h('div', {style: {maxWidth: '880px', margin: '0 auto'}},
+                  (d.testimonials.items || []).map(function(t, i) {
+                    return h('div', {className: 't-card', key: i, style: {marginBottom: '40px'}},
+                      t.avatar
+                        ? h('img', {className: 't-avatar', src: t.avatar, alt: t.name})
+                        : h('div', {className: 't-avatar-placeholder'}, t.name.charAt(0)),
+                      h('blockquote', {}, '\u201E' + t.quote + '\u201C'),
+                      h('span', {className: 'author'}, '\u2014 ' + t.name)
+                    );
+                  })
+                )
+              )
+            ),
+
+            // FAQ
+            d.faq && h('section', {},
+              h('div', {className: 'wrap'},
+                h('div', {className: 'section-head'},
+                  h('div', {},
+                    h('span', {className: 'eyebrow'}, d.faq.eyebrow),
+                    h('h2', {style: {marginTop: '18px'}, dangerouslySetInnerHTML: {__html: d.faq.heading}})
+                  ),
+                  h('p', {}, d.faq.subtext)
+                ),
+                h('div', {className: 'faq-list'},
+                  (d.faq.items || []).map(function(f, i) {
+                    return h('details', {key: i, open: i === 0},
+                      h('summary', {}, f.question),
+                      h('p', {}, f.answer)
+                    );
+                  })
+                )
+              )
+            ),
+
+            // CTA
+            d.cta && h('section', {},
+              h('div', {className: 'wrap'},
+                h('div', {className: 'cta-block'},
+                  h('span', {className: 'eyebrow'}, d.cta.eyebrow),
+                  h('h2', {style: {marginTop: '20px'}, dangerouslySetInnerHTML: {__html: d.cta.heading}}),
+                  h('p', {}, d.cta.text),
+                  h('div', {className: 'hero-ctas'},
+                    h('a', {className: 'btn btn-primary'}, d.cta.ctaPrimary),
+                    h('a', {className: 'btn btn-ghost'}, d.cta.ctaSecondary)
+                  )
+                )
+              )
+            ),
+
+            // FOOTER
+            d.footer && h('footer', {},
+              h('div', {className: 'wrap foot'},
+                h('p', {}, d.footer.copyright),
+                h('nav', {},
+                  (d.footer.links || []).map(function(l, i) {
+                    return h('a', {key: i, href: l.href}, l.text);
+                  })
+                )
+              )
+            )
+          );
+        }
+      });
+
+      CMS.registerPreviewTemplate('de', Preview);
+      CMS.registerPreviewTemplate('ru', Preview);
+    }, 100);
+  });
+</script>
+</body>
 </html>
