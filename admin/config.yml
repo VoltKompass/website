@@ -1,0 +1,375 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "/"
+public_folder: "/"
+
+collections:
+  - name: "content-de"
+    label: "Inhalte (Deutsch)"
+    files:
+      - name: "de"
+        label: "Deutsche Inhalte"
+        file: "content/de.json"
+        format: "json"
+        fields:
+          - label: "Meta"
+            name: "meta"
+            widget: "object"
+            fields:
+              - { label: "Seitentitel", name: "title", widget: "string" }
+              - { label: "Beschreibung (SEO)", name: "description", widget: "text" }
+
+          - label: "Navigation"
+            name: "nav"
+            widget: "object"
+            fields:
+              - label: "Links"
+                name: "links"
+                widget: "list"
+                fields:
+                  - { label: "Text", name: "text", widget: "string" }
+                  - { label: "Anker", name: "href", widget: "string" }
+              - { label: "CTA Button", name: "cta", widget: "string" }
+
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Claim (HTML erlaubt)", name: "claim", widget: "text" }
+              - { label: "Button primär", name: "ctaPrimary", widget: "string" }
+              - { label: "Button sekundär", name: "ctaSecondary", widget: "string" }
+              - label: "Statistiken"
+                name: "stats"
+                widget: "list"
+                fields:
+                  - { label: "Wert", name: "value", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+
+          - label: "Problem-Sektion"
+            name: "problem"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Überschrift (HTML erlaubt)", name: "heading", widget: "string" }
+              - { label: "Untertext", name: "subtext", widget: "text" }
+              - label: "Karten"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - { label: "Nummer", name: "num", widget: "string" }
+                  - { label: "Titel", name: "title", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }
+
+          - label: "Fachbereiche"
+            name: "fachbereiche"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Überschrift (HTML erlaubt)", name: "heading", widget: "string" }
+              - { label: "Untertext", name: "subtext", widget: "text" }
+              - label: "Bereiche"
+                name: "areas"
+                widget: "list"
+                fields:
+                  - { label: "Titel", name: "title", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }
+
+          - label: "Ablauf"
+            name: "ablauf"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Überschrift (HTML erlaubt)", name: "heading", widget: "string" }
+              - { label: "Untertext", name: "subtext", widget: "text" }
+              - label: "Schritte"
+                name: "steps"
+                widget: "list"
+                fields:
+                  - { label: "Titel", name: "title", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }
+
+          - label: "Preise"
+            name: "preise"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Überschrift (HTML erlaubt)", name: "heading", widget: "string" }
+              - { label: "Untertext", name: "subtext", widget: "text" }
+              - label: "Pakete"
+                name: "plans"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Preis", name: "price", widget: "string" }
+                  - { label: "Einheit", name: "unit", widget: "string" }
+                  - { label: "Untertitel", name: "subtitle", widget: "text" }
+                  - { label: "Features", name: "features", widget: "list", field: { label: "Feature", name: "feature", widget: "string" } }
+                  - { label: "Button-Text", name: "cta", widget: "string" }
+                  - { label: "Hervorgehoben", name: "featured", widget: "boolean", default: false }
+
+          - label: "Über mich"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Überschrift (HTML erlaubt)", name: "heading", widget: "string" }
+              - { label: "Absätze (HTML erlaubt)", name: "paragraphs", widget: "list", field: { label: "Absatz", name: "paragraph", widget: "text" } }
+              - label: "Statistiken"
+                name: "stats"
+                widget: "list"
+                fields:
+                  - { label: "Wert", name: "value", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+              - { label: "Bild", name: "image", widget: "image" }
+              - { label: "Bild-Alt-Text", name: "imageAlt", widget: "string" }
+              - { label: "Name", name: "captionName", widget: "string" }
+              - { label: "Untertitel", name: "captionSub", widget: "string" }
+
+          - label: "Video"
+            name: "video"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Überschrift (HTML erlaubt)", name: "heading", widget: "string" }
+              - { label: "Untertext", name: "subtext", widget: "text" }
+              - { label: "YouTube Video-ID", name: "youtubeId", widget: "string" }
+              - { label: "Video Alt-Text", name: "videoAlt", widget: "string" }
+
+          - label: "Kundenstimmen"
+            name: "testimonials"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Überschrift (HTML erlaubt)", name: "heading", widget: "string" }
+              - { label: "Untertext", name: "subtext", widget: "text" }
+              - label: "Einträge"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Avatar (leer = Initialen)", name: "avatar", widget: "image", required: false }
+                  - { label: "Zitat", name: "quote", widget: "text" }
+
+          - label: "FAQ"
+            name: "faq"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Überschrift (HTML erlaubt)", name: "heading", widget: "string" }
+              - { label: "Untertext", name: "subtext", widget: "text" }
+              - label: "Fragen"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Frage", name: "question", widget: "string" }
+                  - { label: "Antwort", name: "answer", widget: "text" }
+
+          - label: "CTA-Block"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Überschrift (HTML erlaubt)", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Button primär", name: "ctaPrimary", widget: "string" }
+              - { label: "Button sekundär", name: "ctaSecondary", widget: "string" }
+              - { label: "E-Mail", name: "email", widget: "string" }
+
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Copyright", name: "copyright", widget: "string" }
+              - label: "Links"
+                name: "links"
+                widget: "list"
+                fields:
+                  - { label: "Text", name: "text", widget: "string" }
+                  - { label: "URL", name: "href", widget: "string" }
+
+  - name: "content-ru"
+    label: "Содержание (Русский)"
+    files:
+      - name: "ru"
+        label: "Русский контент"
+        file: "content/ru.json"
+        format: "json"
+        fields:
+          - label: "Meta"
+            name: "meta"
+            widget: "object"
+            fields:
+              - { label: "Page title", name: "title", widget: "string" }
+              - { label: "Description (SEO)", name: "description", widget: "text" }
+
+          - label: "Navigation"
+            name: "nav"
+            widget: "object"
+            fields:
+              - label: "Links"
+                name: "links"
+                widget: "list"
+                fields:
+                  - { label: "Text", name: "text", widget: "string" }
+                  - { label: "Anchor", name: "href", widget: "string" }
+              - { label: "CTA Button", name: "cta", widget: "string" }
+
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Claim (HTML allowed)", name: "claim", widget: "text" }
+              - { label: "Primary button", name: "ctaPrimary", widget: "string" }
+              - { label: "Secondary button", name: "ctaSecondary", widget: "string" }
+              - label: "Stats"
+                name: "stats"
+                widget: "list"
+                fields:
+                  - { label: "Value", name: "value", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+
+          - label: "Problem section"
+            name: "problem"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading (HTML allowed)", name: "heading", widget: "string" }
+              - { label: "Subtext", name: "subtext", widget: "text" }
+              - label: "Cards"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - { label: "Number", name: "num", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }
+
+          - label: "Expertise"
+            name: "fachbereiche"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading (HTML allowed)", name: "heading", widget: "string" }
+              - { label: "Subtext", name: "subtext", widget: "text" }
+              - label: "Areas"
+                name: "areas"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }
+
+          - label: "Process"
+            name: "ablauf"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading (HTML allowed)", name: "heading", widget: "string" }
+              - { label: "Subtext", name: "subtext", widget: "text" }
+              - label: "Steps"
+                name: "steps"
+                widget: "list"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }
+
+          - label: "Pricing"
+            name: "preise"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading (HTML allowed)", name: "heading", widget: "string" }
+              - { label: "Subtext", name: "subtext", widget: "text" }
+              - label: "Plans"
+                name: "plans"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Price", name: "price", widget: "string" }
+                  - { label: "Unit", name: "unit", widget: "string" }
+                  - { label: "Subtitle", name: "subtitle", widget: "text" }
+                  - { label: "Features", name: "features", widget: "list", field: { label: "Feature", name: "feature", widget: "string" } }
+                  - { label: "Button text", name: "cta", widget: "string" }
+                  - { label: "Featured", name: "featured", widget: "boolean", default: false }
+
+          - label: "About me"
+            name: "about"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading (HTML allowed)", name: "heading", widget: "string" }
+              - { label: "Paragraphs (HTML allowed)", name: "paragraphs", widget: "list", field: { label: "Paragraph", name: "paragraph", widget: "text" } }
+              - label: "Stats"
+                name: "stats"
+                widget: "list"
+                fields:
+                  - { label: "Value", name: "value", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Image alt text", name: "imageAlt", widget: "string" }
+              - { label: "Name", name: "captionName", widget: "string" }
+              - { label: "Subtitle", name: "captionSub", widget: "string" }
+
+          - label: "Video"
+            name: "video"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading (HTML allowed)", name: "heading", widget: "string" }
+              - { label: "Subtext", name: "subtext", widget: "text" }
+              - { label: "YouTube Video ID", name: "youtubeId", widget: "string" }
+              - { label: "Video alt text", name: "videoAlt", widget: "string" }
+
+          - label: "Testimonials"
+            name: "testimonials"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading (HTML allowed)", name: "heading", widget: "string" }
+              - { label: "Subtext", name: "subtext", widget: "text" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Avatar (empty = initials)", name: "avatar", widget: "image", required: false }
+                  - { label: "Quote", name: "quote", widget: "text" }
+
+          - label: "FAQ"
+            name: "faq"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading (HTML allowed)", name: "heading", widget: "string" }
+              - { label: "Subtext", name: "subtext", widget: "text" }
+              - label: "Questions"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Question", name: "question", widget: "string" }
+                  - { label: "Answer", name: "answer", widget: "text" }
+
+          - label: "CTA Block"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+              - { label: "Heading (HTML allowed)", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - { label: "Primary button", name: "ctaPrimary", widget: "string" }
+              - { label: "Secondary button", name: "ctaSecondary", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+
+          - label: "Footer"
+            name: "footer"
+            widget: "object"
+            fields:
+              - { label: "Copyright", name: "copyright", widget: "string" }
+              - label: "Links"
+                name: "links"
+                widget: "list"
+                fields:
+                  - { label: "Text", name: "text", widget: "string" }
+                  - { label: "URL", name: "href", widget: "string" }

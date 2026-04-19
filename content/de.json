@@ -1,0 +1,215 @@
+{
+  "meta": {
+    "title": "VoltKompass — Wohnmobil-Beratung für Strom, Solar & Autarkie",
+    "description": "Persönliche 1:1 Wohnmobil-Beratung. Kaufberatung, Solaranlagen, Stromversorgung, Autarkie. Kein Verkaufsdruck — nur ehrliche Orientierung."
+  },
+  "nav": {
+    "links": [
+      { "text": "Fachbereiche", "href": "#fachbereiche" },
+      { "text": "Ablauf", "href": "#ablauf" },
+      { "text": "Preise", "href": "#preise" },
+      { "text": "Über mich", "href": "#ueber" },
+      { "text": "FAQ", "href": "#faq" }
+    ],
+    "cta": "Beratung buchen →"
+  },
+  "hero": {
+    "eyebrow": "1:1 Wohnmobil-Beratung",
+    "claim": "Deine Orientierung für <b>Strom, Solar & Autarkie</b> im Wohnmobil. Ehrliche Beratung ohne Verkaufsdruck — damit du das Womo findest, das wirklich zu dir passt.",
+    "ctaPrimary": "Termin sichern",
+    "ctaSecondary": "Fachbereiche ansehen",
+    "stats": [
+      { "value": "15+", "label": "Jahre Womo-Erfahrung" },
+      { "value": "1:1", "label": "Persönliche Beratung" },
+      { "value": "0 €", "label": "Verkaufsdruck" }
+    ]
+  },
+  "problem": {
+    "eyebrow": "Stell dir vor…",
+    "heading": "Kennst du <span class=\"accent\">das Gefühl</span>?",
+    "subtext": "Du willst in dein Womo investieren — aber die Fragen werden mehr, nicht weniger. Genau hier setzen wir an.",
+    "cards": [
+      {
+        "num": "01 — KAUF",
+        "title": "Unsicher beim Modell",
+        "text": "Teilintegriert, Alkoven, Kastenwagen? Du liest seit Wochen Foren und bist verwirrter als vorher."
+      },
+      {
+        "num": "02 — STROM",
+        "title": "Solar & Batterie — aber wie?",
+        "text": "LiFePO4, 200 Ah, 400 Wp, MPPT? Du willst autark sein, nicht zum Elektroingenieur werden."
+      },
+      {
+        "num": "03 — ALLTAG",
+        "title": "Autark frei stehen",
+        "text": "Tage ohne Landstrom, ohne Stellplatzgebühr, ohne Kompromiss. Du brauchst einen Plan, der im Alltag hält."
+      }
+    ]
+  },
+  "fachbereiche": {
+    "eyebrow": "Fachbereiche",
+    "heading": "Hier ist mein <span class=\"accent\">Fokus</span>",
+    "subtext": "Sechs Themen, in denen ich dich von Grundlagen bis Umsetzung begleite — verständlich, praxisnah, unabhängig.",
+    "areas": [
+      {
+        "title": "Kaufberatung",
+        "text": "Modell, Grundriss, Budget, Versicherung. Ich helfe dir, die richtige Entscheidung für deine Reiseart zu treffen."
+      },
+      {
+        "title": "Solaranlage",
+        "text": "Dimensionierung, Komponenten, Verkabelung. Von der ersten Skizze bis zur fertigen Installation."
+      },
+      {
+        "title": "Stromversorgung",
+        "text": "Batterien, Wechselrichter, Laderegler, B2B. Dein Bordnetz — stabil geplant."
+      },
+      {
+        "title": "Wasser",
+        "text": "Frischwasser, Grau-/Schwarzwasser, Druckpumpen, Filter. Saubere Systeme ohne Stress."
+      },
+      {
+        "title": "Gas",
+        "text": "Flaschen, Tank, Sicherheit, Alternativen. Alles, was du über Gas im Womo wissen musst."
+      },
+      {
+        "title": "Autarkie",
+        "text": "Frei stehen ohne Abhängigkeit. Energie-, Wasser- und Vorratsplanung für echte Unabhängigkeit."
+      }
+    ]
+  },
+  "ablauf": {
+    "eyebrow": "So läuft es ab",
+    "heading": "In <span class=\"accent\">4 Schritten</span> zur Antwort",
+    "subtext": "Asynchron per Voicemail — du fragst, wenn es dir passt. Keine Telefontermine, keine Wartezeit.",
+    "steps": [
+      { "title": "Paket buchen", "text": "30 oder 60 Minuten wählen — je nach Umfang deiner Fragen." },
+      { "title": "Fragen senden", "text": "Per WhatsApp oder Telegram als Sprachnachricht. Ganz unkompliziert." },
+      { "title": "Antwort erhalten", "text": "Ausführlich als Voicemail zurück — inkl. Links, Skizzen, Produktempfehlungen." },
+      { "title": "30 Tage Zeit", "text": "Du nutzt dein Zeitkontingent flexibel, wann immer neue Fragen aufkommen." }
+    ]
+  },
+  "preise": {
+    "eyebrow": "Preise",
+    "heading": "Fair, <span class=\"accent\">transparent</span>, abgerechnet nach Minuten",
+    "subtext": "Zwei Pakete, 30 Tage Laufzeit, transparente Zeitabrechnung. Kein Abo, keine versteckten Kosten.",
+    "plans": [
+      {
+        "name": "Kurz-Beratung",
+        "price": "69",
+        "unit": "€ / 30 Min",
+        "subtitle": "Ideal für eine konkrete Frage oder schnelles Feedback zu einer Entscheidung.",
+        "features": [
+          "30 Minuten Beratungszeit",
+          "WhatsApp oder Telegram",
+          "30 Tage flexibel nutzbar",
+          "Minutengenaue Abrechnung"
+        ],
+        "cta": "Paket wählen",
+        "featured": false
+      },
+      {
+        "name": "Tiefen-Beratung",
+        "price": "119",
+        "unit": "€ / 60 Min",
+        "subtitle": "Die ganze Planung — Kauf, Solar, Autarkie, Alltag. Genug Zeit für alles, was dich beschäftigt.",
+        "features": [
+          "60 Minuten Beratungszeit",
+          "Alle Fachbereiche abgedeckt",
+          "Produkt- & Anbieter-Empfehlungen",
+          "30 Tage flexibel nutzbar"
+        ],
+        "cta": "Paket wählen →",
+        "featured": true
+      }
+    ]
+  },
+  "about": {
+    "eyebrow": "Über mich",
+    "heading": "15+ Jahre Womo —<br>und täglich neue Fragen.",
+    "paragraphs": [
+      "Ich berate seit Jahren Menschen beim Einstieg in die Womo-Welt. Meine eigene Reise begann mit den gleichen Fragen, die du heute hast — und endete mit einer Leidenschaft für Solaranlagen, Autarkie und das Leben unterwegs.",
+      "Ich verkaufe dir nichts. Ich helfe dir, zu verstehen. Und ich sage dir auch, wenn du etwas <b style=\"color:var(--gold)\">nicht</b> brauchst."
+    ],
+    "stats": [
+      { "value": "500+", "label": "Beratungen" },
+      { "value": "15+", "label": "Jahre Womo" },
+      { "value": "100%", "label": "Unabhängig" }
+    ],
+    "image": "andreas.jpg",
+    "imageAlt": "Andreas — dein persönlicher Womo-Berater",
+    "captionName": "Andreas",
+    "captionSub": "Dein VoltKompass"
+  },
+  "video": {
+    "eyebrow": "Video",
+    "heading": "Schau <span class=\"accent\">rein</span>",
+    "subtext": "Ein Einblick in meine Arbeit und worum es bei VoltKompass wirklich geht.",
+    "youtubeId": "g1gLy1RcLis",
+    "videoAlt": "Video-Vorschau"
+  },
+  "testimonials": {
+    "eyebrow": "Kundenstimmen",
+    "heading": "Was andere <span class=\"accent\">sagen</span>",
+    "subtext": "Echte Rückmeldungen von Menschen, die ihre Womo-Fragen mit mir geklärt haben.",
+    "items": [
+      {
+        "name": "Daniele",
+        "avatar": "daniele.jpg",
+        "quote": "Nach einem kurzen Gespräch mit Andreas war mir sehr schnell klar: der Mann weiß, wovon er spricht. Er hat die Fähigkeit, schnell zu erkennen, was einem wichtig ist — seine Erfahrungs- und Wissenswerte sind gold wert. Ohne Andreas hätte es ewig gedauert oder das Risiko eines Fehlkaufs wäre sehr groß gewesen. Dank ihm geht mein Abenteuer Weltreise jetzt los."
+      },
+      {
+        "name": "Marc",
+        "avatar": "",
+        "quote": "Andreas hat durch geschickte Fragen mein Problem analysiert und durch seine Recherchen Lösungen erarbeitet. Bei jedem Arbeitsschritt, wo ich nicht weiterkam, konnte er mir durch kleine Tipps und Hinweise die Richtung weisen — so kam ich zum gewünschten Ziel. Das hat super funktioniert mit Sprachnachrichten per Telegram. Vielen Dank für die große Hilfe!"
+      },
+      {
+        "name": "Dietmar",
+        "avatar": "",
+        "quote": "Lieber Andreas, vielen Dank für deine sehr informative Beratungsleistung im Bereich Stromversorgung im Wohnmobil. Deine Anmerkungen, Hinweise und Vorschläge für eine mögliche Umsetzung waren außerordentlich hilfreich. Mit deiner Hilfe ging es wirklich schnell. Ich würde dich jederzeit weiterempfehlen."
+      }
+    ]
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "heading": "Häufige <span class=\"accent\">Fragen</span>",
+    "subtext": "Noch Fragen offen? Schreib mir einfach — ich antworte persönlich.",
+    "items": [
+      {
+        "question": "Wie läuft die Beratung konkret ab?",
+        "answer": "Du buchst ein Paket, bekommst meine Telegram- oder WhatsApp-Nummer und schickst mir deine Fragen als Sprachnachrichten. Ich antworte ebenfalls per Voicemail — ausführlich, mit Links und Produktempfehlungen. Du hast 30 Tage Zeit, dein Kontingent zu nutzen."
+      },
+      {
+        "question": "Warum Voicemail statt Videocall?",
+        "answer": "Weil du so fragst, wann es dir passt — und ich antworte, wann es mir passt. Kein Termin-Ping-Pong, keine Wartezeit. Du kannst meine Antworten beliebig oft nachhören, ohne dir Notizen machen zu müssen."
+      },
+      {
+        "question": "Bist du von Herstellern unabhängig?",
+        "answer": "Zu 100%. Ich bekomme keine Provisionen und empfehle nur, was ich selbst einbauen oder kaufen würde. Wenn dir etwas nicht weiterhilft, sage ich dir das auch."
+      },
+      {
+        "question": "Was, wenn ich mein Kontingent nicht aufbrauche?",
+        "answer": "Zeit wird minutengenau abgerechnet. Du zahlst für das Paket und nutzt die Minuten flexibel. Nach 30 Tagen verfällt ungenutzte Zeit — ich empfehle daher, Fragen zu sammeln und gezielt zu stellen."
+      },
+      {
+        "question": "Installierst du Solaranlagen auch?",
+        "answer": "Ja, Installationen kompletter Solarsysteme gehören zu meinem Angebot. Details besprechen wir individuell — schreib mich einfach an."
+      }
+    ]
+  },
+  "cta": {
+    "eyebrow": "Bereit?",
+    "heading": "Lass uns <span class=\"accent\">Klarheit</span> in deine Womo-Pläne bringen.",
+    "text": "Schreib mir eine Nachricht — ich melde mich innerhalb von 24 Stunden mit dem nächsten Schritt.",
+    "ctaPrimary": "Nachricht schreiben",
+    "ctaSecondary": "Pakete vergleichen",
+    "email": "hallo@voltkompass.de"
+  },
+  "footer": {
+    "copyright": "© 2026 VoltKompass — Wohnmobil-Beratung für Strom & Autarkie",
+    "links": [
+      { "text": "Impressum", "href": "#" },
+      { "text": "Datenschutz", "href": "#" },
+      { "text": "Kontakt", "href": "#kontakt" }
+    ]
+  }
+}
