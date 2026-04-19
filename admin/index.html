@@ -30,8 +30,20 @@
 
       var Preview = createClass({
         render: function() {
-          var d = this.props.entry.get('data').toJS();
+          var entry = this.props.entry;
+          var getAsset = this.props.getAsset;
+          var d = entry.get('data').toJS();
           if (!d || !d.meta) return h('div', {}, 'Lade Vorschau...');
+
+          var aboutImage = d.about && d.about.image ? getAsset(d.about.image).toString() : '';
+          var testimonialAvatars = {};
+          if (d.testimonials && d.testimonials.items) {
+            d.testimonials.items.forEach(function(t, i) {
+              if (t.avatar) {
+                testimonialAvatars[i] = getAsset(t.avatar).toString();
+              }
+            });
+          }
 
           return h('div', {},
             // NAV
@@ -198,7 +210,7 @@
                   )
                 ),
                 h('figure', {className: 'about-visual'},
-                  d.about.image && h('img', {src: d.about.image, alt: d.about.imageAlt || ''}),
+                  aboutImage && h('img', {src: aboutImage, alt: d.about.imageAlt || ''}),
                   h('figcaption', {},
                     h('b', {}, d.about.captionName),
                     h('span', {}, d.about.captionSub)
@@ -237,8 +249,8 @@
                 h('div', {style: {maxWidth: '880px', margin: '0 auto'}},
                   (d.testimonials.items || []).map(function(t, i) {
                     return h('div', {className: 't-card', key: i, style: {marginBottom: '40px'}},
-                      t.avatar
-                        ? h('img', {className: 't-avatar', src: t.avatar, alt: t.name})
+                      testimonialAvatars[i]
+                        ? h('img', {className: 't-avatar', src: testimonialAvatars[i], alt: t.name})
                         : h('div', {className: 't-avatar-placeholder'}, t.name.charAt(0)),
                       h('blockquote', {}, '\u201E' + t.quote + '\u201C'),
                       h('span', {className: 'author'}, '\u2014 ' + t.name)
