@@ -112,9 +112,15 @@
     "eyebrow": "Bereit?",
     "heading": "Lass uns <span class=\"accent\">Klarheit</span> in deine Womo-Pläne bringen.",
     "text": "Schreib mir eine Nachricht — ich melde mich innerhalb von 24 Stunden mit dem nächsten Schritt.",
-    "ctaPrimary": "Nachricht schreiben",
+    "ctaPrimary": "Nachricht senden",
     "ctaSecondary": "Pakete vergleichen",
-    "email": "hallo@voltkompass.de"
+    "email": "hallo@voltkompass.de",
+    "form": {
+      "name": "Name",
+      "email": "E-Mail",
+      "message": "Deine Nachricht",
+      "success": "Danke für deine Nachricht! Ich melde mich innerhalb von 24 Stunden."
+    }
   },
   "testimonials": {
     "eyebrow": "Kundenstimmen",

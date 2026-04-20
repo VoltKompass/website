@@ -392,6 +392,40 @@ details p{padding:0 0 22px;color:var(--mute);font-size:15px;line-height:1.6}
 .cta-block h2{max-width:680px;margin-bottom:20px}
 .cta-block p{color:rgba(233,238,247,.8);max-width:560px;margin-bottom:36px;font-size:17px}
 
+/* CONTACT FORM */
+.contact-form{margin-top:32px;display:flex;flex-direction:column;gap:20px;max-width:700px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:600px){.form-row{grid-template-columns:1fr}}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-field label{font-size:13px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:rgba(233,238,247,.7)}
+.form-field input,.form-field textarea{
+  padding:14px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.12);
+  background:rgba(0,0,0,.25);color:var(--text);font:inherit;font-size:15px;
+  transition:border-color .2s;resize:vertical;
+}
+.form-field input:focus,.form-field textarea:focus{outline:none;border-color:var(--gold)}
+.form-radios{display:flex;gap:16px;flex-wrap:wrap}
+.radio-label{
+  display:inline-flex;align-items:center;gap:10px;cursor:pointer;
+  padding:12px 18px;border-radius:12px;border:1px solid rgba(255,255,255,.12);
+  background:rgba(0,0,0,.2);font-size:14px;font-weight:500;
+  transition:border-color .2s,background .2s;
+}
+.radio-label:has(input:checked){border-color:var(--gold);background:rgba(230,178,0,.1)}
+.radio-label input{position:absolute;opacity:0;pointer-events:none}
+.radio-mark{
+  width:18px;height:18px;border-radius:50%;border:2px solid rgba(255,255,255,.3);
+  display:grid;place-items:center;transition:border-color .2s;flex-shrink:0;
+}
+.radio-label:has(input:checked) .radio-mark{border-color:var(--gold)}
+.radio-label:has(input:checked) .radio-mark::after{
+  content:"";width:8px;height:8px;border-radius:50%;background:var(--gold);
+}
+.contact-form .btn{align-self:flex-start}
+.contact-form .btn:disabled{opacity:.5;pointer-events:none}
+.form-success{margin-top:32px}
+.form-success p{font-size:18px;font-weight:500;color:var(--gold)}
+
 /* FOOTER */
 footer{padding:60px 0 40px;border-top:1px solid var(--line);margin-top:40px}
 .foot{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;align-items:center}

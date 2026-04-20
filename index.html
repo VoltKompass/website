@@ -212,12 +212,30 @@
       <span class="eyebrow" id="ctaEyebrow"></span>
       <h2 style="margin-top:20px" id="ctaHeading"></h2>
       <p id="ctaText"></p>
-      <div class="hero-ctas">
-        <a href="" class="btn btn-primary" id="ctaPrimary">
+      <form name="kontakt" method="POST" data-netlify="true" class="contact-form" id="contactForm">
+        <input type="hidden" name="form-name" value="kontakt" />
+        <div class="form-radios" id="formRadios"></div>
+        <div class="form-row">
+          <div class="form-field">
+            <label for="fname" id="labelName"></label>
+            <input type="text" id="fname" name="name" required />
+          </div>
+          <div class="form-field">
+            <label for="femail" id="labelEmail"></label>
+            <input type="email" id="femail" name="email" required />
+          </div>
+        </div>
+        <div class="form-field">
+          <label for="fmessage" id="labelMessage"></label>
+          <textarea id="fmessage" name="message" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" id="formSubmit">
           <span></span>
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a href="#preise" class="btn btn-ghost" id="ctaSecondary"></a>
+        </button>
+      </form>
+      <div class="form-success" id="formSuccess" hidden>
+        <p id="formSuccessMsg"></p>
       </div>
     </div>
   </div>
@@ -323,9 +341,15 @@
         <div class="price"><b>${p.price}</b><span>${p.unit}</span></div>
         <p class="sub">${p.subtitle}</p>
         <ul>${p.features.map(f => `<li>${CHECK_SVG}${f}</li>`).join('')}</ul>
-        <a href="#kontakt" class="btn ${p.featured ? 'btn-primary' : 'btn-ghost'}">${p.cta}</a>
+        <a href="#kontakt" class="btn ${p.featured ? 'btn-primary' : 'btn-ghost'}" data-paket="${p.name}">${p.cta}</a>
       </div>`;
     }).join('');
+    document.querySelectorAll('[data-paket]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const radio = document.querySelector(`input[name="paket"][value="${btn.dataset.paket}"]`);
+        if (radio) radio.checked = true;
+      });
+    });
 
     // About
     document.getElementById('aboutEyebrow').textContent = d.about.eyebrow;
@@ -378,9 +402,14 @@
     document.getElementById('ctaEyebrow').textContent = d.cta.eyebrow;
     document.getElementById('ctaHeading').innerHTML = d.cta.heading;
     document.getElementById('ctaText').textContent = d.cta.text;
-    document.getElementById('ctaPrimary').href = `mailto:${d.cta.email}`;
-    document.getElementById('ctaPrimary').querySelector('span').textContent = d.cta.ctaPrimary;
-    document.getElementById('ctaSecondary').textContent = d.cta.ctaSecondary;
+    document.getElementById('labelName').textContent = d.cta.form.name;
+    document.getElementById('labelEmail').textContent = d.cta.form.email;
+    document.getElementById('labelMessage').textContent = d.cta.form.message;
+    document.getElementById('formSubmit').querySelector('span').textContent = d.cta.ctaPrimary;
+    document.getElementById('formSuccessMsg').textContent = d.cta.form.success;
+    document.getElementById('formRadios').innerHTML = d.preise.plans.map((p, i) =>
+      `<label class="radio-label"><input type="radio" name="paket" value="${p.name}"${i === 0 ? ' checked' : ''} /><span class="radio-mark"></span>${p.name} (${p.price} ${p.unit})</label>`
+    ).join('');
 
     // Footer
     document.getElementById('footCopyright').textContent = d.footer.copyright;
@@ -442,6 +471,25 @@
   // Language switch
   document.querySelectorAll('.lang-switch button').forEach(btn => {
     btn.addEventListener('click', () => setLang(btn.dataset.lang));
+  });
+
+  // Form submission
+  document.getElementById('contactForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const btn = form.querySelector('button[type="submit"]');
+    btn.disabled = true;
+    try {
+      await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(new FormData(form)).toString()
+      });
+      form.hidden = true;
+      document.getElementById('formSuccess').hidden = false;
+    } catch {
+      btn.disabled = false;
+    }
   });
 
   // Init
