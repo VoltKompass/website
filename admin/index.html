@@ -288,9 +288,33 @@
                   h('span', {className: 'eyebrow'}, d.cta.eyebrow),
                   h('h2', {style: {marginTop: '20px'}, dangerouslySetInnerHTML: {__html: d.cta.heading}}),
                   h('p', {}, d.cta.text),
-                  h('div', {className: 'hero-ctas'},
-                    h('a', {className: 'btn btn-primary'}, d.cta.ctaPrimary),
-                    h('a', {className: 'btn btn-ghost'}, d.cta.ctaSecondary)
+                  h('div', {className: 'contact-form'},
+                    h('div', {className: 'form-radios'},
+                      (d.preise && d.preise.plans || []).map(function(p, i) {
+                        return h('label', {className: 'radio-label', key: i},
+                          h('input', {type: 'radio', name: 'paket', defaultChecked: i === 0, readOnly: true}),
+                          h('span', {className: 'radio-mark'}),
+                          p.name + ' (' + p.price + ' ' + p.unit + ')'
+                        );
+                      })
+                    ),
+                    h('div', {className: 'form-row'},
+                      h('div', {className: 'form-field'},
+                        h('label', {}, d.cta.form ? d.cta.form.name : 'Name'),
+                        h('input', {type: 'text', readOnly: true})
+                      ),
+                      h('div', {className: 'form-field'},
+                        h('label', {}, d.cta.form ? d.cta.form.email : 'E-Mail'),
+                        h('input', {type: 'email', readOnly: true})
+                      )
+                    ),
+                    h('div', {className: 'form-field'},
+                      h('label', {}, d.cta.form ? d.cta.form.message : 'Nachricht'),
+                      h('textarea', {rows: 4, readOnly: true})
+                    ),
+                    h('button', {className: 'btn btn-primary', type: 'button'},
+                      h('span', {}, d.cta.ctaPrimary)
+                    )
                   )
                 )
               )

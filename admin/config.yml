@@ -175,8 +175,15 @@ collections:
               - { label: "Überschrift (HTML erlaubt)", name: "heading", widget: "string" }
               - { label: "Text", name: "text", widget: "text" }
               - { label: "Button primär", name: "ctaPrimary", widget: "string" }
-              - { label: "Button sekundär", name: "ctaSecondary", widget: "string" }
               - { label: "E-Mail", name: "email", widget: "string" }
+              - label: "Formular-Labels"
+                name: "form"
+                widget: "object"
+                fields:
+                  - { label: "Name-Label", name: "name", widget: "string" }
+                  - { label: "E-Mail-Label", name: "email", widget: "string" }
+                  - { label: "Nachricht-Label", name: "message", widget: "string" }
+                  - { label: "Erfolgsmeldung", name: "success", widget: "string" }
 
           - label: "Footer"
             name: "footer"
@@ -359,8 +366,15 @@ collections:
               - { label: "Heading (HTML allowed)", name: "heading", widget: "string" }
               - { label: "Text", name: "text", widget: "text" }
               - { label: "Primary button", name: "ctaPrimary", widget: "string" }
-              - { label: "Secondary button", name: "ctaSecondary", widget: "string" }
               - { label: "Email", name: "email", widget: "string" }
+              - label: "Form labels"
+                name: "form"
+                widget: "object"
+                fields:
+                  - { label: "Name label", name: "name", widget: "string" }
+                  - { label: "Email label", name: "email", widget: "string" }
+                  - { label: "Message label", name: "message", widget: "string" }
+                  - { label: "Success message", name: "success", widget: "string" }
 
           - label: "Footer"
             name: "footer"
