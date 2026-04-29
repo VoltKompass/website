@@ -207,7 +207,7 @@
   },
   "hero": {
     "eyebrow": "1:1 Beratung",
-    "claim": "Deine Orientierung für <b>Strom, Solar & Autarkie</b> im Wohnmobil. Ehrliche Beratung mit Erfahrung und Fachwissen — damit du das findest, das wirklich zu dir passt!",
+    "claim": "Deine Orientierung für <b>Strom, Solar & Autarkie</b> im Wohnmobil. Ehrliche Beratung mit Erfahrung und Fachwissen — damit du das Setup findest, das wirklich zu dir passt!",
     "ctaPrimary": "Termin sichern",
     "ctaSecondary": "Fachbereiche ansehen",
     "stats": [
@@ -229,7 +229,7 @@
     "eyebrow": "Video",
     "heading": "Schau <span class=\"accent\">rein</span>",
     "subtext": "Ein Einblick in meine Arbeit und worum es bei VoltKompass wirklich geht.",
-    "youtubeId": "g1gLy1RcLis",
+    "youtubeId": "https://youtu.be/cgR8RWLKXtM?si=vDhielwOLtm1bfhY",
     "videoAlt": "Video-Vorschau"
   },
   "footer": {
