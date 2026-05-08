@@ -251,6 +251,7 @@
   </div>
 </footer>
 
+<script src="cookie-consent.js"></script>
 <script>
   const CHECK_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4L19 7"/></svg>';
 
@@ -369,13 +370,8 @@
     document.getElementById('videoEyebrow').textContent = d.video.eyebrow;
     document.getElementById('videoHeading').innerHTML = d.video.heading;
     document.getElementById('videoSubtext').textContent = d.video.subtext;
-    const vBox = document.getElementById('videoBox');
-    vBox.dataset.id = d.video.youtubeId;
-    const vImg = vBox.querySelector('img');
-    if (vImg) {
-      vImg.src = `https://i.ytimg.com/vi/${d.video.youtubeId}/hqdefault.jpg`;
-      vImg.alt = d.video.videoAlt;
-    }
+    currentVideo = d.video;
+    renderVideoConsentState();
 
     // Testimonials
     document.getElementById('testEyebrow').textContent = d.testimonials.eyebrow;
@@ -416,7 +412,7 @@
     document.getElementById('footCopyright').textContent = d.footer.copyright;
     document.getElementById('footNav').innerHTML = d.footer.links.map(l =>
       `<a href="${l.href}">${l.text}</a>`
-    ).join('');
+    ).join('') + '<button type="button" class="cookie-settings-link" data-cookie-settings>Cookie-Einstellungen</button>';
 
     // Re-init reveal observers for dynamically added elements
     initReveal();
@@ -458,15 +454,46 @@
   }
 
   // YouTube facade
+  let currentVideo;
+  function hasMediaConsent() {
+    return Boolean(window.VKCookieConsent && window.VKCookieConsent.hasConsent('media'));
+  }
+
+  function renderVideoConsentState() {
+    const box = document.getElementById('videoBox');
+    if (!box || !currentVideo) return;
+    const allowed = hasMediaConsent();
+    box.dataset.id = currentVideo.youtubeId;
+    box.classList.toggle('video-box-locked', !allowed);
+    box.setAttribute('aria-label', allowed ? 'Video abspielen' : 'YouTube-Video nach Zustimmung laden');
+    if (allowed) {
+      box.innerHTML = `<img src="https://i.ytimg.com/vi/${currentVideo.youtubeId}/hqdefault.jpg" alt="${currentVideo.videoAlt}" loading="lazy" decoding="async"/><div class="video-play" aria-hidden="true"></div>`;
+      return;
+    }
+    box.innerHTML = `<div class="video-consent">
+      <b>YouTube-Video blockiert</b>
+      <p>Dieses Video wird erst geladen, wenn du externe Medien in den Cookie-Einstellungen erlaubst.</p>
+      <button type="button" class="btn btn-primary" data-cookie-settings>Auswahl anpassen</button>
+    </div>`;
+  }
+
   function initVideo() {
     const box = document.getElementById('videoBox');
     if (!box) return;
     const load = () => {
+      if (!hasMediaConsent()) {
+        window.VKCookieConsent?.openSettings();
+        return;
+      }
       const id = box.dataset.id;
       box.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0" allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>`;
     };
-    box.addEventListener('click', load);
+    box.addEventListener('click', (e) => {
+      if (e.target.closest('[data-cookie-settings]')) return;
+      load();
+    });
     box.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); load(); } });
+    window.VKCookieConsent?.onChange(renderVideoConsentState);
   }
 
   // Language switch

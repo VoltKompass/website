@@ -320,6 +320,41 @@ section{padding:clamp(80px,9vw,130px) 0;position:relative}
   border:18px solid transparent;border-left:28px solid #1a1200;
 }
 .video-box iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-box.video-box-locked{
+  cursor:pointer;
+  background:
+    linear-gradient(135deg,rgba(11,47,85,.92),rgba(17,26,45,.98)),
+    radial-gradient(70% 70% at 72% 22%,rgba(230,178,0,.18),transparent 68%);
+}
+.video-consent{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  padding:32px;
+  text-align:center;
+}
+.video-consent::before{
+  content:"";
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  border:1px solid rgba(230,178,0,.36);
+  background:rgba(230,178,0,.12);
+}
+.video-consent b{
+  font-size:clamp(22px,3vw,34px);
+  line-height:1.1;
+}
+.video-consent p{
+  max-width:560px;
+  color:var(--mute);
+  font-size:15px;
+}
+.video-consent .btn{margin-top:4px}
 
 /* TESTIMONIAL SLIDER */
 .t-slider{position:relative;max-width:880px;margin:0 auto;overflow:hidden}
@@ -441,6 +476,12 @@ footer{padding:60px 0 40px;border-top:1px solid var(--line);margin-top:40px}
 .foot nav{display:flex;gap:28px}
 .foot a{color:var(--mute);font-size:13px;transition:color .2s}
 .foot a:hover{color:var(--gold)}
+.cookie-settings-link{
+  color:var(--mute);
+  font-size:13px;
+  transition:color .2s;
+}
+.cookie-settings-link:hover{color:var(--gold)}
 
 /* LEGAL PAGES */
 .legal-page .nav ul a[aria-current="page"],
@@ -514,6 +555,13 @@ footer{padding:60px 0 40px;border-top:1px solid var(--line);margin-top:40px}
   overflow-wrap:anywhere;
 }
 .legal-content a:hover{color:var(--gold-hi)}
+.legal-content code{
+  padding:2px 6px;
+  border-radius:6px;
+  background:rgba(255,255,255,.06);
+  color:var(--text);
+  font-size:.92em;
+}
 @media (max-width:640px){
   .legal-content{
     padding:24px 18px;
@@ -521,6 +569,97 @@ footer{padding:60px 0 40px;border-top:1px solid var(--line);margin-top:40px}
   }
   .legal-content p,
   .legal-content li{font-size:15px}
+}
+
+/* COOKIE CONSENT */
+.cookie-consent{
+  position:fixed;
+  inset:auto 0 0;
+  z-index:100;
+  padding:18px;
+  background:linear-gradient(180deg,transparent,rgba(5,9,17,.86));
+}
+.cookie-panel{
+  max-width:var(--maxw);
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:24px;
+  align-items:end;
+  padding:24px;
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:24px;
+  background:linear-gradient(180deg,rgba(17,26,45,.98),rgba(11,18,32,.98));
+  box-shadow:0 28px 90px -32px rgba(0,0,0,.86);
+}
+.cookie-copy h2{
+  margin:14px 0 10px;
+  font-size:clamp(24px,3vw,36px);
+}
+.cookie-copy p{
+  max-width:680px;
+  color:var(--mute);
+  font-size:15px;
+}
+.cookie-options{
+  grid-column:1/-1;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.cookie-option{
+  display:flex;
+  gap:14px;
+  align-items:flex-start;
+  padding:16px;
+  border:1px solid var(--line);
+  border-radius:14px;
+  background:rgba(255,255,255,.025);
+}
+.cookie-option input{
+  flex:0 0 auto;
+  width:20px;
+  height:20px;
+  margin-top:2px;
+  accent-color:var(--gold);
+}
+.cookie-option strong{
+  display:block;
+  margin-bottom:4px;
+  color:var(--text);
+  font-size:15px;
+}
+.cookie-option small{
+  display:block;
+  color:var(--mute);
+  font-size:13px;
+  line-height:1.5;
+}
+.cookie-option-disabled{opacity:.72}
+.cookie-actions{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.cookie-actions .btn{
+  padding:13px 18px;
+  border-radius:12px;
+  white-space:nowrap;
+}
+@media (max-width:860px){
+  .cookie-panel{
+    grid-template-columns:1fr;
+    align-items:stretch;
+  }
+  .cookie-actions{justify-content:flex-start}
+}
+@media (max-width:640px){
+  .cookie-consent{padding:10px}
+  .cookie-panel{padding:18px;border-radius:18px}
+  .cookie-options{grid-template-columns:1fr}
+  .cookie-actions{display:grid;grid-template-columns:1fr}
+  .cookie-actions .btn{justify-content:center;width:100%}
 }
 
 /* reveal */
