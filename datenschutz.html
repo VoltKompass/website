@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+<title>Datenschutz | VoltKompass</title>
+<meta name="description" content="Datenschutzerklaerung von VoltKompass." />
+<meta name="theme-color" content="#0b1220" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body class="legal-page">
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html#top" class="brand"><span class="v">Volt</span><span class="k">Kompass</span></a>
+    <ul>
+      <li><a href="index.html#fachbereiche">Fachbereiche</a></li>
+      <li><a href="index.html#ablauf">Ablauf</a></li>
+      <li><a href="index.html#preise">Preise</a></li>
+      <li><a href="index.html#faq">FAQ</a></li>
+    </ul>
+    <div style="display:flex;align-items:center">
+      <a href="index.html#kontakt" class="cta">Beratung buchen</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+  <section class="legal-hero">
+    <div class="wrap">
+      <a class="legal-back" href="index.html#top">Zurueck zur Startseite</a>
+      <span class="eyebrow">Rechtliches</span>
+      <h1>Datenschutz</h1>
+      <p>Informationen zur Verarbeitung personenbezogener Daten auf dieser Website.</p>
+    </div>
+  </section>
+
+  <section class="legal-section">
+    <div class="wrap">
+      <article class="legal-content" id="privacyContent" aria-live="polite">
+        <p>Datenschutzerklaerung wird geladen.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <p>&copy; 2026 VoltKompass</p>
+    <nav>
+      <a href="index.html#top">Startseite</a>
+      <a href="datenschutz.html" aria-current="page">Datenschutz</a>
+      <a href="index.html#kontakt">Kontakt</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  async function loadPrivacyContent() {
+    const target = document.getElementById('privacyContent');
+    try {
+      const response = await fetch('datenschutz-content.html');
+      if (!response.ok) throw new Error('Datenschutzinhalt konnte nicht geladen werden.');
+      target.innerHTML = await response.text();
+    } catch (error) {
+      target.innerHTML = '<h2>Datenschutzerklaerung</h2><p>Der Datenschutzinhalt konnte nicht geladen werden. Bitte versuchen Sie es spaeter erneut.</p>';
+    }
+  }
+
+  loadPrivacyContent();
+</script>
+</body>
+</html>
