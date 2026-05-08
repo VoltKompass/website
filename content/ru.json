@@ -212,7 +212,7 @@
   "footer": {
     "copyright": "© 2026 VoltKompass — Консультации по автодомам: электрика и автономная жизнь",
     "links": [
-      { "text": "Импрессум", "href": "#" },
+      { "text": "Импрессум", "href": "impressum.html" },
       { "text": "Политика конфиденциальности", "href": "datenschutz.html" },
       { "text": "Контакт", "href": "#kontakt" }
     ]

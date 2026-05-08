@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<title>Datenschutz | VoltKompass</title>
-<meta name="description" content="Datenschutzerklaerung von VoltKompass." />
+<title>Impressum | VoltKompass</title>
+<meta name="description" content="Impressum von VoltKompass." />
 <meta name="theme-color" content="#0b1220" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,15 +32,33 @@
     <div class="wrap">
       <a class="legal-back" href="index.html#top">Zurueck zur Startseite</a>
       <span class="eyebrow">Rechtliches</span>
-      <h1>Datenschutz</h1>
-      <p>Informationen zur Verarbeitung personenbezogener Daten auf dieser Website.</p>
+      <h1>Impressum</h1>
     </div>
   </section>
 
   <section class="legal-section">
     <div class="wrap">
-      <article class="legal-content" id="privacyContent" aria-live="polite">
-        <p>Datenschutzerklaerung wird geladen.</p>
+      <article class="legal-content">
+
+		<p>Andreas Mihajlov<br />
+		Einzelunternehmer<br />
+		Haus Hove 17<br />
+		58300 Wetter</p>
+
+		<h2>Kontakt</h2>
+		<p>E-Mail: kontakt@voltkompass.com</p>
+
+		<h2>Umsatzsteuer-ID</h2>
+		<p>Umsatzsteuer-Identifikationsnummer gem&auml;&szlig; &sect; 27 a Umsatzsteuergesetz:<br />
+		DE309407192</p>
+
+		<h2>Berufsbezeichnung und berufsrechtliche Regelungen</h2>
+		<p>Berufsbezeichnung:<br />
+		anderer Beruf</p>
+		<h2>Verbraucher&shy;streit&shy;beilegung/Universal&shy;schlichtungs&shy;stelle</h2>
+		<p>Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.</p>
+
+		<p>Quelle: <a href="https://www.e-recht24.de">e-recht24.de</a></p>
       </article>
     </div>
   </section>
@@ -51,26 +69,11 @@
     <p>&copy; 2026 VoltKompass</p>
     <nav>
       <a href="index.html#top">Startseite</a>
-	  <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html" aria-current="page">Datenschutz</a>
+	  <a href="impressum.html" aria-current="page">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
       <a href="index.html#kontakt">Kontakt</a>
     </nav>
   </div>
 </footer>
-
-<script>
-  async function loadPrivacyContent() {
-    const target = document.getElementById('privacyContent');
-    try {
-      const response = await fetch('datenschutz-content.html');
-      if (!response.ok) throw new Error('Datenschutzinhalt konnte nicht geladen werden.');
-      target.innerHTML = await response.text();
-    } catch (error) {
-      target.innerHTML = '<h2>Datenschutzerklaerung</h2><p>Der Datenschutzinhalt konnte nicht geladen werden. Bitte versuchen Sie es spaeter erneut.</p>';
-    }
-  }
-
-  loadPrivacyContent();
-</script>
 </body>
 </html>
