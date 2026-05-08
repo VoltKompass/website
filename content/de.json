@@ -147,8 +147,8 @@
   },
   "preise": {
     "eyebrow": "Preise",
-    "heading": "Fair, <span class=\"accent\">transparent</span>, abgerechnet nach Minuten",
-    "subtext": "Zwei Pakete, 30 Tage Laufzeit, transparente Zeitabrechnung. Kein Abo, keine versteckten Kosten.",
+    "heading": "Fair, <span class=\"accent\">transparent</span>, passend zu deinem Ziel",
+    "subtext": "Drei Angebote: kurze Antwort, tiefere Beratung oder ein konkreter Elektroplan. Kein Abo, keine versteckten Kosten.",
     "plans": [
       {
         "name": "Kurz-Beratung",
@@ -177,6 +177,20 @@
         ],
         "cta": "Paket wählen →",
         "featured": true
+      },
+      {
+        "name": "Elektroplan",
+        "price": "320",
+        "unit": "€",
+        "subtitle": "Für alle, die ihr Setup nicht nur besprechen, sondern konkret planen lassen wollen.",
+        "features": [
+          "Individueller Elektroplan als Ergebnis",
+          "Solar, Batterie, Ladebooster, Wechselrichter",
+          "Komponenten- und Absicherungslogik",
+          "Ideal als Grundlage für Einbau oder Werkstattgespräch"
+        ],
+        "cta": "Paket wählen",
+        "featured": false
       }
     ]
   },
