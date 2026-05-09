@@ -154,8 +154,8 @@
         "features": [
           "30 Minuten Beratungszeit",
           "WhatsApp, Telegram, Signal",
-          "30 Tage flexibel nutzbar",
-          "Minutengenaue Abrechnung"
+          "Minutengenaue Abrechnung",
+          "30 Tage flexibel nutzbar"
         ],
         "cta": "Paket wählen",
         "featured": false
@@ -168,22 +168,22 @@
         "features": [
           "60 Minuten Beratungszeit",
           "WhatsApp, Telegram, Signal",
-          "30 Tage flexibel nutzbar",
-          "Minutengenaue Abrechnung"
+          "Minutengenaue Abrechnung",
+          "30 Tage flexibel nutzbar"
         ],
         "cta": "Paket wählen →",
         "featured": true
       },
       {
-        "name": "Elektroplan",
-        "price": "320",
+        "name": "elektroplan",
+        "price": "349",
         "unit": "€",
-        "subtitle": "Für alle, die ihr Setup nicht nur besprechen, sondern konkret planen lassen wollen.",
+        "subtitle": "Detaillierter Elektroplan, abgestimmt auf den Kundenwunsch, mit fachlicher Beratung.",
         "features": [
-          "Individueller Elektroplan als Ergebnis",
-          "Solar, Batterie, Ladebooster, Wechselrichter",
-          "Komponenten- und Absicherungslogik",
-          "Ideal als Grundlage für Einbau oder Werkstattgespräch"
+          "60 Minuten Beratungszeit",
+          "Detaillierter Stromlaufplan",
+          "Projekt Begleitung",
+          "30 Tage flexibel nutzbar"
         ],
         "cta": "Paket wählen",
         "featured": false
