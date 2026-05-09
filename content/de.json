@@ -150,10 +150,10 @@
         "name": "Kurz-Beratung",
         "price": "69",
         "unit": "€ / 30 Min",
-        "subtitle": "Ideal für eine konkrete Frage oder schnelles Feedback zu einer Entscheidung.",
+        "subtitle": "Ideal für eine konkrete Fragen oder schnelles Feedback zu einer Entscheidung.",
         "features": [
           "30 Minuten Beratungszeit",
-          "WhatsApp oder Telegram",
+          "WhatsApp, Telegram, Signal",
           "30 Tage flexibel nutzbar",
           "Minutengenaue Abrechnung"
         ],
@@ -164,12 +164,12 @@
         "name": "Tiefen-Beratung",
         "price": "119",
         "unit": "€ / 60 Min",
-        "subtitle": "Die ganze Planung — Kauf, Solar, Autarkie, Alltag. Genug Zeit für alles, was dich beschäftigt.",
+        "subtitle": "Ich hole dich von 0 ab — Kauf, Solar, Autarkie, Alltag. Genug Zeit für alles, was dich beschäftigt.",
         "features": [
           "60 Minuten Beratungszeit",
-          "Alle Fachbereiche abgedeckt",
-          "Produkt- & Anbieter-Empfehlungen",
-          "30 Tage flexibel nutzbar"
+          "WhatsApp, Telegram, Signal",
+          "30 Tage flexibel nutzbar",
+          "Minutengenaue Abrechnung"
         ],
         "cta": "Paket wählen →",
         "featured": true
