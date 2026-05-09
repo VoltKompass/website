@@ -193,7 +193,7 @@
 </section>
 
 <!-- ================ FAQ ================ -->
-<section id="faq">
+<section id="faq" hidden>
   <div class="wrap">
     <div class="section-head reveal">
       <div>
@@ -388,12 +388,15 @@
     ).join('');
 
     // FAQ
-    document.getElementById('faqEyebrow').textContent = d.faq.eyebrow;
-    document.getElementById('faqHeading').innerHTML = d.faq.heading;
-    document.getElementById('faqSubtext').textContent = d.faq.subtext;
-    document.getElementById('faqList').innerHTML = d.faq.items.map((f, i) =>
-      `<details class="reveal"${i === 0 ? ' open' : ''}><summary>${f.question}</summary><p>${f.answer}</p></details>`
-    ).join('');
+    const faqSection = document.getElementById('faq');
+    if (!faqSection.hidden) {
+      document.getElementById('faqEyebrow').textContent = d.faq.eyebrow;
+      document.getElementById('faqHeading').innerHTML = d.faq.heading;
+      document.getElementById('faqSubtext').textContent = d.faq.subtext;
+      document.getElementById('faqList').innerHTML = d.faq.items.map((f, i) =>
+        `<details class="reveal"${i === 0 ? ' open' : ''}><summary>${f.question}</summary><p>${f.answer}</p></details>`
+      ).join('');
+    }
 
     // CTA
     document.getElementById('ctaEyebrow').textContent = d.cta.eyebrow;
