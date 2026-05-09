@@ -121,7 +121,6 @@
         <span class="eyebrow" id="ablaufEyebrow"></span>
         <h2 style="margin-top:18px" id="ablaufHeading"></h2>
       </div>
-      <p id="ablaufSubtext"></p>
     </div>
     <div class="steps" id="ablaufSteps"></div>
   </div>
@@ -326,7 +325,6 @@
     // Ablauf
     document.getElementById('ablaufEyebrow').textContent = d.ablauf.eyebrow;
     document.getElementById('ablaufHeading').innerHTML = d.ablauf.heading;
-    document.getElementById('ablaufSubtext').textContent = d.ablauf.subtext;
     document.getElementById('ablaufSteps').innerHTML = d.ablauf.steps.map((s, i) =>
       `<div class="step reveal"><div class="n">${i + 1}</div><h3>${s.title}</h3><p>${s.text}</p></div>`
     ).join('');
