@@ -1,6 +1,18 @@
 [build]
   publish = "."
 
+[[redirects]]
+  from = "https://womoberater.com/*"
+  to = "https://voltkompass.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.womoberater.com/*"
+  to = "https://voltkompass.com/:splat"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/content/*"
   [headers.values]
