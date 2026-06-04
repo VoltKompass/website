@@ -61,6 +61,18 @@ p{margin:0}
 .nav ul a:hover{color:var(--text)}
 .nav .cta{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:999px;background:var(--gold);color:#1a1200;font-weight:600;font-size:14px;transition:transform .2s}
 .nav .cta:hover{transform:translateY(-1px)}
+.nav-blog-mobile{
+  display:none;
+  align-items:center;
+  min-height:36px;
+  margin-right:10px;
+  padding:0 12px;
+  border:1px solid var(--line);
+  border-radius:999px;
+  color:var(--text);
+  font-size:13px;
+  font-weight:600;
+}
 .lang-switch{
   display:none;align-items:center;gap:2px;
   margin-right:16px;
@@ -75,9 +87,13 @@ p{margin:0}
   background:rgba(230,178,0,.15);color:var(--gold);
 }
 .lang-switch button:hover{color:var(--text)}
-@media (max-width:860px){.nav ul{display:none}}
+@media (max-width:860px){
+  .nav ul{display:none}
+  .nav-blog-mobile{display:inline-flex}
+}
 @media (max-width:480px){
   .nav .cta{padding:8px 12px;font-size:12px;gap:4px}
+  .nav-blog-mobile{min-height:32px;padding:0 10px;font-size:12px}
   .lang-switch{margin-right:10px}
   .lang-switch button{padding:5px 8px;font-size:11px}
   .brand{font-size:18px}

@@ -14,6 +14,10 @@
         "href": "#preise"
       },
       {
+        "text": "Blog",
+        "href": "blog.html"
+      },
+      {
         "text": "Über mich",
         "href": "#ueber"
       }
@@ -227,6 +231,10 @@
       {
         "text": "Datenschutz",
         "href": "datenschutz.html"
+      },
+      {
+        "text": "Blog",
+        "href": "blog.html"
       },
       {
         "text": "Kontakt",

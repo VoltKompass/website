@@ -8,6 +8,7 @@
       { "text": "Компетенции", "href": "#fachbereiche" },
       { "text": "Процесс", "href": "#ablauf" },
       { "text": "Цены", "href": "#preise" },
+      { "text": "Blog", "href": "blog.html" },
       { "text": "Обо мне", "href": "#ueber" }
     ],
     "cta": "Записаться на консультацию →"
@@ -227,6 +228,7 @@
     "links": [
       { "text": "Импрессум", "href": "impressum.html" },
       { "text": "Политика конфиденциальности", "href": "datenschutz.html" },
+      { "text": "Blog", "href": "blog.html" },
       { "text": "Контакт", "href": "#kontakt" }
     ]
   }
