@@ -73,6 +73,45 @@
 .blog-card figure{
   margin:0;
 }
+.blog-zoom{
+  position:relative;
+  display:block;
+  width:100%;
+  margin:0;
+  padding:0;
+  border:0;
+  background:transparent;
+  color:inherit;
+  cursor:zoom-in;
+  line-height:0;
+  appearance:none;
+}
+.blog-zoom::after{
+  content:"";
+  position:absolute;
+  right:12px;
+  bottom:12px;
+  width:38px;
+  height:38px;
+  border:1px solid rgba(255,255,255,.46);
+  border-radius:999px;
+  background:
+    linear-gradient(currentColor,currentColor) center/14px 2px no-repeat,
+    linear-gradient(currentColor,currentColor) center/2px 14px no-repeat,
+    rgba(11,18,32,.78);
+  color:var(--gold);
+  box-shadow:0 12px 30px rgba(0,0,0,.35);
+  opacity:.9;
+  pointer-events:none;
+}
+.blog-zoom:hover::after,
+.blog-zoom:focus-visible::after{
+  opacity:1;
+}
+.blog-zoom:focus-visible{
+  outline:2px solid var(--gold);
+  outline-offset:5px;
+}
 .blog-hero-figure{
   overflow:hidden;
   border:1px solid rgba(230,178,0,.34);
@@ -91,6 +130,72 @@
   width:100%;
   max-width:100%;
   height:auto;
+}
+.blog-lightbox{
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:clamp(14px,3vw,32px);
+  background:rgba(5,10,18,.94);
+}
+.blog-lightbox.is-open{
+  display:flex;
+}
+.blog-lightbox-panel{
+  position:relative;
+  display:grid;
+  gap:12px;
+  width:min(100%,1800px);
+  max-height:94vh;
+}
+.blog-lightbox-stage{
+  max-width:100%;
+  max-height:86vh;
+  overflow:auto;
+  border:1px solid rgba(230,178,0,.32);
+  border-radius:8px;
+  background:rgba(11,18,32,.9);
+  box-shadow:0 30px 90px rgba(0,0,0,.62);
+}
+.blog-lightbox-stage img{
+  display:block;
+  width:min(1800px,96vw);
+  max-width:none;
+  height:auto;
+}
+.blog-lightbox-caption{
+  color:var(--mute);
+  font-size:14px;
+  line-height:1.5;
+  text-align:center;
+}
+.blog-lightbox-close{
+  position:absolute;
+  top:10px;
+  right:10px;
+  z-index:1;
+  display:grid;
+  place-items:center;
+  width:44px;
+  height:44px;
+  border:1px solid rgba(255,255,255,.32);
+  border-radius:999px;
+  background:rgba(11,18,32,.88);
+  color:var(--text);
+  font-size:26px;
+  line-height:1;
+  cursor:pointer;
+}
+.blog-lightbox-close:hover,
+.blog-lightbox-close:focus-visible{
+  border-color:rgba(230,178,0,.72);
+  color:var(--gold);
+}
+body.blog-lightbox-open{
+  overflow:hidden;
 }
 .blog-list{
   padding:clamp(58px,8vw,104px) 0;
@@ -432,5 +537,11 @@
   }
   .blog-answer-box dd{
     padding-top:0;
+  }
+  .blog-lightbox{
+    padding:12px;
+  }
+  .blog-lightbox-stage img{
+    width:220vw;
   }
 }

@@ -74,10 +74,12 @@
         </p>
       </div>
       <figure class="blog-hero-figure">
-        <picture>
-          <source type="image/webp" sizes="(max-width: 980px) 100vw, 46vw" srcset="assets/blog/stufe-1/blog-hero-960.webp 960w, assets/blog/stufe-1/blog-hero-1440.webp 1440w" />
-          <img src="assets/blog/stufe-1/blog-hero.jpg" decoding="async" fetchpriority="high" alt="Hauptbild zum VoltKompass Blog mit Wohnmobil-Solaranlage, Batterie, Ladebooster und Wechselrichter" />
-        </picture>
+        <button class="blog-zoom" type="button" data-full="assets/blog/stufe-1/blog-hero-full.webp">
+          <picture>
+            <source type="image/webp" sizes="(max-width: 980px) 100vw, 46vw" srcset="assets/blog/stufe-1/blog-hero-960.webp 960w, assets/blog/stufe-1/blog-hero-1440.webp 1440w" />
+            <img src="assets/blog/stufe-1/blog-hero.jpg" decoding="async" fetchpriority="high" alt="Hauptbild zum VoltKompass Blog mit Wohnmobil-Solaranlage, Batterie, Ladebooster und Wechselrichter" />
+          </picture>
+        </button>
       </figure>
     </div>
   </section>
@@ -95,10 +97,12 @@
     <div class="blog-list-grid">
       <article class="blog-card">
         <figure>
-          <picture>
-            <source type="image/webp" sizes="(max-width: 980px) 100vw, 31vw" srcset="assets/blog/stufe-1/hero-960.webp 960w, assets/blog/stufe-1/hero-1440.webp 1440w" />
-            <img src="assets/blog/stufe-1/hero.jpg" loading="lazy" decoding="async" alt="Blogbild der Wohnmobil-Solaranlage Stufe 1 mit beschrifteter Gesamtuebersicht" />
-          </picture>
+          <button class="blog-zoom" type="button" data-full="assets/blog/stufe-1/hero-full.webp">
+            <picture>
+              <source type="image/webp" sizes="(max-width: 980px) 100vw, 31vw" srcset="assets/blog/stufe-1/hero-960.webp 960w, assets/blog/stufe-1/hero-1440.webp 1440w" />
+              <img src="assets/blog/stufe-1/hero.jpg" loading="lazy" decoding="async" alt="Blogbild der Wohnmobil-Solaranlage Stufe 1 mit beschrifteter Gesamtuebersicht" />
+            </picture>
+          </button>
         </figure>
         <div class="blog-card-body">
           <div class="blog-meta">
@@ -116,5 +120,6 @@
     </div>
   </section>
 </main>
+<script src="blog-lightbox.js"></script>
 </body>
 </html>
