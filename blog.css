@@ -333,6 +333,7 @@ body.blog-lightbox-open{
   color:var(--gold);
   font-size:clamp(26px,3vw,40px);
   line-height:1;
+  white-space:nowrap;
 }
 .blog-facts span{
   display:block;
@@ -516,6 +517,9 @@ body.blog-lightbox-open{
   }
   .blog-facts div{
     min-height:112px;
+  }
+  .blog-facts strong{
+    font-size:clamp(32px,10vw,40px);
   }
   .blog-page p,
   .blog-page li{
