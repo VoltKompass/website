@@ -1,6 +1,30 @@
 [build]
   publish = "."
 
+[[redirects]]
+  from = "/blog-stufe-1"
+  to = "/blog-stufe-1.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/blog"
+  to = "/blog.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/impressum"
+  to = "/impressum.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/datenschutz"
+  to = "/datenschutz.html"
+  status = 301
+  force = true
+
 [[headers]]
   for = "/content/*"
   [headers.values]
