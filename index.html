@@ -4,17 +4,66 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<title data-i18n="meta.title">VoltKompass — Wohnmobil-Beratung für Strom, Solar & Autarkie</title>
-<meta name="description" data-i18n-attr="content:meta.description" content="Persönliche 1:1 Wohnmobil-Beratung. Kaufberatung, Solaranlagen, Stromversorgung, Autarkie. Kein Verkaufsdruck — nur ehrliche Orientierung." />
+<title data-i18n="meta.title">Wohnmobil Solaranlage nachrüsten | VoltKompass</title>
+<meta name="description" data-i18n-attr="content:meta.description" content="Wohnmobil Solaranlage nachrüsten: Beratung zu Schaltplan, Kosten, Komponenten, Elektroplan und Autarkie. Unabhängig, praxisnah, 1:1." />
 <meta name="theme-color" content="#0b1220" />
 <meta name="robots" content="index,follow,max-image-preview:large" />
 <link rel="canonical" href="https://voltkompass.com/" />
 <link rel="alternate" hreflang="de" href="?lang=de" />
 <link rel="alternate" hreflang="ru" href="?lang=ru" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content="de_DE" />
+<meta property="og:site_name" content="VoltKompass" />
+<meta property="og:title" content="Wohnmobil Solaranlage nachrüsten | VoltKompass" />
+<meta property="og:description" content="Unabhängige Beratung für Wohnmobil-Solaranlagen: Schaltplan, Kosten, Komponenten, Elektroplan und Autarkie." />
+<meta property="og:url" content="https://voltkompass.com/" />
+<meta property="og:image" content="https://voltkompass.com/kompass.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Wohnmobil Solaranlage nachrüsten | VoltKompass" />
+<meta name="twitter:description" content="Beratung zu Solaranlage im Wohnmobil, Camper-Kosten, Schaltplan, Selbsteinbau und Autarkie." />
+<meta name="twitter:image" content="https://voltkompass.com/kompass.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://voltkompass.com/#organization",
+      "name": "VoltKompass",
+      "url": "https://voltkompass.com/",
+      "logo": "https://voltkompass.com/kompass.png"
+    },
+    {
+      "@type": "Service",
+      "@id": "https://voltkompass.com/#solaranlage-beratung",
+      "name": "Wohnmobil Solaranlage nachrüsten Beratung",
+      "serviceType": "Wohnmobil-Elektrik, Solaranlage, Elektroplan und Autarkie-Beratung",
+      "provider": {
+        "@id": "https://voltkompass.com/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "Deutschland"
+      },
+      "description": "1:1 Beratung für Wohnmobil Solaranlage nachrüsten, Solaranlage Wohnmobil selber bauen, Solaranlage Camper Kosten und Schaltplan Solaranlage Wohnmobil."
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://voltkompass.com/#website",
+      "name": "VoltKompass",
+      "url": "https://voltkompass.com/",
+      "inLanguage": "de-DE",
+      "publisher": {
+        "@id": "https://voltkompass.com/#organization"
+      }
+    }
+  ]
+}
+</script>
 </head>
 <body>
 
@@ -42,6 +91,7 @@
       <span class="eyebrow" id="heroEyebrow"></span>
       <h1 style="margin-top:22px">
         <span class="v">Volt</span><span class="k">Kompass</span>
+        <span class="hero-service-title" id="heroServiceTitle"></span>
       </h1>
       <p class="claim" id="heroClaim"></p>
       <div class="hero-ctas">
@@ -113,6 +163,24 @@
       <p id="fbSubtext"></p>
     </div>
     <div class="areas" id="fbAreas"></div>
+  </div>
+</section>
+
+<!-- ================ SOLAR GUIDE ================ -->
+<section id="solaranlage-beratung" class="solar-guide" hidden>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow" id="solarGuideEyebrow"></span>
+        <h2 style="margin-top:18px" id="solarGuideHeading"></h2>
+      </div>
+      <p id="solarGuideSubtext"></p>
+    </div>
+    <div class="problem-grid" id="solarGuideCards"></div>
+    <div class="solar-guide-link reveal">
+      <p id="solarGuideLinkText"></p>
+      <a class="btn btn-primary" id="solarGuideLink" href="blog-stufe-1.html"></a>
+    </div>
   </div>
 </section>
 
@@ -195,7 +263,7 @@
 </section>
 
 <!-- ================ FAQ ================ -->
-<section id="faq" hidden>
+<section id="faq">
   <div class="wrap">
     <div class="section-head reveal">
       <div>
@@ -302,6 +370,9 @@
 
     // Hero
     document.getElementById('heroEyebrow').textContent = d.hero.eyebrow;
+    const heroServiceTitle = document.getElementById('heroServiceTitle');
+    heroServiceTitle.textContent = d.hero.serviceTitle || '';
+    heroServiceTitle.hidden = !d.hero.serviceTitle;
     document.getElementById('heroClaim').innerHTML = d.hero.claim;
     document.getElementById('heroCtaPrimary').querySelector('span').textContent = d.hero.ctaPrimary;
     document.getElementById('heroCtaSecondary').textContent = d.hero.ctaSecondary;
@@ -324,6 +395,24 @@
     document.getElementById('fbAreas').innerHTML = d.fachbereiche.areas.map((a, i) =>
       `<div class="area reveal"><div class="ico">${AREA_ICONS[i] || ''}</div><h3>${a.title}</h3><p>${a.text}</p></div>`
     ).join('');
+
+    // Solar guide
+    const solarGuide = document.getElementById('solaranlage-beratung');
+    if (d.solarGuide) {
+      solarGuide.hidden = false;
+      document.getElementById('solarGuideEyebrow').textContent = d.solarGuide.eyebrow;
+      document.getElementById('solarGuideHeading').innerHTML = d.solarGuide.heading;
+      document.getElementById('solarGuideSubtext').textContent = d.solarGuide.subtext;
+      document.getElementById('solarGuideCards').innerHTML = d.solarGuide.cards.map(c =>
+        `<div class="pain reveal"><div class="num">${c.num}</div><h3>${c.title}</h3><p>${c.text}</p></div>`
+      ).join('');
+      document.getElementById('solarGuideLinkText').textContent = d.solarGuide.linkText;
+      const solarGuideLink = document.getElementById('solarGuideLink');
+      solarGuideLink.href = d.solarGuide.linkHref;
+      solarGuideLink.textContent = d.solarGuide.linkLabel;
+    } else {
+      solarGuide.hidden = true;
+    }
 
     // Ablauf
     document.getElementById('ablaufEyebrow').textContent = d.ablauf.eyebrow;

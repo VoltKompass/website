@@ -127,6 +127,15 @@ p{margin:0}
 }
 .hero h1 .v{background:linear-gradient(to top,var(--gold-lo) 0%,var(--gold) 45%,var(--gold-hi) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 0 rgba(0,0,0,.3))}
 .hero h1 .k{background:linear-gradient(to top,var(--blue-lo) 0%,var(--blue) 45%,var(--blue-hi) 100%);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 2px 0 rgba(0,0,0,.3))}
+.hero-service-title{
+  display:block;
+  max-width:760px;
+  margin-top:18px;
+  color:var(--text);
+  font-size:clamp(30px,4.4vw,64px);
+  line-height:1.02;
+  letter-spacing:0;
+}
 .hero .claim{font-size:clamp(18px,1.5vw,21px);color:var(--mute);max-width:520px;margin:0 0 36px}
 .hero .claim b{color:var(--text);font-weight:600}
 .hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
@@ -235,6 +244,34 @@ section{padding:clamp(80px,9vw,130px) 0;position:relative}
 .area .ico svg{width:26px;height:26px}
 .area h3{margin-bottom:10px}
 .area p{color:var(--mute);font-size:15px}
+
+.solar-guide{
+  background:
+    linear-gradient(180deg,rgba(17,26,45,.5),rgba(11,18,32,.35)),
+    rgba(29,95,159,.06);
+}
+.solar-guide-link{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:22px;
+  margin-top:28px;
+  padding:24px;
+  border:1px solid rgba(230,178,0,.28);
+  border-radius:20px;
+  background:rgba(17,26,45,.72);
+}
+.solar-guide-link p{
+  max-width:760px;
+  color:var(--mute);
+  font-size:15px;
+}
+@media (max-width:760px){
+  .solar-guide-link{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+}
 
 /* ABLAUF */
 .process{background:linear-gradient(180deg,transparent,rgba(230,178,0,.04))}
@@ -431,13 +468,24 @@ summary{
   list-style:none;cursor:pointer;padding:20px 0;
   display:flex;justify-content:space-between;align-items:center;gap:20px;
   font-size:17px;font-weight:600;
+  min-width:0;
+  overflow:hidden;
+  overflow-wrap:anywhere;
 }
 summary::-webkit-details-marker{display:none}
+summary::marker{content:"";font-size:0}
 summary::after{
-  content:"";width:12px;height:12px;border-right:2px solid var(--gold);border-bottom:2px solid var(--gold);
-  transform:rotate(45deg);transition:transform .3s;flex:0 0 12px;
+  content:"+";
+  display:grid;
+  place-items:center;
+  width:22px;
+  height:22px;
+  color:var(--gold);
+  font-size:22px;
+  line-height:1;
+  flex:0 0 22px;
 }
-details[open] summary::after{transform:rotate(-135deg)}
+details[open] summary::after{content:"-"}
 details p{padding:0 0 22px;color:var(--mute);font-size:15px;line-height:1.6}
 
 /* CTA */
