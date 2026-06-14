@@ -8,6 +8,12 @@
   force = true
 
 [[redirects]]
+  from = "/blog-stufe-2"
+  to = "/blog-stufe-2.html"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/blog"
   to = "/blog.html"
   status = 301
