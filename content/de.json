@@ -29,8 +29,8 @@
     "cta": "Beratung buchen →"
   },
   "meta": {
-    "title": "Wohnmobil Solaranlage nachrüsten | VoltKompass",
-    "description": "Wohnmobil Solaranlage nachrüsten: Beratung zu Schaltplan, Kosten, Komponenten, Elektroplan und Autarkie. Unabhängig, praxisnah, 1:1."
+    "title": "Wohnmobil Solaranlage nachrüsten: Schaltplan & Kosten | VoltKompass",
+    "description": "Wohnmobil Solaranlage nachrüsten oder selber bauen: 1:1 Beratung zu Schaltplan, Kosten, Komponenten, LiFePO4, Ladebooster, Wechselrichter und Autarkie."
   },
   "ablauf": {
     "eyebrow": "So läuft es ab",
@@ -227,7 +227,7 @@
   "hero": {
     "eyebrow": "1:1 Beratung",
     "serviceTitle": "Wohnmobil Solaranlage nachrüsten",
-    "claim": "Deine Orientierung für <b>Solaranlage, Schaltplan, Kosten & Autarkie</b> im Wohnmobil. Ich helfe dir, wenn du eine Wohnmobil Solaranlage nachrüsten, eine Solaranlage im Wohnmobil selber bauen oder einen sauberen Elektroplan verstehen möchtest.",
+    "claim": "1:1 Beratung für <b>Wohnmobil Solaranlage nachrüsten, Schaltplan, Kosten & Autarkie</b>. Ich helfe dir, wenn du eine Solaranlage im Wohnmobil selber bauen, Komponenten auswählen oder einen sauberen Elektroplan verstehen möchtest.",
     "ctaPrimary": "Termin sichern",
     "ctaSecondary": "Fachbereiche ansehen",
     "stats": [
