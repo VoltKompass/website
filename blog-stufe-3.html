@@ -43,7 +43,7 @@
         "@id": "https://voltkompass.com/blog-stufe-3.html#videoobject"
       },
       "datePublished": "2026-06-25",
-      "dateModified": "2026-06-25",
+      "dateModified": "2026-06-26",
       "inLanguage": "de-DE",
       "articleSection": "Wohnmobil-Elektrik",
       "wordCount": 3350,
@@ -116,10 +116,42 @@
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "Was ist Wohnmobil-Solaranlage Stufe 3?",
+          "name": "Was ist bei Stufe 3 anders als bei Stufe 2?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Stufe 3 ist eine leistungsstarke Ausbaustufe mit 200 Ah LiFePO4, bis 310 W Dachsolar, 300 W Solartasche, 50-A-Ladebooster und 1500-W-Wechselrichter. Sie ist fuer Reisende gedacht, die mehr Autarkie und mehr Ladeleistung brauchen als in Stufe 1 oder Stufe 2."
+            "text": "Stufe 3 vergroessert nicht nur die Solarseite, sondern auch Akku, Ladebooster und Wechselrichter. Statt 100 Ah Batterie und kleinerem Ladebooster geht es hier um 200 Ah, Orion XS 50 A, bis 310 W Dachsolar, 300 W Solartasche und 1500 W Wechselrichter."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Warum zwei 100-Ah-Akkus statt ein 200-Ah-Akku?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Zwei 100-Ah-Akkus lassen sich oft besser im Fahrzeug verteilen. Wichtig ist eine saubere Parallelschaltung mit passenden Kabelbruecken, gleichen Leitungsbedingungen, Hauptsicherung und SmartShunt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Reicht eine Wohnmobil Solaranlage mit 300 Watt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Fuer viele Reiseprofile sind 300 W bis 310 W Dachsolar eine starke Basis. Im Winter oder bei langen Standzeiten hilft die zusaetzliche 300-W-Solartasche, weil sie zur Sonne ausgerichtet werden kann."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Warum werden die Solarmodule parallel geschaltet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Bei unterschiedlichen Modulleistungen passen die Stroeme nicht fuer eine Reihenschaltung. Ausserdem wuerde die Leerlaufspannung bei mehreren Modulen schnell zu hoch fuer den MPPT 100/20. Deshalb wird in Stufe 3 parallel mit Sperrdioden gearbeitet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Warum hat die Solartasche einen eigenen MPPT-Regler?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die Solartasche ist eine mobile Solarquelle und wird je nach Standplatz eingesetzt. Ein eigener SmartSolar MPPT 100/20 trennt sie sauber von der Dachanlage und erleichtert Absicherung, Fehlersuche und Erweiterung."
           }
         },
         {
@@ -127,39 +159,23 @@
           "name": "Was kostet die Wohnmobil Solaranlage Stufe 3?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Der Materialkorb aus der Stufe-3-Liste liegt bei etwa 3100 Euro. Enthalten sind Akkus, Ladebooster, SmartShunt, Solarladeregler, Solarmodule, Solartasche, Inverter, Sicherungen, Kabel und Kabelschuhe. Einbaukosten sind nicht enthalten."
+            "text": "Der Materialkorb liegt bei ca. 3100 Euro. Die gelisteten Einzelpreise ergeben etwa 3003 Euro, die gerundete Angabe beruecksichtigt Preis- und Shop-Schwankungen. Einbau, Pruefung und fahrzeugspezifische Teile sind nicht enthalten."
           }
         },
         {
           "@type": "Question",
-          "name": "Warum werden zwei 100-Ah-LiFePO4-Akkus parallel geschaltet?",
+          "name": "Kann ich den 1500-W-Wechselrichter selbst einbauen?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Zwei 100-Ah-Akkus lassen sich in vielen Fahrzeugen flexibler unterbringen als ein einzelner 200-Ah-Akku. Wichtig ist eine saubere Parallelschaltung mit passenden Kabelbruecken, Sicherung und SmartShunt."
+            "text": "Die 12-V-Seite braucht passende Querschnitte, kurze Leitungen und eine 200-A-Sicherung. Arbeiten an 230 V sollten fachkundig geplant, umgesetzt und geprueft werden."
           }
         },
         {
           "@type": "Question",
-          "name": "Reicht ein 300-Watt-Solarmodul im Wohnmobil?",
+          "name": "Ist das ein fertiger Wohnmobil Solaranlage Schaltplan?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Ein 300-Watt-Modul kann gut funktionieren, wenn genug freie Dachflaeche vorhanden ist. In der Praxis passen mehrere kleinere Module oft besser aufs Dach. In Stufe 3 wird deshalb auch eine Variante mit 310 W aus 100 W, 2 x 80 W und 50 W gezeigt."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Warum bekommt die Solartasche einen eigenen MPPT-Laderegler?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Die 300-W-Solartasche arbeitet mobil und wird anders genutzt als die feste Dachanlage. Ein eigener SmartSolar MPPT 100/20 trennt die mobile Solarquelle sauber von der Dachanlage und macht die Verdrahtung nachvollziehbarer."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Darf ich den 1500-W-Wechselrichter selbst anschliessen?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Die 12-V-Seite muss mit passenden Querschnitten und Sicherungen geplant werden. Arbeiten an 230 V im Wohnmobil sollten fachkundig geplant, umgesetzt und geprueft werden, weil Fehler lebensgefaehrlich sein koennen."
+            "text": "Nein. Der Beitrag zeigt eine Schaltplan-Orientierung fuer Stufe 3. Dein Fahrzeug braucht einen eigenen Plan mit passenden Sicherungen, Kabelquerschnitten, Leitungslaengen, Massepunkten und vorhandenen Verbrauchern."
           }
         }
       ]
