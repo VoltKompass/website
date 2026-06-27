@@ -359,7 +359,11 @@
       <p id="ctaText"></p>
       <form name="kontakt" method="POST" data-netlify="true" class="contact-form" id="contactForm">
         <input type="hidden" name="form-name" value="kontakt" />
-        <div class="form-radios" id="formRadios"></div>
+        <div class="form-radios" id="formRadios">
+          <label class="radio-label"><input type="radio" name="paket" value="kurz-beratung" checked /><span class="radio-mark"></span><span data-radio-label></span></label>
+          <label class="radio-label"><input type="radio" name="paket" value="tiefen-beratung" /><span class="radio-mark"></span><span data-radio-label></span></label>
+          <label class="radio-label"><input type="radio" name="paket" value="elektroplan" /><span class="radio-mark"></span><span data-radio-label></span></label>
+        </div>
         <div class="form-row">
           <div class="form-field">
             <label for="fname" id="labelName"></label>
@@ -507,7 +511,7 @@
         <div class="price"><b>${p.price}</b><span>${p.unit}</span></div>
         <p class="sub">${p.subtitle}</p>
         <ul>${p.features.map(f => `<li>${CHECK_SVG}${f}</li>`).join('')}</ul>
-        <a href="#kontakt" class="btn ${p.featured ? 'btn-primary' : 'btn-ghost'}" data-paket="${p.name}">${p.cta}</a>
+        <a href="#kontakt" class="btn ${p.featured ? 'btn-primary' : 'btn-ghost'}" data-paket="${p.key}">${p.cta}</a>
       </div>`;
     }).join('');
     document.querySelectorAll('[data-paket]').forEach(btn => {
@@ -571,9 +575,10 @@
     document.getElementById('labelMessage').textContent = d.cta.form.message;
     document.getElementById('formSubmit').querySelector('span').textContent = d.cta.ctaPrimary;
     document.getElementById('formSuccessMsg').textContent = d.cta.form.success;
-    document.getElementById('formRadios').innerHTML = d.preise.plans.map((p, i) =>
-      `<label class="radio-label"><input type="radio" name="paket" value="${p.name}"${i === 0 ? ' checked' : ''} /><span class="radio-mark"></span>${p.name} (${p.price} ${p.unit})</label>`
-    ).join('');
+    d.preise.plans.forEach(p => {
+      const input = document.querySelector(`#formRadios input[name="paket"][value="${p.key}"]`);
+      if (input) input.closest('.radio-label').querySelector('[data-radio-label]').textContent = `${p.name} (${p.price} ${p.unit})`;
+    });
 
     // Footer
     document.getElementById('footCopyright').textContent = d.footer.copyright;
