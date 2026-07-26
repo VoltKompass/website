@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LiFePO4-Batterie lädt nicht voll: Ursachen im Wohnmobil</title>
+  <meta name="description" content="LiFePO4-Batterie lädt nicht voll? Prüfe SOC-Anzeige, Ladespannung, BMS, Kabel und Anschlüsse im Wohnmobil mit einem klaren Diagnoseplan Schritt für Schritt.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://voltkompass.com/lifepo4-batterie-laedt-nicht-voll.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="VoltKompass">
+  <meta property="og:title" content="LiFePO4-Batterie lädt nicht voll: Ursachen im Wohnmobil">
+  <meta property="og:description" content="Warum der Lithium-Akku bei 75 oder 90 Prozent stehen bleibt – und wie du Anzeige, Spannung, BMS und Verkabelung richtig prüfst.">
+  <meta property="og:url" content="https://voltkompass.com/lifepo4-batterie-laedt-nicht-voll.html">
+  <meta property="og:image" content="https://voltkompass.com/assets/blog/lifepo4-laedt-nicht-voll/lifepo4-laedt-nicht-voll-system.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:image:alt" content="LiFePO4-Batterie, Victron-Solarladeregler und Kabelwege im Wohnmobil">
+  <meta property="article:published_time" content="2026-07-26T12:00:00+02:00">
+  <meta property="article:modified_time" content="2026-07-26T12:00:00+02:00">
+  <meta property="article:author" content="Andreas / VoltKompass">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LiFePO4-Batterie lädt nicht voll: Ursachen im Wohnmobil">
+  <meta name="twitter:description" content="SOC falsch, BMS gesperrt oder Spannungsabfall? Der Diagnose-Ratgeber für LiFePO4 im Wohnmobil.">
+  <meta name="twitter:image" content="https://voltkompass.com/assets/blog/lifepo4-laedt-nicht-voll/lifepo4-laedt-nicht-voll-system.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="blog.css">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="alternate icon" href="/favicon.ico" sizes="any">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://voltkompass.com/lifepo4-batterie-laedt-nicht-voll.html#article",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://voltkompass.com/lifepo4-batterie-laedt-nicht-voll.html"
+        },
+        "headline": "LiFePO4-Batterie lädt nicht voll: Ursachen im Wohnmobil finden",
+        "description": "Praxis-Ratgeber zur Diagnose einer LiFePO4-Batterie, die im Wohnmobil scheinbar oder tatsächlich nicht vollständig geladen wird.",
+        "image": [
+          "https://voltkompass.com/assets/blog/lifepo4-laedt-nicht-voll/lifepo4-laedt-nicht-voll-system.jpg",
+          "https://voltkompass.com/assets/blog/lifepo4-laedt-nicht-voll/spannungsabfall-multimeter-fehlersuche-full.webp",
+          "https://voltkompass.com/assets/blog/lifepo4-laedt-nicht-voll/smartshunt-spannungsmessung-schaltplan-full.webp"
+        ],
+        "datePublished": "2026-07-26T12:00:00+02:00",
+        "dateModified": "2026-07-26T12:00:00+02:00",
+        "inLanguage": "de-DE",
+        "isAccessibleForFree": true,
+        "articleSection": "Wohnmobil-Elektrik",
+        "keywords": [
+          "LiFePO4 Batterie lädt nicht voll",
+          "Lithium Akku lädt nicht voll",
+          "LiFePO4 Wohnmobil",
+          "Batterie zeigt keine 100 Prozent",
+          "LiFePO4 SOC falsch",
+          "Spannungsabfall Solarladeregler",
+          "Victron Smart Battery Sense",
+          "Victron SmartShunt"
+        ],
+        "author": {
+          "@type": "Person",
+          "@id": "https://voltkompass.com/#andreas",
+          "name": "Andreas",
+          "url": "https://voltkompass.com/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://voltkompass.com/#organization",
+          "name": "VoltKompass",
+          "url": "https://voltkompass.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://voltkompass.com/logo.png"
+          }
+        },
+        "about": [
+          {"@type": "Thing", "name": "LiFePO4-Batterie im Wohnmobil"},
+          {"@type": "Thing", "name": "Batteriemanagementsystem"},
+          {"@type": "Product", "name": "Victron SmartSolar MPPT"},
+          {"@type": "Product", "name": "Victron Smart Battery Sense"},
+          {"@type": "Product", "name": "Victron SmartShunt"}
+        ],
+        "isPartOf": {"@id": "https://voltkompass.com/blog.html#blog"}
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://voltkompass.com/lifepo4-batterie-laedt-nicht-voll.html#video",
+        "name": "LiFePO4 / Lithium Akku lädt nicht voll. Das sind die Ursachen.",
+        "description": "Andreas von VoltKompass erklärt, warum eine LiFePO4-Batterie im Wohnmobil scheinbar oder tatsächlich nicht vollständig geladen wird.",
+        "thumbnailUrl": "https://i.ytimg.com/vi/UGUHwKdfmOY/maxresdefault.jpg",
+        "uploadDate": "2025-11-01T09:00:00+01:00",
+        "duration": "PT23M32S",
+        "embedUrl": "https://www.youtube-nocookie.com/embed/UGUHwKdfmOY",
+        "contentUrl": "https://www.youtube.com/watch?v=UGUHwKdfmOY",
+        "inLanguage": "de-DE",
+        "publisher": {"@id": "https://voltkompass.com/#organization"},
+        "isPartOf": {"@id": "https://voltkompass.com/lifepo4-batterie-laedt-nicht-voll.html#article"}
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://voltkompass.com/lifepo4-batterie-laedt-nicht-voll.html#faq-schema",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Warum zeigt meine LiFePO4-Batterie keine 100 Prozent an?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Die Prozentanzeige kann von der tatsächlichen Ladung abweichen, wenn kleine Ströme nicht vollständig erfasst wurden oder die automatische Synchronisation noch nicht ausgelöst hat. Prüfe zuerst die Spannung direkt an den Batteriepolen und die Zell- und Alarmwerte in der BMS-App."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Ist eine LiFePO4-Batterie bei 13,8 Volt voll?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Unter Ladung liegt eine 12,8-V-LiFePO4-Batterie bei 13,8 Volt bereits sehr nahe an voll. Die Spannung allein liefert jedoch keine exakte Prozentangabe, weil Ladestrom, Ruhezeit, Temperatur und Herstellerprofil den Messwert beeinflussen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Warum zeigt der Laderegler 14,2 Volt, an der Batterie liegen aber nur 13,6 Volt an?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Zwischen Laderegler und Batterie fällt Spannung ab. Häufige Ursachen sind ein zu kleiner Kabelquerschnitt, ein langer Leitungsweg, lose Verschraubungen, schlechte Crimpungen oder problematische Sicherungshalter."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie finde ich einen Spannungsabfall im Wohnmobil?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Miss bei aktivem Ladestrom zuerst direkt an den Batteriepolen und anschließend abschnittsweise entlang der Plus- und Minusleitung. Ein deutlicher Spannungssprung grenzt den fehlerhaften Leitungsabschnitt ein. Arbeiten an offenen Hochstromverbindungen gehören in fachkundige Hände."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was bringt ein Victron Smart Battery Sense?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Der Smart Battery Sense misst Spannung und Temperatur direkt an der Batterie und überträgt die Daten über ein kompatibles VE.Smart-Netzwerk an den Solarladeregler. Dadurch kann der Regler Leitungsverluste bei seiner Regelung berücksichtigen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was ist der Unterschied zwischen Smart Battery Sense und SmartShunt?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Der Smart Battery Sense übermittelt Batteriespannung und Temperatur. Der SmartShunt misst zusätzlich den gesamten Batterie-Strom und berechnet daraus unter anderem den Ladezustand. Welche Lösung passt, hängt vom vorhandenen Victron-System und dem gewünschten Monitoring ab."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://voltkompass.com/lifepo4-batterie-laedt-nicht-voll.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Startseite",
+            "item": "https://voltkompass.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Blog",
+            "item": "https://voltkompass.com/blog.html"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "LiFePO4-Batterie lädt nicht voll",
+            "item": "https://voltkompass.com/lifepo4-batterie-laedt-nicht-voll.html"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="blog-page ladebooster-page lifepo4-diagnose-page">
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="index.html#top" class="brand"><span class="v">Volt</span><span class="k">Kompass</span></a>
+      <ul>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="#ursachen">Ursachen</a></li>
+        <li><a href="#diagnose">Diagnose</a></li>
+        <li><a href="#loesungen">Lösungen</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <div class="nav-cta-slot">
+        <a href="index.html#kontakt" class="cta">Beratung buchen &rarr;</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <article>
+      <section class="blog-hero">
+        <div class="wrap blog-hero-grid">
+          <div>
+            <nav class="blog-breadcrumb" aria-label="Breadcrumb">
+              <a href="index.html#top">Startseite</a>
+              <span>/</span>
+              <a href="blog.html">Blog</a>
+              <span>/</span>
+              <span>LiFePO4 lädt nicht voll</span>
+            </nav>
+            <span class="eyebrow">Fehlersuche · LiFePO4 · Wohnmobil</span>
+            <h1>LiFePO4-Batterie lädt nicht voll: Ursachen im Wohnmobil finden</h1>
+            <p class="blog-lead">Deine LiFePO4-Batterie lädt nicht voll oder die App bleibt bei 75 beziehungsweise 90 Prozent stehen, obwohl der Solarladeregler „voll“ meldet? Hier trennst du eine falsche Ladezustandsanzeige von einem echten Ladeproblem – und findest Spannungsabfall, BMS-Sperren oder fehlerhafte Anschlüsse systematisch.</p>
+            <p class="blog-byline">Von Andreas / VoltKompass · 18+ Jahre Elektrotechnik-Erfahrung · aktualisiert am <time datetime="2026-07-26">26. Juli 2026</time></p>
+            <div class="article-kicker">
+              <span>SOC-Anzeige richtig einordnen</span>
+              <span>Spannung direkt am Akku messen</span>
+              <span>Kabel und Anschlüsse prüfen</span>
+              <span>Smart Battery Sense &amp; SmartShunt</span>
+            </div>
+            <div class="blog-actions">
+              <a href="#kurzantwort" class="btn btn-primary">Direkt zur Kurzantwort</a>
+              <a href="#diagnose" class="btn btn-ghost">Zum Diagnoseplan</a>
+            </div>
+          </div>
+
+          <figure class="blog-hero-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/lifepo4-laedt-nicht-voll/lifepo4-laedt-nicht-voll-system-full.webp" data-caption="Solarladeregler, Verteilung und LiFePO4-Batterie im Wohnmobil. Originalbild aus meinem VoltKompass-Video." aria-label="Systemübersicht vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/lifepo4-laedt-nicht-voll/lifepo4-laedt-nicht-voll-system-960.webp">
+                <source type="image/webp" srcset="assets/blog/lifepo4-laedt-nicht-voll/lifepo4-laedt-nicht-voll-system-full.webp">
+                <img src="assets/blog/lifepo4-laedt-nicht-voll/lifepo4-laedt-nicht-voll-system.jpg" width="1280" height="720" alt="Wohnmobil-Solarsystem mit Victron SmartSolar Laderegler, Kabelverteilung und LiFePO4-Batterie" decoding="async" fetchpriority="high">
+              </picture>
+            </button>
+            <figcaption>Für die richtige Diagnose zählt die Spannung direkt an den Batteriepolen.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section id="kurzantwort" class="blog-section blog-answer-section">
+        <div class="wrap blog-narrow">
+          <span class="eyebrow">Direkte Antwort</span>
+          <h2>Warum lädt die LiFePO4-Batterie nicht voll?</h2>
+          <p><strong>Wenn eine LiFePO4-Batterie nicht voll lädt, sind meist drei Ursachen verantwortlich: eine unsynchronisierte SOC-Anzeige, eine Schutzabschaltung des BMS oder Spannungsabfall zwischen Laderegler und Batterie. Miss zuerst während der Ladung direkt an den Batteriepolen, vergleiche den Wert mit dem Laderegler und prüfe anschließend Zellspannungen sowie BMS-Alarme.</strong></p>
+
+          <div class="blog-answer-box" role="region" aria-label="Kurzdiagnose LiFePO4 lädt nicht voll">
+            <dl>
+              <dt>14,2 V am Akku, SOC unter 100 %</dt>
+              <dd>Wahrscheinlich Anzeige oder Synchronisation prüfen.</dd>
+              <dt>14,2 V am Regler, 13,6 V am Akku</dt>
+              <dd>Spannungsabfall in Plus- oder Minusleitung suchen.</dd>
+              <dt>Polspannung höher als BMS-Spannung</dt>
+              <dd>BMS-Sperre und Zellalarme prüfen.</dd>
+              <dt>Eine Zellspannung fällt auf</dt>
+              <dd>Ladung stoppen und Hersteller beziehungsweise Fachbetrieb kontaktieren.</dd>
+              <dt>Übertemperatur gemeldet</dt>
+              <dd>Nicht weiterladen; Ursache fachkundig prüfen lassen.</dd>
+              <dt>Keine Auffälligkeit, Wert bleibt falsch</dt>
+              <dd>Herstellerprofil und SOC-Synchronisation kontrollieren.</dd>
+            </dl>
+          </div>
+
+          <nav class="blog-toc" aria-label="Inhaltsverzeichnis">
+            <h3>Inhaltsverzeichnis</h3>
+            <ol>
+              <li><a href="#video">Video zum Thema</a></li>
+              <li><a href="#messwerte">Wann ist eine LiFePO4-Batterie voll?</a></li>
+              <li><a href="#ursachen">Die häufigsten Ursachen</a></li>
+              <li><a href="#soc">SOC-Anzeige bleibt unter 100 Prozent</a></li>
+              <li><a href="#bms">BMS sperrt die Ladung</a></li>
+              <li><a href="#spannungsabfall">Spannungsabfall durch Kabel und Anschlüsse</a></li>
+              <li><a href="#diagnose">Fehler mit dem Multimeter eingrenzen</a></li>
+              <li><a href="#loesungen">Smart Battery Sense oder SmartShunt</a></li>
+              <li><a href="#quellen">Herstellerquellen und Stand</a></li>
+              <li><a href="#weiterlesen">Weiterführende Ratgeber</a></li>
+              <li><a href="#faq">Häufige Fragen</a></li>
+            </ol>
+          </nav>
+        </div>
+      </section>
+
+      <section id="video" class="blog-section blog-video-section">
+        <div class="wrap">
+          <div class="blog-narrow">
+            <span class="eyebrow">Video</span>
+            <h2>LiFePO4-Akku lädt nicht voll: alle Fälle im Video</h2>
+            <p>Im Video zeige ich am vollständigen Stromlaufplan, warum eine App-Anzeige täuschen kann, wie BMS-Sperren aussehen und wo ein Spannungsabfall entsteht. Der Artikel führt dieselbe Diagnose als nachschlagbaren Ablauf weiter.</p>
+          </div>
+          <div class="video-box blog-video-box" id="blogVideoBox" data-id="UGUHwKdfmOY" role="button" tabindex="0" aria-label="Video zu LiFePO4-Ladeproblemen abspielen"></div>
+          <p class="blog-video-link">Video direkt auf YouTube ansehen: <a href="https://www.youtube.com/watch?v=UGUHwKdfmOY" target="_blank" rel="noopener">LiFePO4 / Lithium Akku lädt nicht voll</a></p>
+        </div>
+      </section>
+
+      <section id="messwerte" class="blog-section">
+        <div class="wrap blog-narrow">
+          <span class="eyebrow">Grundlage</span>
+          <h2>Wann ist eine LiFePO4-Batterie wirklich voll?</h2>
+          <p>Eine Prozentanzeige ist ein berechneter Wert. Für die erste Diagnose brauchst du deshalb die tatsächliche Spannung direkt an den Batteriepolen. Die Anzeige am Solarladeregler reicht nicht: Sie zeigt zunächst die Spannung an seinen eigenen Anschlüssen.</p>
+          <p>Im Video nutze ich für ein typisches 12,8-V-LiFePO4-System folgende Orientierungswerte. Sie sind keine universelle Kennlinie für jede Batterie. Ladestrom, Ruhezeit, Temperatur, BMS und Herstellervorgaben beeinflussen die Messung.</p>
+
+          <div class="blog-table-wrap" role="region" aria-label="LiFePO4 Spannungswerte zur Orientierung" tabindex="0">
+            <table class="blog-table">
+              <thead>
+                <tr>
+                  <th>Messsituation</th>
+                  <th>Wert aus dem Video</th>
+                  <th>Einordnung</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Ruhespannung nach mehreren Stunden ohne Ladung und Last</td>
+                  <td>etwa 13,35–13,4 V</td>
+                  <td>ungefähr 98–100 %</td>
+                </tr>
+                <tr>
+                  <td>Spannung direkt am Akku während der Ladung</td>
+                  <td>etwa 13,8 V</td>
+                  <td>bereits sehr nahe an voll</td>
+                </tr>
+                <tr>
+                  <td>Absorptionsspannung im gezeigten Victron-Beispiel</td>
+                  <td>14,2 V</td>
+                  <td>praktisch voll; Herstellerprofil beachten</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="blog-note"><strong>Herstellerprofil hat Vorrang:</strong> Victron nennt für seine 12,8-V-Lithium-Smart-Batterien 14,2 V Absorptions- und 13,5 V Erhaltungsspannung. Für deine Batterie gelten die Werte ihres Herstellers. Ändere die Ladespannung nicht nur deshalb, weil eine App noch keine 100 Prozent anzeigt.</div>
+        </div>
+      </section>
+
+      <section id="ursachen" class="blog-section">
+        <div class="wrap blog-narrow">
+          <span class="eyebrow">Entscheidungsbaum</span>
+          <h2>Drei Ursachen: Anzeige, BMS oder Spannungsabfall</h2>
+          <p>Die entscheidende Frage lautet nicht sofort „Was ist kaputt?“, sondern: Ist die Batterie tatsächlich nicht voll – oder stimmt nur der angezeigte Ladezustand nicht?</p>
+          <div class="blog-facts">
+            <div>
+              <span>Fall 1</span>
+              <strong>Polspannung passt, Prozentanzeige nicht</strong>
+              <p>Die Batterie kann voll sein, obwohl die SOC-Anzeige darunter bleibt.</p>
+            </div>
+            <div>
+              <span>Fall 2</span>
+              <strong>BMS meldet Zell- oder Temperaturfehler</strong>
+              <p>Die Schutzschaltung kann den Ladeeingang gezielt sperren.</p>
+            </div>
+            <div>
+              <span>Fall 3</span>
+              <strong>Spannung am Regler und Akku unterscheiden sich</strong>
+              <p>Der Fehler liegt wahrscheinlich im belasteten Leitungsweg.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="soc" class="blog-section">
+        <div class="wrap blog-split">
+          <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/lifepo4-laedt-nicht-voll/lifepo4-app-soc-falsch-full.webp" data-caption="14,2 V am Akku, aber nur 75 Prozent SOC in der App: Die Prozentanzeige kann unsynchronisiert sein. Originalbild aus meinem Video." aria-label="SOC-Anzeige und Spannungswerte vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/lifepo4-laedt-nicht-voll/lifepo4-app-soc-falsch-960.webp">
+                <source type="image/webp" srcset="assets/blog/lifepo4-laedt-nicht-voll/lifepo4-app-soc-falsch-full.webp">
+                <img src="assets/blog/lifepo4-laedt-nicht-voll/lifepo4-app-soc-falsch.jpg" width="1280" height="720" alt="Batterie-App zeigt 75 Prozent SOC trotz 14,2 Volt Ladespannung" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Wenn Spannung, Zellwerte und Ladestrom passen, kann nur die SOC-Anzeige falsch liegen.</figcaption>
+          </figure>
+
+          <div>
+            <span class="eyebrow">Ursache 1</span>
+            <h2>Die App zeigt 75 Prozent, der Akku ist aber voll</h2>
+            <p>Viele Batteriecomputer und BMS berechnen den Ladezustand, indem sie ein- und ausgehende Ströme aufsummieren. Kleine Messfehler addieren sich mit der Zeit. Gerade bei schwacher Wintersonne und kleinen Dauerverbrauchern kann die Anzeige deshalb abdriften.</p>
+            <p>Eine automatische Synchronisation setzt den Ladezustand wieder auf 100 Prozent, wenn die dafür hinterlegten Bedingungen erfüllt sind. Je nach System gehören dazu eine bestimmte Spannung, ein ausreichend kleiner Restladestrom und eine Mindestdauer. Werden diese Bedingungen nie erreicht oder passen die Einstellungen nicht zum Ladeprofil, bleibt die Anzeige unter 100 Prozent.</p>
+            <div class="blog-answer-box" role="region" aria-label="SOC-Anzeige prüfen">
+              <dl>
+                <dt>1. Direkt messen</dt>
+                <dd>Spannung an den Batteriepolen mit der App vergleichen.</dd>
+                <dt>2. Zellen prüfen</dt>
+                <dd>Keine auffällige Zellabweichung oder BMS-Warnung?</dd>
+                <dt>3. Einstellungen prüfen</dt>
+                <dd>Synchronisationsspannung, Reststrom und Zeit nach Handbuch kontrollieren.</dd>
+                <dt>4. Nicht blind nachregeln</dt>
+                <dd>Ladespannung nur innerhalb der Batterie-Herstellervorgabe ändern.</dd>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="bms" class="blog-section">
+        <div class="wrap blog-narrow">
+          <span class="eyebrow">Ursache 2</span>
+          <h2>Das BMS sperrt wegen Zellspannung oder Temperatur</h2>
+          <p>Misst du außen am Akku die Reglerspannung, während die BMS-App intern eine deutlich niedrigere Batteriespannung und einen Alarm zeigt, kann das BMS den Ladeeingang abgeschaltet haben. Die 14,2 V liegen dann nur an den äußeren Anschlüssen an; in die Zellen fließt kein Ladestrom.</p>
+          <p>Typische Auslöser sind eine zu hohe Einzelzellspannung, stark auseinanderlaufende Zellen sowie eine Über- oder Untertemperatur. Eine Batterie-App kann den betroffenen Schutzstatus und die Zellspannungen sichtbar machen. Ohne App wird die Abgrenzung schwieriger.</p>
+          <div class="blog-warning"><strong>Nicht selbst im Akku arbeiten:</strong> Öffne die Batterie nicht und überbrücke das BMS nicht. Stoppe die Ladung bei Zellüberspannung, ungewöhnlicher Erwärmung, Verformung oder Geruch. Interne Zellverbinder, Sensorleitungen und BMS-Komponenten gehören zum Hersteller oder zu einem qualifizierten Fachbetrieb.</div>
+        </div>
+      </section>
+
+      <section id="spannungsabfall" class="blog-section">
+        <div class="wrap blog-split reverse">
+          <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/lifepo4-laedt-nicht-voll/spannungsabfall-laderegler-batterie-full.webp" data-caption="14,2 V am Solarladeregler, aber 13,6 V an der Batterie. Originalbild aus meinem VoltKompass-Video." aria-label="Spannungsabfall zwischen Laderegler und Batterie vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/lifepo4-laedt-nicht-voll/spannungsabfall-laderegler-batterie-960.webp">
+                <source type="image/webp" srcset="assets/blog/lifepo4-laedt-nicht-voll/spannungsabfall-laderegler-batterie-full.webp">
+                <img src="assets/blog/lifepo4-laedt-nicht-voll/spannungsabfall-laderegler-batterie.jpg" width="1280" height="720" alt="Victron Laderegler zeigt 14,2 Volt, an der LiFePO4-Batterie liegen nur 13,6 Volt an" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Unter hohem Ladestrom werden Kabel und Übergangswiderstände als Spannungsverlust sichtbar.</figcaption>
+          </figure>
+
+          <div>
+            <span class="eyebrow">Ursache 3</span>
+            <h2>14,2 V am Laderegler, aber nur 13,6 V an der Batterie</h2>
+            <p>Das ist ein echter Ladefehler. Der Regler hält seine eigene Zielspannung bereits für erreicht und reduziert den Ladestrom. An der Batterie kommt wegen des Spannungsabfalls jedoch weniger an – sie bleibt tatsächlich unter ihrem möglichen Ladezustand.</p>
+            <h3>Häufige Ursachen im Leitungsweg</h3>
+            <ul class="blog-checklist">
+              <li>zu kleiner Kabelquerschnitt für Strom und Leitungslänge</li>
+              <li>unnötig langer Plus- oder Minusweg</li>
+              <li>lockere Verschraubung an Batterie, Busbar, Sicherung oder Hauptschalter</li>
+              <li>schlecht oder unvollständig verpresster Kabelschuh</li>
+              <li>korrodierter Anschluss oder ungeeigneter Sicherungshalter</li>
+              <li>beschädigte Leitung oder mangelhafter Massepunkt</li>
+            </ul>
+            <p>Im Video dient ein 50-A-Laderegler mit einer zu dünnen 6-mm²-Leitung als Beispiel. Daraus folgt nicht, dass 16 mm² immer richtig sind. Der erforderliche Querschnitt hängt von Strom, gesamter Hin- und Rückleitung, Verlegeart, Temperatur und zulässigem Spannungsabfall ab.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="diagnose" class="blog-section">
+        <div class="wrap blog-narrow">
+          <span class="eyebrow">Messplan</span>
+          <h2>Spannungsabfall mit dem Multimeter eingrenzen</h2>
+          <p>Die Messung erfolgt während tatsächlich Ladestrom fließt. Ohne Last kann eine schlechte Verbindung nahezu unauffällig wirken. Vergleiche zuerst die Spannung direkt an den Batteriepolen mit der Spannung direkt an den Ausgangsklemmen des Ladereglers.</p>
+
+          <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/lifepo4-laedt-nicht-voll/spannungsabfall-multimeter-fehlersuche-full.webp" data-caption="Abschnittsweise Spannungsmessung entlang der Plus- und Minusleitung. Originalbild aus meinem VoltKompass-Video." aria-label="Multimeter-Fehlersuche vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/lifepo4-laedt-nicht-voll/spannungsabfall-multimeter-fehlersuche-960.webp">
+                <source type="image/webp" srcset="assets/blog/lifepo4-laedt-nicht-voll/spannungsabfall-multimeter-fehlersuche-full.webp">
+                <img src="assets/blog/lifepo4-laedt-nicht-voll/spannungsabfall-multimeter-fehlersuche.jpg" width="1280" height="720" alt="Fehlersuche mit Multimeter bei 14,2 Volt am Laderegler und 13,6 Volt an der Batterie" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Der Spannungssprung zwischen zwei Messpunkten grenzt den fehlerhaften Abschnitt ein.</figcaption>
+          </figure>
+
+          <ol class="blog-steps">
+            <li><strong>Messgerät vorbereiten:</strong> Gleichspannung wählen, intakte isolierte Messspitzen verwenden und Kurzschlüsse zwischen Plus und Masse sicher vermeiden.</li>
+            <li><strong>Batteriespannung erfassen:</strong> Direkt an Plus- und Minuspol messen und Wert notieren.</li>
+            <li><strong>Reglerspannung erfassen:</strong> Direkt an den Batterie-Ausgangsklemmen des Ladereglers messen.</li>
+            <li><strong>Plusweg abschnittsweise prüfen:</strong> Eine Messspitze bleibt an Batterie-Minus, die andere wandert über Pluspol, Sicherung, Hauptschalter, Busbar und Regler-Plus.</li>
+            <li><strong>Minusweg abschnittsweise prüfen:</strong> Eine Messspitze bleibt an Regler-Plus, die andere wandert entlang des Minuswegs zurück.</li>
+            <li><strong>Fehlerstelle eingrenzen:</strong> Ein deutlicher Spannungssprung zwischen benachbarten Punkten zeigt den Abschnitt mit dem größten Verlust.</li>
+            <li><strong>System abschalten:</strong> Vor dem Nachziehen, Reinigen oder Ersetzen einer Verbindung Ladequellen und Batterie sicher trennen.</li>
+          </ol>
+
+          <div class="blog-warning"><strong>12-V-Hochstrom ist nicht harmlos:</strong> Ein Werkzeug zwischen Plus und Masse kann sehr hohe Kurzschlussströme auslösen. Wenn Messpunkte offen, schlecht zugänglich oder nicht eindeutig zuzuordnen sind, lass die Prüfung fachkundig durchführen.</div>
+
+          <h3>Diagnosetabelle</h3>
+          <div class="blog-table-wrap" role="region" aria-label="Diagnosetabelle LiFePO4 lädt nicht voll" tabindex="0">
+            <table class="blog-table">
+              <thead>
+                <tr>
+                  <th>Beobachtung</th>
+                  <th>Wahrscheinliche Ursache</th>
+                  <th>Nächster Schritt</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>14,2 V direkt am Akku, SOC deutlich unter 100 %</td>
+                  <td>SOC nicht synchronisiert</td>
+                  <td>BMS-Werte und Synchronisationsbedingungen nach Herstellerhandbuch prüfen</td>
+                </tr>
+                <tr>
+                  <td>14,2 V außen, intern etwa 13,7 V und Zellalarm</td>
+                  <td>BMS hat Ladeeingang gesperrt</td>
+                  <td>Ladung stoppen; Zellwerte dokumentieren und Hersteller kontaktieren</td>
+                </tr>
+                <tr>
+                  <td>Übertemperatur in der App</td>
+                  <td>BMS-Schutz oder problematische interne/äußere Verbindung</td>
+                  <td>Nicht weiterladen; Erwärmung fachkundig untersuchen lassen</td>
+                </tr>
+                <tr>
+                  <td>14,2 V am Regler, 13,6 V am Akku</td>
+                  <td>Spannungsabfall im Leitungsweg</td>
+                  <td>Plus- und Minusweg unter Ladestrom abschnittsweise messen</td>
+                </tr>
+                <tr>
+                  <td>Leitung oder Anschluss wird warm</td>
+                  <td>zu hoher Widerstand oder falscher Querschnitt</td>
+                  <td>System abschalten und Verbindung beziehungsweise Dimensionierung prüfen</td>
+                </tr>
+                <tr>
+                  <td>Werte sind ohne Ladestrom gleich, unter Last verschieden</td>
+                  <td>belastungsabhängiger Übergangs- oder Leitungswiderstand</td>
+                  <td>Messung unter reproduzierbarem Ladestrom wiederholen</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section id="loesungen" class="blog-section">
+        <div class="wrap blog-narrow">
+          <span class="eyebrow">Direkte Spannungsmessung</span>
+          <h2>Smart Battery Sense oder SmartShunt?</h2>
+          <p>Bei einem kompatiblen Victron-System kann der Solarladeregler die Spannung direkt von der Batterie erhalten. Das ersetzt keine korrekte Verkabelung, verhindert aber, dass der Regler ausschließlich nach seiner lokalen Klemmenspannung arbeitet.</p>
+          <div class="blog-table-wrap" role="region" aria-label="Vergleich Smart Battery Sense und SmartShunt" tabindex="0">
+            <table class="blog-table">
+              <thead>
+                <tr>
+                  <th>Vergleichspunkt</th>
+                  <th>Smart Battery Sense</th>
+                  <th>SmartShunt</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Erfasste Werte</td>
+                  <td>Batteriespannung und Temperatur</td>
+                  <td>Batteriespannung, ein- und ausgehender Strom sowie daraus berechneter SOC</td>
+                </tr>
+                <tr>
+                  <td>Montageort</td>
+                  <td>Direkt an den Batteriepolen</td>
+                  <td>Unmittelbar hinter Batterie-Minus</td>
+                </tr>
+                <tr>
+                  <td>Geeignet, wenn</td>
+                  <td>der Laderegler vor allem eine direkte Spannungs- und Temperaturmessung benötigt</td>
+                  <td>zusätzlich ein vollständiger Batteriecomputer mit Strom- und Verbrauchserfassung gewünscht ist</td>
+                </tr>
+                <tr>
+                  <td>Wichtig</td>
+                  <td colspan="2">Kompatibilität des VE.Smart-Netzwerks und die Handbücher aller beteiligten Geräte vor der Kopplung prüfen</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="blog-note"><strong>Kompatibilität zuerst prüfen:</strong> Im VE.Smart-Netzwerk darf nur eine Quelle Spannungs- beziehungsweise Temperaturdaten senden. Prüfe deshalb vor der Kopplung die aktuelle Victron-Kompatibilitätsliste und die Handbücher aller beteiligten Geräte.</p>
+        </div>
+      </section>
+
+      <section id="smart-battery-sense" class="blog-section">
+        <div class="wrap blog-split">
+          <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/lifepo4-laedt-nicht-voll/smart-battery-sense-schaltplan-full.webp" data-caption="Smart Battery Sense direkt an den Batteriepolen. Originalbild aus meinem VoltKompass-Video." aria-label="Smart Battery Sense Schaltplan vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/lifepo4-laedt-nicht-voll/smart-battery-sense-schaltplan-960.webp">
+                <source type="image/webp" srcset="assets/blog/lifepo4-laedt-nicht-voll/smart-battery-sense-schaltplan-full.webp">
+                <img src="assets/blog/lifepo4-laedt-nicht-voll/smart-battery-sense-schaltplan.jpg" width="1280" height="720" alt="Victron Smart Battery Sense direkt an der LiFePO4-Batterie angeschlossen" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Der Sensor übermittelt Spannung und Temperatur aus der Nähe der Batterie.</figcaption>
+          </figure>
+          <div>
+            <span class="eyebrow">Messung am Akku</span>
+            <h2>Victron Smart Battery Sense</h2>
+            <p>Der Smart Battery Sense misst Batteriespannung und Temperatur direkt am Akku. Über das VE.Smart-Netzwerk überträgt er die Werte drahtlos an kompatible Victron-Ladegeräte. Victron beschreibt ausdrücklich, dass dadurch Messfehler infolge von Spannungsverlusten im Kabel vermieden werden.</p>
+            <p>Er ist die schlanke Lösung, wenn du vor allem eine entfernte Spannungs- und Temperaturmessung für den Laderegler brauchst.</p>
+            <p><a href="https://www.victronenergy.com/meters-and-sensors/smart-battery-sense" target="_blank" rel="noopener">Smart Battery Sense bei Victron ansehen</a></p>
+          </div>
+        </div>
+      </section>
+
+      <section id="smartshunt" class="blog-section">
+        <div class="wrap blog-split reverse">
+          <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/lifepo4-laedt-nicht-voll/smartshunt-spannungsmessung-schaltplan-full.webp" data-caption="SmartShunt unmittelbar hinter Batterie-Minus. Originalbild aus meinem VoltKompass-Video." aria-label="SmartShunt Schaltplan vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/lifepo4-laedt-nicht-voll/smartshunt-spannungsmessung-schaltplan-960.webp">
+                <source type="image/webp" srcset="assets/blog/lifepo4-laedt-nicht-voll/smartshunt-spannungsmessung-schaltplan-full.webp">
+                <img src="assets/blog/lifepo4-laedt-nicht-voll/smartshunt-spannungsmessung-schaltplan.jpg" width="1280" height="720" alt="Victron SmartShunt im Minuspfad einer LiFePO4-Batterie mit Spannungsmessleitung" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Der SmartShunt erfasst Spannung und sämtliche Batterie-Ströme.</figcaption>
+          </figure>
+          <div>
+            <span class="eyebrow">Batteriemonitor</span>
+            <h2>Victron SmartShunt</h2>
+            <p>Der SmartShunt misst Batterie-Spannung und den gesamten Strom, der in die Batterie hinein- oder aus ihr herausfließt. Daraus berechnet er unter anderem Ladezustand, verbrauchte Amperestunden und Restlaufzeit. In einem kompatiblen VE.Smart-Netzwerk kann er Spannungs- und Stromdaten an den Solarladeregler senden.</p>
+            <p>Er sitzt unmittelbar hinter Batterie-Minus. Auf der Batterieseite darf nur die Batterie angeschlossen sein; sämtliche Ladegeräte und Verbraucher gehören auf die Systemseite.</p>
+            <p><a href="https://amzn.to/4wlPJB5" target="_blank" rel="sponsored noopener">Victron SmartShunt ansehen*</a></p>
+            <p class="blog-affiliate-note">* Affiliate-Hinweis: Wenn du über diesen Link kaufst, erhalte ich eine kleine Provision. Für dich ändert sich der Preis nicht. Meine technische Bewertung bleibt davon unabhängig.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="quellen" class="blog-section">
+        <div class="wrap blog-narrow">
+          <span class="eyebrow">Transparenz &amp; Quellen</span>
+          <h2>Herstellerquellen und Stand der Angaben</h2>
+          <p><strong>Stand: 26. Juli 2026.</strong> Der Diagnoseweg stammt aus meinem Video und meiner praktischen Systembetrachtung. Produktfunktionen und Ladeparameter habe ich zusätzlich mit den aktuellen Herstellerunterlagen abgeglichen:</p>
+          <ul class="blog-checklist">
+            <li><a href="https://www.victronenergy.com/media/pg/Lithium_Battery_Smart/en/operation.html" target="_blank" rel="noopener">Victron Lithium Battery Smart: Ladeparameter und Betrieb</a></li>
+            <li><a href="https://www.victronenergy.com/media/pg/VE.Smart_Networking/en/introduction.html" target="_blank" rel="noopener">Victron VE.Smart Networking: Spannungs-, Temperatur- und Strommessung</a></li>
+            <li><a href="https://www.victronenergy.com/media/pg/SmartShunt/en/introduction.html" target="_blank" rel="noopener">Victron SmartShunt-Handbuch: Messwerte und Funktionen</a></li>
+            <li><a href="https://www.victronenergy.com/meters-and-sensors/smart-battery-sense" target="_blank" rel="noopener">Victron Smart Battery Sense: direkte Messung an der Batterie</a></li>
+            <li><a href="https://www.litime.com/pages/user-manuals" target="_blank" rel="noopener">LiTime: aktuelle Benutzerhandbücher der 12,8-V-Batterien</a></li>
+          </ul>
+          <p class="blog-note"><strong>Über den Autor:</strong> Andreas verbindet mehr als 18 Jahre Elektrotechnik-Erfahrung mit praktischer Wohnmobil-Beratung und individuellen Stromlaufplänen. <a href="index.html#ueber">Mehr über Andreas und VoltKompass</a>.</p>
+        </div>
+      </section>
+
+      <section id="weiterlesen" class="blog-section">
+        <div class="wrap blog-narrow">
+          <span class="eyebrow">Weiterführende Ratgeber</span>
+          <h2>Wohnmobil-Elektrik als zusammenhängendes System verstehen</h2>
+          <p>Eine Ladeabweichung entsteht selten isoliert. Batterie, Solarregler, Ladebooster, Kabelwege und Verbraucher müssen als Gesamtsystem zusammenpassen. Diese VoltKompass-Beiträge führen die Planung weiter:</p>
+          <div class="blog-answer-box">
+            <dl>
+              <dt>Grundsystem</dt>
+              <dd><a href="blog-stufe-1.html">Wohnmobil-Solaranlage Stufe 1 mit 100 Ah LiFePO4 und 150 W Solar</a></dd>
+              <dt>Mehr Solar</dt>
+              <dd><a href="blog-stufe-2.html">Wohnmobil-Solaranlage Stufe 2 mit Dachsolar und Solartasche</a></dd>
+              <dt>Mehr Autarkie</dt>
+              <dd><a href="blog-stufe-3.html">Wohnmobil-Solaranlage Stufe 3 mit 200 Ah Akku und 300 W Solar</a></dd>
+              <dt>Fahrtladung</dt>
+              <dd><a href="ladebooster-wohnmobil.html">Ladebooster im Wohnmobil: Auswahl, Anschluss und Spannungsmessung</a></dd>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" class="blog-section">
+        <div class="wrap blog-narrow">
+          <span class="eyebrow">FAQ</span>
+          <h2>Häufige Fragen: LiFePO4-Batterie lädt nicht voll</h2>
+          <div class="blog-faq">
+            <details>
+              <summary>Warum zeigt meine LiFePO4-Batterie keine 100 Prozent an?</summary>
+              <p>Die Prozentanzeige kann von der tatsächlichen Ladung abweichen, wenn kleine Ströme nicht vollständig erfasst wurden oder die automatische Synchronisation noch nicht ausgelöst hat. Prüfe zuerst die Spannung direkt an den Batteriepolen sowie Zell- und Alarmwerte in der BMS-App.</p>
+            </details>
+            <details>
+              <summary>Ist eine LiFePO4-Batterie bei 13,8 Volt voll?</summary>
+              <p>Unter Ladung liegt eine 12,8-V-LiFePO4-Batterie bei 13,8 V bereits sehr nahe an voll. Die Spannung allein liefert aber keine exakte Prozentangabe. Ladestrom, Ruhezeit, Temperatur und das Herstellerprofil beeinflussen den Wert.</p>
+            </details>
+            <details>
+              <summary>Warum zeigt der Laderegler 14,2 V, an der Batterie liegen aber nur 13,6 V an?</summary>
+              <p>Zwischen Laderegler und Batterie fällt Spannung ab. Häufige Ursachen sind ein zu kleiner Kabelquerschnitt, ein langer Leitungsweg, lose Verschraubungen, schlechte Crimpungen oder problematische Sicherungshalter.</p>
+            </details>
+            <details>
+              <summary>Soll ich die Ladespannung auf 14,4 oder 14,6 V erhöhen?</summary>
+              <p>Nicht pauschal. Verwende ausschließlich das Ladeprofil des Batterieherstellers. Eine höhere Spannung nur zum Erzwingen der 100-%-Anzeige kann Zellen unnötig belasten oder eine BMS-Abschaltung auslösen.</p>
+            </details>
+            <details>
+              <summary>Wie finde ich einen Spannungsabfall im Wohnmobil?</summary>
+              <p>Miss bei aktivem Ladestrom direkt an Batterie und Laderegler und anschließend abschnittsweise entlang der Plus- und Minusleitung. Ein Spannungssprung grenzt den problematischen Abschnitt ein. Bei offenen oder unklaren Hochstromverbindungen ist eine Fachkraft die sichere Wahl.</p>
+            </details>
+            <details>
+              <summary>Was bringt ein Victron Smart Battery Sense?</summary>
+              <p>Er misst Spannung und Temperatur direkt an der Batterie und überträgt die Daten über ein kompatibles VE.Smart-Netzwerk an den Solarladeregler. So kann der Regler Leitungsverluste bei seiner Regelung berücksichtigen.</p>
+            </details>
+            <details>
+              <summary>Was ist der Unterschied zwischen Smart Battery Sense und SmartShunt?</summary>
+              <p>Der Smart Battery Sense übermittelt Batteriespannung und Temperatur. Der SmartShunt misst zusätzlich den gesamten Batterie-Strom und berechnet daraus unter anderem den Ladezustand. Welche Lösung passt, hängt vom vorhandenen Victron-System und dem gewünschten Monitoring ab.</p>
+            </details>
+            <details>
+              <summary>Kann ich eine Batterie mit Zell- oder Temperaturfehler selbst öffnen?</summary>
+              <p>Nein. Stoppe die Ladung und wende dich an Hersteller oder Fachbetrieb. Das Öffnen kann Schutz, Isolation und Garantie beeinträchtigen. Äußere Leitungen und Anschlüsse lassen sich prüfen; interne Zellen und BMS-Komponenten gehören nicht in eine allgemeine DIY-Anleitung.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section id="fazit" class="wrap blog-final">
+        <div>
+          <span class="eyebrow">Fazit</span>
+          <h2>Erst messen, dann Einstellungen ändern</h2>
+          <p>Eine LiFePO4-Batterie, die keine 100 Prozent anzeigt, ist nicht automatisch defekt oder unvollständig geladen. Prüfe zuerst direkt an den Batteriepolen. Stimmen Spannung und Zellwerte, liegt das Problem häufig nur bei der SOC-Synchronisation.</p>
+          <p>Unterscheiden sich Laderegler- und Batteriespannung unter Ladestrom, suchst du im Kabelweg. Meldet das BMS eine Zell- oder Temperaturstörung, stoppst du die Ladung und klärst den internen Fehler mit Hersteller oder Fachbetrieb.</p>
+          <p>Smart Battery Sense und SmartShunt können einem kompatiblen Victron-Laderegler die tatsächlichen Batteriedaten liefern. Sie ergänzen eine fachgerechte Installation, ersetzen aber keine passenden Kabel, festen Verbindungen und korrekt dimensionierten Sicherungen.</p>
+          <div class="blog-actions">
+            <a href="index.html#kontakt" class="btn btn-primary">Wohnmobil-Elektrik beraten lassen</a>
+            <a href="ladebooster-wohnmobil.html" class="btn btn-ghost">Zum Ladebooster-Ratgeber</a>
+          </div>
+        </div>
+        <div>
+          <p class="blog-disclaimer"><strong>Sicherheitshinweis:</strong> Arbeiten an 12-V-Hochstromanlagen können bei Kurzschluss, falschem Querschnitt oder lockeren Verbindungen Brände verursachen. Dieser Beitrag beschreibt eine allgemeine Diagnose und ersetzt keine Prüfung am konkreten Fahrzeug. Beachte immer die Anleitungen von Batterie-, Fahrzeug- und Gerätehersteller. Wenn Messpunkte, Leitungsweg, Masseführung oder Absicherung nicht eindeutig sind, lass die Prüfung von einer qualifizierten Fachkraft ausführen.</p>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <script src="blog-lightbox.js"></script>
+  <script src="cookie-consent.js"></script>
+  <script>
+    const blogVideo = {
+      id: 'UGUHwKdfmOY',
+      alt: 'LiFePO4-Batterie lädt nicht voll: Ursachen und Diagnose im Wohnmobil'
+    };
+
+    function blogHasMediaConsent() {
+      return window.VKCookieConsent?.hasConsent('media') === true;
+    }
+
+    function renderBlogVideoState() {
+      const box = document.getElementById('blogVideoBox');
+      if (!box) return;
+
+      box.dataset.id = blogVideo.id;
+      const allowed = blogHasMediaConsent();
+      box.classList.toggle('video-box-locked', !allowed);
+      box.setAttribute('aria-label', allowed ? 'Video abspielen' : 'YouTube-Video nach Zustimmung laden');
+
+      if (allowed) {
+        box.innerHTML = `<img src="https://i.ytimg.com/vi/${blogVideo.id}/hqdefault.jpg" alt="${blogVideo.alt}" loading="lazy" decoding="async"/><div class="video-play" aria-hidden="true"></div>`;
+        return;
+      }
+
+      box.innerHTML = `
+        <div class="video-consent">
+          <b>YouTube-Video blockiert</b>
+          <p>Dieses Video wird erst geladen, wenn du externe Medien in den Cookie-Einstellungen erlaubst.</p>
+          <button type="button" class="btn btn-primary" data-cookie-settings>Auswahl anpassen</button>
+        </div>`;
+    }
+
+    function initBlogVideo() {
+      const box = document.getElementById('blogVideoBox');
+      if (!box) return;
+
+      const playVideo = () => {
+        if (!blogHasMediaConsent()) {
+          window.VKCookieConsent?.openSettings();
+          return;
+        }
+        box.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${blogVideo.id}?autoplay=1&rel=0" title="LiFePO4-Batterie lädt nicht voll: Ursachen im Wohnmobil" allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>`;
+      };
+
+      box.addEventListener('click', (event) => {
+        if (event.target.closest('[data-cookie-settings]')) return;
+        playVideo();
+      });
+      box.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          playVideo();
+        }
+      });
+      window.VKCookieConsent?.onChange(renderBlogVideoState);
+    }
+
+    renderBlogVideoState();
+    initBlogVideo();
+  </script>
+</body>
+</html>

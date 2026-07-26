@@ -2,6 +2,18 @@
   publish = "."
 
 [[redirects]]
+  from = "/ladebooster-wohnmobil"
+  to = "/ladebooster-wohnmobil.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lifepo4-batterie-laedt-nicht-voll"
+  to = "/lifepo4-batterie-laedt-nicht-voll.html"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/blog-stufe-1"
   to = "/blog-stufe-1.html"
   status = 301
