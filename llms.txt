@@ -24,6 +24,10 @@
 - [1:1-Beratung und Kontakt](https://voltkompass.com/#kontakt)
 - [Über Andreas](https://voltkompass.com/#ueber)
 
+## Preise
+
+- [Maschinenlesbare Preisübersicht](https://voltkompass.com/pricing.md): Leistungen, Preise und Kontaktweg für Kurz-Beratung, Tiefen-Beratung und Elektroplan.
+
 ## Quellen- und Sicherheitshinweis
 
 Technische Aussagen in den Ratgebern werden anhand eigener Praxisbeispiele und verlinkter Herstellerunterlagen eingeordnet. Konkrete Kabelquerschnitte, Sicherungen, Leitungswege und Geräteeinstellungen müssen immer zum jeweiligen Fahrzeug, zur Batterie und zu den Herstellervorgaben passen. Arbeiten an 12-V-Hochstrom- und 230-V-Systemen können eine fachkundige Prüfung erfordern.
