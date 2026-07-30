@@ -826,6 +826,11 @@ body.blog-lightbox-open{
   letter-spacing:.04em;
   text-transform:uppercase;
 }
+.ladebooster-page #lifepo4 .blog-facts{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-self:start;
+  margin-top:0;
+}
 .ladebooster-page .blog-disclaimer{
   margin-top:30px!important;
   padding:20px;
@@ -873,6 +878,9 @@ body.blog-lightbox-open{
   }
   .ladebooster-page .blog-table{
     min-width:650px;
+  }
+  .ladebooster-page #lifepo4 .blog-facts{
+    grid-template-columns:1fr;
   }
 }
 
