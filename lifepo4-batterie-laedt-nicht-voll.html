@@ -99,7 +99,7 @@
         "@id": "https://voltkompass.com/lifepo4-batterie-laedt-nicht-voll.html#video",
         "name": "LiFePO4 / Lithium Akku lädt nicht voll. Das sind die Ursachen.",
         "description": "Andreas von VoltKompass erklärt, warum eine LiFePO4-Batterie im Wohnmobil scheinbar oder tatsächlich nicht vollständig geladen wird.",
-        "thumbnailUrl": "https://i.ytimg.com/vi/UGUHwKdfmOY/maxresdefault.jpg",
+        "thumbnailUrl": "https://voltkompass.com/assets/blog/lifepo4-laedt-nicht-voll/lifepo4-video-thumbnail-clean.webp",
         "uploadDate": "2025-11-01T09:00:00+01:00",
         "duration": "PT23M32S",
         "embedUrl": "https://www.youtube-nocookie.com/embed/UGUHwKdfmOY",
@@ -236,11 +236,10 @@
           </div>
 
           <figure class="blog-hero-figure">
-            <button class="blog-zoom" type="button" data-full="assets/blog/lifepo4-laedt-nicht-voll/lifepo4-laedt-nicht-voll-system-full.webp" data-caption="Solarladeregler, Verteilung und LiFePO4-Batterie im Wohnmobil. Originalbild aus meinem VoltKompass-Video." aria-label="Systemübersicht vergrößern">
+            <button class="blog-zoom" type="button" data-full="assets/blog/lifepo4-laedt-nicht-voll/lifepo4-video-thumbnail-clean.webp" data-caption="Solarladeregler, Verteilung und LiFePO4-Batterie im Wohnmobil. Originalbild aus meinem VoltKompass-Video." aria-label="Systemübersicht vergrößern">
               <picture>
-                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/lifepo4-laedt-nicht-voll/lifepo4-laedt-nicht-voll-system-960.webp">
-                <source type="image/webp" srcset="assets/blog/lifepo4-laedt-nicht-voll/lifepo4-laedt-nicht-voll-system-full.webp">
-                <img src="assets/blog/lifepo4-laedt-nicht-voll/lifepo4-laedt-nicht-voll-system.jpg" width="1280" height="720" alt="Wohnmobil-Solarsystem mit Victron SmartSolar Laderegler, Kabelverteilung und LiFePO4-Batterie" decoding="async" fetchpriority="high">
+                <source type="image/webp" srcset="assets/blog/lifepo4-laedt-nicht-voll/lifepo4-video-thumbnail-clean.webp">
+                <img src="assets/blog/lifepo4-laedt-nicht-voll/lifepo4-video-thumbnail-clean.webp" width="1280" height="720" alt="Wohnmobil-Solarsystem mit Victron SmartSolar Laderegler, Kabelverteilung und LiFePO4-Batterie" decoding="async" fetchpriority="high">
               </picture>
             </button>
             <figcaption>Für die richtige Diagnose zählt die Spannung direkt an den Batteriepolen.</figcaption>
@@ -722,7 +721,7 @@
       box.setAttribute('aria-label', allowed ? 'Video abspielen' : 'YouTube-Video nach Zustimmung laden');
 
       if (allowed) {
-        box.innerHTML = `<img src="https://i.ytimg.com/vi/${blogVideo.id}/hqdefault.jpg" alt="${blogVideo.alt}" loading="lazy" decoding="async"/><div class="video-play" aria-hidden="true"></div>`;
+        box.innerHTML = `<img src="assets/blog/lifepo4-laedt-nicht-voll/lifepo4-video-thumbnail-clean.webp" alt="${blogVideo.alt}" loading="lazy" decoding="async"/><div class="video-play" aria-hidden="true"></div>`;
         return;
       }
 
