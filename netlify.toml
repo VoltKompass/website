@@ -2,6 +2,12 @@
   publish = "."
 
 [[redirects]]
+  from = "/standby-charger-pro-wcs-rapid-vergleich"
+  to = "/standby-charger-pro-wcs-rapid-vergleich.html"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/ladebooster-wohnmobil"
   to = "/ladebooster-wohnmobil.html"
   status = 301
