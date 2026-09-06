@@ -2,6 +2,20 @@
   publish = "."
 
 [[redirects]]
+  from = "/"
+  to = "/"
+  status = 301
+  force = true
+  query = { lang = "de" }
+
+[[redirects]]
+  from = "/"
+  to = "/"
+  status = 301
+  force = true
+  query = { lang = "ru" }
+
+[[redirects]]
   from = "/standby-charger-pro-wcs-rapid-vergleich"
   to = "/standby-charger-pro-wcs-rapid-vergleich.html"
   status = 301
