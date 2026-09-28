@@ -74,3 +74,9 @@
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+  from = "/blog-stufe-4"
+  to = "/blog-stufe-4.html"
+  status = 301
+  force = true
