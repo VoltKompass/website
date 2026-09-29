@@ -78,7 +78,8 @@
     .product-list small{display:block;margin-top:6px;color:var(--mute);font-size:13px;line-height:1.5;font-weight:400}
     .product-list .product-unlinked{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:18px;padding:14px 20px;border-bottom:1px solid var(--line)}
     .blog-image-stack{display:grid;gap:24px;min-width:0}
-    #ladebooster h3{margin-top:32px}
+    .blog-section .blog-narrow > h3,
+    .blog-section .blog-split > div > h3{margin-top:32px}
     @media (max-width:980px){
       #solar .blog-split{grid-template-columns:minmax(0,1fr)}
       #solar .blog-split > *{min-width:0}
@@ -145,7 +146,6 @@
 <dt>Materialkosten</dt>
 <dd>Rechnerisch 4.147 € mit drei 150-W-Dachmodulen laut Einzelpreisen der beigefügten Liste. Einbau und Ergänzungen kommen hinzu.</dd>
 </dl></div>
-<p class="blog-note"><strong>Zu den Schaltbildern:</strong> Die Originalgrafiken zeigen das Systemprinzip. Einige eingezeichnete Sicherungswerte weichen von den Herstellerangaben ab. Die konkreten Korrekturen stehen direkt bei den betreffenden Abschnitten und gesammelt unter <a href="#planung">Sicherungen und Kabel</a>. Die 230-V-Verteilung muss eine Elektrofachkraft für das Fahrzeug planen und prüfen.</p>
 </div></section><section id="video" class="blog-section blog-video-section">
       <div class="wrap">
         <div class="blog-narrow">
@@ -254,37 +254,6 @@
 <p>Das Konzept unterscheidet zwischen Verbrauchern, die auch unterwegs über den Wechselrichter laufen dürfen, und Geräten, die nur bei vorhandenem Landstrom eingeschaltet werden sollen. Für die zweite Gruppe zeigt die Skizze ein zusätzliches Relais. Gerade bei Absorberkühlschrank, Heizung oder Klimaanlage lohnt diese Aufteilung, damit die Batterie nicht unbeabsichtigt stark belastet wird.</p>
 <p>Die Zeichnung erklärt die Idee, legt aber weder die vollständige Schutzbeschaltung noch die konkrete Einbindung in den vorhandenen Elektroblock fest. FI/LS, Schutzleiterführung, Netzumschaltung und die Wirksamkeit der Schutzmaßnahmen in beiden Betriebsarten müssen für das Fahrzeug geprüft werden.</p>
 </div>
-</div></section><section id="planung" class="blog-section"><div class="wrap blog-narrow">
-<span class="eyebrow">Planungshinweise</span><h2>Sicherungen und Kabel: diese Werte müssen zusammenpassen</h2>
-<p>Eine Sicherung muss zur Leitung, ihrer Verlegung und zum angeschlossenen Gerät passen. Größere Querschnitte erlauben deshalb nicht automatisch, die in einer Geräteanleitung genannten Sicherungswerte zu überschreiten. Bei den folgenden drei Punkten weichen die Originalgrafiken und die Materialliste von den Herstellerangaben ab:</p>
-<div class="blog-table-wrap"><table class="blog-table">
-<caption>Abgleich der Vorlage mit den Herstelleranleitungen</caption>
-<thead><tr>
-<th scope="col">Abgang</th>
-<th scope="col">In der Vorlage</th>
-<th scope="col">Herstellerangabe</th>
-</tr></thead>
-<tbody>
-<tr>
-<th scope="row">Orion XS 12/12-50A</th>
-<td>80 A, eingangs- und ausgangsseitig</td>
-<td>60–70 A externe Batteriesicherung</td>
-</tr>
-<tr>
-<th scope="row">SmartSolar MPPT 100/30</th>
-<td>50 A auf der Batterieseite</td>
-<td>35–40 A auf der Batterieseite</td>
-</tr>
-<tr>
-<th scope="row">SmartSolar MPPT 100/20</th>
-<td>40 A auf der Batterieseite</td>
-<td>25–30 A auf der Batterieseite</td>
-</tr>
-</tbody>
-</table></div>
-<p>Quellen: <a href="https://www.victronenergy.com/media/pg/Orion_XS_12-12-50A_DC-DC_battery_charger/en/installation.html" target="_blank" rel="noopener">Orion XS, Abschnitt 3.3</a>, <a href="https://www.victronenergy.com/media/pg/Manual_SmartSolar_MPPT_100-30__100-50/en/installation.html" target="_blank" rel="noopener">MPPT 100/30, Abschnitt 4.2</a> und <a href="https://www.victronenergy.com/media/pg/Manual_SmartSolar_MPPT_75-10_up_to_100-20/en/installation.html" target="_blank" rel="noopener">MPPT 100/20, Abschnitt 4.2</a>.</p>
-<p>Auch beim Solarkabel unterscheiden sich die Unterlagen: Der Text nennt für die Einzelmodulvariante 6 mm², die Materialliste führt 4 mm² auf. Der passende Querschnitt ergibt sich aus Modulstrom, Leitungslänge, Verlegeart und zulässigem Spannungsabfall.</p>
-<p>Prüfe außerdem die Belastbarkeit von Sammelschienen, Hauptschalter, Sicherungshaltern und Kabelschuhen. Beim LiFePO4-Akku ist neben dem Nennstrom auch das erforderliche Ausschaltvermögen der Sicherung relevant. Die vorhandene Bordelektrik muss in diese Auslegung einbezogen werden.</p>
 </div></section><section id="kosten" class="blog-section"><div class="wrap blog-narrow">
 <span class="eyebrow">Kosten</span><h2>Was kostet die Wohnmobil-Solaranlage Stufe 4?</h2>
 <p>Die mitgelieferte Kostenliste enthält 54 bepreiste Positionen. Addiert ergeben sie <strong>4.387 €</strong>. Darin stehen sowohl das einzelne 450-W-Modul als auch die drei 150-W-Module. Für einen tatsächlichen Aufbau wird nur eine dieser Dachvarianten benötigt.</p>
@@ -313,13 +282,9 @@
 </tr>
 </tbody>
 </table></div>
-<p>Diese Rechnungen ändern nur die Modulauswahl. Halterungen, Verteiler, Dioden und alle anderen Mengen bleiben zunächst unverändert. Gerade bei der Einzelmodulvariante kann sich dieser Zubehörbedarf noch ändern. Die Solartasche und der optionale StandBy Charger sind in beiden Summen enthalten.</p>
-<p>Der gesprochene Text nennt rund 3.300 € für das Gesamtsystem, die Kostenfolie rund 4.500 €. Für diesen Beitrag nutze ich die nachvollziehbaren Einzelpreise der Liste. Sie sind Planungswerte aus den Unterlagen und keine tagesaktuellen Angebote. Einbau, Versand und fahrzeugspezifische Ergänzungen sind damit nicht vollständig erfasst.</p>
-<p class="blog-note"><strong>Noch zu ergänzen:</strong> Das gezeichnete 230-V-Relais hat in der Liste weder Preis noch Produktlink. Die 2-A-Absicherung der Shunt-Messleitung erscheint ebenfalls nicht als eigene Position und muss im Lieferumfang geprüft werden. Die oben genannten Korrekturen der Sicherungswerte können den Materialkorb verändern.</p>
 </div></section><section id="material" class="blog-section"><div class="wrap ">
 <div class="blog-narrow">
 <span class="eyebrow">Materialliste</span><h2>Komponenten, Mengen und Links für Stufe 4</h2>
-<p>Alle 54 Positionen aus der beigefügten Materialfolie sind hier übernommen. Die Eurobeträge gelten jeweils für die angegebene Menge der ganzen Zeile. Alternative und klärungsbedürftige Positionen sind gekennzeichnet. Die Liste dient zur Planung und muss vor der Bestellung an den tatsächlichen Aufbau angepasst werden.</p>
 <p class="blog-affiliate-note">Affiliate-Hinweis: Einige Links sind Amazon-Partnerlinks. Bei einem Kauf über diese Links kann VoltKompass eine Provision erhalten. Für dich bleibt der Preis gleich. Die Links stammen aus der Vorlage; Zielprodukt und Verfügbarkeit wurden nicht einzeln bestätigt.</p>
 </div>
 <div class="product-groups">
@@ -346,7 +311,7 @@
 </div></section><section id="faq" class="blog-section"><div class="wrap blog-narrow">
 <span class="eyebrow">Häufige Fragen</span><h2>Fragen zur 450-Watt-Solaranlage und Stufe 4</h2>
 <div class="blog-faq">
-<details><summary>Reichen 450 Watt Solar im Wohnmobil?</summary><p>Das hängt vom täglichen Verbrauch und den Ertragsbedingungen ab. Stufe 4 ergänzt die 450-W-Dachanlage um eine 300-W-Solartasche, 320 Ah Batteriespeicher und einen 50-A-Ladebooster. Diese Kombination bietet mehrere Möglichkeiten zum Nachladen, garantiert aber keine bestimmte Zahl autarker Tage.</p></details><details><summary>Kann ich 450 Watt Solar an einem MPPT 100/30 betreiben?</summary><p>Eine leichte Überbelegung gegenüber den 440 W nominaler PV-Leistung bei 12 V ist möglich, wenn die PV-Grenzen des Reglers eingehalten werden. Dazu gehören maximal 100 V Leerlaufspannung einschließlich Kälteeinfluss und 35 A Kurzschlussstrom. Der Regler begrenzt den Ladestrom auf 30 A.</p></details><details><summary>Warum hat die Solartasche einen eigenen Laderegler?</summary><p>Dachmodule und Solartasche können unterschiedlich ausgerichtet und verschattet sein. Mit getrennten MPPT-Reglern arbeitet jede Solarquelle an ihrem eigenen Arbeitspunkt. Beide Regler müssen zur gemeinsamen Batterie passend eingestellt sein.</p></details><details><summary>Passt ein 2000-W-Wechselrichter zu einem 320-Ah-Akku?</summary><p>Die Kapazität allein reicht zur Beurteilung nicht aus. Bei angenommenen 12 V und 90 % Wirkungsgrad benötigt der Wechselrichter etwa 185 A für 2000 W Ausgangsleistung. BMS, Akku, Leitungen und Absicherung müssen diesen Strom plus weitere Verbraucher und mögliche Spitzen vertragen.</p></details><details><summary>Wie hoch sind die Materialkosten von Stufe 4?</summary><p>Die 54 Einzelpreise ergeben 4.387 € einschließlich beider alternativer Dachmodulvarianten. Nach Abzug des jeweils nicht gewählten Modulsatzes bleiben rechnerisch 4.147 € mit drei 150-W-Modulen oder 3.742 € mit einem 450-W-Modul. Einbau, Zubehöranpassungen und fehlende Positionen kommen hinzu.</p></details><details><summary>Kann ich die Schaltbilder direkt zum Nachbauen verwenden?</summary><p>Die Bilder erklären den Aufbau, sind aber kein geprüfter Einbauplan für ein bestimmtes Fahrzeug. Beim Orion XS und den beiden MPPT-Reglern weichen Sicherungswerte von den Herstellerangaben ab. Die korrigierten Bereiche stehen im Abschnitt Sicherungen und Kabel; insbesondere die 230-V-Verteilung braucht eine fachliche Planung und Prüfung.</p></details>
+<details><summary>Reichen 450 Watt Solar im Wohnmobil?</summary><p>Das hängt vom täglichen Verbrauch und den Ertragsbedingungen ab. Stufe 4 ergänzt die 450-W-Dachanlage um eine 300-W-Solartasche, 320 Ah Batteriespeicher und einen 50-A-Ladebooster. Diese Kombination bietet mehrere Möglichkeiten zum Nachladen, garantiert aber keine bestimmte Zahl autarker Tage.</p></details><details><summary>Kann ich 450 Watt Solar an einem MPPT 100/30 betreiben?</summary><p>Eine leichte Überbelegung gegenüber den 440 W nominaler PV-Leistung bei 12 V ist möglich, wenn die PV-Grenzen des Reglers eingehalten werden. Dazu gehören maximal 100 V Leerlaufspannung einschließlich Kälteeinfluss und 35 A Kurzschlussstrom. Der Regler begrenzt den Ladestrom auf 30 A.</p></details><details><summary>Warum hat die Solartasche einen eigenen Laderegler?</summary><p>Dachmodule und Solartasche können unterschiedlich ausgerichtet und verschattet sein. Mit getrennten MPPT-Reglern arbeitet jede Solarquelle an ihrem eigenen Arbeitspunkt. Beide Regler müssen zur gemeinsamen Batterie passend eingestellt sein.</p></details><details><summary>Passt ein 2000-W-Wechselrichter zu einem 320-Ah-Akku?</summary><p>Die Kapazität allein reicht zur Beurteilung nicht aus. Bei angenommenen 12 V und 90 % Wirkungsgrad benötigt der Wechselrichter etwa 185 A für 2000 W Ausgangsleistung. BMS, Akku, Leitungen und Absicherung müssen diesen Strom plus weitere Verbraucher und mögliche Spitzen vertragen.</p></details><details><summary>Wie hoch sind die Materialkosten von Stufe 4?</summary><p>Die 54 Einzelpreise ergeben 4.387 € einschließlich beider alternativer Dachmodulvarianten. Nach Abzug des jeweils nicht gewählten Modulsatzes bleiben rechnerisch 4.147 € mit drei 150-W-Modulen oder 3.742 € mit einem 450-W-Modul. Einbau, Zubehöranpassungen und fehlende Positionen kommen hinzu.</p></details><details><summary>Kann ich die Schaltbilder direkt zum Nachbauen verwenden?</summary><p>Die Bilder erklären den Aufbau, sind aber kein geprüfter Einbauplan für ein bestimmtes Fahrzeug. Beim Orion XS und den beiden MPPT-Reglern weichen Sicherungswerte von den Herstellerangaben ab. Prüfe die Werte anhand der Herstelleranleitungen. Die 230-V-Verteilung braucht eine fachliche Planung und Prüfung.</p></details>
 </div>
 </div></section><section id="fazit" class="blog-section"><div class="wrap blog-narrow">
 <span class="eyebrow">Fazit</span><h2>Mehr Energiereserve für Reisen mit höherem Strombedarf</h2>
