@@ -29,9 +29,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20261028-2">
   <link rel="stylesheet" href="blog.css">
+<link rel="stylesheet" href="theme.css?v=20261028-4" />
   <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
   <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
   <link rel="alternate icon" href="/favicon.ico" sizes="any">
@@ -191,21 +192,36 @@
   </script>
 </head>
 <body class="blog-page ladebooster-page lifepo4-diagnose-page">
-  <header class="nav">
-    <div class="wrap nav-inner">
-      <a href="index.html#top" class="brand"><span class="v">Volt</span><span class="k">Kompass</span></a>
-      <ul>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="#ursachen">Ursachen</a></li>
-        <li><a href="#diagnose">Diagnose</a></li>
-        <li><a href="#loesungen">Lösungen</a></li>
-        <li><a href="#faq">FAQ</a></li>
-      </ul>
-      <div class="nav-cta-slot">
-        <a href="index.html#kontakt" class="cta">Beratung buchen &rarr;</a>
-      </div>
+  <div class="read-progress" aria-hidden="true"></div>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html#top" class="brand"><img class="brand-mark" src="compass.svg" alt="" width="28" height="28" /><span><span class="v">Volt</span><span class="k">Kompass</span></span></a>
+    <ul>
+      <li><a href="index.html#fachbereiche">Fachbereiche</a></li>
+      <li><a href="index.html#solaranlage-beratung">Solaranlage</a></li>
+      <li><a href="index.html#ablauf">Ablauf</a></li>
+      <li><a href="index.html#preise">Preise</a></li>
+      <li><a href="blog.html" aria-current="page">Blog</a></li>
+      <li><a href="produkte.html">Produkte</a></li>
+      <li><a href="index.html#ueber">Über mich</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="blog.html" class="nav-blog-mobile">Blog</a>
+      <a href="produkte.html" class="nav-blog-mobile">Produkte</a>
+      <a href="index.html#kontakt" class="cta">Beratung buchen →</a>
     </div>
-  </header>
+  </div>
+</header>
+<nav class="article-jump" aria-label="Abschnitte dieses Beitrags">
+  <div class="wrap">
+    <b>Inhalt</b>
+    <a href="#ursachen">Ursachen</a>
+    <a href="#diagnose">Diagnose</a>
+    <a href="#loesungen">Lösungen</a>
+    <a href="#faq">FAQ</a>
+    <a href="#fazit">Fazit</a>
+  </div>
+</nav>
 
   <main>
     <article>
@@ -706,6 +722,39 @@
     </article>
   </main>
 
+<section class="cta-band">
+  <div class="wrap">
+    <div class="cta-band-inner">
+      <div>
+        <img src="assets/author/andreas-avatar-160.webp" alt="Andreas von VoltKompass" width="56" height="56" loading="lazy" />
+        <div>
+          <strong>Du willst das für dein Fahrzeug planen?</strong>
+          <span>Ich erstelle dir einen individuellen Stromlaufplan – persönlich und unabhängig.</span>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="index.html#kontakt">Beratung buchen →</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a href="index.html#top" class="brand"><img class="brand-mark" src="compass.svg" alt="" width="28" height="28" /><span><span class="v">Volt</span><span class="k">Kompass</span></span></a>
+      <p>© 2026 VoltKompass — Wohnmobil-Beratung für Strom &amp; Autarkie</p>
+    </div>
+    <nav>
+      <a href="index.html#top">Startseite</a>
+      <a href="blog.html">Blog</a>
+      <a href="produkte.html">Produkte</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="index.html#kontakt">Kontakt</a>
+      <button type="button" class="cookie-settings-link" data-cookie-settings>Cookie-Einstellungen</button>
+    </nav>
+  </div>
+</footer>
+
+
   <script src="blog-lightbox.js"></script>
   <script src="cookie-consent.js"></script>
   <script>
@@ -768,5 +817,6 @@
     renderBlogVideoState();
     initBlogVideo();
   </script>
+<script src="site.js"></script>
 </body>
 </html>

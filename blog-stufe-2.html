@@ -27,8 +27,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles.css?v=20261028-2" />
 <link rel="stylesheet" href="blog.css" />
+<link rel="stylesheet" href="theme.css?v=20261028-4" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -143,22 +144,38 @@
 </script>
 </head>
 <body class="blog-page">
+<div class="read-progress" aria-hidden="true"></div>
 <header class="nav">
   <div class="wrap nav-inner">
-    <a href="index.html#top" class="brand"><span class="v">Volt</span><span class="k">Kompass</span></a>
+    <a href="index.html#top" class="brand"><img class="brand-mark" src="compass.svg" alt="" width="28" height="28" /><span><span class="v">Volt</span><span class="k">Kompass</span></span></a>
     <ul>
-      <li><a href="blog.html">Blog</a></li>
-      <li><a href="#video">Video</a></li>
-      <li><a href="#varianten">Varianten</a></li>
-      <li><a href="#solartasche">Solartasche</a></li>
-      <li><a href="#kosten">Kosten</a></li>
-      <li><a href="#material">Material</a></li>
+      <li><a href="index.html#fachbereiche">Fachbereiche</a></li>
+      <li><a href="index.html#solaranlage-beratung">Solaranlage</a></li>
+      <li><a href="index.html#ablauf">Ablauf</a></li>
+      <li><a href="index.html#preise">Preise</a></li>
+      <li><a href="blog.html" aria-current="page">Blog</a></li>
+      <li><a href="produkte.html">Produkte</a></li>
+      <li><a href="index.html#ueber">Über mich</a></li>
     </ul>
-    <div style="display:flex;align-items:center">
-      <a href="index.html#kontakt" class="cta">Beratung buchen &rarr;</a>
+    <div class="nav-actions">
+      <a href="blog.html" class="nav-blog-mobile">Blog</a>
+      <a href="produkte.html" class="nav-blog-mobile">Produkte</a>
+      <a href="index.html#kontakt" class="cta">Beratung buchen →</a>
     </div>
   </div>
 </header>
+<nav class="article-jump" aria-label="Abschnitte dieses Beitrags">
+  <div class="wrap">
+    <b>Inhalt</b>
+    <a href="#video">Video</a>
+    <a href="#varianten">Varianten</a>
+    <a href="#solartasche">Solartasche</a>
+    <a href="#kosten">Kosten</a>
+    <a href="#material">Material</a>
+    <a href="#faq">FAQ</a>
+    <a href="#fazit">Fazit</a>
+  </div>
+</nav>
 
 <main>
   <article>
@@ -634,6 +651,70 @@
     </section>
   </article>
 </main>
+
+<section class="related">
+  <div class="wrap">
+    <div class="related-head">
+      <div>
+        <span class="eyebrow">Weiterlesen</span>
+        <h2>Das könnte dich auch interessieren</h2>
+      </div>
+      <a class="btn btn-ghost" href="blog.html">Alle Beiträge →</a>
+    </div>
+    <div class="related-grid">
+      <a class="related-card" href="blog-stufe-3.html">
+        <div class="ri"><img src="assets/blog/stufe-3/wohnmobil-solaranlage-stufe-3-schaltplan-960.webp" alt="" loading="lazy" decoding="async" /></div>
+        <small>Autarkie-Setup</small>
+        <strong>Wohnmobil Solaranlage 300 Watt: Stufe 3</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+      <a class="related-card" href="blog-stufe-1.html">
+        <div class="ri"><img src="assets/blog/stufe-1/wohnmobil-solaranlage-stufe-1-schaltplan-960.webp" alt="" loading="lazy" decoding="async" /></div>
+        <small>Selbsteinbau</small>
+        <strong>Wohnmobil-Solaranlage selber einbauen: Stufe 1</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+      <a class="related-card" href="ladebooster-wohnmobil.html">
+        <div class="ri"><img src="assets/blog/ladebooster-wohnmobil/ladebooster-960.webp" alt="" loading="lazy" decoding="async" /></div>
+        <small>Ratgeber</small>
+        <strong>Ladebooster im Wohnmobil: Auswahl und Anschluss</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="cta-band">
+  <div class="wrap">
+    <div class="cta-band-inner">
+      <div>
+        <img src="assets/author/andreas-avatar-160.webp" alt="Andreas von VoltKompass" width="56" height="56" loading="lazy" />
+        <div>
+          <strong>Du willst das für dein Fahrzeug planen?</strong>
+          <span>Ich erstelle dir einen individuellen Stromlaufplan – persönlich und unabhängig.</span>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="index.html#kontakt">Beratung buchen →</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a href="index.html#top" class="brand"><img class="brand-mark" src="compass.svg" alt="" width="28" height="28" /><span><span class="v">Volt</span><span class="k">Kompass</span></span></a>
+      <p>© 2026 VoltKompass — Wohnmobil-Beratung für Strom &amp; Autarkie</p>
+    </div>
+    <nav>
+      <a href="index.html#top">Startseite</a>
+      <a href="blog.html">Blog</a>
+      <a href="produkte.html">Produkte</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="index.html#kontakt">Kontakt</a>
+      <button type="button" class="cookie-settings-link" data-cookie-settings>Cookie-Einstellungen</button>
+    </nav>
+  </div>
+</footer>
+
 <script src="blog-lightbox.js"></script>
 <script src="cookie-consent.js"></script>
 <script>
@@ -693,5 +774,6 @@
   });
   window.addEventListener('vk-cookie-consent-updated', renderBlogVideoState);
 </script>
+<script src="site.js"></script>
 </body>
 </html>

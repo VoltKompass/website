@@ -22,6 +22,10 @@
         "href": "blog.html"
       },
       {
+        "text": "Produkte",
+        "href": "produkte.html"
+      },
+      {
         "text": "Über mich",
         "href": "#ueber"
       }
@@ -258,6 +262,10 @@
   "footer": {
     "copyright": "© 2026 VoltKompass — Wohnmobil-Beratung für Strom & Autarkie",
     "links": [
+      {
+        "text": "Produkte",
+        "href": "produkte.html"
+      },
       {
         "text": "Impressum",
         "href": "impressum.html"
