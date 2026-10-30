@@ -28,7 +28,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles.css?v=20261028-2" />
+<link rel="stylesheet" href="theme.css?v=20261028-4" />
+<link rel="stylesheet" href="home.css?v=20261028-4" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -205,21 +207,26 @@
 }
 </script>
 </head>
-<body>
+<body class="home">
 
 <header class="nav">
-      <div class="wrap nav-inner">
-    <a href="#top" class="brand"><span class="v">Volt</span><span class="k">Kompass</span></a>
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">
+      <img class="brand-mark" src="compass.svg" alt="" width="28" height="28" />
+      <span><span class="v">Volt</span><span class="k">Kompass</span></span>
+    </a>
     <ul id="navLinks">
       <li><a href="#fachbereiche">Fachbereiche</a></li>
       <li><a href="#solaranlage-beratung">Solaranlage</a></li>
       <li><a href="#ablauf">Ablauf</a></li>
       <li><a href="#preise">Preise</a></li>
       <li><a href="blog.html">Blog</a></li>
+      <li><a href="produkte.html">Produkte</a></li>
       <li><a href="#ueber">Über mich</a></li>
     </ul>
-    <div style="display:flex;align-items:center">
+    <div class="nav-actions">
       <a href="blog.html" class="nav-blog-mobile">Blog</a>
+      <a href="produkte.html" class="nav-blog-mobile">Produkte</a>
       <a href="#kontakt" class="cta" id="navCta">Beratung buchen →</a>
     </div>
   </div>
@@ -229,14 +236,15 @@
 
 <!-- ================ HERO ================ -->
 <section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
   <div class="wrap hero-grid">
-    <div>
+    <div class="hero-copy">
       <span class="eyebrow" id="heroEyebrow">1:1 Beratung</span>
-      <h1 style="margin-top:22px">
-        <span class="v">Volt</span><span class="k">Kompass</span>
+      <h1>
+        <span class="hero-brand"><span class="v">Volt</span><span class="k">Kompass</span></span>
         <span class="hero-service-title" id="heroServiceTitle">Wohnmobil Solaranlage nachrüsten</span>
       </h1>
-      <p class="claim" id="heroClaim">1:1 Beratung für <b>Wohnmobil Solaranlage nachrüsten, Schaltplan, Kosten &amp; Autarkie</b>. Ich helfe dir, wenn du eine Solaranlage im Wohnmobil selber bauen, Komponenten auswählen oder einen sauberen Elektroplan verstehen möchtest.</p>
+      <p class="claim" id="heroClaim">1:1 Beratung für <b>Wohnmobil Solaranlage nachrüsten, Schaltplan, Kosten &amp; Autarkie</b>.</p>
       <div class="hero-ctas">
         <a href="#kontakt" class="btn btn-primary" id="heroCtaPrimary">
           <span>Termin sichern</span>
@@ -244,62 +252,74 @@
         </a>
         <a href="#fachbereiche" class="btn btn-ghost" id="heroCtaSecondary">Fachbereiche ansehen</a>
       </div>
-      <div class="hero-meta" id="heroMeta">
-        <div><b>230+</b><span>Beratungen</span></div>
-        <div><b>1:1</b><span>Persönliche Beratung</span></div>
-        <div><b>100%</b><span>Unabhängig</span></div>
+      <div class="hero-trust">
+        <img src="assets/author/andreas-avatar-160.webp" alt="Andreas von VoltKompass" width="48" height="48" />
+        <div>
+          <div class="stars-sm" aria-label="5 von 5 Sternen">★★★★★</div>
+          <span>Persönlich beraten von Andreas · 18+ Jahre Elektrotechnik</span>
+        </div>
       </div>
     </div>
 
-    <div class="compass-wrap" aria-hidden="true">
-      <div class="compass-rotor">
-        <img class="compass" src="compass.svg" alt="" width="500" height="500" decoding="async" fetchpriority="high"/>
-        <span class="compass-letter cl-n">N</span>
-        <span class="compass-letter cl-o">O</span>
-        <span class="compass-letter cl-s">S</span>
-        <span class="compass-letter cl-w">W</span>
+    <div class="hero-visual">
+      <div class="hero-orbit" aria-hidden="true"></div>
+      <div class="compass-wrap" aria-hidden="true">
+        <div class="compass-rotor">
+          <img class="compass" src="compass.svg" alt="" width="500" height="500" decoding="async" fetchpriority="high"/>
+          <span class="compass-letter cl-n">N</span>
+          <span class="compass-letter cl-o">O</span>
+          <span class="compass-letter cl-s">S</span>
+          <span class="compass-letter cl-w">W</span>
+        </div>
+        <svg class="bolt" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="boltG" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ffe27a"/>
+              <stop offset="50%" stop-color="#e6b200"/>
+              <stop offset="100%" stop-color="#6ab4f0"/>
+            </linearGradient>
+            <linearGradient id="boltEdge" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fff"/>
+              <stop offset="100%" stop-color="#1d5f9f"/>
+            </linearGradient>
+          </defs>
+          <path d="M 265 80 L 210 250 L 255 250 L 225 420 L 310 225 L 260 225 L 295 80 Z"
+                fill="url(#boltG)" stroke="url(#boltEdge)" stroke-width="3" stroke-linejoin="round"/>
+        </svg>
       </div>
+      <div class="chip chip-a"><b>25 mm²</b><span>Querschnitt?</span></div>
+      <div class="chip chip-b"><b>150 A</b><span>Absicherung?</span></div>
+      <div class="chip chip-c"><b>450 W</b><span>Solar?</span></div>
+      <div class="chip chip-d"><b>200 Ah</b><span>LiFePO4?</span></div>
+    </div>
+  </div>
 
-      <svg class="bolt" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-        <defs>
-          <linearGradient id="boltG" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#ffe27a"/>
-            <stop offset="50%" stop-color="#e6b200"/>
-            <stop offset="100%" stop-color="#6ab4f0"/>
-          </linearGradient>
-          <linearGradient id="boltEdge" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#fff"/>
-            <stop offset="100%" stop-color="#1d5f9f"/>
-          </linearGradient>
-        </defs>
-        <path d="M 265 80
-                 L 210 250
-                 L 255 250
-                 L 225 420
-                 L 310 225
-                 L 260 225
-                 L 295 80 Z"
-              fill="url(#boltG)" stroke="url(#boltEdge)" stroke-width="3" stroke-linejoin="round"/>
-      </svg>
+  <div class="wrap">
+    <div class="hero-meta" id="heroMeta">
+      <div><b>230+</b><span>Beratungen</span></div>
+      <div><b>1:1</b><span>Persönliche Beratung</span></div>
+      <div><b>100%</b><span>Unabhängig</span></div>
     </div>
   </div>
 </section>
 
+<!-- ================ THEMEN-BAND ================ -->
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Solaranlage</span><span>LiFePO4</span><span>Ladebooster</span><span>MPPT-Laderegler</span><span>Wechselrichter</span><span>SmartShunt</span><span>Landstrom</span><span>Sicherungen</span><span>Kabelquerschnitte</span><span>Autarkie</span>
+    <span>Solaranlage</span><span>LiFePO4</span><span>Ladebooster</span><span>MPPT-Laderegler</span><span>Wechselrichter</span><span>SmartShunt</span><span>Landstrom</span><span>Sicherungen</span><span>Kabelquerschnitte</span><span>Autarkie</span>
+  </div>
+</div>
+
 <!-- ================ PROBLEM ================ -->
 <section class="problem">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
+  <div class="wrap split">
+    <div class="split-head reveal">
       <span class="eyebrow" id="problemEyebrow">Stell dir vor…</span>
-      <h2 style="margin-top:18px" id="problemHeading">Solar im Wohnmobil klingt einfach — bis es <span class="accent">konkret</span> wird.</h2>
+      <h2 id="problemHeading">Solar im Wohnmobil klingt einfach — bis es <span class="accent">konkret</span> wird.</h2>
+      <p id="problemSubtext"></p>
     </div>
-    <p id="problemSubtext">Du willst in dein Womo investieren, aber bei Solaranlage, Batterie, Ladebooster, Wechselrichter, Kosten und Schaltplan werden die Fragen schnell mehr. Genau hier setze ich an.</p>
-  </div>
-  <div class="problem-grid" id="problemGrid">
-    <div class="pain reveal"><div class="num">01 — PLANUNG</div><h3>Wohnmobil Solaranlage nachrüsten</h3><p>Welche Modulgröße, welche Batterie, welcher Ladebooster? Ich helfe dir, das System passend zu Reiseprofil, Dachfläche und Verbrauch zu planen.</p></div>
-    <div class="pain reveal"><div class="num">02 — SCHALTPLAN</div><h3>Schaltplan Solaranlage Wohnmobil</h3><p>Plus, Minus, Sicherungen, Busbars, SmartShunt, MPPT, Ladebooster: Ich übersetze die Technik in einen verständlichen Elektroplan.</p></div>
-    <div class="pain reveal"><div class="num">03 — KOSTEN</div><h3>Solaranlage Camper Kosten</h3><p>Ich zeige dir, welche Komponenten wirklich nötig sind, wo Sparen sinnvoll ist und wo Sicherheit wichtiger ist als der günstigste Preis.</p></div>
-  </div>
+    <div class="pain-list" id="problemGrid"></div>
   </div>
 </section>
 
@@ -309,32 +329,30 @@
     <div class="section-head reveal">
       <div>
         <span class="eyebrow" id="fbEyebrow"></span>
-        <h2 style="margin-top:18px" id="fbHeading"></h2>
+        <h2 id="fbHeading"></h2>
       </div>
       <p id="fbSubtext"></p>
     </div>
-    <div class="areas" id="fbAreas"></div>
+    <div class="areas bento" id="fbAreas"></div>
   </div>
 </section>
 
 <!-- ================ SOLAR GUIDE ================ -->
 <section id="solaranlage-beratung" class="solar-guide">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <span class="eyebrow" id="solarGuideEyebrow">Wohnmobil-Solar</span>
-        <h2 style="margin-top:18px" id="solarGuideHeading">Wohnmobil Solaranlage nachrüsten: <span class="accent">Schaltplan, Kosten &amp; Selbsteinbau</span></h2>
+  <div class="wrap showcase">
+    <a class="showcase-media reveal" id="solarGuideMedia" href="blog-stufe-3.html">
+      <img src="assets/blog/stufe-3/wohnmobil-solaranlage-stufe-3-schaltplan-960.webp" srcset="assets/blog/stufe-3/wohnmobil-solaranlage-stufe-3-schaltplan-960.webp 960w, assets/blog/stufe-3/wohnmobil-solaranlage-stufe-3-schaltplan-1440.webp 1440w" sizes="(max-width:960px) 100vw, 680px" width="1440" height="510" loading="lazy" decoding="async" alt="Stromlaufplan einer Wohnmobil-Solaranlage mit 310 W Dachsolar, 300 W Solartasche, 200 Ah LiFePO4, Ladebooster und 1500 W Wechselrichter" />
+      <span class="showcase-tag">Beispiel: Stufe 3 · 610 W Solar · 200 Ah LiFePO4</span>
+    </a>
+    <div class="showcase-copy reveal">
+      <span class="eyebrow" id="solarGuideEyebrow">Wohnmobil-Solar</span>
+      <h2 id="solarGuideHeading"></h2>
+      <p class="lead" id="solarGuideSubtext"></p>
+      <ol class="feature-list" id="solarGuideCards"></ol>
+      <div class="solar-guide-link">
+        <p id="solarGuideLinkText"></p>
+        <a class="btn btn-primary" id="solarGuideLink" href="blog-stufe-1.html">Beispiel im Blog ansehen</a>
       </div>
-      <p id="solarGuideSubtext">Ob Solaranlage Wohnmobil selber bauen, fertige Anlage prüfen oder Elektroplan verstehen: Ich helfe dir, die Technik passend zu deinem Fahrzeug und deinem Reisealltag einzuordnen.</p>
-    </div>
-    <div class="problem-grid" id="solarGuideCards">
-      <div class="pain reveal"><div class="num">01 — SELBSTEINBAU</div><h3>Solaranlage Wohnmobil selber bauen</h3><p>Du bekommst eine verständliche Einschätzung, welche Komponenten zusammenpassen und worauf du achten musst, wenn du die Wohnmobil Solaranlage selber einbauen willst.</p></div>
-      <div class="pain reveal"><div class="num">02 — KOSTEN</div><h3>Solaranlage Camper Kosten</h3><p>Ich ordne Materialkosten realistisch ein: Batterie, Module, Laderegler, Ladebooster, Wechselrichter, Kabel, Sicherungen und Reserven für spätere Erweiterungen.</p></div>
-      <div class="pain reveal"><div class="num">03 — PLAN</div><h3>Schaltplan Solaranlage Wohnmobil</h3><p>Aus Verbrauch, Standzeit, Dachfläche und vorhandener Elektrik entsteht ein nachvollziehbarer Plan statt einer zufälligen Einkaufsliste.</p></div>
-    </div>
-    <div class="solar-guide-link reveal">
-      <p id="solarGuideLinkText">Im Blog findest du ein konkretes Beispiel für eine kompakte Ausbaustufe mit 150 W Solar, LiFePO4, Ladebooster, Schaltplan-Orientierung und Kosten.</p>
-      <a class="btn btn-primary" id="solarGuideLink" href="blog-stufe-1.html">Beispiel im Blog ansehen</a>
     </div>
   </div>
 </section>
@@ -345,60 +363,40 @@
     <div class="section-head reveal">
       <div>
         <span class="eyebrow" id="ablaufEyebrow"></span>
-        <h2 style="margin-top:18px" id="ablaufHeading"></h2>
+        <h2 id="ablaufHeading"></h2>
       </div>
     </div>
-    <div class="steps" id="ablaufSteps"></div>
+    <div class="steps timeline" id="ablaufSteps"></div>
   </div>
 </section>
 
 <!-- ================ PREISE ================ -->
 <section id="preise">
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="section-head center reveal">
       <div>
         <span class="eyebrow" id="preiseEyebrow">Preise</span>
-        <h2 style="margin-top:18px" id="preiseHeading">Beratung, <span class="accent">Kostencheck</span> oder Elektroplan</h2>
+        <h2 id="preiseHeading"></h2>
       </div>
-      <p id="preiseSubtext">Drei Angebote: kurze Einschätzung, tiefere Solar-Beratung oder ein konkreter Elektroplan für deine Wohnmobil-Solaranlage. Kein Abo, keine versteckten Kosten.</p>
+      <p id="preiseSubtext"></p>
     </div>
-    <div class="pricing" id="preisePlans">
-      <div class="plan reveal"><h3>Kurz-Beratung</h3><div class="price"><b>69</b><span>€ / 30 Min</span></div><p class="sub">Ideal für eine konkrete Frage zu Solaranlage, Batterie, Ladebooster, Kosten oder Produktauswahl.</p><ul><li>30 Minuten Beratungszeit</li><li>WhatsApp, Telegram, Signal</li><li>Minutengenaue Abrechnung</li><li>30 Tage flexibel nutzbar</li></ul><a href="#kontakt" class="btn btn-ghost" data-paket="kurz-beratung">Paket wählen</a></div>
-      <div class="plan featured reveal" data-badge="Empfohlen"><h3>Tiefen-Beratung</h3><div class="price"><b>119</b><span>€ / 60 Min</span></div><p class="sub">Ich hole dich von 0 ab — Wohnmobil Solaranlage nachrüsten, Autarkie planen, Komponenten verstehen und Fehler vermeiden.</p><ul><li>60 Minuten Beratungszeit</li><li>WhatsApp, Telegram, Signal</li><li>Minutengenaue Abrechnung</li><li>30 Tage flexibel nutzbar</li></ul><a href="#kontakt" class="btn btn-primary" data-paket="tiefen-beratung">Paket wählen →</a></div>
-      <div class="plan reveal"><h3>Elektroplan</h3><div class="price"><b>349</b><span>€</span></div><p class="sub">Detaillierter Schaltplan für Solaranlage im Wohnmobil, abgestimmt auf Komponenten, Kabelwege und Kundenwunsch.</p><ul><li>60 Minuten Beratungszeit</li><li>Detaillierter Stromlaufplan</li><li>Schaltplan Solaranlage Wohnmobil</li><li>Projektbegleitung</li><li>30 Tage flexibel nutzbar</li></ul><a href="#kontakt" class="btn btn-ghost" data-paket="elektroplan">Paket wählen</a></div>
-    </div>
+    <div class="pricing" id="preisePlans"></div>
   </div>
 </section>
 
 <!-- ================ ÜBER MICH ================ -->
 <section id="ueber" class="about">
   <div class="wrap about-grid">
-    <div class="reveal">
-      <span class="eyebrow" id="aboutEyebrow"></span>
-      <h2 style="margin-top:18px" id="aboutHeading"></h2>
-      <div id="aboutParagraphs"></div>
-      <div class="about-stats" id="aboutStats"></div>
-    </div>
     <figure class="about-visual reveal" id="aboutVisual">
       <img src="" alt="" loading="lazy" decoding="async"/>
       <figcaption><b></b><span></span></figcaption>
+      <div class="about-badge" id="aboutBadge"></div>
     </figure>
-  </div>
-</section>
-
-<!-- ================ VIDEO ================ -->
-<section class="video">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <span class="eyebrow" id="videoEyebrow"></span>
-        <h2 style="margin-top:18px" id="videoHeading"></h2>
-      </div>
-      <p id="videoSubtext"></p>
-    </div>
-    <div class="video-box reveal" id="videoBox" role="button" tabindex="0" aria-label="Video abspielen">
-      <img src="" alt="" loading="lazy" decoding="async"/>
-      <div class="video-play" aria-hidden="true"></div>
+    <div class="reveal">
+      <span class="eyebrow" id="aboutEyebrow"></span>
+      <h2 id="aboutHeading"></h2>
+      <div id="aboutParagraphs"></div>
+      <div class="about-stats" id="aboutStats"></div>
     </div>
   </div>
 </section>
@@ -409,35 +407,73 @@
     <div class="section-head reveal">
       <div>
         <span class="eyebrow" id="testEyebrow"></span>
-        <h2 style="margin-top:18px" id="testHeading"></h2>
+        <h2 id="testHeading"></h2>
       </div>
       <p id="testSubtext"></p>
     </div>
+    <div class="t-grid" id="tTrack"></div>
+  </div>
+</section>
 
-    <div class="t-slider reveal" id="tSlider">
-      <div class="t-track" id="tTrack"></div>
-      <div class="t-dots" id="tDots"></div>
+<!-- ================ BLOG ================ -->
+<section class="blog-teaser">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div>
+        <span class="eyebrow">Aus dem Blog</span>
+        <h2>Wohnmobil-Elektrik <span class="accent">praktisch verstehen</span></h2>
+      </div>
+      <a class="btn btn-ghost" href="blog.html">Alle Beiträge →</a>
+    </div>
+    <div class="post-grid">
+      <a class="post reveal" href="blog-stufe-1.html">
+        <div class="post-img"><img src="assets/blog/stufe-1/wohnmobil-solaranlage-stufe-1-schaltplan-960.webp" width="960" height="480" loading="lazy" decoding="async" alt="Schaltplan der Wohnmobil-Solaranlage Stufe 1" /></div>
+        <span class="post-cat">Selbsteinbau</span>
+        <h3>Wohnmobil-Solaranlage selber einbauen: Stufe 1</h3>
+        <span class="post-more">Beitrag lesen →</span>
+      </a>
+      <a class="post reveal" href="ladebooster-wohnmobil.html">
+        <div class="post-img"><img src="assets/blog/ladebooster-wohnmobil/ladebooster-960.webp" width="960" height="540" loading="lazy" decoding="async" alt="Victron Orion XS und Votronic VCC im Ladebooster-Vergleich" /></div>
+        <span class="post-cat">Ratgeber</span>
+        <h3>Ladebooster im Wohnmobil: Auswahl und Anschluss</h3>
+        <span class="post-more">Beitrag lesen →</span>
+      </a>
+      <a class="post reveal" href="lifepo4-batterie-laedt-nicht-voll.html">
+        <div class="post-img"><img src="assets/blog/lifepo4-laedt-nicht-voll/lifepo4-video-thumbnail-clean.webp" width="960" height="540" loading="lazy" decoding="async" alt="LiFePO4-Batterie und Victron-Laderegler im Wohnmobil" /></div>
+        <span class="post-cat">Fehlersuche</span>
+        <h3>LiFePO4-Batterie lädt nicht voll</h3>
+        <span class="post-more">Beitrag lesen →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ================ VIDEO ================ -->
+<section class="video">
+  <div class="wrap video-split">
+    <div class="reveal">
+      <span class="eyebrow" id="videoEyebrow"></span>
+      <h2 id="videoHeading"></h2>
+      <p class="lead" id="videoSubtext"></p>
+      <a class="btn btn-ghost" href="blog.html">Ratgeber im Blog lesen →</a>
+    </div>
+    <div class="video-box reveal" id="videoBox" role="button" tabindex="0" aria-label="Video abspielen">
+      <img src="" alt="" loading="lazy" decoding="async"/>
+      <div class="video-play" aria-hidden="true"></div>
     </div>
   </div>
 </section>
 
 <!-- ================ FAQ ================ -->
 <section id="faq">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <div>
-        <span class="eyebrow" id="faqEyebrow">FAQ</span>
-        <h2 style="margin-top:18px" id="faqHeading">Häufige Fragen zur <span class="accent">Wohnmobil Solaranlage</span></h2>
-      </div>
-      <p id="faqSubtext">Kurze Antworten auf typische Fragen zu Nachrüstung, Selbsteinbau, Kosten und Schaltplan.</p>
+  <div class="wrap split">
+    <div class="split-head reveal">
+      <span class="eyebrow" id="faqEyebrow">FAQ</span>
+      <h2 id="faqHeading"></h2>
+      <p id="faqSubtext"></p>
+      <a class="btn btn-ghost" href="#kontakt">Frage stellen →</a>
     </div>
-    <div class="faq-list" id="faqList">
-      <details class="reveal" open><summary>Kann ich eine Solaranlage im Wohnmobil selber bauen?</summary><p>Ja, wenn du sauber planst und die Grenzen kennst. Ich helfe dir, Komponenten, Sicherungen, Kabelquerschnitte und Schaltplan zu verstehen, bevor du eine Solaranlage Wohnmobil selber bauen möchtest.</p></details>
-      <details class="reveal"><summary>Was kostet eine Solaranlage im Camper?</summary><p>Die Solaranlage Camper Kosten hängen stark von Batteriegröße, Solarleistung, Ladebooster, Wechselrichter und Sicherheitskomponenten ab. Ich ordne dir realistisch ein, welches Budget zu deinem Nutzungsprofil passt.</p></details>
-      <details class="reveal"><summary>Bekomme ich einen Schaltplan für die Solaranlage im Wohnmobil?</summary><p>Ja. Im Elektroplan geht es um den Schaltplan Solaranlage Wohnmobil: Batterie, Laderegler, Ladebooster, Sicherungen, Verteilerpunkte, Wechselrichter und Leitungswege werden passend zu deinem Fahrzeug geplant.</p></details>
-      <details class="reveal"><summary>Hilfst du beim Wohnmobil Solaranlage nachrüsten?</summary><p>Ja. Ich begleite dich von der ersten Idee über Komponentenwahl und Kosten bis zur Schaltplan-Orientierung. Die praktische Umsetzung und Prüfung muss je nach Arbeitsschritt fachgerecht erfolgen.</p></details>
-      <details class="reveal"><summary>Wie läuft die Beratung konkret ab?</summary><p>Du buchst ein Paket, schickst mir deine Fragen und bekommst klare Antworten per WhatsApp, Telegram oder Signal. Bei Bedarf gehen wir deinen bestehenden Plan, deine Einkaufsliste oder deinen Schaltplan Schritt für Schritt durch.</p></details>
-    </div>
+    <div class="faq-list" id="faqList"></div>
   </div>
 </section>
 
@@ -445,37 +481,46 @@
 <section id="kontakt">
   <div class="wrap">
     <div class="cta-block reveal">
-      <span class="eyebrow" id="ctaEyebrow"></span>
-      <h2 style="margin-top:20px" id="ctaHeading"></h2>
-      <p id="ctaText"></p>
-      <form name="kontakt" method="POST" data-netlify="true" class="contact-form" id="contactForm">
-        <input type="hidden" name="form-name" value="kontakt" />
-        <div class="form-radios" id="formRadios">
-          <label class="radio-label"><input type="radio" name="paket" value="kurz-beratung" checked /><span class="radio-mark"></span><span data-radio-label></span></label>
-          <label class="radio-label"><input type="radio" name="paket" value="tiefen-beratung" /><span class="radio-mark"></span><span data-radio-label></span></label>
-          <label class="radio-label"><input type="radio" name="paket" value="elektroplan" /><span class="radio-mark"></span><span data-radio-label></span></label>
-        </div>
-        <div class="form-row">
-          <div class="form-field">
-            <label for="fname" id="labelName"></label>
-            <input type="text" id="fname" name="name" required />
+      <div class="cta-copy">
+        <span class="eyebrow" id="ctaEyebrow"></span>
+        <h2 id="ctaHeading"></h2>
+        <p id="ctaText"></p>
+        <ul class="cta-perks">
+          <li>Antwort innerhalb von 24 Stunden</li>
+          <li>Per WhatsApp, Telegram oder Signal</li>
+          <li>Kein Abo, keine versteckten Kosten</li>
+        </ul>
+      </div>
+      <div class="cta-form">
+        <form name="kontakt" method="POST" data-netlify="true" class="contact-form" id="contactForm">
+          <input type="hidden" name="form-name" value="kontakt" />
+          <div class="form-radios" id="formRadios">
+            <label class="radio-label"><input type="radio" name="paket" value="kurz-beratung" checked /><span class="radio-mark"></span><span data-radio-label></span></label>
+            <label class="radio-label"><input type="radio" name="paket" value="tiefen-beratung" /><span class="radio-mark"></span><span data-radio-label></span></label>
+            <label class="radio-label"><input type="radio" name="paket" value="elektroplan" /><span class="radio-mark"></span><span data-radio-label></span></label>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="fname" id="labelName"></label>
+              <input type="text" id="fname" name="name" required />
+            </div>
+            <div class="form-field">
+              <label for="femail" id="labelEmail"></label>
+              <input type="email" id="femail" name="email" required />
+            </div>
           </div>
           <div class="form-field">
-            <label for="femail" id="labelEmail"></label>
-            <input type="email" id="femail" name="email" required />
+            <label for="fmessage" id="labelMessage"></label>
+            <textarea id="fmessage" name="message" rows="4" required></textarea>
           </div>
+          <button type="submit" class="btn btn-primary" id="formSubmit">
+            <span></span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+        </form>
+        <div class="form-success" id="formSuccess" hidden>
+          <p id="formSuccessMsg"></p>
         </div>
-        <div class="form-field">
-          <label for="fmessage" id="labelMessage"></label>
-          <textarea id="fmessage" name="message" rows="4" required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" id="formSubmit">
-          <span></span>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
-      </form>
-      <div class="form-success" id="formSuccess" hidden>
-        <p id="formSuccessMsg"></p>
       </div>
     </div>
   </div>
@@ -485,12 +530,16 @@
 
 <footer>
   <div class="wrap foot">
-    <p id="footCopyright"></p>
+    <div class="foot-brand">
+      <a href="#top" class="brand"><img class="brand-mark" src="compass.svg" alt="" width="28" height="28" /><span><span class="v">Volt</span><span class="k">Kompass</span></span></a>
+      <p id="footCopyright"></p>
+    </div>
     <nav id="footNav"></nav>
   </div>
 </footer>
 
 <script src="cookie-consent.js"></script>
+<script src="site.js"></script>
 <script>
   const CHECK_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l4 4L19 7"/></svg>';
 
@@ -502,6 +551,8 @@
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2c.5 3-2 4-2 7a2 2 0 0 0 4 0c0-1-.5-1.5-.5-2.5 1.5 1 3.5 3 3.5 6a5 5 0 0 1-10 0c0-3 2-5 3-7 .8-1.6 1.5-2.5 2-3.5z"/></svg>',
     '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>'
   ];
+
+  // Bild für die große Bento-Kachel (zweiter Fachbereich)
 
   const BADGE = { de: 'Empfohlen' };
 
@@ -547,16 +598,16 @@
     document.getElementById('problemHeading').innerHTML = d.problem.heading;
     document.getElementById('problemSubtext').textContent = d.problem.subtext;
     document.getElementById('problemGrid').innerHTML = d.problem.cards.map(c =>
-      `<div class="pain reveal"><div class="num">${c.num}</div><h3>${c.title}</h3><p>${c.text}</p></div>`
+      `<div class="pain reveal"><div class="num">${c.num}</div><div><h3>${c.title}</h3><p>${c.text}</p></div></div>`
     ).join('');
 
     // Fachbereiche
     document.getElementById('fbEyebrow').textContent = d.fachbereiche.eyebrow;
     document.getElementById('fbHeading').innerHTML = d.fachbereiche.heading;
     document.getElementById('fbSubtext').textContent = d.fachbereiche.subtext;
-    document.getElementById('fbAreas').innerHTML = d.fachbereiche.areas.map((a, i) =>
-      `<div class="area reveal"><div class="ico">${AREA_ICONS[i] || ''}</div><h3>${a.title}</h3><p>${a.text}</p></div>`
-    ).join('');
+    document.getElementById('fbAreas').innerHTML = d.fachbereiche.areas.map((a, i) => {
+      return `<div class="area reveal"><div class="ico">${AREA_ICONS[i] || ''}</div><h3>${a.title}</h3><p>${a.text}</p></div>`;
+    }).join('');
 
     // Solar guide
     const solarGuide = document.getElementById('solaranlage-beratung');
@@ -566,7 +617,7 @@
       document.getElementById('solarGuideHeading').innerHTML = d.solarGuide.heading;
       document.getElementById('solarGuideSubtext').textContent = d.solarGuide.subtext;
       document.getElementById('solarGuideCards').innerHTML = d.solarGuide.cards.map(c =>
-        `<div class="pain reveal"><div class="num">${c.num}</div><h3>${c.title}</h3><p>${c.text}</p></div>`
+        `<li><span class="num">${c.num}</span><h3>${c.title}</h3><p>${c.text}</p></li>`
       ).join('');
       document.getElementById('solarGuideLinkText').textContent = d.solarGuide.linkText;
       const solarGuideLink = document.getElementById('solarGuideLink');
@@ -612,6 +663,9 @@
     document.getElementById('aboutStats').innerHTML = d.about.stats.map(s =>
       `<div class="stat"><b>${s.value}</b><span>${s.label}</span></div>`
     ).join('');
+    const firstHeroStat = d.hero.stats[0];
+    document.getElementById('aboutBadge').innerHTML = firstHeroStat
+      ? `<b>${firstHeroStat.value}</b><span>${firstHeroStat.label}</span>` : '';
     const aboutFig = document.getElementById('aboutVisual');
     aboutFig.querySelector('img').src = d.about.image;
     aboutFig.querySelector('img').alt = d.about.imageAlt;
@@ -625,7 +679,7 @@
     currentVideo = d.video;
     renderVideoConsentState();
 
-    // Testimonials
+    // Testimonials (alle gleichzeitig als Raster)
     document.getElementById('testEyebrow').textContent = d.testimonials.eyebrow;
     document.getElementById('testHeading').innerHTML = d.testimonials.heading;
     document.getElementById('testSubtext').textContent = d.testimonials.subtext;
@@ -633,11 +687,8 @@
       const avatar = t.avatar
         ? `<img class="t-avatar" src="${t.avatar}" alt="${t.name}" loading="lazy" decoding="async"/>`
         : `<div class="t-avatar-placeholder">${t.name.charAt(0)}</div>`;
-      return `<div class="t-slide"><div class="t-card">${avatar}<blockquote>\u201E${t.quote}\u201C</blockquote><span class="author">\u2014 ${t.name}</span></div></div>`;
+      return `<figure class="t-card reveal"><div class="stars-sm" aria-label="5 von 5 Sternen">★★★★★</div><blockquote>„${t.quote}“</blockquote><figcaption>${avatar}<span class="author">${t.name}<small>Beratungskunde</small></span></figcaption></figure>`;
     }).join('');
-    document.getElementById('tDots').innerHTML = d.testimonials.items.map((_, i) =>
-      `<div class="t-dot${i === 0 ? ' active' : ''}" data-i="${i}"></div>`
-    ).join('');
 
     // FAQ
     const faqSection = document.getElementById('faq');
@@ -672,7 +723,6 @@
 
     // Re-init reveal observers for dynamically added elements
     initReveal();
-    initSlider();
   }
 
   // Reveal on scroll
@@ -683,30 +733,6 @@
       es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObserver.unobserve(e.target); } });
     }, { threshold: .12, rootMargin: "0px 0px -60px 0px" });
     document.querySelectorAll('.reveal:not(.in)').forEach(el => revealObserver.observe(el));
-  }
-
-  // Testimonial slider
-  let sliderTimer;
-  function initSlider() {
-    if (sliderTimer) clearInterval(sliderTimer);
-    const track = document.getElementById('tTrack');
-    const dots = [...document.querySelectorAll('#tDots .t-dot')];
-    const slider = document.getElementById('tSlider');
-    if (!track || !dots.length) return;
-    const total = dots.length;
-    let i = 0;
-    const go = (n) => {
-      i = (n + total) % total;
-      track.style.transform = `translateX(-${i * 100}%)`;
-      dots.forEach((d, k) => d.classList.toggle('active', k === i));
-    };
-    const start = () => { sliderTimer = setInterval(() => go(i + 1), 10000); };
-    const stop = () => clearInterval(sliderTimer);
-    dots.forEach(d => d.addEventListener('click', () => { go(+d.dataset.i); stop(); start(); }));
-    slider.addEventListener('mouseenter', stop);
-    slider.addEventListener('mouseleave', start);
-    const vo = new IntersectionObserver(([e]) => e.isIntersecting ? start() : stop(), { threshold: .2 });
-    vo.observe(slider);
   }
 
   // YouTube facade
@@ -726,10 +752,11 @@
       box.innerHTML = `<img src="https://i.ytimg.com/vi/${currentVideo.youtubeId}/hqdefault.jpg" alt="${currentVideo.videoAlt}" loading="lazy" decoding="async"/><div class="video-play" aria-hidden="true"></div>`;
       return;
     }
-    box.innerHTML = `<div class="video-consent">
-      <b>YouTube-Video blockiert</b>
-      <p>Dieses Video wird erst geladen, wenn du externe Medien in den Cookie-Einstellungen erlaubst.</p>
-      <button type="button" class="btn btn-primary" data-cookie-settings>Auswahl anpassen</button>
+    box.innerHTML = `<img class="video-poster" src="assets/blog/lifepo4-laedt-nicht-voll/lifepo4-video-thumbnail-clean.webp" alt="" loading="lazy" decoding="async"/>
+    <div class="video-consent">
+      <div class="video-play" aria-hidden="true"></div>
+      <p>Das Video wird erst nach deiner Zustimmung von YouTube geladen.</p>
+      <button type="button" class="btn btn-primary" data-cookie-settings>Externe Medien erlauben</button>
     </div>`;
   }
 

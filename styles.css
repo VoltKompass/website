@@ -213,7 +213,7 @@ section{padding:clamp(80px,9vw,130px) 0;position:relative}
   background:linear-gradient(180deg,rgba(255,255,255,.02),rgba(255,255,255,0));
   transition:border-color .3s,transform .3s;
 }
-.pain:hover{border-color:rgba(230,178,0,.4);transform:translateY(-4px)}
+.pain:hover{border-color:rgba(230,178,0,.4)}
 .pain .num{font-size:13px;font-weight:600;color:var(--gold);letter-spacing:.15em}
 .pain h3{margin:14px 0 10px}
 .pain p{color:var(--mute);font-size:15px}
@@ -234,7 +234,7 @@ section{padding:clamp(80px,9vw,130px) 0;position:relative}
   background:radial-gradient(closest-side,rgba(230,178,0,.18),transparent 70%);
   z-index:-1;opacity:0;transition:opacity .4s;
 }
-.area:hover{transform:translateY(-6px);border-color:rgba(230,178,0,.4)}
+.area:hover{border-color:rgba(230,178,0,.4)}
 .area:hover::after{opacity:1}
 .area .ico{
   width:54px;height:54px;border-radius:14px;display:grid;place-items:center;

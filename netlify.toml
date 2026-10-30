@@ -80,3 +80,15 @@
   to = "/blog-stufe-4.html"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/ladebooster-lichtmaschine"
+  to = "/ladebooster-lichtmaschine.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/produkte"
+  to = "/produkte.html"
+  status = 301
+  force = true
