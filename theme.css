@@ -249,6 +249,8 @@ details[open] summary::after{content:"+";transform:rotate(45deg);border-color:rg
 .blog-card .btn::after{content:"→";margin-left:2px;transition:transform .2s}
 .blog-card:hover .btn::after{transform:translateX(4px)}
 .blog-card .btn::before{content:"";position:absolute;inset:0;z-index:1}
+/* kein transform beim Hover: er würde die Klickfläche auf die Größe des Buttons schrumpfen */
+.blog-card .btn:hover{transform:none;box-shadow:none}
 /* ganze Karte = ein Klickziel, sonst springt der Mauszeiger zwischen Hand und Pfeil */
 .blog-card{cursor:pointer}
 .blog-card figure,.blog-card-body>:not(.btn){pointer-events:none}
