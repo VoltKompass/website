@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>30 A oder 50 A Ladebooster? Warum der Wirkungsgrad entscheidet</title>
+  <meta name="description" content="Orion-Tr Smart 30 A oder Orion XS 50 A? Bei gleicher Last für die Lichtmaschine liefert der XS 3,5 bis 5 A mehr Ladestrom, rund neunmal weniger Wärme und bleibt bei Hitze stabil. Mit Rechnung und Video.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://voltkompass.com/ladebooster-30a-oder-50a-wirkungsgrad.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="VoltKompass">
+  <meta property="og:title" content="30 A oder 50 A Ladebooster? Warum der Wirkungsgrad entscheidet">
+  <meta property="og:description" content="Kleine Lichtmaschine? Ein auf 35 A begrenzter Orion XS belastet sie genauso wie ein 30-A-Booster, lädt aber mehr und bleibt im Sommer kühler.">
+  <meta property="og:url" content="https://voltkompass.com/ladebooster-30a-oder-50a-wirkungsgrad.html">
+  <meta property="og:image" content="https://voltkompass.com/assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-30a-50a-wirkungsgrad-titelbild.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:image:alt" content="Victron Orion-Tr Smart 30 A und Orion XS 50 A Ladebooster im Vergleich, Schriftzug Wirkungsgrad">
+  <meta property="article:published_time" content="2026-11-05T09:00:00+01:00">
+  <meta property="article:modified_time" content="2026-11-05T09:00:00+01:00">
+  <meta property="article:author" content="Andreas / VoltKompass">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="30 A oder 50 A Ladebooster? Warum der Wirkungsgrad entscheidet">
+  <meta name="twitter:description" content="Gleiche Last für die Lichtmaschine, mehr Ladestrom, weniger Wärme: Orion-Tr 30 A und Orion XS 50 A durchgerechnet.">
+  <meta name="twitter:image" content="https://voltkompass.com/assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-30a-50a-wirkungsgrad-titelbild.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20261028-2">
+  <link rel="stylesheet" href="blog.css?v=20260730-1">
+<link rel="stylesheet" href="theme.css?v=20261030-1" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="alternate icon" href="/favicon.ico" sizes="any">
+
+  <style>
+    /* Wirkungsgrad-Balken: nur auf dieser Seite */
+    .eta-chart{display:grid;gap:18px;margin:26px 0 10px}
+    .eta-row{display:grid;gap:8px}
+    .eta-row b{font-size:1rem;color:#fff}
+    .eta-row b small{font-weight:500;color:var(--text-2);margin-left:6px}
+    .eta-bar{display:flex;height:38px;border-radius:10px;overflow:hidden;border:1px solid var(--line-2);background:var(--ink-2)}
+    .eta-bar span{display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:600;white-space:nowrap;overflow:hidden;padding:0 6px}
+    .eta-bar .e-tr{background:#2f6fb5;color:#fff}
+    .eta-bar .e-xs{background:linear-gradient(90deg,#e6b200,#f6d46a);color:#1a1300}
+    .eta-bar .e-heat{background:repeating-linear-gradient(135deg,rgba(232,116,44,.75) 0 8px,rgba(232,116,44,.5) 8px 16px);color:#fff}
+    .eta-legend{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:.88rem;color:var(--text-2);margin-top:6px}
+    .eta-legend i{display:inline-block;width:14px;height:14px;border-radius:4px;margin-right:7px;vertical-align:-2px}
+    .eta-legend .l-tr{background:#2f6fb5}
+    .eta-legend .l-xs{background:#e6b200}
+    .eta-legend .l-heat{background:rgba(232,116,44,.75)}
+    .ladebooster-page .connection-path.step-list{grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+    .ladebooster-page .connection-path.step-list li{min-height:0}
+    .ladebooster-page .connection-path.step-list li::after{display:none}
+    .blog-wrap > h3{margin-top:44px;margin-bottom:14px}
+    .chapter-list{columns:2;column-gap:28px;padding-left:1.1em}
+    .chapter-list li{margin:0 0 6px;break-inside:avoid}
+    @media (max-width:760px){
+      .eta-bar{height:34px}
+      .eta-bar span{font-size:.72rem;padding:0 3px}
+      .chapter-list{columns:1}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://voltkompass.com/ladebooster-30a-oder-50a-wirkungsgrad.html#article",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://voltkompass.com/ladebooster-30a-oder-50a-wirkungsgrad.html"
+        },
+        "headline": "30 A oder 50 A Ladebooster? Warum der Wirkungsgrad entscheidet",
+        "description": "Vergleich Victron Orion-Tr Smart 12/12-30 A (nicht isoliert) und Orion XS 12/12-50 A: Bei gleicher Last für die Lichtmaschine liefert der auf 35 A Eingang begrenzte Orion XS mehr Ladestrom, erzeugt rund neunmal weniger Wärme und bleibt bei Hitze stabil.",
+        "image": [
+          "https://voltkompass.com/assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-30a-50a-wirkungsgrad-titelbild.jpg",
+          "https://voltkompass.com/assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-wirkungsgrad-87-985-prozent-full.webp",
+          "https://voltkompass.com/assets/blog/ladebooster-30a-50a-wirkungsgrad/orion-xs-35a-eingang-gleiche-last-lichtmaschine-full.webp",
+          "https://voltkompass.com/assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-ladestrom-hitze-derating-full.webp"
+        ],
+        "datePublished": "2026-11-05T09:00:00+01:00",
+        "dateModified": "2026-11-05T09:00:00+01:00",
+        "inLanguage": "de-DE",
+        "isAccessibleForFree": true,
+        "articleSection": "Wohnmobil-Elektrik",
+        "keywords": [
+          "Ladebooster 30 A oder 50 A",
+          "Ladebooster Wirkungsgrad",
+          "Victron Orion XS 50A",
+          "Orion-Tr Smart 12/12-30",
+          "Orion XS Eingangsstrom begrenzen",
+          "Ladebooster kleine Lichtmaschine",
+          "Ladebooster Hitze Derating",
+          "DC-DC Ladebooster Wohnmobil",
+          "Ladebooster Abwärme"
+        ],
+        "author": {
+          "@type": "Person",
+          "@id": "https://voltkompass.com/#andreas",
+          "name": "Andreas",
+          "url": "https://voltkompass.com/#ueber",
+          "jobTitle": "Berater für Wohnmobil-Elektrik",
+          "description": "18+ Jahre Elektrotechnik-Erfahrung und eigene Wohnmobil-Praxis."
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://voltkompass.com/#organization",
+          "name": "VoltKompass",
+          "url": "https://voltkompass.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://voltkompass.com/logo.png",
+            "width": 1082,
+            "height": 1082
+          }
+        },
+        "about": [
+          {"@type": "Thing", "name": "12-V-Ladebooster (DC-DC-Ladegerät)"},
+          {"@type": "Product", "name": "Victron Orion-Tr Smart 12/12-30 nicht isoliert"},
+          {"@type": "Product", "name": "Victron Orion XS 12/12-50A"},
+          {"@type": "Thing", "name": "Lichtmaschine (Generator) im Wohnmobil"}
+        ],
+        "citation": [
+          "https://www.victronenergy.com/upload/documents/Datasheet-Orion-Tr-Smart-DC-DC-chargers-non-isolated-360-400W-EN-.pdf",
+          "https://www.victronenergy.com/upload/documents/Datasheet-Orion-XS-DC-DC-battery-charger-EN.pdf"
+        ],
+        "video": {"@id": "https://voltkompass.com/ladebooster-30a-oder-50a-wirkungsgrad.html#video"},
+        "isPartOf": {"@id": "https://voltkompass.com/blog.html#blog"}
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://voltkompass.com/ladebooster-30a-oder-50a-wirkungsgrad.html#video",
+        "name": "30 A oder 50 A Ladebooster? Die meisten übersehen den Wirkungsgrad",
+        "description": "Andreas von VoltKompass vergleicht den Victron Orion-Tr Smart 12/12-30 A mit dem Orion XS 12/12-50 A und zeigt, warum der auf 35 A Eingang begrenzte XS bei gleicher Lichtmaschinenlast mehr Ladestrom liefert.",
+        "thumbnailUrl": "https://voltkompass.com/assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-30a-50a-wirkungsgrad-titelbild.jpg",
+        "uploadDate": "2026-10-24T23:19:40-07:00",
+        "duration": "PT6M12S",
+        "embedUrl": "https://www.youtube-nocookie.com/embed/DF-mgHawj3A",
+        "contentUrl": "https://www.youtube.com/watch?v=DF-mgHawj3A",
+        "inLanguage": "de-DE",
+        "publisher": {"@id": "https://voltkompass.com/#organization"},
+        "isPartOf": {"@id": "https://voltkompass.com/ladebooster-30a-oder-50a-wirkungsgrad.html#article"}
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://voltkompass.com/ladebooster-30a-oder-50a-wirkungsgrad.html#faq",
+        "url": "https://voltkompass.com/ladebooster-30a-oder-50a-wirkungsgrad.html#faq",
+        "inLanguage": "de-DE",
+        "isPartOf": {"@id": "https://voltkompass.com/ladebooster-30a-oder-50a-wirkungsgrad.html"},
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Reicht bei einer kleinen Lichtmaschine nicht ein 30-A-Ladebooster?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Er reicht, ist aber nicht die beste Wahl. Ein Orion XS 50 A, den du am Eingang auf 35 A begrenzt, belastet die Lichtmaschine genauso wie ein Orion-Tr 30 A. Dank 98,5 statt 87 Prozent Wirkungsgrad kommen davon aber rund 33,5 statt 30 A in der Aufbaubatterie an."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Was bedeutet der Wirkungsgrad bei einem Ladebooster?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Der Wirkungsgrad sagt, welcher Anteil der aufgenommenen Leistung in der Batterie ankommt. Bei 87 Prozent werden von 100 W rund 13 W zu Wärme, bei 98,5 Prozent nur rund 1,5 W. Diese Verlustleistung muss die Lichtmaschine zusätzlich liefern."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie viel Wärme erzeugen Orion-Tr 30 A und Orion XS?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Mit den Datenblatt-Wirkungsgraden gerechnet erzeugt der Orion-Tr bei vollen 30 A rund 64 W Abwärme. Der auf 35 A Eingang begrenzte Orion XS kommt auf rund 7 W, also etwa neunmal weniger."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Ab welcher Temperatur regelt ein Ladebooster herunter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Gemeint ist die Umgebungstemperatur, also die Luft rund um das Gerät, nicht das Gehäuse. Der Orion-Tr liefert bis 40 °C seinen vollen Strom und reduziert danach um 3 Prozent pro Grad, spezifiziert bis 55 °C. Der Orion XS reduziert ab 40 °C um 1,5 Prozent pro Grad, bezogen auf seine Nennleistung, und ist bis 60 °C spezifiziert."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Warum zieht ein Ladebooster bei niedriger Spannung mehr Strom?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ein Ladebooster hält seine Ausgangsleistung. Sinkt die Eingangsspannung, etwa durch ein langes dünnes Kabel oder eine Smart-Lichtmaschine, braucht er dafür mehr Eingangsstrom. Beim Orion-Tr 30 A sind das bei 12 V rund 41 A. Beim Orion XS kann man den Eingangsstrom fest begrenzen."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://voltkompass.com/ladebooster-30a-oder-50a-wirkungsgrad.html#breadcrumb",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://voltkompass.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://voltkompass.com/blog.html"},
+          {"@type": "ListItem", "position": 3, "name": "30 A oder 50 A Ladebooster", "item": "https://voltkompass.com/ladebooster-30a-oder-50a-wirkungsgrad.html"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="blog-page ladebooster-page">
+  <div class="read-progress" aria-hidden="true"></div>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html#top" class="brand"><img class="brand-mark" src="compass.svg" alt="" width="28" height="28" /><span><span class="v">Volt</span><span class="k">Kompass</span></span></a>
+    <ul>
+      <li><a href="index.html#fachbereiche">Fachbereiche</a></li>
+      <li><a href="index.html#solaranlage-beratung">Solaranlage</a></li>
+      <li><a href="index.html#ablauf">Ablauf</a></li>
+      <li><a href="index.html#preise">Preise</a></li>
+      <li><a href="blog.html" aria-current="page">Blog</a></li>
+      <li><a href="produkte.html">Produkte</a></li>
+      <li><a href="index.html#ueber">Über mich</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="blog.html" class="nav-blog-mobile">Blog</a>
+      <a href="produkte.html" class="nav-blog-mobile">Produkte</a>
+      <a href="index.html#kontakt" class="cta">Beratung buchen →</a>
+    </div>
+  </div>
+</header>
+<nav class="article-jump" aria-label="Abschnitte dieses Beitrags">
+  <div class="wrap">
+    <b>Inhalt</b>
+    <a href="#video">Video</a>
+    <a href="#gleiche-last">Gleiche Last</a>
+    <a href="#hitze">Hitze</a>
+    <a href="#praxis">Praxis</a>
+    <a href="#faq">FAQ</a>
+    <a href="#fazit">Fazit</a>
+  </div>
+</nav>
+
+  <main>
+    <article>
+      <section class="blog-hero">
+        <div class="wrap blog-hero-grid">
+          <div>
+          <nav class="blog-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html#top">Startseite</a>
+            <span>/</span>
+            <a href="blog.html">Blog</a>
+            <span>/</span>
+            <span>30 A oder 50 A Ladebooster</span>
+          </nav>
+          <span class="eyebrow">Ladebooster-Vergleich · Wirkungsgrad · 12 V</span>
+          <h1>30 A oder 50 A Ladebooster? Warum der Wirkungsgrad entscheidet</h1>
+          <p class="blog-lead">Viele fragen mich: Meine Lichtmaschine ist eher klein, reicht dann nicht ein 30-A-Ladebooster? Das klingt logisch. Trotzdem rate ich meist zum 50-A-Gerät, und zwar so eingestellt, dass es die Lichtmaschine genau gleich belastet. Der Grund ist eine Zahl, die fast niemand anschaut: der Wirkungsgrad.</p>
+          <p class="blog-byline">Von <a href="index.html#ueber">Andreas / VoltKompass</a> · 18+ Jahre Elektrotechnik-Erfahrung · veröffentlicht am <time datetime="2026-11-05">5. November 2026</time></p>
+          <aside class="blog-author-card" aria-label="Fachliche Einordnung des Autors">
+            <img src="assets/author/andreas-avatar-160.webp" width="160" height="160" decoding="async" alt="Andreas von VoltKompass" />
+            <p>
+              <strong>Praxiswissen von Andreas:</strong> mehr als 18 Jahre Erfahrung in der
+              Elektrotechnik und acht Jahre reisend im Wohnmobil.
+            </p>
+          </aside>
+          <div class="article-kicker">
+            <span>Orion-Tr Smart 30 A vs. Orion XS 50 A</span>
+            <span>87 % gegen 98,5 % Wirkungsgrad</span>
+            <span>Ladestrom bei Hitze durchgerechnet</span>
+            <span>Mit Video</span>
+          </div>
+          <div class="blog-actions">
+            <a href="#kurzantwort" class="btn btn-primary">Direkt zur Kurzantwort</a>
+            <a href="#video" class="btn btn-ghost">Video ansehen</a>
+          </div>
+          </div>
+
+        <figure class="blog-hero-figure">
+          <button class="blog-zoom" type="button" data-full="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-30a-50a-wirkungsgrad-titelbild-full.webp" data-caption="Victron Orion-Tr Smart 12/12-30 A und Orion XS 12/12-50 A. Titelbild aus meinem VoltKompass-Video." aria-label="Titelbild Orion-Tr 30 A und Orion XS 50 A vergrößern">
+            <picture>
+              <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-30a-50a-wirkungsgrad-titelbild-960.webp">
+              <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-30a-50a-wirkungsgrad-titelbild-1440.webp">
+              <source type="image/webp" srcset="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-30a-50a-wirkungsgrad-titelbild-full.webp">
+              <img src="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-30a-50a-wirkungsgrad-titelbild.jpg" width="1280" height="720" alt="Victron Orion-Tr Smart 30 A und deutlich größer dargestellter Orion XS 50 A, darüber der Schriftzug Wirkungsgrad" decoding="async" fetchpriority="high">
+            </picture>
+          </button>
+          <figcaption>Zwei Victron-Ladebooster, eine Frage: Wie viel kommt wirklich in der Aufbaubatterie an?</figcaption>
+        </figure>
+        </div>
+      </section>
+
+      <section class="blog-section" id="kurzantwort">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Direkte Antwort</p>
+          <h2>30 A oder 50 A Ladebooster bei kleiner Lichtmaschine?</h2>
+          <p class="blog-intro"><strong>Nimm den 50-A-Booster und begrenze ihn am Eingang. Ein Victron Orion XS 12/12-50 A, der auf 35 A Eingangsstrom eingestellt ist, belastet die Lichtmaschine genauso wie ein Orion-Tr Smart 12/12-30 A. Weil der XS mit bis zu 98,5 statt 87 Prozent Wirkungsgrad arbeitet, kommen davon aber rund 33,5 A statt 30 A in der Aufbaubatterie an. Er erzeugt rund neunmal weniger Wärme und liefert seinen Strom auch dann noch, wenn der 30-A-Booster wegen Hitze schon deutlich drosselt.</strong></p>
+          <p>Das Entscheidende ist der Gedanke dahinter: Nicht die Ampere-Zahl auf dem Gerät bestimmt, wie stark die Lichtmaschine arbeiten muss, sondern der Strom, den der Booster <strong>am Eingang</strong> zieht. Und der ist beim weniger effizienten Gerät höher, als die Zahl auf dem Etikett vermuten lässt.</p>
+
+          <div class="blog-answer-box" role="region" aria-label="Kurzüberblick 30 A oder 50 A Ladebooster">
+            <div><span>Wirkungsgrad laut Datenblatt</span><strong>Orion-Tr 87 % · Orion XS bis 98,5 %</strong></div>
+            <div><span>Last für die Lichtmaschine</span><strong>beide rund 35 A (XS am Eingang begrenzt)</strong></div>
+            <div><span>Ladestrom in die Aufbaubatterie</span><strong>30 A gegen rund 33,5 A, also 3,5 bis 5 A mehr</strong></div>
+            <div><span>Abwärme bei voller Leistung</span><strong>rund 64 W gegen rund 7 W</strong></div>
+            <div><span>Bei 50 °C im Einbauraum</span><strong>rund 21 A gegen weiterhin 33,5 A</strong></div>
+            <div><span>Zwei Stunden Fahrt bei 50 °C</span><strong>rund 42 Ah gegen 67 Ah</strong></div>
+          </div>
+
+          <nav class="blog-toc" aria-label="Inhaltsverzeichnis">
+            <h3>Inhaltsverzeichnis</h3>
+            <ol>
+              <li><a href="#video">Das Video zum Beitrag</a></li>
+              <li><a href="#system">So hängt alles zusammen</a></li>
+              <li><a href="#geraete">Die beiden Geräte im Vergleich</a></li>
+              <li><a href="#wirkungsgrad">Was Wirkungsgrad bedeutet</a></li>
+              <li><a href="#gleiche-last">Gleiche Last für die Lichtmaschine</a></li>
+              <li><a href="#hitze">Wärme und Hitze im Einbauraum</a></li>
+              <li><a href="#spannung">Was bei wenig Spannung passiert</a></li>
+              <li><a href="#praxis">Praxisbeispiel: zwei Stunden Fahrt</a></li>
+              <li><a href="#einstellen">Orion XS richtig einstellen</a></li>
+              <li><a href="#quellen">Rechenweg und Quellen</a></li>
+              <li><a href="#faq">Häufige Fragen</a></li>
+              <li><a href="#fazit">Fazit</a></li>
+            </ol>
+          </nav>
+        </div>
+      </section>
+
+      <section id="video" class="blog-section blog-video-section">
+        <div class="wrap">
+          <div class="blog-narrow">
+            <span class="eyebrow">Video</span>
+            <h2>30 A oder 50 A Ladebooster: der Vergleich im Video</h2>
+            <p>Im Video siehst du beide Geräte als 3D-Modell und alle Rechnungen als Animation: vom Wirkungsgrad über die Abwärme bis zur Temperaturkurve. Der Beitrag fasst dieselben Zahlen zum Nachlesen zusammen und erklärt zusätzlich, wie du den Orion XS einstellst.</p>
+          </div>
+          <div class="video-box blog-video-box" id="blogVideoBox" data-id="DF-mgHawj3A" role="button" tabindex="0" aria-label="Video zum Vergleich 30 A oder 50 A Ladebooster abspielen"></div>
+          <p class="blog-video-link">Video direkt auf YouTube ansehen: <a href="https://www.youtube.com/watch?v=DF-mgHawj3A" target="_blank" rel="noopener">30 A oder 50 A Ladebooster? Die meisten übersehen den Wirkungsgrad</a></p>
+          <div class="blog-narrow">
+            <h3 style="margin-top:32px">Kapitel im Video</h3>
+            <ol class="chapter-list">
+              <li><a href="https://www.youtube.com/watch?v=DF-mgHawj3A&amp;t=0s" target="_blank" rel="noopener">0:00</a> 30 A oder 50 A?</li>
+              <li><a href="https://www.youtube.com/watch?v=DF-mgHawj3A&amp;t=19s" target="_blank" rel="noopener">0:19</a> So funktioniert das System</li>
+              <li><a href="https://www.youtube.com/watch?v=DF-mgHawj3A&amp;t=51s" target="_blank" rel="noopener">0:51</a> Die beiden Geräte im Vergleich</li>
+              <li><a href="https://www.youtube.com/watch?v=DF-mgHawj3A&amp;t=94s" target="_blank" rel="noopener">1:34</a> Was Wirkungsgrad bedeutet</li>
+              <li><a href="https://www.youtube.com/watch?v=DF-mgHawj3A&amp;t=150s" target="_blank" rel="noopener">2:30</a> Gleiche Last für die Lichtmaschine</li>
+              <li><a href="https://www.youtube.com/watch?v=DF-mgHawj3A&amp;t=200s" target="_blank" rel="noopener">3:20</a> Wärme und Hitze im Einbauraum</li>
+              <li><a href="https://www.youtube.com/watch?v=DF-mgHawj3A&amp;t=297s" target="_blank" rel="noopener">4:57</a> Was passiert bei wenig Spannung</li>
+              <li><a href="https://www.youtube.com/watch?v=DF-mgHawj3A&amp;t=321s" target="_blank" rel="noopener">5:21</a> Praxisbeispiel: zwei Stunden Fahrt</li>
+              <li><a href="https://www.youtube.com/watch?v=DF-mgHawj3A&amp;t=346s" target="_blank" rel="noopener">5:46</a> Mein Fazit</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="system">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Grundlagen</p>
+          <h2>So hängt alles zusammen: Lichtmaschine, Booster, Aufbaubatterie</h2>
+          <p>Die Lichtmaschine erzeugt beim Fahren Strom. Der geht zuerst an die Starterbatterie und das Fahrzeugnetz. Der Ladebooster sitzt zwischen Starterbatterie und Aufbaubatterie und sorgt dafür, dass die Aufbaubatterie mit der passenden Spannung und dem passenden Ladeverfahren geladen wird, egal was die Lichtmaschine gerade vorne macht.</p>
+          <ol class="connection-path" aria-label="Energiefluss vom Motor zur Aufbaubatterie">
+            <li><strong>Lichtmaschine</strong> erzeugt den Strom</li>
+            <li><strong>Starterbatterie</strong> und Fahrzeugnetz</li>
+            <li><strong>Ladebooster</strong> regelt Spannung und Ladekurve</li>
+            <li><strong>Aufbaubatterie</strong> zum Beispiel LiFePO4</li>
+          </ol>
+          <div class="blog-note"><strong>Der Satz, um den sich alles dreht:</strong> Alles, was der Ladebooster an die Aufbaubatterie abgibt, muss die Lichtmaschine vorher liefern, plus das, was im Gerät als Wärme verloren geht. Genau dieser Verlust entscheidet den Vergleich.</div>
+          <p>Wie viel Strom deine Lichtmaschine für einen Booster überhaupt übrig hat, rechne ich ausführlich im Ratgeber <a href="ladebooster-lichtmaschine.html">Ladebooster und Lichtmaschine</a> vor. In diesem Beitrag gehe ich davon aus, dass du diesen Wert kennst, und es geht nur noch um die Frage: Welcher Booster macht aus diesem Strom am meisten?</p>
+        </div>
+      </section>
+
+      <section class="blog-section" id="geraete">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Gerätevergleich</p>
+          <h2>Orion-Tr Smart 30 A und Orion XS 50 A im Datenblatt</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Beide Geräte kommen von Victron, beide sind nicht galvanisch getrennt und für 12 V auf 12 V gebaut. Der Unterschied steckt in der Technik: Der <strong>Orion-Tr Smart 12/12-30</strong> ist die ältere, bewährte Bauart. Der <strong>Orion XS 12/12-50A</strong> ist deutlich neuer, kleiner, leichter und vor allem effizienter.</p>
+              <p>Für diesen Vergleich ist ein Punkt besonders wichtig: Beim Orion XS kann ich den <strong>Eingangsstrom einstellen</strong>. Ich kann ihm also genau sagen, wie viel er der Lichtmaschine maximal abnehmen darf. Der Orion-Tr hat diese Begrenzung nicht.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/ladebooster-30a-50a-wirkungsgrad/orion-tr-30a-orion-xs-50a-vergleich-full.webp" data-caption="Links der Orion-Tr Smart 12/12-30 A, rechts der Orion XS 12/12-50 A. Standbild aus meinem VoltKompass-Video." aria-label="Orion-Tr 30 A und Orion XS 50 A nebeneinander vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/ladebooster-30a-50a-wirkungsgrad/orion-tr-30a-orion-xs-50a-vergleich-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/ladebooster-30a-50a-wirkungsgrad/orion-tr-30a-orion-xs-50a-vergleich-1440.webp">
+                  <img src="assets/blog/ladebooster-30a-50a-wirkungsgrad/orion-tr-30a-orion-xs-50a-vergleich-full.webp" width="1920" height="1080" alt="3D-Modelle des Victron Orion-Tr Smart 12/12-30 A und des Orion XS 12/12-50 A nebeneinander" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Orion-Tr Smart 30 A (links) und Orion XS 50 A (rechts).</figcaption>
+            </figure>
+          </div>
+
+          <div class="blog-table-wrap" role="region" aria-label="Datenblattwerte Orion-Tr Smart 30 A und Orion XS 50 A" tabindex="0">
+            <table class="blog-table">
+              <thead>
+                <tr>
+                  <th>Datenblattwert</th>
+                  <th>Orion-Tr Smart 12/12-30<br><small>nicht isoliert</small></th>
+                  <th>Orion XS 12/12-50A</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Nenn-Ladestrom</td><td>30 A</td><td>50 A</td></tr>
+                <tr><td>Wirkungsgrad</td><td>87 %</td><td>bis 98,5 %</td></tr>
+                <tr><td>Gewicht</td><td>1,8 kg</td><td>0,33 kg</td></tr>
+                <tr><td>Umgebungstemperatur</td><td>bis 55 °C</td><td>bis 60 °C</td></tr>
+                <tr><td>Drosselung bei Hitze</td><td>volle Leistung bis 40 °C, danach −3 % pro °C</td><td>ab 40 °C −1,5 % pro °C (bezogen auf 700 W)</td></tr>
+                <tr><td>Eingangsstrom begrenzbar</td><td>nein</td><td>ja, einstellbar</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Die Werte stammen aus den aktuellen Victron-Datenblättern, die du unten unter <a href="#quellen">Quellen</a> findest. Beim Orion XS sind 98,5 Prozent der Spitzenwert. Ich habe mit diesem Wert gerechnet und unten aufgeschrieben, was sich mit 98 Prozent ändert. Spoiler: fast nichts.</p>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="wirkungsgrad">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Physik verständlich</p>
+          <h2>Was der Wirkungsgrad eines Ladeboosters bedeutet</h2>
+          <p>Der Wirkungsgrad sagt dir, welcher Anteil der Leistung, die in den Booster hineingeht, auch hinten in der Batterie ankommt. Der Rest wird im Gerät zu Wärme. Stell dir 100 Watt vor, die hineingehen:</p>
+
+          <div class="eta-chart" role="img" aria-label="Balkendiagramm: Von 100 W kommen beim Orion-Tr 87 W in der Batterie an, 13 W werden zu Wärme. Beim Orion XS kommen 98,5 W an, 1,5 W werden zu Wärme.">
+            <div class="eta-row">
+              <b>Orion-Tr Smart 30 A <small>87 %</small></b>
+              <div class="eta-bar">
+                <span class="e-tr" style="flex:87">87 W in die Batterie</span>
+                <span class="e-heat" style="flex:13">13 W</span>
+              </div>
+            </div>
+            <div class="eta-row">
+              <b>Orion XS 50 A <small>98,5 %</small></b>
+              <div class="eta-bar">
+                <span class="e-xs" style="flex:98.5">98,5 W in die Batterie</span>
+                <span class="e-heat" style="flex:1.5"></span>
+              </div>
+            </div>
+          </div>
+          <div class="eta-legend" aria-hidden="true">
+            <span><i class="l-tr"></i>Orion-Tr: Leistung in der Batterie</span>
+            <span><i class="l-xs"></i>Orion XS: Leistung in der Batterie</span>
+            <span><i class="l-heat"></i>Verlust als Wärme</span>
+          </div>
+
+          <p>13 Watt klingen erst einmal nach wenig. Rechnen wir aber mit echten Strömen: Wenn der Orion-Tr seine vollen 30 A bei 14,2 V Ladespannung liefert, gibt er 426 W ab. Bei 87 Prozent Wirkungsgrad muss er dafür rund 490 W aufnehmen. Die Differenz von <strong>rund 64 W</strong> heizt im Gerät. Der Orion XS kommt bei vergleichbarer Leistung auf <strong>rund 7 W</strong>.</p>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Diese Wärme ist doppelt schlecht. Erstens ist sie verlorene Energie, die deine Lichtmaschine erzeugen muss, ohne dass sie je in der Batterie ankommt. Zweitens bleibt sie dort, wo der Booster verbaut ist, und genau das wird gleich im Abschnitt <a href="#hitze">Hitze</a> zum Problem.</p>
+              <p>Zum Vergleich: 64 W, das ist ungefähr ein Lötkolben, der die ganze Fahrt über in deinem Staufach läuft.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-wirkungsgrad-87-985-prozent-full.webp" data-caption="87 % gegen 98,5 % Wirkungsgrad: Bei vollen 30 A heizt der Orion-Tr mit rund 64 W, der XS bei vergleichbarer Leistung mit rund 7 W. Standbild aus meinem VoltKompass-Video." aria-label="Grafik Wirkungsgrad vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-wirkungsgrad-87-985-prozent-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-wirkungsgrad-87-985-prozent-1440.webp">
+                  <img src="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-wirkungsgrad-87-985-prozent-full.webp" width="1920" height="1080" alt="Balkengrafik: Orion-Tr 30 A mit 87 W in die Batterie und 13 W Wärme, Orion XS mit 98,5 W in die Batterie und 1,5 W Wärme" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Von 100 W bleiben beim Orion-Tr 13 W als Wärme im Gerät, beim XS nur rund 1,5 W.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="gleiche-last">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Der Kern des Vergleichs</p>
+          <h2>Gleiche Last für die Lichtmaschine, mehr Ladestrom für dich</h2>
+          <p class="blog-intro">Jetzt kommt der Trick. Ich vergleiche die beiden Booster nicht bei ihrer Höchstleistung, sondern bei <strong>derselben Belastung der Lichtmaschine</strong>. Denn genau das ist bei einer kleinen Lichtmaschine die Frage.</p>
+          <ol class="connection-path step-list" aria-label="Rechnung gleiche Lichtmaschinenlast">
+            <li><strong>Orion-Tr 30 A:</strong> Damit er 30 A an die Aufbaubatterie liefert, zieht er bei 13,8 V an der Starterbatterie rund 35,5 A aus der Lichtmaschine.</li>
+            <li><strong>Orion XS auf 35 A begrenzt:</strong> Ich stelle den Eingangsstrom auf 35 A. Mehr nimmt er sich nicht. Die Lichtmaschine arbeitet also genauso viel wie beim 30-A-Gerät.</li>
+            <li><strong>Ergebnis:</strong> Beim XS kommen davon rund 33,5 A in der Batterie an. Liefert die Lichtmaschine etwas mehr Spannung, etwa 14,4 V, sind es sogar knapp 35 A.</li>
+          </ol>
+          <div class="blog-split blog-split-reverse">
+            <div class="blog-split-copy">
+              <p>Unterm Strich: <strong>dauerhaft 3,5 bis 5 A mehr Ladestrom bei derselben Last für die Lichtmaschine.</strong> Das sind gut 10 bis 15 Prozent mehr, ohne dass vorne auch nur ein Ampere mehr gezogen wird.</p>
+              <p>Und noch etwas fällt auf: Mit 35 A am Eingang läuft der Orion XS bei nur rund 476 W von seinen 700 W Nennleistung, also bei etwa <strong>68 Prozent Auslastung</strong>. Er ist kaum gefordert. Der Orion-Tr dagegen arbeitet bei derselben Lichtmaschinenlast an seiner Obergrenze.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/ladebooster-30a-50a-wirkungsgrad/orion-xs-35a-eingang-gleiche-last-lichtmaschine-full.webp" data-caption="Gleiche Last für die Lichtmaschine: 35,5 A rein, 30 A raus beim Orion-Tr; 35 A rein, 33,5 A raus beim Orion XS. Standbild aus meinem VoltKompass-Video." aria-label="Grafik gleiche Last für die Lichtmaschine vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/ladebooster-30a-50a-wirkungsgrad/orion-xs-35a-eingang-gleiche-last-lichtmaschine-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/ladebooster-30a-50a-wirkungsgrad/orion-xs-35a-eingang-gleiche-last-lichtmaschine-1440.webp">
+                  <img src="assets/blog/ladebooster-30a-50a-wirkungsgrad/orion-xs-35a-eingang-gleiche-last-lichtmaschine-full.webp" width="1920" height="1080" alt="Schaubild: Lichtmaschine liefert 35,5 A an Orion-Tr, 30 A gehen in die Aufbaubatterie; Lichtmaschine liefert 35 A an Orion XS, 33,5 A gehen in die Aufbaubatterie" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Vorne gleich viel, hinten mehr: +3,5 bis 5 A Ladestrom mit dem Orion XS.</figcaption>
+            </figure>
+          </div>
+
+          <h3>Faustwert: Was kommt pro 10 A Lichtmaschinenstrom an?</h3>
+          <p>Wenn du für deine Lichtmaschine eine andere Reserve ausgerechnet hast als 35 A, hilft dieser einfache Faustwert. Gerechnet mit 13,8 V am Eingang und 14,2 V Ladespannung:</p>
+          <div class="blog-table-wrap" role="region" aria-label="Ladestrom pro 10 A Eingangsstrom" tabindex="0">
+            <table class="blog-table">
+              <thead>
+                <tr>
+                  <th>Eingangsstrom aus der Lichtmaschine</th>
+                  <th>Orion-Tr Smart (87 %)</th>
+                  <th>Orion XS (98,5 %)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>pro 10 A</td><td>ca. 8,5 A</td><td>ca. 9,6 A</td></tr>
+                <tr><td>25 A</td><td>ca. 21 A</td><td>ca. 24 A</td></tr>
+                <tr><td>35 A</td><td>30 A (Nennstrom)</td><td>ca. 33,5 A</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="blog-note"><strong>Wichtig:</strong> Die 35 A sind kein Richtwert für jede Lichtmaschine, sondern genau die Last, die ein Orion-Tr 30 A ohnehin verursacht. Wie viel deine Lichtmaschine verträgt, findest du über die Reserve-Rechnung und die Spannungsmessung an der Starterbatterie heraus, wie im Ratgeber <a href="ladebooster-lichtmaschine.html#messen">Ladebooster einstellen</a> beschrieben.</div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="hitze">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Sommer im Staufach</p>
+          <h2>Wärme und Hitze im Einbauraum: wo der Unterschied richtig groß wird</h2>
+          <p>Ladebooster sitzen oft unter dem Beifahrersitz, in einer Sitzbox oder in einem geschlossenen Staufach. Im Sommer wird es dort schnell warm. Beide Geräte schützen sich bei Hitze selbst und regeln dann ihren Ladestrom herunter. Und hier schlägt der Wirkungsgrad ein zweites Mal zu.</p>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Der Orion-Tr erzeugt bei voller Leistung rund 64 W Wärme, der XS nur etwa 7 W, also <strong>rund neunmal weniger</strong>. Deshalb wird der 30-A-Booster viel schneller heiß. In einem engen, schlecht belüfteten Einbauraum heizt er außerdem die Luft um sich herum selbst auf. Wie stark, hängt von Raumgröße und Belüftung ab. Eine feste Zahl dafür gibt es nicht.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-abwaerme-64w-7w-full.webp" data-caption="Rund 64 W Abwärme beim Orion-Tr gegen rund 7 W beim Orion XS. Standbild aus meinem VoltKompass-Video." aria-label="Grafik Abwärme vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-abwaerme-64w-7w-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-abwaerme-64w-7w-1440.webp">
+                  <img src="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-abwaerme-64w-7w-full.webp" width="1920" height="1080" alt="Grafik: Orion-Tr 30 A mit 64 W Abwärme und starken Wärmewellen, Orion XS mit 7 W und kaum Wärme" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Rund neunmal so viel Wärme: Der 30-A-Booster heizt sein Staufach selbst mit auf.</figcaption>
+            </figure>
+          </div>
+
+          <h3>Welche Temperatur zählt: Gehäuse oder Umgebung?</h3>
+          <p>Victron meint bei der Drosselung die <strong>Umgebungstemperatur</strong>, also die Luft rund um das Gerät. Wenn du einen Orion-Tr unter Last anfasst, ist das Gehäuse schnell über 50 °C heiß. Das ist normal, und er liefert dabei trotzdem seine 30 A. Kritisch wird es erst, wenn die Luft drumherum über 40 °C steigt.</p>
+
+          <h3>Ladestrom bei steigender Umgebungstemperatur</h3>
+          <p>Ab 40 °C Umgebung regelt der Orion-Tr um 3 Prozent pro Grad herunter. Der Orion XS reduziert nur um 1,5 Prozent pro Grad, und zwar bezogen auf seine 700 W Nennleistung. Weil er mit 35 A Eingang ohnehin nur zu rund zwei Dritteln ausgelastet ist, würde die Drosselung rechnerisch erst bei etwa 61 °C greifen. Das liegt schon oberhalb seiner Spezifikation von 60 °C.</p>
+          <div class="blog-table-wrap" role="region" aria-label="Ladestrom bei steigender Umgebungstemperatur" tabindex="0">
+            <table class="blog-table">
+              <thead>
+                <tr>
+                  <th>Umgebungstemperatur</th>
+                  <th>Orion-Tr Smart 30 A</th>
+                  <th>Orion XS, 35 A Eingang</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>25 bis 40 °C</td><td>30 A</td><td>33,5 A</td></tr>
+                <tr><td>45 °C</td><td>ca. 25,5 A</td><td>33,5 A</td></tr>
+                <tr><td>50 °C</td><td>ca. 21 A</td><td>33,5 A</td></tr>
+                <tr><td>55 °C</td><td>ca. 16,5 A (Ende der Spezifikation)</td><td>33,5 A</td></tr>
+                <tr><td>60 °C</td><td>außerhalb der Spezifikation</td><td>33,5 A</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-ladestrom-hitze-derating-full.webp" data-caption="Ladestrom über der Umgebungstemperatur: Der Orion-Tr fällt ab 40 °C von 30 auf 16,5 A, der Orion XS bleibt bei 33,5 A. Standbild aus meinem VoltKompass-Video." aria-label="Temperaturkurve vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-ladestrom-hitze-derating-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-ladestrom-hitze-derating-1440.webp">
+                <img src="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-ladestrom-hitze-derating-full.webp" width="1920" height="1080" alt="Liniendiagramm Ladestrom über Umgebungstemperatur: Orion XS konstant 33,5 A bis 60 °C, Orion-Tr ab 40 °C fallend auf 25,5, 21 und 16,5 A" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Der Orion-Tr kämpft mit seiner eigenen Wärme, der Orion XS bleibt flach.</figcaption>
+          </figure>
+          <div class="blog-note"><strong>Fair gerechnet:</strong> Ich habe den Orion-Tr bewusst zu seinen Gunsten gerechnet, nämlich mit vollen 30 A bis 40 °C. Victron nennt im Datenblatt bei 40 °C nur 360 W. Bei 14,2 V Ladespannung wären das eher 25 A. In der Praxis kann der Abstand also noch größer sein.</div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="spannung">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Oft übersehen</p>
+          <h2>Was passiert, wenn die Spannung am Eingang sinkt?</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Ein Ladebooster versucht, seine Ausgangsleistung zu halten. Sinkt die Spannung an seinem Eingang, zum Beispiel durch ein langes, zu dünnes Kabel oder eine Smart-Lichtmaschine, braucht er für dieselbe Leistung mehr Strom.</p>
+              <p>Der Orion-Tr hat keine Eingangsbegrenzung. Bei 13,8 V zieht er rund 35,5 A, bei 12 V schon <strong>rund 41 A</strong>. Genau dann, wenn die Lichtmaschine ohnehin schwächelt, verlangt er ihr also mehr ab.</p>
+              <p>Der Orion XS bleibt bei den 35 A, die ich eingestellt habe. Er liefert dann etwas weniger Ladestrom, aber die Lichtmaschine wird nicht stärker belastet als geplant.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-eingangsstrom-12v-full.webp" data-caption="Bei 12 V am Eingang zieht der Orion-Tr rund 41 A, der Orion XS bleibt bei eingestellten 35 A. Standbild aus meinem VoltKompass-Video." aria-label="Grafik Eingangsstrom bei 12 V vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-eingangsstrom-12v-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-eingangsstrom-12v-1440.webp">
+                  <img src="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-eingangsstrom-12v-full.webp" width="1920" height="1080" alt="Grafik: Eingangsspannung 12 V, Orion-Tr 30 A zieht 40,8 A ohne Begrenzung, Orion XS 50 A auf 35 A begrenzt" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Ohne Eingangsbegrenzung steigt der Strom, wenn die Spannung fällt.</figcaption>
+            </figure>
+          </div>
+          <div class="blog-table-wrap" role="region" aria-label="Eingangsstrom bei sinkender Spannung" tabindex="0">
+            <table class="blog-table">
+              <thead>
+                <tr>
+                  <th>Spannung am Booster-Eingang</th>
+                  <th>Orion-Tr 30 A (ohne Begrenzung)</th>
+                  <th>Orion XS (auf 35 A begrenzt)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>13,8 V</td><td>ca. 35,5 A</td><td>35 A</td></tr>
+                <tr><td>13,0 V</td><td>ca. 37,7 A</td><td>35 A</td></tr>
+                <tr><td>12,0 V</td><td>ca. 40,8 A</td><td>35 A</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Ein sauber dimensioniertes Kabel ist deshalb bei beiden Geräten Pflicht. Welcher Querschnitt und welche Sicherung zu deinem Booster gehören, richtet sich nach der Leitungslänge und der Victron-Anleitung. Mehr dazu im Ratgeber <a href="ladebooster-wohnmobil.html">Ladebooster im Wohnmobil</a>.</p>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="praxis">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Praxisbeispiel</p>
+          <h2>Zwei Stunden Fahrt: wie viel landet in der Aufbaubatterie?</h2>
+          <div class="blog-split blog-split-reverse">
+            <div class="blog-split-copy">
+              <p>Machen wir die Zahlen greifbar. Zwei Stunden Fahrt, gleiche Last für die Lichtmaschine:</p>
+              <ul>
+                <li><strong>Bis 40 °C im Einbauraum:</strong> Orion-Tr rund 60 Ah, Orion XS rund 67 Ah.</li>
+                <li><strong>50 °C im Einbauraum:</strong> Orion-Tr nur noch rund 42 Ah, Orion XS weiterhin rund 67 Ah.</li>
+              </ul>
+              <p>Das sind an einem heißen Tag <strong>rund 25 Ah mehr</strong> in deiner Aufbaubatterie, ohne dass die Lichtmaschine mehr leisten muss. Bei einer 100-Ah-Batterie ist das ein Viertel ihrer Kapazität.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-zwei-stunden-fahrt-ah-full.webp" data-caption="Zwei Stunden Fahrt bei 50 °C im Einbauraum: rund 42 Ah mit dem Orion-Tr, rund 67 Ah mit dem Orion XS. Standbild aus meinem VoltKompass-Video." aria-label="Grafik zwei Stunden Fahrt vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-zwei-stunden-fahrt-ah-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-zwei-stunden-fahrt-ah-1440.webp">
+                  <img src="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-zwei-stunden-fahrt-ah-full.webp" width="1920" height="1080" alt="Zwei Batteriesymbole nach zwei Stunden Fahrt bei 50 °C: Orion-Tr 30 A mit 42 Ah, Orion XS 50 A mit 35 A Eingang mit 67 Ah" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Bei 50 °C im Einbauraum: 42 Ah gegen 67 Ah.</figcaption>
+            </figure>
+          </div>
+          <div class="blog-table-wrap" role="region" aria-label="Geladene Amperestunden nach zwei Stunden Fahrt" tabindex="0">
+            <table class="blog-table">
+              <thead>
+                <tr>
+                  <th>Zwei Stunden Fahrt</th>
+                  <th>Orion-Tr Smart 30 A</th>
+                  <th>Orion XS, 35 A Eingang</th>
+                  <th>Unterschied</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Einbauraum bis 40 °C</td><td>ca. 60 Ah</td><td>ca. 67 Ah</td><td><strong>+7 Ah</strong></td></tr>
+                <tr><td>Einbauraum 50 °C</td><td>ca. 42 Ah</td><td>ca. 67 Ah</td><td><strong>+25 Ah</strong></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Vereinfacht gerechnet mit konstantem Ladestrom. In der Praxis sinkt der Strom gegen Ende der Ladung, wenn die Batterie fast voll ist. Am Verhältnis der beiden Geräte ändert das wenig.</p>
+        </div>
+      </section>
+
+      <section class="blog-section" id="einstellen">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Umsetzung</p>
+          <h2>Orion XS am Eingang begrenzen: so gehst du vor</h2>
+          <p>Der ganze Vorteil steht und fällt mit der Eingangsbegrenzung. Ohne sie zieht ein Orion XS bis zu seinen vollen 50 A plus Verlust, und das ist für eine kleine Lichtmaschine zu viel. Die Einstellung machst du in der VictronConnect-App über Bluetooth.</p>
+          <ol class="connection-path step-list" aria-label="Orion XS Eingangsstrom einstellen">
+            <li><strong>Reserve der Lichtmaschine kennen:</strong> Wie viel Strom dein Fahrzeug für den Booster übrig hat, rechnest du wie im Ratgeber <a href="ladebooster-lichtmaschine.html#rechnung">Reserve berechnen</a>.</li>
+            <li><strong>Eingangsstrom begrenzen:</strong> In VictronConnect die Eingangsstrombegrenzung auf diesen Wert setzen, im Beispiel 35 A. Der Ausgang ergibt sich dann von selbst.</li>
+            <li><strong>Vorne nachmessen:</strong> Mit eingeschaltetem Booster die Spannung direkt an der Starterbatterie prüfen. Bleibt sie stabil im Ladebereich, passt die Einstellung.</li>
+            <li><strong>Bei Bedarf nachjustieren:</strong> Bricht die Spannung vorne ein, die Begrenzung in kleinen Schritten senken. Ist reichlich Reserve da, kannst du vorsichtig erhöhen.</li>
+          </ol>
+          <div class="blog-warning"><strong>Kein Freifahrtschein:</strong> Ein 50-A-Booster ist nur dann die bessere Wahl für eine kleine Lichtmaschine, wenn du ihn wirklich am Eingang begrenzt. Ungebremst auf 50 A belastet er die Lichtmaschine deutlich stärker als ein 30-A-Gerät.</div>
+          <p>Nebenbei hilft die geringe Abwärme auch bei der Einbauortwahl: Ein Orion XS kommt mit engen Einbauräumen deutlich besser zurecht. Freie Luft rund um das Gerät und die Einbauhinweise aus der Anleitung gelten trotzdem für beide.</p>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="quellen">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Transparenz &amp; Quellen</p>
+          <h2>Rechenweg und Quellen</h2>
+          <p>Alle Ströme in diesem Beitrag sind Beispielrechnungen auf Basis der Victron-Datenblätter. Annahmen: <strong>13,8 V an der Starterbatterie</strong>, <strong>14,2 V Ladespannung</strong> an der Aufbaubatterie, Orion XS am Eingang auf <strong>35 A</strong> begrenzt.</p>
+          <ul>
+            <li><strong>Orion-Tr Eingangsstrom:</strong> 30 A × 14,2 V ÷ 0,87 ÷ 13,8 V ≈ 35,5 A</li>
+            <li><strong>Orion XS Ladestrom:</strong> 35 A × 13,8 V × 0,985 ÷ 14,2 V ≈ 33,5 A; mit 98 % Wirkungsgrad ≈ 33,3 A; bei 14,4 V am Eingang ≈ 35 A</li>
+            <li><strong>Abwärme:</strong> Orion-Tr ≈ 490 W − 426 W ≈ 64 W; Orion XS ≈ 483 W − 476 W ≈ 7 W; Faktor rund 9</li>
+            <li><strong>Auslastung Orion XS:</strong> rund 476 W von 700 W ≈ 68 %; Drosselung mit −1,5 %/°C ab 40 °C erst ab etwa 61 °C</li>
+            <li><strong>Drosselung Orion-Tr:</strong> 30 A bis 40 °C, danach −3 %/°C: 45 °C ≈ 25,5 A, 50 °C ≈ 21 A, 55 °C ≈ 16,5 A</li>
+            <li><strong>Eingangsstrom bei sinkender Spannung:</strong> 30 A × 14,2 V ÷ 0,87 ÷ U<sub>ein</sub>; bei 12 V ≈ 40,8 A</li>
+            <li><strong>Zwei Stunden Fahrt:</strong> Ladestrom × 2 h; 30 A → 60 Ah, 21 A → 42 Ah, 33,5 A → 67 Ah</li>
+          </ul>
+          <ul>
+            <li><a href="https://www.victronenergy.com/upload/documents/Datasheet-Orion-Tr-Smart-DC-DC-chargers-non-isolated-360-400W-EN-.pdf" target="_blank" rel="noopener">Victron Energy: Datenblatt Orion-Tr Smart DC-DC charger, non-isolated (PDF)</a>: Wirkungsgrad, Gewicht, Temperaturbereich und Leistung bei 40 °C</li>
+            <li><a href="https://www.victronenergy.com/upload/documents/Datasheet-Orion-XS-DC-DC-battery-charger-EN.pdf" target="_blank" rel="noopener">Victron Energy: Datenblatt Orion XS DC-DC battery charger (PDF)</a>: Wirkungsgrad, Gewicht, Temperaturbereich, Nennleistung und einstellbare Strombegrenzung</li>
+          </ul>
+          <div class="blog-note"><strong>Zur Einordnung:</strong> Die realen Ladeströme hängen von Kabeln, Lichtmaschine, Bordnetzspannung, Einbauort und Belüftung ab. Die Datenblätter beschreiben, dass der Ausgangsstrom bei Hitze reduziert wird, nicht dass der Wirkungsgrad einbricht. Genau so ist es hier gerechnet. Mehr zu meinem fachlichen Hintergrund findest du unter <a href="index.html#ueber">Über Andreas</a>.</div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="faq">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">FAQ</p>
+          <h2>Häufige Fragen zu 30 A oder 50 A Ladebooster</h2>
+          <div class="blog-faq">
+            <details>
+              <summary>Reicht bei einer kleinen Lichtmaschine nicht ein 30-A-Ladebooster?</summary>
+              <p>Er reicht, ist aber nicht die beste Wahl. Ein Orion XS 50 A, den du am Eingang auf 35 A begrenzt, belastet die Lichtmaschine genauso wie ein Orion-Tr 30 A. Dank 98,5 statt 87 Prozent Wirkungsgrad kommen davon aber rund 33,5 statt 30 A in der Aufbaubatterie an.</p>
+            </details>
+            <details>
+              <summary>Was bedeutet der Wirkungsgrad bei einem Ladebooster?</summary>
+              <p>Der Wirkungsgrad sagt, welcher Anteil der aufgenommenen Leistung in der Batterie ankommt. Bei 87 Prozent werden von 100 W rund 13 W zu Wärme, bei 98,5 Prozent nur rund 1,5 W. Diese Verlustleistung muss die Lichtmaschine zusätzlich liefern.</p>
+            </details>
+            <details>
+              <summary>Wie viel Wärme erzeugen Orion-Tr 30 A und Orion XS?</summary>
+              <p>Mit den Datenblatt-Wirkungsgraden gerechnet erzeugt der Orion-Tr bei vollen 30 A rund 64 W Abwärme. Der auf 35 A Eingang begrenzte Orion XS kommt auf rund 7 W, also etwa neunmal weniger.</p>
+            </details>
+            <details>
+              <summary>Ab welcher Temperatur regelt ein Ladebooster herunter?</summary>
+              <p>Gemeint ist die Umgebungstemperatur, also die Luft rund um das Gerät, nicht das Gehäuse. Der Orion-Tr liefert bis 40 °C seinen vollen Strom und reduziert danach um 3 Prozent pro Grad, spezifiziert bis 55 °C. Der Orion XS reduziert ab 40 °C um 1,5 Prozent pro Grad, bezogen auf seine Nennleistung, und ist bis 60 °C spezifiziert.</p>
+            </details>
+            <details>
+              <summary>Warum zieht ein Ladebooster bei niedriger Spannung mehr Strom?</summary>
+              <p>Ein Ladebooster hält seine Ausgangsleistung. Sinkt die Eingangsspannung, etwa durch ein langes dünnes Kabel oder eine Smart-Lichtmaschine, braucht er dafür mehr Eingangsstrom. Beim Orion-Tr 30 A sind das bei 12 V rund 41 A. Beim Orion XS kann man den Eingangsstrom fest begrenzen.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-final" id="fazit">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Fazit</p>
+          <h2>Gleiche Last, mehr Ladestrom, stabil auch bei Hitze</h2>
+          <p>Ja, der Orion XS kostet mehr als der Orion-Tr Smart 30 A. Aber auf 35 A Eingang begrenzt belastet er deine Lichtmaschine nicht mehr als der 30-A-Booster und liefert trotzdem mehr Strom in die Aufbaubatterie, mit rund neunmal weniger Wärme und auch im Sommer im engen Staufach stabil. Dazu kommt die feste Eingangsbegrenzung, die deine Lichtmaschine auch bei sinkender Spannung schützt.</p>
+          <p>Für mich ist er deshalb gerade bei einer kleinen Lichtmaschine auf lange Sicht die bessere Wahl. Die Ampere-Zahl auf dem Etikett sagt eben nur die halbe Wahrheit. Die andere Hälfte steht im Datenblatt beim Wirkungsgrad.</p>
+          <div class="blog-actions">
+            <a href="ladebooster-lichtmaschine.html" class="btn btn-ghost">Reserve der Lichtmaschine berechnen</a>
+            <a href="index.html#kontakt" class="btn btn-primary">Meinen Booster planen lassen</a>
+          </div>
+          <p class="blog-disclaimer"><strong>Sicherheitshinweis:</strong> Arbeiten an 12-V-Hochstromanlagen können bei Kurzschluss, falschem Querschnitt oder lockeren Verbindungen Brände verursachen. Dieser Beitrag erklärt Zusammenhänge und Beispielrechnungen und ersetzt keine Prüfung am konkreten Fahrzeug. Wenn du Lichtmaschine, Kabelweg, Absicherung oder Boostereinstellung nicht sicher beurteilen kannst, lass den Einbau von einer qualifizierten Fachkraft prüfen oder ausführen. Beachte zusätzlich die Vorgaben von Fahrzeug-, Batterie- und Gerätehersteller.</p>
+        </div>
+      </section>
+    </article>
+  </main>
+
+<section class="related">
+  <div class="wrap">
+    <div class="related-head">
+      <div>
+        <span class="eyebrow">Weiterlesen</span>
+        <h2>Das könnte dich auch interessieren</h2>
+      </div>
+      <a class="btn btn-ghost" href="blog.html">Alle Beiträge →</a>
+    </div>
+    <div class="related-grid">
+      <a class="related-card" href="ladebooster-lichtmaschine.html">
+        <div class="ri"><img src="assets/blog/ladebooster-lichtmaschine/hero-lichtmaschine-ladebooster-960.webp" alt="" loading="lazy" decoding="async" /></div>
+        <small>Ladebooster-Ratgeber</small>
+        <strong>Ladebooster &amp; Lichtmaschine: Wie viel Ampere sind sicher?</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+      <a class="related-card" href="ladebooster-wohnmobil.html">
+        <div class="ri"><img src="assets/blog/ladebooster-wohnmobil/ladebooster-960.webp" alt="" loading="lazy" decoding="async" /></div>
+        <small>Ladebooster-Ratgeber</small>
+        <strong>Ladebooster im Wohnmobil: Auswahl &amp; Anschluss</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+      <a class="related-card" href="standby-charger-pro-wcs-rapid-vergleich.html">
+        <div class="ri"><img src="assets/blog/standby-charger-wcs-rapid/standby-charger-pro-wcs-rapid-vergleich-960.webp" alt="" loading="lazy" decoding="async" /></div>
+        <small>Starterbatterie</small>
+        <strong>StandBy-Charger Pro vs. WCS Rapid</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="cta-band">
+  <div class="wrap">
+    <div class="cta-band-inner">
+      <div>
+        <img src="assets/author/andreas-avatar-160.webp" alt="Andreas von VoltKompass" width="56" height="56" loading="lazy" />
+        <div>
+          <strong>30 A, 50 A oder ganz anders?</strong>
+          <span>Ich schaue mir dein Fahrzeug an und plane Booster, Lichtmaschine und Kabel passend – persönlich per WhatsApp, Telegram oder Signal.</span>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="index.html#kontakt">Beratung buchen →</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a href="index.html#top" class="brand"><img class="brand-mark" src="compass.svg" alt="" width="28" height="28" /><span><span class="v">Volt</span><span class="k">Kompass</span></span></a>
+      <p>© 2026 VoltKompass — Wohnmobil-Beratung für Strom &amp; Autarkie</p>
+    </div>
+    <nav>
+      <a href="index.html#top">Startseite</a>
+      <a href="blog.html">Blog</a>
+      <a href="produkte.html">Produkte</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="index.html#kontakt">Kontakt</a>
+      <button type="button" class="cookie-settings-link" data-cookie-settings>Cookie-Einstellungen</button>
+    </nav>
+  </div>
+</footer>
+
+  <script src="blog-lightbox.js"></script>
+  <script src="cookie-consent.js"></script>
+  <script>
+    const blogVideo = {
+      id: 'DF-mgHawj3A',
+      alt: '30 A oder 50 A Ladebooster: Orion-Tr Smart und Orion XS im Wirkungsgrad-Vergleich'
+    };
+
+    function blogHasMediaConsent() {
+      return window.VKCookieConsent?.hasConsent('media') === true;
+    }
+
+    function renderBlogVideoState() {
+      const box = document.getElementById('blogVideoBox');
+      if (!box) return;
+
+      box.dataset.id = blogVideo.id;
+      const allowed = blogHasMediaConsent();
+      box.classList.toggle('video-box-locked', !allowed);
+      box.setAttribute('aria-label', allowed ? 'Video abspielen' : 'YouTube-Video nach Zustimmung laden');
+
+      if (allowed) {
+        box.innerHTML = `<img src="assets/blog/ladebooster-30a-50a-wirkungsgrad/ladebooster-30a-50a-wirkungsgrad-titelbild-1440.webp" alt="${blogVideo.alt}" loading="lazy" decoding="async"/><div class="video-play" aria-hidden="true"></div>`;
+        return;
+      }
+
+      box.innerHTML = `
+        <div class="video-consent">
+          <b>YouTube-Video blockiert</b>
+          <p>Dieses Video wird erst geladen, wenn du externe Medien in den Cookie-Einstellungen erlaubst.</p>
+          <button type="button" class="btn btn-primary" data-cookie-settings>Auswahl anpassen</button>
+        </div>`;
+    }
+
+    function initBlogVideo() {
+      const box = document.getElementById('blogVideoBox');
+      if (!box) return;
+
+      const playVideo = () => {
+        if (!blogHasMediaConsent()) {
+          window.VKCookieConsent?.openSettings();
+          return;
+        }
+        box.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${blogVideo.id}?autoplay=1&rel=0" title="30 A oder 50 A Ladebooster? Die meisten übersehen den Wirkungsgrad" allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>`;
+      };
+
+      box.addEventListener('click', (event) => {
+        if (event.target.closest('[data-cookie-settings]')) return;
+        playVideo();
+      });
+      box.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          playVideo();
+        }
+      });
+      window.VKCookieConsent?.onChange(renderBlogVideoState);
+    }
+
+    renderBlogVideoState();
+    initBlogVideo();
+  </script>
+<script src="site.js"></script>
+</body>
+</html>

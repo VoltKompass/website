@@ -16,6 +16,7 @@
 
 - [StandBy-Charger Pro vs. WCS Rapid](https://voltkompass.com/standby-charger-pro-wcs-rapid-vergleich.html): Vergleich für die Ladeerhaltung der Starterbatterie mit Preis, Abmessungen, 5 bis 8 A gegenüber 6 A Dauerleistung, Kühlung, Not-Taste und Orion-XS-Alternative; Preisstand Juni 2026.
 - [LiFePO4-Batterie lädt nicht voll](https://voltkompass.com/lifepo4-batterie-laedt-nicht-voll.html): Diagnose von falscher SOC-Anzeige, BMS-Sperre und Spannungsabfall mit Messwerten, Multimeter-Ablauf und Gerätevergleich.
+- [30 A oder 50 A Ladebooster](https://voltkompass.com/ladebooster-30a-oder-50a-wirkungsgrad.html): Victron Orion-Tr Smart 12/12-30 A gegen Orion XS 12/12-50 A mit 35 A Eingangsbegrenzung; gleiche Lichtmaschinenlast, 87 % gegen 98,5 % Wirkungsgrad, rund 64 W gegen 7 W Abwärme, Ladestrom bei Hitze und Praxisbeispiel mit Video.
 - [Ladebooster und Lichtmaschine](https://voltkompass.com/ladebooster-lichtmaschine.html): Wie viel Ladestrom eine 140-, 180- oder 200-A-Lichtmaschine für den Ladebooster übrig hat, 70–80-%-Planungsgrenze, Fahrzeug-Eigenbedarf, Wärme, Spannungsverlust und schrittweises Einstellen per Messung an der Starterbatterie.
 - [Ladebooster im Wohnmobil](https://voltkompass.com/ladebooster-wohnmobil.html): Auswahl, Anschluss, Leitungsweg und Vergleich von Victron Orion XS und Votronic VCC.
 - [Wohnmobil-Solaranlage Stufe 1](https://voltkompass.com/blog-stufe-1.html): Grundsystem mit 100 Ah LiFePO4, 150 W Solar, Ladebooster und Wechselrichter.
