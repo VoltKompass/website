@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kabelquerschnitt Wohnmobil: Kabelrechner 12, 24 und 48 V | VoltKompass</title>
+  <meta name="description" content="1,5 mm² hält 24 A, schafft ein 70er dann 1120 A? Nein. Warum dicke Kabel weniger pro mm² tragen, meine Richtwert-Tabelle und ein Kabelrechner für Spannungsabfall, Länge, Strom und Querschnitt bei 12, 24 und 48 Volt.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://voltkompass.com/kabelquerschnitt-wohnmobil-kabelrechner.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="VoltKompass">
+  <meta property="og:title" content="1120 Ampere durch 70 mm²? Kabelquerschnitt im Wohnmobil, mit Kabelrechner">
+  <meta property="og:description" content="Warum ein 70er nur rund 200 A Dauerstrom bekommt, wie viel Spannung im Kabel verloren geht und welcher Querschnitt passt: mit Richtwert-Tabelle und Kabelrechner für 12, 24 und 48 Volt.">
+  <meta property="og:url" content="https://voltkompass.com/kabelquerschnitt-wohnmobil-kabelrechner.html">
+  <meta property="og:image" content="https://voltkompass.com/assets/blog/kabelquerschnitt-kabelrechner/1120-ampere-70mm2-titelbild.jpg">
+  <meta property="og:image:width" content="1672">
+  <meta property="og:image:height" content="941">
+  <meta property="og:image:alt" content="Rotes 70-mm²-Kabel mit glühendem Kabelschuh, Schriftzug 1120 A durch 70 mm²?!">
+  <meta property="article:published_time" content="2026-11-11T12:00:00+01:00">
+  <meta property="article:modified_time" content="2026-11-11T12:00:00+01:00">
+  <meta property="article:author" content="Andreas / VoltKompass">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="1120 Ampere durch 70 mm²? Kabelquerschnitt im Wohnmobil">
+  <meta name="twitter:description" content="Richtwert-Tabelle von 1,5 bis 95 mm² und Kabelrechner für Spannungsabfall, Länge, Strom und Querschnitt bei 12, 24 und 48 Volt.">
+  <meta name="twitter:image" content="https://voltkompass.com/assets/blog/kabelquerschnitt-kabelrechner/1120-ampere-70mm2-titelbild.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20261028-2">
+  <link rel="stylesheet" href="blog.css?v=20260730-1">
+  <link rel="stylesheet" href="theme.css?v=20261030-1" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="alternate icon" href="/favicon.ico" sizes="any">
+
+  <style>
+    /* Nur auf dieser Seite: Kabelrechner, Ampere-pro-mm²-Balken, Richtwert-Tabelle */
+    .blog-wrap > h3{margin-top:44px;margin-bottom:14px}
+    .chapter-list{columns:2;column-gap:28px;padding-left:1.1em}
+    .chapter-list li{margin:0 0 6px;break-inside:avoid}
+
+    .calc{margin:28px 0 8px;border:1px solid var(--line-2);border-radius:var(--radius);background:linear-gradient(180deg,rgba(230,178,0,.06),rgba(255,255,255,.015) 40%),var(--ink-2);padding:26px;box-shadow:var(--shadow)}
+    .calc-step{margin:0 0 20px}
+    .calc-step > b{display:block;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:10px}
+    .seg{display:flex;flex-wrap:wrap;gap:8px}
+    .seg label{position:relative;cursor:pointer}
+    .seg input{position:absolute;opacity:0;pointer-events:none}
+    .seg span{display:inline-flex;align-items:center;gap:6px;padding:11px 16px;border-radius:12px;border:1px solid var(--line-2);background:rgba(0,0,0,.22);font-size:.95rem;font-weight:600;color:var(--text-2);transition:border-color .2s,background .2s,color .2s}
+    .seg input:checked + span{border-color:var(--gold);background:rgba(230,178,0,.13);color:#fff}
+    .seg input:focus-visible + span{outline:2px solid var(--gold-hi);outline-offset:2px}
+    .seg-big span{font-family:"Orbitron",var(--font);font-size:1.05rem;padding:12px 22px}
+    .calc-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-bottom:6px}
+    .calc-field{display:flex;flex-direction:column;gap:6px}
+    .calc-field[hidden]{display:none}
+    .calc-field label{font-size:.82rem;font-weight:600;color:var(--text-2)}
+    .calc-field .inp{display:flex;align-items:stretch;border:1px solid var(--line-2);border-radius:12px;background:rgba(0,0,0,.28);overflow:hidden;transition:border-color .2s}
+    .calc-field .inp:focus-within{border-color:var(--gold)}
+    .calc-field input,.calc-field select{flex:1;min-width:0;padding:13px 14px;border:0;background:transparent;color:var(--text);font:inherit;font-size:1rem}
+    .calc-field select{appearance:none;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);background-position:calc(100% - 18px) 55%,calc(100% - 12px) 55%;background-size:6px 6px;background-repeat:no-repeat;padding-right:34px}
+    .calc-field select option{background:#0e1626;color:#e9eef7}
+    .calc-field input:focus,.calc-field select:focus{outline:none}
+    .calc-field .unit{display:flex;align-items:center;padding:0 14px;color:var(--mute);font-size:.9rem;border-left:1px solid var(--line);background:rgba(255,255,255,.03)}
+    .calc-field .unit-toggle{display:flex;border-left:1px solid var(--line)}
+    .calc-field .unit-toggle button{border:0;background:transparent;color:var(--mute);font:inherit;font-size:.88rem;font-weight:600;padding:0 12px;cursor:pointer}
+    .calc-field .unit-toggle button[aria-pressed="true"]{background:rgba(230,178,0,.16);color:var(--gold-hi)}
+    .calc-field small{color:var(--mute);font-size:.78rem;line-height:1.4}
+    .calc-result{margin-top:22px;border-top:1px solid var(--line-2);padding-top:22px}
+    .calc-main{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px}
+    .calc-main .lbl{width:100%;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+    .calc-main .big{font-family:"Orbitron",var(--font);font-size:clamp(2rem,6vw,3.1rem);font-weight:800;color:var(--gold);line-height:1.05}
+    .calc-main .sub{color:var(--text-2);font-size:1rem}
+    .calc-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:18px 0 0}
+    .calc-kpis div{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:rgba(0,0,0,.2)}
+    .calc-kpis span{display:block;font-size:.74rem;color:var(--mute);margin-bottom:4px}
+    .calc-kpis strong{font-size:1.08rem;color:#fff;font-weight:600}
+    .calc-msgs{display:grid;gap:8px;margin-top:14px}
+    .calc-msg{border-radius:12px;padding:11px 14px;font-size:.92rem;line-height:1.45;border:1px solid}
+    .calc-msg.ok{border-color:rgba(74,222,128,.35);background:rgba(74,222,128,.08);color:#c8f5d8}
+    .calc-msg.warn{border-color:rgba(251,146,60,.45);background:rgba(251,146,60,.09);color:#fed7aa}
+    .calc-msg.bad{border-color:rgba(248,113,113,.5);background:rgba(248,113,113,.1);color:#fecaca}
+    .calc-msg.info{border-color:rgba(106,180,240,.35);background:rgba(106,180,240,.08);color:#cfe6fb}
+    .calc-overview{margin-top:20px}
+    .calc-overview summary{cursor:pointer;font-weight:600;color:var(--text-2);padding:6px 0}
+    .calc-table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:10px}
+    .calc-table th,.calc-table td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+    .calc-table th:first-child,.calc-table td:first-child{text-align:left}
+    .calc-table thead th{color:var(--mute);font-weight:600;font-size:.78rem}
+    .calc-table tr.is-rec td{background:rgba(230,178,0,.12);color:#fff;font-weight:600}
+    .calc-table .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:middle}
+    .calc-table .dot.g{background:#4ade80}.calc-table .dot.o{background:#fb923c}.calc-table .dot.r{background:#f87171}
+    .calc-wrap-table{overflow-x:auto}
+    .calc-foot{margin-top:16px;font-size:.8rem;color:var(--mute);line-height:1.5}
+
+    .amm-chart{display:grid;gap:12px;margin:22px 0 8px}
+    .amm-row{display:grid;grid-template-columns:76px 1fr;align-items:center;gap:12px}
+    .amm-row b{color:#fff;font-size:.95rem}
+    .amm-bar{height:34px;border-radius:10px;background:var(--ink-2);border:1px solid var(--line-2);overflow:hidden}
+    .amm-bar span{display:flex;align-items:center;height:100%;padding:0 10px;background:linear-gradient(90deg,#e6b200,#f6d46a);color:#1a1300;font-weight:700;font-size:.85rem;white-space:nowrap}
+
+    .rw-table td.w{background:rgba(230,178,0,.16);color:#fff}
+    .rw-table td small{display:block;color:var(--mute);font-size:.76rem}
+    .rw-table td.w small{color:var(--gold-hi)}
+
+    @media (max-width:760px){
+      .calc{padding:18px}
+      .chapter-list{columns:1}
+      .amm-row{grid-template-columns:64px 1fr}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://voltkompass.com/kabelquerschnitt-wohnmobil-kabelrechner.html#article",
+        "mainEntityOfPage": {"@type": "WebPage", "@id": "https://voltkompass.com/kabelquerschnitt-wohnmobil-kabelrechner.html"},
+        "headline": "1120 Ampere durch 70 mm²? Kabelquerschnitt im Wohnmobil richtig wählen, mit Kabelrechner",
+        "description": "Warum ein 70-mm²-Kabel nicht 1120 A, sondern unter idealen Bedingungen 245 A trägt, was das im Wohnmobil bedeutet, wie sich Spannungsabfall und Verbindungen auswirken, eine Richtwert-Tabelle von 1,5 bis 95 mm² und ein Kabelrechner für 12, 24 und 48 Volt.",
+        "image": [
+          "https://voltkompass.com/assets/blog/kabelquerschnitt-kabelrechner/1120-ampere-70mm2-titelbild.jpg",
+          "https://voltkompass.com/assets/blog/kabelquerschnitt-kabelrechner/70mm2-46-7-kupfer-1120a-245a-full.webp",
+          "https://voltkompass.com/assets/blog/kabelquerschnitt-kabelrechner/richtwert-tabelle-kabelquerschnitt-full.webp"
+        ],
+        "datePublished": "2026-11-11T12:00:00+01:00",
+        "dateModified": "2026-11-11T12:00:00+01:00",
+        "inLanguage": "de-DE",
+        "isAccessibleForFree": true,
+        "articleSection": "Kabel und Absicherung",
+        "keywords": ["Kabelquerschnitt Wohnmobil", "Kabelrechner 12V", "Spannungsabfall berechnen", "Strombelastbarkeit Kabel", "70 mm² Kabel Ampere", "Wechselrichter Kabel", "Kabelquerschnitt 24V", "Kabelquerschnitt 48V", "Batteriekabel Wohnmobil"],
+        "author": {
+          "@type": "Person",
+          "@id": "https://voltkompass.com/#andreas",
+          "name": "Andreas",
+          "url": "https://voltkompass.com/#ueber",
+          "jobTitle": "Berater für Wohnmobil-Elektrik",
+          "description": "18+ Jahre Elektrotechnik-Erfahrung und eigene Wohnmobil-Praxis."
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://voltkompass.com/#organization",
+          "name": "VoltKompass",
+          "url": "https://voltkompass.com/",
+          "logo": {"@type": "ImageObject", "url": "https://voltkompass.com/logo.png", "width": 1082, "height": 1082}
+        },
+        "about": [
+          {"@type": "Thing", "name": "Kabelquerschnitt im Wohnmobil"},
+          {"@type": "Thing", "name": "Spannungsabfall"},
+          {"@type": "Thing", "name": "Strombelastbarkeit flexibler Kupferkabel"}
+        ],
+        "citation": [
+          "https://www.bayka.de/wp-content/uploads/2022/03/TD06DE-Strombelastbarkeit-flexible-Kupferkabel-und-Leitungen.pdf",
+          "https://www.bayka.de/en/service/technical-information/conductor-resistance"
+        ],
+        "video": {"@id": "https://voltkompass.com/kabelquerschnitt-wohnmobil-kabelrechner.html#video"},
+        "isPartOf": {"@id": "https://voltkompass.com/blog.html#blog"}
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://voltkompass.com/kabelquerschnitt-wohnmobil-kabelrechner.html#video",
+        "name": "1120 Ampere durch 70 mm²?",
+        "description": "Ein 1,5-mm²-Kabel hält laut Tabelle 24 Ampere aus. Ein 70er hat fast 47-mal so viel Kupfer, schafft aber unter denselben idealen Bedingungen nur 245 Ampere. Andreas von VoltKompass zeigt, warum das so ist und was das für die Kabel im Wohnmobil bedeutet.",
+        "thumbnailUrl": "https://voltkompass.com/assets/blog/kabelquerschnitt-kabelrechner/1120-ampere-70mm2-titelbild.jpg",
+        "uploadDate": "2026-11-08T12:00:00+01:00",
+        "duration": "PT6M24S",
+        "embedUrl": "https://www.youtube-nocookie.com/embed/EhqQTA4N5vs",
+        "contentUrl": "https://www.youtube.com/watch?v=EhqQTA4N5vs",
+        "inLanguage": "de-DE",
+        "publisher": {"@id": "https://voltkompass.com/#organization"},
+        "isPartOf": {"@id": "https://voltkompass.com/kabelquerschnitt-wohnmobil-kabelrechner.html#article"}
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://voltkompass.com/kabelquerschnitt-wohnmobil-kabelrechner.html#rechner",
+        "name": "VoltKompass Kabelrechner für 12, 24 und 48 Volt",
+        "url": "https://voltkompass.com/kabelquerschnitt-wohnmobil-kabelrechner.html#rechner",
+        "applicationCategory": "UtilitiesApplication",
+        "operatingSystem": "Alle",
+        "inLanguage": "de-DE",
+        "isAccessibleForFree": true,
+        "offers": {"@type": "Offer", "price": "0", "priceCurrency": "EUR"},
+        "description": "Berechnet Querschnitt, maximale Länge, maximalen Strom oder Spannungsabfall flexibler Kupferkabel im Wohnmobil bei 12, 24 und 48 Volt und prüft zusätzlich die Wärmegrenze."
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://voltkompass.com/kabelquerschnitt-wohnmobil-kabelrechner.html#faq",
+        "url": "https://voltkompass.com/kabelquerschnitt-wohnmobil-kabelrechner.html#faq",
+        "inLanguage": "de-DE",
+        "isPartOf": {"@id": "https://voltkompass.com/kabelquerschnitt-wohnmobil-kabelrechner.html"},
+        "mainEntity": [
+          {"@type": "Question", "name": "Wie viel Ampere hält ein 70-mm²-Kabel aus?",
+           "acceptedAnswer": {"@type": "Answer", "text": "Unter idealen Bedingungen, also einzeln, frei verlegt bei 30 °C, sind es laut DIN VDE 0298-4 Tabelle 11 für einadrige flexible Leitungen 245 Ampere. Im Wohnmobil plane ich als Richtwert rund 200 Ampere Dauerstrom, frei verlegt. Im Bündel, im Schutzrohr oder im warmen Staufach wird es weniger."}},
+          {"@type": "Question", "name": "Warum trägt ein dickes Kabel weniger Ampere pro Quadratmillimeter?",
+           "acceptedAnswer": {"@type": "Answer", "text": "Die Wärme entsteht im ganzen Kupfer, abgeben kann das Kabel sie aber nur über seine Außenfläche. Beim dicken Kabel wächst das Kupfer viel stärker als diese Außenfläche. Deshalb sind es beim 1,5er 16 Ampere pro Quadratmillimeter, beim 70er nur noch 3,5."}},
+          {"@type": "Question", "name": "Wie viel Spannungsabfall ist im Wohnmobil in Ordnung?",
+           "acceptedAnswer": {"@type": "Answer", "text": "Ich richte mich bei 12 Volt nach höchstens 0,3 Volt im Kabel, Plus und Minus zusammen, auch wenn das Kabel warm ist. Das ist mein eigener Richtwert, keine Norm. An erster Stelle steht immer die Anleitung des Geräts."}},
+          {"@type": "Question", "name": "Hängt die Strombelastbarkeit eines Kabels von der Spannung ab?",
+           "acceptedAnswer": {"@type": "Answer", "text": "Nein. Das Kabel wird vom Strom erwärmt, nicht von der Spannung. Ein 35-mm²-Kabel verträgt bei 12, 24 und 48 Volt denselben Strom. Bei höherer Spannung fließt für dieselbe Leistung aber weniger Strom, deshalb reicht dort oft ein kleinerer Querschnitt."}},
+          {"@type": "Question", "name": "Wie viel Wärme entsteht an einer schlechten Verbindung?",
+           "acceptedAnswer": {"@type": "Answer", "text": "Ein Rechenbeispiel: Hat ein lockerer oder schlecht verpresster Kabelschuh 1 Milliohm mehr Widerstand, gehen bei 200 Ampere 0,2 Volt verloren, und an dieser kleinen Stelle entstehen 40 Watt Wärme. Das ist mehr als im ganzen 70er-Kabel bei einem Meter Abstand."}}
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://voltkompass.com/kabelquerschnitt-wohnmobil-kabelrechner.html#breadcrumb",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://voltkompass.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://voltkompass.com/blog.html"},
+          {"@type": "ListItem", "position": 3, "name": "Kabelquerschnitt und Kabelrechner", "item": "https://voltkompass.com/kabelquerschnitt-wohnmobil-kabelrechner.html"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="blog-page ladebooster-page solar-page">
+  <div class="read-progress" aria-hidden="true"></div>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html#top" class="brand"><img class="brand-mark" src="compass.svg" alt="" width="28" height="28" /><span><span class="v">Volt</span><span class="k">Kompass</span></span></a>
+    <ul>
+      <li><a href="index.html#fachbereiche">Fachbereiche</a></li>
+      <li><a href="index.html#solaranlage-beratung">Solaranlage</a></li>
+      <li><a href="index.html#ablauf">Ablauf</a></li>
+      <li><a href="index.html#preise">Preise</a></li>
+      <li><a href="blog.html" aria-current="page">Blog</a></li>
+      <li><a href="produkte.html">Produkte</a></li>
+      <li><a href="index.html#ueber">Über mich</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="blog.html" class="nav-blog-mobile">Blog</a>
+      <a href="produkte.html" class="nav-blog-mobile">Produkte</a>
+      <a href="index.html#kontakt" class="cta">Beratung buchen →</a>
+    </div>
+  </div>
+</header>
+<nav class="article-jump" aria-label="Abschnitte dieses Beitrags">
+  <div class="wrap">
+    <b>Inhalt</b>
+    <a href="#rechner">Kabelrechner</a>
+    <a href="#video">Video</a>
+    <a href="#70er">70 mm²</a>
+    <a href="#tabelle">Tabelle</a>
+    <a href="#spannung">24 / 48 V</a>
+    <a href="#faq">FAQ</a>
+    <a href="#fazit">Fazit</a>
+  </div>
+</nav>
+
+  <main>
+    <article>
+      <section class="blog-hero">
+        <div class="wrap blog-hero-grid">
+          <div>
+          <nav class="blog-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html#top">Startseite</a>
+            <span>/</span>
+            <a href="blog.html">Blog</a>
+            <span>/</span>
+            <span>Kabelquerschnitt und Kabelrechner</span>
+          </nav>
+          <span class="eyebrow">Kabel · Spannungsabfall · Wohnmobil</span>
+          <h1>1120 Ampere durch 70 mm²? Kabelquerschnitt im Wohnmobil richtig wählen</h1>
+          <p class="blog-lead">Ein 1,5-mm²-Kabel hält unter idealen Bedingungen 24 Ampere aus. Ein 70er hat fast 47-mal so viel Kupfer. Müsste es dann nicht 1120 Ampere schaffen? Nein. Ich zeige dir, warum, wie viel ich im Wohnmobil wirklich über welches Kabel schicke, und mit meinem Kabelrechner kannst du Querschnitt, Länge, Strom und Spannungsabfall für 12, 24 und 48 Volt selbst ausrechnen.</p>
+          <p class="blog-byline">Von <a href="index.html#ueber">Andreas / VoltKompass</a> · 18+ Jahre Elektrotechnik-Erfahrung · veröffentlicht am <time datetime="2026-11-11">11. November 2026</time></p>
+          <aside class="blog-author-card" aria-label="Fachliche Einordnung des Autors">
+            <img src="assets/author/andreas-avatar-160.webp" width="160" height="160" decoding="async" alt="Andreas von VoltKompass" />
+            <p>
+              <strong>Praxiswissen von Andreas:</strong> mehr als 18 Jahre Erfahrung in der
+              Elektrotechnik und acht Jahre reisend im Wohnmobil.
+            </p>
+          </aside>
+          <div class="article-kicker">
+            <span>Kabelrechner 12 / 24 / 48 V</span>
+            <span>Richtwert-Tabelle 1,5 bis 95 mm²</span>
+            <span>Wärme und Spannungsabfall</span>
+            <span>Mit Video</span>
+          </div>
+          <div class="blog-actions">
+            <a href="#rechner" class="btn btn-primary">Direkt zum Kabelrechner</a>
+            <a href="#video" class="btn btn-ghost">Video ansehen</a>
+          </div>
+          </div>
+
+        <figure class="blog-hero-figure">
+          <button class="blog-zoom" type="button" data-full="assets/blog/kabelquerschnitt-kabelrechner/1120-ampere-70mm2-titelbild-full.webp" data-caption="1120 A durch 70 mm²? Einfach hochgerechnet ja, in Wirklichkeit nein. Titelbild aus meinem VoltKompass-Video." aria-label="Titelbild 1120 A durch 70 mm² vergrößern">
+            <picture>
+              <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/1120-ampere-70mm2-titelbild-960.webp">
+              <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/1120-ampere-70mm2-titelbild-1440.webp">
+              <source type="image/webp" srcset="assets/blog/kabelquerschnitt-kabelrechner/1120-ampere-70mm2-titelbild-full.webp">
+              <img src="assets/blog/kabelquerschnitt-kabelrechner/1120-ampere-70mm2-titelbild.jpg" width="1672" height="941" alt="Rotes 70-mm²-Kabel mit glühendem Kabelschuh und Funken, Schriftzug 1120 A durch 70 mm²?!" decoding="async" fetchpriority="high">
+            </picture>
+          </button>
+          <figcaption>Einfach hochgerechnet wären es 1120 A. Tatsächlich sind es unter idealen Bedingungen 245 A.</figcaption>
+        </figure>
+        </div>
+      </section>
+
+      <section class="blog-section" id="kurzantwort">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Direkte Antwort</p>
+          <h2>Wie viel Strom verträgt welches Kabel im Wohnmobil?</h2>
+          <p class="blog-intro"><strong>Zwei Dinge begrenzen ein Kabel: die Wärme und der Spannungsabfall. Bei kurzen, dicken Kabeln entscheidet die Wärme, bei langen Kabeln die Spannung, und der kleinere Wert gewinnt. Ein 70-mm²-Kabel trägt unter idealen Bedingungen 245 Ampere, nicht 1120. Im Wohnmobil plane ich dafür rund 200 Ampere Dauerstrom, frei verlegt. Den Spannungsabfall halte ich bei 12 Volt bei höchstens 0,3 Volt, Plus und Minus zusammen.</strong></p>
+          <p>Die 0,3 Volt und die 200 Ampere sind meine eigenen Richtwerte, keine Norm. Die Wärmegrenzen kommen aus der Kabelnorm DIN VDE 0298-4. An erster Stelle steht immer die Anleitung deines Geräts.</p>
+
+          <div class="blog-answer-box" role="region" aria-label="Kurzüberblick Kabelquerschnitt">
+            <div><span>1,5 mm², ideal (30 °C, frei)</span><strong>24 A, aber bei 5 m Abstand und 24 A schon 3,2 Volt Verlust</strong></div>
+            <div><span>70 mm², ideal (30 °C, frei)</span><strong>245 A statt hochgerechneter 1120 A</strong></div>
+            <div><span>Mein Richtwert 70 mm² im Wohnmobil</span><strong>rund 200 A Dauerstrom, frei verlegt</strong></div>
+            <div><span>Mein Richtwert Spannungsabfall</span><strong>höchstens 0,3 Volt bei 12 Volt, Plus und Minus zusammen</strong></div>
+            <div><span>Schlechte Verbindung (Rechenbeispiel)</span><strong>1 mΩ mehr bei 200 A: 0,2 Volt und 40 W Wärme</strong></div>
+            <div><span>24 und 48 Volt</span><strong>gleiche Leistung, halber bzw. viertel Strom, viel weniger Verlust</strong></div>
+          </div>
+
+          <nav class="blog-toc" aria-label="Inhaltsverzeichnis">
+            <h3>Inhaltsverzeichnis</h3>
+            <ol>
+              <li><a href="#rechner">Kabelrechner für 12, 24 und 48 Volt</a></li>
+              <li><a href="#video">Das Video zum Beitrag</a></li>
+              <li><a href="#duenn">1,5 mm² und 24 Ampere: was „ideal“ heißt</a></li>
+              <li><a href="#verluste">Warum jeder Spannungsabfall zählt</a></li>
+              <li><a href="#warum">46,7-mal mehr Kupfer, nur 10-mal mehr Strom</a></li>
+              <li><a href="#70er">Das 70er im Wohnmobil: rund 200 Ampere</a></li>
+              <li><a href="#verbindungen">Die Verbindungen</a></li>
+              <li><a href="#tabelle">Meine Richtwert-Tabelle</a></li>
+              <li><a href="#lange-wege">Lange Wege und Unterspannung</a></li>
+              <li><a href="#spannung">12, 24 oder 48 Volt</a></li>
+              <li><a href="#quellen">Quellen und Rechenweg</a></li>
+              <li><a href="#faq">Häufige Fragen</a></li>
+              <li><a href="#fazit">Fazit</a></li>
+            </ol>
+          </nav>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="rechner">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Kabelrechner</p>
+          <h2>Kabelrechner: Querschnitt, Länge, Strom oder Spannungsabfall</h2>
+          <p class="blog-intro">Wähle aus, was du wissen willst, und gib die anderen Werte ein. Der Rechner prüft immer beides: den Spannungsabfall in Plus und Minus und die Wärmegrenze des Kabels.</p>
+
+          <div class="calc" id="kabelrechner" aria-label="Kabelrechner">
+            <div class="calc-step">
+              <b>1 · Was willst du berechnen?</b>
+              <div class="seg" role="radiogroup" aria-label="Berechnungsart">
+                <label><input type="radio" name="mode" value="querschnitt" checked><span>Querschnitt</span></label>
+                <label><input type="radio" name="mode" value="laenge"><span>Maximale Länge</span></label>
+                <label><input type="radio" name="mode" value="strom"><span>Maximaler Strom</span></label>
+                <label><input type="radio" name="mode" value="abfall"><span>Spannungsabfall</span></label>
+              </div>
+            </div>
+
+            <div class="calc-step">
+              <b>2 · Systemspannung</b>
+              <div class="seg seg-big" role="radiogroup" aria-label="Systemspannung">
+                <label><input type="radio" name="sys" value="12" checked><span>12 V</span></label>
+                <label><input type="radio" name="sys" value="24"><span>24 V</span></label>
+                <label><input type="radio" name="sys" value="48"><span>48 V</span></label>
+              </div>
+            </div>
+
+            <div class="calc-step">
+              <b>3 · Deine Werte</b>
+              <div class="calc-fields">
+                <div class="calc-field" data-for="querschnitt laenge abfall">
+                  <label for="inI" id="lblI">Strom</label>
+                  <div class="inp">
+                    <input id="inI" type="text" inputmode="decimal" value="100" autocomplete="off">
+                    <div class="unit-toggle" role="group" aria-label="Einheit">
+                      <button type="button" data-unit="A" aria-pressed="true">A</button>
+                      <button type="button" data-unit="W" aria-pressed="false">W</button>
+                    </div>
+                  </div>
+                  <small id="hintI">Dauerstrom, der durch das Kabel fließt.</small>
+                </div>
+                <div class="calc-field" data-for="querschnitt laenge abfall" id="fieldEta" hidden>
+                  <label for="inEta">Wirkungsgrad des Geräts</label>
+                  <div class="inp"><input id="inEta" type="text" inputmode="decimal" value="100" autocomplete="off"><span class="unit">%</span></div>
+                  <small>Beim Wechselrichter laut Datenblatt, z. B. 90 %. Sonst 100 lassen.</small>
+                </div>
+                <div class="calc-field" data-for="querschnitt strom abfall">
+                  <label for="inL">Abstand Batterie → Gerät</label>
+                  <div class="inp"><input id="inL" type="text" inputmode="decimal" value="2" autocomplete="off"><span class="unit">m</span></div>
+                  <small>Einfacher Weg. Plus und Minus rechnet der Rechner doppelt.</small>
+                </div>
+                <div class="calc-field" data-for="laenge strom abfall">
+                  <label for="inA">Querschnitt</label>
+                  <div class="inp"><select id="inA" aria-label="Querschnitt"></select></div>
+                  <small>Flexibles Kupferkabel, feindrähtig.</small>
+                </div>
+                <div class="calc-field" data-for="querschnitt laenge strom abfall">
+                  <label for="inDU">Erlaubter Spannungsabfall</label>
+                  <div class="inp"><input id="inDU" type="text" inputmode="decimal" value="0,3" autocomplete="off"><span class="unit">Volt</span></div>
+                  <small id="hintDU">Mein Richtwert bei 12 Volt: 0,3 Volt, Plus und Minus zusammen.</small>
+                </div>
+                <div class="calc-field" data-for="querschnitt laenge strom abfall">
+                  <label for="inUb">Batteriespannung</label>
+                  <div class="inp"><input id="inUb" type="text" inputmode="decimal" value="12,8" autocomplete="off"><span class="unit">Volt</span></div>
+                  <small>LiFePO4-Nennspannung. Für Blei-Batterien z. B. 12 Volt eintragen.</small>
+                </div>
+                <div class="calc-field" data-for="querschnitt laenge strom abfall">
+                  <label for="inT">Kabeltemperatur</label>
+                  <div class="inp"><select id="inT">
+                    <option value="70" selected>warm, Leiter 70 °C (wie meine Tabelle)</option>
+                    <option value="20">kalt, Leiter 20 °C</option>
+                  </select></div>
+                  <small>Warmes Kupfer hat rund 20 % mehr Widerstand.</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-result" aria-live="polite">
+              <div class="calc-main">
+                <span class="lbl" id="resLbl">Ergebnis</span>
+                <span class="big" id="resBig">–</span>
+                <span class="sub" id="resSub"></span>
+              </div>
+              <div class="calc-kpis" id="resKpis"></div>
+              <div class="calc-msgs" id="resMsgs"></div>
+              <details class="calc-overview" open>
+                <summary id="ovTitle">Alle Querschnitte im Vergleich</summary>
+                <div class="calc-wrap-table"><table class="calc-table" id="ovTable"></table></div>
+              </details>
+              <p class="calc-foot">Grundlage: Kupfer, feindrähtig (Klasse 5), Leiterwiderstand nach EN 60228. Wärmegrenze als Planwert für eine einadrige PVC-Leitung mit 70 °C Leitertemperatur, einzeln und frei verlegt, Staufach bis 40 °C (DIN VDE 0298-4 Tab. 11 × 0,87, mit Reserve abgerundet). Im Bündel, im Schutzrohr oder bei mehr Wärme ist sie niedriger. Kabelschuhe, Sicherungen und Schalter sind nicht eingerechnet. Richtwerte zur Orientierung, keine Installationsanleitung. Die Anleitung deines Geräts geht immer vor.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="video" class="blog-section blog-video-section">
+        <div class="wrap">
+          <div class="blog-narrow">
+            <span class="eyebrow">Video</span>
+            <h2>1120 Ampere durch 70 mm²? Das Video</h2>
+            <p>Im Video siehst du als Animation, wie der Strom durch die Kabel läuft, wo die Wärme entsteht und warum sie beim dicken Kabel schlechter herauskommt. Hier im Beitrag findest du alle Zahlen zum Nachlesen und den Kabelrechner.</p>
+          </div>
+          <div class="video-box blog-video-box" id="blogVideoBox" data-id="EhqQTA4N5vs" role="button" tabindex="0" aria-label="Video 1120 Ampere durch 70 mm² abspielen"></div>
+          <p class="blog-video-link">Video direkt auf YouTube ansehen: <a href="https://www.youtube.com/watch?v=EhqQTA4N5vs" target="_blank" rel="noopener">1120 Ampere durch 70 mm²?</a></p>
+          <div class="blog-narrow">
+            <h3 style="margin-top:32px">Kapitel im Video</h3>
+            <ol class="chapter-list">
+              <li><a href="https://www.youtube.com/watch?v=EhqQTA4N5vs&amp;t=0s" target="_blank" rel="noopener">0:00</a> 1,5 mm² und 24 Ampere</li>
+              <li><a href="https://www.youtube.com/watch?v=EhqQTA4N5vs&amp;t=39s" target="_blank" rel="noopener">0:39</a> Was „ideal“ heißt</li>
+              <li><a href="https://www.youtube.com/watch?v=EhqQTA4N5vs&amp;t=89s" target="_blank" rel="noopener">1:29</a> Spannungsabfall so klein wie möglich</li>
+              <li><a href="https://www.youtube.com/watch?v=EhqQTA4N5vs&amp;t=123s" target="_blank" rel="noopener">2:03</a> 46,7-mal mehr Kupfer, nur 10-mal mehr Strom</li>
+              <li><a href="https://www.youtube.com/watch?v=EhqQTA4N5vs&amp;t=168s" target="_blank" rel="noopener">2:48</a> Das 70er im Wohnmobil</li>
+              <li><a href="https://www.youtube.com/watch?v=EhqQTA4N5vs&amp;t=243s" target="_blank" rel="noopener">4:03</a> Die Verbindungen</li>
+              <li><a href="https://www.youtube.com/watch?v=EhqQTA4N5vs&amp;t=281s" target="_blank" rel="noopener">4:41</a> Meine Richtwert-Tabelle</li>
+              <li><a href="https://www.youtube.com/watch?v=EhqQTA4N5vs&amp;t=356s" target="_blank" rel="noopener">5:56</a> Fazit</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="duenn">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Einstieg</p>
+          <h2>1,5 mm² hält 24 Ampere aus, aber nur unter idealen Bedingungen</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Ein Kabel mit 1,5 Quadratmillimetern hält laut Kabelnorm 24 Ampere Dauerstrom aus. Klingt nach viel. Ein Rechenbeispiel zeigt, was das im Wohnmobil bedeutet: Das Gerät steht <strong>5 Meter</strong> von der Batterie entfernt, und es fließen 24 Ampere.</p>
+              <ul>
+                <li>Im Kabel gehen <strong>3,2 Volt</strong> verloren.</li>
+                <li>Am Gerät kommen statt 12,8 Volt nur noch <strong>9,6 Volt</strong> an.</li>
+                <li>Das Kabel heizt mit <strong>77 Watt</strong>. Das ist ein Viertel der 307 Watt, die aus der Batterie kommen.</li>
+              </ul>
+              <p>So baut das natürlich niemand ein. Aber es zeigt: Die 24 Ampere sagen nur etwas über die Wärme. Wie viel Spannung dabei verloren geht, steht da nicht drin.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/kabelquerschnitt-kabelrechner/1-5mm2-24a-5m-77w-waerme-full.webp" data-caption="Rechenbeispiel: 1,5 mm², 24 A, 5 m Abstand. Von 12,8 Volt kommen nur 9,6 Volt am Gerät an, 77 W werden im Kabel zu Wärme. Standbild aus meinem VoltKompass-Video." aria-label="Grafik 77 Watt Wärme im Kabel vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/1-5mm2-24a-5m-77w-waerme-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/1-5mm2-24a-5m-77w-waerme-1440.webp">
+                  <img src="assets/blog/kabelquerschnitt-kabelrechner/1-5mm2-24a-5m-77w-waerme-full.webp" width="1920" height="1080" alt="Grafik: Batterie 12,8 Volt, Gerät 9,6 Volt, 5 m Abstand mit 1,5 mm² und 24 A, 77 W Wärme im Kabel von 307 W aus der Batterie" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>24 A über 5 m mit 1,5 mm²: 77 W bleiben im Kabel.</figcaption>
+            </figure>
+          </div>
+
+          <h3>Was „ideal“ heißt</h3>
+          <div class="blog-split blog-split-reverse">
+            <div class="blog-split-copy">
+              <p>Ideal heißt: ein <strong>einzelnes Kabel, frei verlegt</strong>, nicht gebündelt, ohne Schutzschlauch, bei <strong>30 °C</strong>. Dann kann es seine Wärme gut loswerden.</p>
+              <p>Im Wohnmobil sieht das anders aus. Da liegen Kabel im Schutzschlauch, im Bündel, im warmen Staufach. Dort wird das Kabel seine Wärme schlechter los, und es verträgt weniger.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/kabelquerschnitt-kabelrechner/warmes-staufach-40-grad-full.webp" data-caption="Im warmen Staufach sind die idealen Bedingungen dahin: nicht einzeln, nicht frei, nicht 30 °C. Das Kabel verträgt weniger. Standbild aus meinem VoltKompass-Video." aria-label="Grafik warmes Staufach vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/warmes-staufach-40-grad-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/warmes-staufach-40-grad-1440.webp">
+                  <img src="assets/blog/kabelquerschnitt-kabelrechner/warmes-staufach-40-grad-full.webp" width="1920" height="1080" alt="Staufach im Wärmebild mit 40 °C, durchgestrichene Bedingungen einzelnes Kabel, frei verlegt, ohne Schutzschlauch, 30 °C Umgebung" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Warmes Staufach: Das Kabel verträgt weniger.</figcaption>
+            </figure>
+          </div>
+
+          <h3>1,5 mm² nur für kleine Ströme</h3>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Deshalb nehme ich 1,5 Quadratmillimeter nur für kleine Ströme, zum Beispiel für eine Messleitung oder ein paar LED-Lampen.</p>
+              <ul>
+                <li>5 A bei 1 m Abstand: <strong>0,13 Volt</strong> Verlust, das ist in Ordnung.</li>
+                <li>5 A bei 5 m Abstand: schon <strong>0,67 Volt</strong>.</li>
+              </ul>
+              <p>Für alles, was richtig Leistung zieht, ist dieses Kabel nicht gedacht.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/kabelquerschnitt-kabelrechner/1-5mm2-spannungsabfall-0-13v-0-67v-full.webp" data-caption="1,5 mm² mit 5 A: 0,13 Volt bei 1 m Abstand, 0,67 Volt bei 5 m. Standbild aus meinem VoltKompass-Video." aria-label="Grafik Spannungsabfall 1,5 mm² vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/1-5mm2-spannungsabfall-0-13v-0-67v-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/1-5mm2-spannungsabfall-0-13v-0-67v-1440.webp">
+                  <img src="assets/blog/kabelquerschnitt-kabelrechner/1-5mm2-spannungsabfall-0-13v-0-67v-full.webp" width="1920" height="1080" alt="Batterie und LED-Lampe an langem Kabel, Rechenkarten 5 A bei 1 m Abstand 0,13 Volt und 5 A bei 5 m Abstand 0,67 Volt" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Schon bei 5 A wird ein langer Weg mit 1,5 mm² teuer.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="verluste">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Grundlagen</p>
+          <h2>Warum jeder Spannungsabfall zählt</h2>
+          <div class="blog-split blog-split-reverse">
+            <div class="blog-split-copy">
+              <p>Die Verluste zählen sich in der ganzen Anlage zusammen. Der Wechselrichter hat Verluste, die Laderegler haben Verluste. Und jede Klemme, jeder Kabelschuh, jede Sicherung, jeder Schalter und jedes Stück Kabel ist ein kleiner Widerstand.</p>
+              <p>Jeder Widerstand kostet Spannung, und dort entsteht Wärme. Diese Energie geht verloren. Darum gilt beim Installieren: <strong>den Spannungsabfall so gering wie möglich halten.</strong> Jedes Watt, das in Kabeln und Verbindungen verheizt wird, fehlt dir am Ende in der Batterie.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/kabelquerschnitt-kabelrechner/verbindungen-widerstand-verluste-full.webp" data-caption="Kabel, Sicherung, Schalter, Kabelschuh, Klemme: Jede Station ist ein kleiner Widerstand, die Verluste summieren sich. Standbild aus meinem VoltKompass-Video." aria-label="Grafik Verluste im System vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/verbindungen-widerstand-verluste-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/verbindungen-widerstand-verluste-1440.webp">
+                  <img src="assets/blog/kabelquerschnitt-kabelrechner/verbindungen-widerstand-verluste-full.webp" width="1920" height="1080" alt="Staufach mit Wechselrichter, Ladereglern und LiFePO4-Batterie, markiert sind Kabel, Sicherung, Schalter, Kabelschuh und Klemme als Widerstände, Zähler Verluste im System" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Jede Verbindung ist ein Widerstand.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="warum">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Der Denkfehler</p>
+          <h2>46,7-mal so viel Kupfer, aber nur gut 10-mal so viel Strom</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>70 Quadratmillimeter sind <strong>46,7-mal</strong> so viel Kupfer wie 1,5. Rechnet man einfach hoch, müsste das 70er 24 A × 46,7 = <strong>1120 Ampere</strong> aushalten.</p>
+              <p>Unter denselben idealen Bedingungen sind es aber nur <strong>245 Ampere</strong>. Fast 47-mal so viel Kupfer, aber nur gut zehnmal so viel Strom.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/kabelquerschnitt-kabelrechner/70mm2-46-7-kupfer-1120a-245a-full.webp" data-caption="70 ÷ 1,5 = 46,7. Hochgerechnet 1120 A, unter idealen Bedingungen nur 245 A. Standbild aus meinem VoltKompass-Video." aria-label="Grafik 1120 A gegen 245 A vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/70mm2-46-7-kupfer-1120a-245a-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/70mm2-46-7-kupfer-1120a-245a-1440.webp">
+                  <img src="assets/blog/kabelquerschnitt-kabelrechner/70mm2-46-7-kupfer-1120a-245a-full.webp" width="1920" height="1080" alt="Querschnitt eines 70-mm²-Kabels neben einem 1,5-mm²-Kabel, Rechnung 70 geteilt durch 1,5 gleich 46,7, 24 A mal 46,7 gleich 1120 A durchgestrichen, 245 A unter idealen Bedingungen" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Der Dreisatz geht nicht auf: 245 A statt 1120 A.</figcaption>
+            </figure>
+          </div>
+
+          <h3>Der Grund ist die Wärme</h3>
+          <div class="blog-split blog-split-reverse">
+            <div class="blog-split-copy">
+              <p>Die Wärme entsteht im <strong>ganzen Kupfer</strong>, von innen heraus. Raus kommt sie aber nur über die <strong>Außenfläche</strong> des Kabels. Beim dicken Kabel wächst das Kupfer viel stärker als diese Außenfläche: 46,7-mal so viel Kupfer, aber der Umfang des Kupfers wächst nur um das 6,8-Fache.</p>
+              <p>Das dicke Kabel wird seine Wärme also schlechter los. Deshalb sinkt der Strom pro Quadratmillimeter, je dicker das Kabel wird:</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/kabelquerschnitt-kabelrechner/waerme-aussenflaeche-70mm2-full.webp" data-caption="Wärme entsteht im ganzen Kupfer, raus kommt sie nur über die Außenfläche. Kupfer × 46,7, Umfang nur × 6,8. Standbild aus meinem VoltKompass-Video." aria-label="Grafik Wärme und Außenfläche vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/waerme-aussenflaeche-70mm2-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/waerme-aussenflaeche-70mm2-1440.webp">
+                  <img src="assets/blog/kabelquerschnitt-kabelrechner/waerme-aussenflaeche-70mm2-full.webp" width="1920" height="1080" alt="Glühender Querschnitt eines 70-mm²-Kabels und eines 1,5-mm²-Kabels, Text Wärme entsteht im ganzen Kupfer, raus nur über die Außenfläche, Kupfer mal 46,7, Umfang nur mal 6,8" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Viel Kupfer, wenig Außenfläche: Die Wärme staut sich.</figcaption>
+            </figure>
+          </div>
+
+          <div class="amm-chart" role="img" aria-label="Balkendiagramm Ampere pro Quadratmillimeter unter idealen Bedingungen: 1,5 mm² 16, 10 mm² 7,3, 35 mm² 4,5, 70 mm² 3,5">
+            <div class="amm-row"><b>1,5 mm²</b><div class="amm-bar"><span style="width:100%">16 A/mm² (24 A)</span></div></div>
+            <div class="amm-row"><b>10 mm²</b><div class="amm-bar"><span style="width:45.6%">7,3 A/mm² (73 A)</span></div></div>
+            <div class="amm-row"><b>35 mm²</b><div class="amm-bar"><span style="width:28.2%">4,5 (158 A)</span></div></div>
+            <div class="amm-row"><b>70 mm²</b><div class="amm-bar"><span style="width:21.9%">3,5 (245 A)</span></div></div>
+          </div>
+          <p>Ampere pro Quadratmillimeter, einadrig, frei verlegt bei 30 °C nach DIN VDE 0298-4 Tabelle 11.</p>
+        </div>
+      </section>
+
+      <section class="blog-section" id="70er">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Praxis</p>
+          <h2>Das 70er im Wohnmobil: rund 200 Ampere Dauerstrom</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Im Wohnmobil wird jedes Kabel anders verlegt. Mal frei, mal im Bündel, mal im Schutzrohr, und dazu ist es im Staufach oft warm. Als Richtwert plane ich für 70 Quadratmillimeter <strong>rund 200 Ampere Dauerstrom, frei verlegt</strong>. Liegt das Kabel im Bündel, im Schutzrohr oder im warmen Staufach, wird es weniger.</p>
+              <p>Woher die 200 A kommen: 245 A bei 30 °C, umgerechnet auf ein Staufach mit 40 °C (Faktor 0,87 für eine 70-°C-Isolierung), ergibt 213 A. Mit etwas Reserve plane ich 200 A.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/kabelquerschnitt-kabelrechner/70mm2-richtwert-200a-dauerstrom-full.webp" data-caption="Mein Richtwert für 70 mm² im Wohnmobil: rund 200 A Dauerstrom, frei verlegt. Standbild aus meinem VoltKompass-Video." aria-label="Grafik Richtwert 200 A vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/70mm2-richtwert-200a-dauerstrom-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/70mm2-richtwert-200a-dauerstrom-1440.webp">
+                  <img src="assets/blog/kabelquerschnitt-kabelrechner/70mm2-richtwert-200a-dauerstrom-full.webp" width="1920" height="1080" alt="Staufach mit Wechselrichter und dickem roten Kabel, Einblendung Richtwert für 70 mm² rund 200 A Dauerstrom frei verlegt" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>70 mm²: rund 200 A Dauerstrom, frei verlegt.</figcaption>
+            </figure>
+          </div>
+
+          <div class="blog-split blog-split-reverse">
+            <div class="blog-split-copy">
+              <p>Ich würde nicht darauf hoffen, dass das Kabel <strong>240 Ampere</strong> schafft, wenn es gleichzeitig im Schutzrohr, eng im Bündel und im warmen Staufach liegt. Dann wird es zu heiß, die Isolierung leidet, und im schlimmsten Fall schmort sie.</p>
+              <p>Darum: Verlege die dicken Kabel möglichst <strong>frei und mit etwas Abstand</strong> zu anderen Leitungen. Im Wohnmobil klappt das nicht immer, der Platz ist eng. Aber da, wo es geht, mach das Bestmögliche draus.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/kabelquerschnitt-kabelrechner/70mm2-schutzrohr-240a-full.webp" data-caption="240 A durch ein 70er im Schutzrohr, im Bündel und im warmen Staufach: Darauf würde ich nicht hoffen. Standbild aus meinem VoltKompass-Video." aria-label="Grafik 240 A im Schutzrohr vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/70mm2-schutzrohr-240a-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/70mm2-schutzrohr-240a-1440.webp">
+                  <img src="assets/blog/kabelquerschnitt-kabelrechner/70mm2-schutzrohr-240a-full.webp" width="1920" height="1080" alt="Kabelbündel im Wellrohr auf Holzwand, Einblendung Strom im 70er 240 A, Schutzrohr, Bündel, warm" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Schutzrohr, Bündel, warmes Staufach: Hier wird es eng.</figcaption>
+            </figure>
+          </div>
+
+          <h3>Und der Spannungsabfall beim 70er?</h3>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Bei 200 Ampere und einem Meter Abstand verliert das warme 70er rund <strong>0,13 Volt</strong>. Das klingt wenig, sind aber schon <strong>26 Watt</strong> Wärme im Kabel. Bei fünf Metern Abstand wären es rund <strong>0,65 Volt und 130 Watt</strong>.</p>
+              <p>Darum gilt auch beim dicken Kabel: so kurz wie möglich. Probier es im <a href="#rechner">Kabelrechner</a> aus: Modus „Spannungsabfall“, 200 A, 70 mm², 1 oder 5 m.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/kabelquerschnitt-kabelrechner/70mm2-spannungsabfall-200a-1m-5m-full.webp" data-caption="Rechenbeispiel warmes Kabel (70 °C): 200 A über 1 m Abstand 0,13 Volt und 26 W, über 5 m 0,65 Volt und 130 W. Standbild aus meinem VoltKompass-Video." aria-label="Grafik Spannungsabfall beim 70er vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/70mm2-spannungsabfall-200a-1m-5m-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/70mm2-spannungsabfall-200a-1m-5m-1440.webp">
+                  <img src="assets/blog/kabelquerschnitt-kabelrechner/70mm2-spannungsabfall-200a-1m-5m-full.webp" width="1920" height="1080" alt="Rechenkarten Spannungsabfall beim 70er: 200 A bei 1 m Abstand 0,13 Volt und 26 Watt Wärme, bei 5 m Abstand 0,65 Volt und 130 Watt Wärme" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Fünfmal so lang, fünfmal so viel Verlust.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="verbindungen">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Oft unterschätzt</p>
+          <h2>Die Verbindungen: Eine schlechte Stelle heizt mehr als das ganze Kabel</h2>
+          <div class="blog-split blog-split-reverse">
+            <div class="blog-split-copy">
+              <p>Jeder Kabelschuh, jede Schraube, jede Klemme ist ein Widerstand. Eine gute Verbindung hat deutlich weniger als ein Milliohm.</p>
+              <p>Ein Rechenbeispiel: Ist eine Verbindung schlecht, zum Beispiel locker oder schlecht verpresst, und hat dadurch <strong>ein Milliohm mehr</strong> Widerstand, gehen bei 200 Ampere <strong>0,2 Volt</strong> verloren. Und an dieser kleinen Stelle entstehen <strong>40 Watt</strong> Wärme. Mehr als im ganzen 70er-Kabel bei einem Meter Abstand (26 W).</p>
+              <p>Also: Kabelschuhe sauber verpressen, Schrauben richtig anziehen, und nur Sicherungen und Schalter verwenden, die für den Strom gemacht sind. Der Kabelrechner rechnet nur das Kabel. Verbindungen kommen immer noch obendrauf.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/kabelquerschnitt-kabelrechner/schlechte-verbindung-0-2v-40w-full.webp" data-caption="Rechenbeispiel mit angenommenem Wert: 1 Milliohm mehr Widerstand an einer Verbindung, 200 A, 0,2 Volt und 40 W. Standbild aus meinem VoltKompass-Video." aria-label="Grafik schlechte Verbindung vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/schlechte-verbindung-0-2v-40w-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/schlechte-verbindung-0-2v-40w-1440.webp">
+                  <img src="assets/blog/kabelquerschnitt-kabelrechner/schlechte-verbindung-0-2v-40w-full.webp" width="1920" height="1080" alt="Wärmebild einer Anlage mit glühender Verbindung, Rechenkarte 1 Milliohm mehr Widerstand bei 200 A, 0,2 Volt und 40 Watt, Vergleich ganzes 70er-Kabel 1 m Abstand 26 Watt" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>1 mΩ zu viel: 40 W an einer einzigen Stelle.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="tabelle">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Zum Nachschlagen</p>
+          <h2>Meine Richtwert-Tabelle von 1,5 bis 95 mm²</h2>
+          <p class="blog-intro">Nach dieser Tabelle richte ich mich selbst. Sie berücksichtigt beides, die Wärme und den Spannungsabfall. Der Spannungsabfall im Kabel bleibt bei höchstens 0,3 Volt, auch wenn das Kabel warm ist.</p>
+          <ul>
+            <li>Kupfer, feindrähtig, PVC-Isolierung für 70 °C am Leiter, Leiter mit 70 °C gerechnet</li>
+            <li>einzeln, frei und mit Abstand verlegt, Staufach bis 40 °C</li>
+            <li>12 Volt, höchstens 0,3 Volt Spannungsabfall, Plus und Minus zusammen</li>
+            <li>Meter = Abstand Batterie → Gerät. Angegeben sind Strom und Verlust im Kabel.</li>
+            <li><strong>Gold</strong> = die Wärme begrenzt (Planwert), der Spannungsabfall liegt dann darunter und steht klein dabei</li>
+          </ul>
+          <div class="blog-table-wrap" role="region" aria-label="Richtwert-Tabelle Kabelquerschnitt 12 Volt" tabindex="0">
+            <table class="blog-table rw-table">
+              <thead>
+                <tr><th>Querschnitt</th><th>1 m</th><th>2 m</th><th>3 m</th><th>5 m</th></tr>
+              </thead>
+              <tbody>
+                <tr><th>1,5 mm²</th><td>9,4 A<small>2,8 W</small></td><td>4,7 A<small>1,4 W</small></td><td>3,1 A<small>0,9 W</small></td><td>1,9 A<small>0,6 W</small></td></tr>
+                <tr><th>2,5 mm²</th><td>16 A<small>4,7 W</small></td><td>7,9 A<small>2,4 W</small></td><td>5,2 A<small>1,6 W</small></td><td>3,1 A<small>0,9 W</small></td></tr>
+                <tr><th>4 mm²</th><td>25 A<small>7,6 W</small></td><td>13 A<small>3,8 W</small></td><td>8,4 A<small>2,5 W</small></td><td>5,1 A<small>1,5 W</small></td></tr>
+                <tr><th>6 mm²</th><td>38 A<small>11 W</small></td><td>19 A<small>5,7 W</small></td><td>13 A<small>3,8 W</small></td><td>7,6 A<small>2,3 W</small></td></tr>
+                <tr><th>10 mm²</th><td class="w">60 A<small>16 W · 0,27 V</small></td><td>33 A<small>9,8 W</small></td><td>22 A<small>6,6 W</small></td><td>13 A<small>3,9 W</small></td></tr>
+                <tr><th>16 mm²</th><td class="w">80 A<small>19 W · 0,23 V</small></td><td>52 A<small>16 W</small></td><td>35 A<small>10 W</small></td><td>21 A<small>6,2 W</small></td></tr>
+                <tr><th>25 mm²</th><td class="w">110 A<small>23 W · 0,21 V</small></td><td>80 A<small>24 W</small></td><td>54 A<small>16 W</small></td><td>32 A<small>9,6 W</small></td></tr>
+                <tr><th>35 mm²</th><td class="w">135 A<small>24 W · 0,18 V</small></td><td>113 A<small>34 W</small></td><td>75 A<small>23 W</small></td><td>45 A<small>14 W</small></td></tr>
+                <tr><th>50 mm²</th><td class="w">170 A<small>27 W · 0,16 V</small></td><td>162 A<small>49 W</small></td><td>108 A<small>32 W</small></td><td>65 A<small>19 W</small></td></tr>
+                <tr><th>70 mm²</th><td class="w">200 A<small>26 W · 0,13 V</small></td><td class="w">200 A<small>52 W · 0,26 V</small></td><td>154 A<small>46 W</small></td><td>92 A<small>28 W</small></td></tr>
+                <tr><th>95 mm²</th><td class="w">250 A<small>31 W · 0,12 V</small></td><td class="w">250 A<small>62 W · 0,25 V</small></td><td>203 A<small>61 W</small></td><td>122 A<small>37 W</small></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Liegt das Kabel im Bündel oder im Schutzrohr, wird es weniger. Kabel mit einer Isolierung für höhere Temperaturen, zum Beispiel bis 120 °C, können mehr. Dann gilt das Datenblatt des Kabels. Die Tabelle ist eine Orientierung. An erster Stelle steht immer die Anleitung deines Geräts.</p>
+          <figure class="blog-figure" style="margin-top:22px">
+            <button class="blog-zoom" type="button" data-full="assets/blog/kabelquerschnitt-kabelrechner/richtwert-tabelle-kabelquerschnitt-full.webp" data-caption="Meine Richtwert-Tabelle aus dem Video: Kupfer, PVC 70 °C, frei verlegt, Staufach bis 40 °C, max. 0,3 Volt. Gold = Wärmegrenze. Standbild aus meinem VoltKompass-Video." aria-label="Richtwert-Tabelle aus dem Video vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/richtwert-tabelle-kabelquerschnitt-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/richtwert-tabelle-kabelquerschnitt-1440.webp">
+                <img src="assets/blog/kabelquerschnitt-kabelrechner/richtwert-tabelle-kabelquerschnitt-full.webp" width="1920" height="1080" alt="Richtwert-Tabelle Kabelquerschnitt 1,5 bis 95 mm² bei 1, 2, 3 und 5 m Abstand mit Strom und Watt Verlust, goldene Felder Wärmegrenze" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Die Tabelle aus dem Video zum Vergrößern.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="lange-wege">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Lange Kabel</p>
+          <h2>Lange Wege: Das Kabel bleibt kühl, aber das Gerät schaltet ab</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Bei längeren Wegen kann das Kabel von der Wärme her mehr Strom führen, als in der Tabelle steht. Aber der Spannungsabfall steigt.</p>
+              <p>Beispiel: 25 mm² auf 5 m Abstand. Die Tabelle sagt 32 A. Fließen 60 A, bleibt das Kabel kühl, aber am Gerät kommen rund <strong>0,5 Volt weniger</strong> an, und rund 30 W gehen im Kabel verloren. Dann kann ein Gerät wegen Unterspannung abschalten, obwohl die Batterie noch genug Spannung hat.</p>
+              <p>Achte deshalb darauf, ob dein Gerät eine <strong>separate Spannungsmessung</strong> unterstützt. Das ist ein dünnes Messkabel direkt an der Batterie, durch das kein Laststrom fließt. Es misst die echte Batteriespannung. Schau in der Anleitung, wofür dein Gerät diese Messung nutzt. Der Verlust im Kabel bleibt trotzdem.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/kabelquerschnitt-kabelrechner/25mm2-5m-60a-unterspannung-messkabel-full.webp" data-caption="Rechenbeispiel 25 mm², 5 m, 60 A statt 32 A: Kabel bleibt kühl, rund 0,5 Volt verloren, das Gerät schaltet wegen Unterspannung ab. Ein dünnes Messkabel misst die echte Batteriespannung. Standbild aus meinem VoltKompass-Video." aria-label="Grafik lange Wege und Messkabel vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/25mm2-5m-60a-unterspannung-messkabel-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/25mm2-5m-60a-unterspannung-messkabel-1440.webp">
+                  <img src="assets/blog/kabelquerschnitt-kabelrechner/25mm2-5m-60a-unterspannung-messkabel-full.webp" width="1920" height="1080" alt="Grafik Beispiel 25 mm², 5 m, 60 A statt 32 A: Batterie 12,8 Volt, Gerät 12,3 Volt, rund 0,5 Volt verloren, Unterspannung aus, dünnes Messkabel ohne Laststrom" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Kabel kühl, Gerät aus: Am Ende fehlt die Spannung.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="spannung">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Systemspannung</p>
+          <h2>12, 24 oder 48 Volt: Was sich beim Kabel ändert</h2>
+          <p class="blog-intro">Die Strombelastbarkeit eines Kabels hängt <strong>nicht</strong> von der Spannung ab. Das Kabel wird vom Strom erwärmt. Ein 35er verträgt bei 12, 24 und 48 Volt denselben Strom. Was sich ändert, ist der Strom selbst: Für dieselbe Leistung fließt bei doppelter Spannung nur der halbe Strom.</p>
+          <p>Der Verlust im Kabel steigt mit dem Quadrat des Stroms. Halber Strom heißt also nur ein Viertel Verlust. Ein Rechenbeispiel mit 2000 W aus der Batterie, 50 mm², 2 m Abstand, warmes Kabel (70 °C), Wirkungsgrad des Wechselrichters außen vor:</p>
+          <div class="blog-table-wrap" role="region" aria-label="Vergleich 12, 24 und 48 Volt bei 2000 Watt" tabindex="0">
+            <table class="blog-table">
+              <thead>
+                <tr><th>System</th><th>Strom bei 2000 W</th><th>Spannungsabfall</th><th>Verlust im Kabel</th></tr>
+              </thead>
+              <tbody>
+                <tr><td>12 V (12,8 V LiFePO4)</td><td>156 A</td><td>0,29 Volt</td><td>45 W</td></tr>
+                <tr><td>24 V (25,6 V)</td><td>78 A</td><td>0,14 Volt</td><td>11 W</td></tr>
+                <tr><td>48 V (51,2 V)</td><td>39 A</td><td>0,07 Volt</td><td>2,8 W</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Bei 24 und 48 Volt reicht deshalb oft ein deutlich kleinerer Querschnitt. Welchen Spannungsabfall du dort erlaubst, legst du im Rechner selbst fest. Als Startwert setzt er denselben Anteil ein wie meine 0,3 Volt bei 12 Volt, also 0,6 Volt bei 24 Volt und 1,2 Volt bei 48 Volt. Auch hier gilt: Die Anleitung deines Geräts geht vor.</p>
+          <div class="blog-note"><strong>Wichtig:</strong> Die Wärmegrenze bleibt bei jeder Spannung gleich. Ein kleiner Querschnitt mit wenig Spannungsabfall kann trotzdem zu warm werden. Der Rechner prüft deshalb immer beides.</div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="quellen">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Transparenz &amp; Quellen</p>
+          <h2>Quellen und Rechenweg</h2>
+          <ul>
+            <li><a href="https://www.bayka.de/wp-content/uploads/2022/03/TD06DE-Strombelastbarkeit-flexible-Kupferkabel-und-Leitungen.pdf" target="_blank" rel="noopener">Strombelastbarkeit nach DIN VDE 0298-4, Tabelle 11 (Bayka TD06DE, 07/2022, PDF)</a>: einadrig, frei in Luft, 30 °C; die Werte gelten laut Bayka auch für Gleichstrom</li>
+            <li><a href="https://contentmedia.lappcdn.com/e/lapp/fuk2Jf1cPlV6EesaZZFavA~~" target="_blank" rel="noopener">Umrechnungsfaktoren Temperatur und Häufung nach DIN VDE 0298-4 (Lapp, Technische Tabellen T12)</a>: Faktor 0,87 bei 40 °C für 70-°C-Leiter</li>
+            <li><a href="https://www.bayka.de/en/service/technical-information/conductor-resistance" target="_blank" rel="noopener">Leiterwiderstände nach EN 60228 (Bayka, abgerufen 06.11.2026)</a>: Klasse 5, 20 °C</li>
+          </ul>
+          <ul>
+            <li><strong>Spannungsabfall:</strong> ΔU = I × R′ × 2 × Abstand, R′ = Leiterwiderstand pro Meter, × 1,1965 für 70 °C Leitertemperatur</li>
+            <li><strong>Verlust:</strong> P = I² × R = ΔU × I</li>
+            <li><strong>Wärmegrenze im Rechner:</strong> Tabelle 11 × 0,87, mit Reserve abgerundet: 1,5 → 20 A · 2,5 → 27 A · 4 → 36 A · 6 → 46 A · 10 → 60 A · 16 → 80 A · 25 → 110 A · 35 → 135 A · 50 → 170 A · 70 → 200 A · 95 → 250 A · 120 → 290 A</li>
+            <li><strong>Einstieg:</strong> 1,5 mm², 24 A, 10 m Kabel bei 20 °C: 3,19 Volt, 76,6 W von 307 W (24 A × 12,8 V)</li>
+            <li><strong>70er:</strong> 0,272 Ω/km × 1,1965 = 0,325 mΩ/m; 200 A × 2 m Kabel → 0,13 Volt, 26 W; × 10 m Kabel → 0,65 Volt, 130 W</li>
+            <li><strong>Verbindung:</strong> 1 mΩ ist ein angenommener Wert für eine schlechte Verbindung; 200² × 0,001 = 40 W, 200 × 0,001 = 0,2 Volt</li>
+          </ul>
+          <div class="blog-note"><strong>Zur Einordnung:</strong> Normen sind Empfehlungen, keine Gesetze. Wer sich daran hält, ist auf der sicheren Seite. Die 0,3 Volt und die 200 A für das 70er sind meine eigenen Richtwerte aus der Praxis. Mehr zu meinem fachlichen Hintergrund findest du unter <a href="index.html#ueber">Über Andreas</a>.</div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="faq">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">FAQ</p>
+          <h2>Häufige Fragen zum Kabelquerschnitt im Wohnmobil</h2>
+          <div class="blog-faq">
+            <details>
+              <summary>Wie viel Ampere hält ein 70-mm²-Kabel aus?</summary>
+              <p>Unter idealen Bedingungen, also einzeln, frei verlegt bei 30 °C, sind es laut DIN VDE 0298-4 Tabelle 11 für einadrige flexible Leitungen 245 Ampere. Im Wohnmobil plane ich als Richtwert rund 200 Ampere Dauerstrom, frei verlegt. Im Bündel, im Schutzrohr oder im warmen Staufach wird es weniger.</p>
+            </details>
+            <details>
+              <summary>Warum trägt ein dickes Kabel weniger Ampere pro Quadratmillimeter?</summary>
+              <p>Die Wärme entsteht im ganzen Kupfer, abgeben kann das Kabel sie aber nur über seine Außenfläche. Beim dicken Kabel wächst das Kupfer viel stärker als diese Außenfläche. Deshalb sind es beim 1,5er 16 Ampere pro Quadratmillimeter, beim 70er nur noch 3,5.</p>
+            </details>
+            <details>
+              <summary>Wie viel Spannungsabfall ist im Wohnmobil in Ordnung?</summary>
+              <p>Ich richte mich bei 12 Volt nach höchstens 0,3 Volt im Kabel, Plus und Minus zusammen, auch wenn das Kabel warm ist. Das ist mein eigener Richtwert, keine Norm. An erster Stelle steht immer die Anleitung des Geräts.</p>
+            </details>
+            <details>
+              <summary>Hängt die Strombelastbarkeit eines Kabels von der Spannung ab?</summary>
+              <p>Nein. Das Kabel wird vom Strom erwärmt, nicht von der Spannung. Ein 35-mm²-Kabel verträgt bei 12, 24 und 48 Volt denselben Strom. Bei höherer Spannung fließt für dieselbe Leistung aber weniger Strom, deshalb reicht dort oft ein kleinerer Querschnitt.</p>
+            </details>
+            <details>
+              <summary>Wie viel Wärme entsteht an einer schlechten Verbindung?</summary>
+              <p>Ein Rechenbeispiel: Hat ein lockerer oder schlecht verpresster Kabelschuh 1 Milliohm mehr Widerstand, gehen bei 200 Ampere 0,2 Volt verloren, und an dieser kleinen Stelle entstehen 40 Watt Wärme. Das ist mehr als im ganzen 70er-Kabel bei einem Meter Abstand.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="fazit">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Fazit</p>
+          <h2>Kurz, frei verlegt, saubere Verbindungen</h2>
+          <figure class="blog-figure" style="margin:0 0 22px">
+            <button class="blog-zoom" type="button" data-full="assets/blog/kabelquerschnitt-kabelrechner/fazit-gruener-bereich-full.webp" data-caption="Alles im grünen Bereich: dünne Kabel nur für kleine Ströme, 70 mm² rund 200 A Dauerstrom, so kurz wie möglich, möglichst frei verlegt. Standbild aus meinem VoltKompass-Video." aria-label="Fazit-Grafik vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/fazit-gruener-bereich-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/kabelquerschnitt-kabelrechner/fazit-gruener-bereich-1440.webp">
+                <img src="assets/blog/kabelquerschnitt-kabelrechner/fazit-gruener-bereich-full.webp" width="1920" height="1080" alt="Staufach mit grün leuchtenden Leitungen, Haken dünne Kabel nur für kleine Ströme, 70 mm² rund 200 A Dauerstrom, so kurz wie möglich, möglichst frei verlegt" loading="lazy" decoding="async">
+              </picture>
+            </button>
+          </figure>
+          <p>Dünne Kabel nur für kleine Ströme. Beim 70er rund 200 Ampere Dauerstrom. Die Kabel so kurz wie möglich, möglichst frei verlegt, und jede Verbindung sauber. Dann bleibt alles im grünen Bereich.</p>
+          <p>Und jetzt interessiert mich: Welches Kabel hast du an deinem Wechselrichter, und wie lang ist es? Schreib es mir in die Kommentare unter dem <a href="https://www.youtube.com/watch?v=EhqQTA4N5vs" target="_blank" rel="noopener">Video</a>.</p>
+          <div class="blog-actions">
+            <a href="#rechner" class="btn btn-ghost">Zurück zum Kabelrechner</a>
+            <a href="index.html#kontakt" class="btn btn-primary">Meine Anlage planen lassen</a>
+          </div>
+          <p class="blog-disclaimer"><strong>Sicherheitshinweis:</strong> Zu dünne Kabel, schlechte Verbindungen und fehlende Absicherung können Kabel überhitzen und Brände verursachen. Dieser Beitrag und der Kabelrechner erklären Zusammenhänge und Richtwerte. Sie ersetzen keine Prüfung am konkreten Fahrzeug, keine Installationsanleitung und keine Rechtsberatung. Beachte die Vorgaben der Geräte-, Kabel- und Batteriehersteller und lass die Anlage im Zweifel von einer qualifizierten Fachkraft prüfen.</p>
+        </div>
+      </section>
+    </article>
+  </main>
+
+<section class="related">
+  <div class="wrap">
+    <div class="related-head">
+      <div>
+        <span class="eyebrow">Weiterlesen</span>
+        <h2>Das könnte dich auch interessieren</h2>
+      </div>
+      <a class="btn btn-ghost" href="blog.html">Alle Beiträge →</a>
+    </div>
+    <div class="related-grid">
+      <a class="related-card" href="blog-stufe-4.html">
+        <div class="ri"><img src="assets/blog/stufe-4/wohnmobil-solaranlage-stufe-4-schaltplan-960.webp" alt="" loading="lazy" decoding="async" /></div>
+        <small>Stufe 4</small>
+        <strong>Wohnmobil-Solaranlage mit 320 Ah und 2000 W Wechselrichter</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+      <a class="related-card" href="lifepo4-batterie-laedt-nicht-voll.html">
+        <div class="ri"><img src="assets/blog/lifepo4-laedt-nicht-voll/lifepo4-video-thumbnail-clean.webp" alt="" loading="lazy" decoding="async" /></div>
+        <small>Fehlersuche</small>
+        <strong>LiFePO4-Batterie lädt nicht voll</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+      <a class="related-card" href="ladebooster-wohnmobil.html">
+        <div class="ri"><img src="assets/blog/ladebooster-wohnmobil/ladebooster.jpg" alt="" loading="lazy" decoding="async" /></div>
+        <small>Ladebooster</small>
+        <strong>Ladebooster im Wohnmobil: auswählen, anschließen, absichern</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="cta-band">
+  <div class="wrap">
+    <div class="cta-band-inner">
+      <div>
+        <img src="assets/author/andreas-avatar-160.webp" alt="Andreas von VoltKompass" width="56" height="56" loading="lazy" />
+        <div>
+          <strong>Welcher Querschnitt passt in deiner Anlage?</strong>
+          <span>Ich plane Kabel, Sicherungen und Geräte passend zu deinem Fahrzeug – persönlich per WhatsApp, Telegram oder Signal.</span>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="index.html#kontakt">Beratung buchen →</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a href="index.html#top" class="brand"><img class="brand-mark" src="compass.svg" alt="" width="28" height="28" /><span><span class="v">Volt</span><span class="k">Kompass</span></span></a>
+      <p>© 2026 VoltKompass — Wohnmobil-Beratung für Strom &amp; Autarkie</p>
+    </div>
+    <nav>
+      <a href="index.html#top">Startseite</a>
+      <a href="blog.html">Blog</a>
+      <a href="produkte.html">Produkte</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="index.html#kontakt">Kontakt</a>
+      <button type="button" class="cookie-settings-link" data-cookie-settings>Cookie-Einstellungen</button>
+    </nav>
+  </div>
+</footer>
+
+  <script src="blog-lightbox.js"></script>
+  <script src="cookie-consent.js"></script>
+  <script>
+  /* ===== VoltKompass Kabelrechner ===== */
+  (function () {
+    // Querschnitt mm², Leiterwiderstand Klasse 5 bei 20 °C (Ω/km, EN 60228), Wärmegrenze-Planwert (A)
+    var SIZES = [1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120];
+    var R20   = [13.3, 7.98, 4.95, 3.3, 1.91, 1.21, 0.78, 0.554, 0.386, 0.272, 0.206, 0.161];
+    var PLAN  = [20, 27, 36, 46, 60, 80, 110, 135, 170, 200, 250, 290];
+    var K70 = 1.1965;
+    var SYS = { '12': { ub: 12.8, du: 0.3 }, '24': { ub: 25.6, du: 0.6 }, '48': { ub: 51.2, du: 1.2 } };
+
+    var $ = function (id) { return document.getElementById(id); };
+    var root = $('kabelrechner');
+    if (!root) return;
+    var unit = 'A';
+    var duTouched = false, ubTouched = false;
+
+    // Querschnitt-Auswahl füllen
+    var sel = $('inA');
+    SIZES.forEach(function (s, i) {
+      var o = document.createElement('option');
+      o.value = i; o.textContent = fmt(s, s < 10 && s % 1 ? 1 : 0) + ' mm²';
+      if (s === 35) o.selected = true;
+      sel.appendChild(o);
+    });
+
+    function fmt(x, d) {
+      return x.toLocaleString('de-DE', { minimumFractionDigits: d, maximumFractionDigits: d });
+    }
+    function num(id) {
+      var v = String($(id).value).trim().replace(/\s/g, '').replace(',', '.');
+      if (v === '') return NaN;
+      return Number(v);
+    }
+    function fA(x) { return fmt(x, x < 10 ? 1 : 0) + ' A'; }
+    function fV(x) { return fmt(x, x < 10 ? 2 : 1) + ' Volt'; }
+    function fW(x) { return fmt(x, x < 10 ? 1 : 0) + ' W'; }
+    function fM(x) { return fmt(x, x < 1 ? 2 : 1) + ' m'; }
+    function fS(i) { var s = SIZES[i]; return fmt(s, s % 1 ? 1 : 0) + ' mm²'; }
+    function radio(name) { return root.querySelector('input[name="' + name + '"]:checked').value; }
+    function rpm(i) { return R20[i] / 1000 * ($('inT').value === '70' ? K70 : 1); } // Ω pro Meter Leiter
+
+    function kpi(label, value) { return '<div><span>' + label + '</span><strong>' + value + '</strong></div>'; }
+    function msg(cls, text) { return '<div class="calc-msg ' + cls + '">' + text + '</div>'; }
+
+    function syncFields(mode) {
+      root.querySelectorAll('.calc-field[data-for]').forEach(function (f) {
+        var show = f.getAttribute('data-for').split(' ').indexOf(mode) >= 0;
+        if (f.id === 'fieldEta') show = show && unit === 'W';
+        f.hidden = !show;
+      });
+    }
+
+    function calc() {
+      var mode = radio('mode');
+      var sys = radio('sys');
+      syncFields(mode);
+
+      var ub = num('inUb');
+      var dmax = num('inDU');
+      var L = num('inL');
+      var ai = Number(sel.value);
+      var raw = num('inI');
+      var eta = num('inEta');
+      var I = raw;
+      if (unit === 'W') I = raw / ub / ((eta > 0 ? eta : 100) / 100);
+
+      var needI = mode !== 'strom', needL = mode !== 'laenge';
+      var bad = [];
+      if (!(ub > 0)) bad.push('Batteriespannung');
+      if (!(dmax > 0)) bad.push('erlaubter Spannungsabfall');
+      if (needI && !(I > 0)) bad.push(unit === 'W' ? 'Leistung' : 'Strom');
+      if (needL && !(L > 0)) bad.push('Abstand');
+      if (unit === 'W' && needI && !(eta > 0 && eta <= 100)) bad.push('Wirkungsgrad (1 bis 100 %)');
+
+      var lbl = $('resLbl'), big = $('resBig'), sub = $('resSub'), kp = $('resKpis'), ms = $('resMsgs'), ov = $('ovTable'), ot = $('ovTitle');
+      if (bad.length) {
+        lbl.textContent = 'Ergebnis'; big.textContent = '–';
+        sub.textContent = 'Bitte prüfen: ' + bad.join(', ') + '.';
+        kp.innerHTML = ''; ms.innerHTML = ''; ov.innerHTML = '';
+        return;
+      }
+
+      var K = [], M = [], rows = '';
+      var head = '';
+      var pctOf = function (du) { return fmt(du / ub * 100, 1) + ' %'; };
+      var wNote = unit === 'W' ? ' (aus ' + fmt(raw, 0) + ' W' + (eta < 100 ? ', ' + fmt(eta, 0) + ' % Wirkungsgrad' : '') + ')' : '';
+
+      if (mode === 'querschnitt') {
+        var rec = -1, recV = -1;
+        head = '<thead><tr><th>Querschnitt</th><th>Spannungsabfall</th><th>Verlust</th><th>Wärmegrenze</th><th>Bewertung</th></tr></thead><tbody>';
+        SIZES.forEach(function (s, i) {
+          var du = I * rpm(i) * 2 * L, p = du * I;
+          var okV = du <= dmax + 1e-9, okT = I <= PLAN[i];
+          if (okV && recV < 0) recV = i;
+          if (okV && okT && rec < 0) rec = i;
+          var dot = okV && okT ? 'g' : (okT ? 'o' : 'r');
+          var txt = okV && okT ? 'passt' : (!okT ? 'zu warm' : 'Abfall zu hoch');
+          rows += '<tr' + (i === rec && rec >= 0 ? ' class="is-rec"' : '') + '><td>' + fS(i) + '</td><td>' + fV(du) + '</td><td>' + fW(p) + '</td><td>' + PLAN[i] + ' A</td><td><span class="dot ' + dot + '"></span>' + txt + '</td></tr>';
+        });
+        lbl.textContent = 'Mindestens nötiger Querschnitt';
+        ot.textContent = 'Alle Querschnitte bei ' + fA(I) + ' und ' + fM(L) + ' Abstand';
+        if (rec < 0) {
+          big.textContent = 'über 120 mm²';
+          sub.textContent = 'bei ' + fA(I) + wNote + ' und ' + fM(L) + ' Abstand';
+          M.push(msg('bad', 'Selbst 120 mm² reicht hier nicht. Verkürze den Weg, verringere den Strom oder plane eine höhere Systemspannung. Parallele Leitungen nur nach Anleitung des Geräts und mit passender Absicherung.'));
+        } else {
+          var du = I * rpm(rec) * 2 * L, p = du * I;
+          big.textContent = fS(rec);
+          sub.textContent = 'bei ' + fA(I) + wNote + ' und ' + fM(L) + ' Abstand';
+          K.push(kpi('Spannungsabfall', fV(du) + ' · ' + pctOf(du)));
+          K.push(kpi('Spannung am Gerät', fmt(ub - du, 2) + ' Volt'));
+          K.push(kpi('Verlust im Kabel', fW(p) + ' · ' + fmt(p / (ub * I) * 100, 1) + ' %'));
+          K.push(kpi('Wärmegrenze ' + fS(rec), PLAN[rec] + ' A'));
+          if (recV >= 0 && recV < rec) {
+            M.push(msg('warn', 'Vom Spannungsabfall her würde schon ' + fS(recV) + ' reichen. Bei ' + fA(I) + ' wird es aber zu warm. Hier entscheidet die Wärme, nicht die Spannung.'));
+          } else {
+            M.push(msg('ok', 'Hier entscheidet der Spannungsabfall. Die Wärmegrenze von ' + fS(rec) + ' liegt mit ' + PLAN[rec] + ' A über deinem Strom.'));
+          }
+          if (rec + 1 < SIZES.length) {
+            var du2 = I * rpm(rec + 1) * 2 * L;
+            M.push(msg('info', 'Eine Nummer größer (' + fS(rec + 1) + '): ' + fV(du2) + ' Spannungsabfall und ' + fW(du2 * I) + ' Verlust. Weniger Verlust heißt mehr Energie in der Batterie.'));
+          }
+        }
+      }
+
+      if (mode === 'laenge') {
+        var r = rpm(ai);
+        var Lmax = dmax / (I * r * 2);
+        var okT = I <= PLAN[ai];
+        lbl.textContent = 'Maximaler Abstand Batterie → Gerät';
+        big.textContent = fM(Lmax);
+        sub.textContent = 'mit ' + fS(ai) + ' bei ' + fA(I) + wNote + ', das sind ' + fM(2 * Lmax) + ' Kabel (Plus und Minus)';
+        K.push(kpi('Spannungsabfall dann', fV(dmax) + ' · ' + pctOf(dmax)));
+        K.push(kpi('Verlust im Kabel dann', fW(dmax * I)));
+        K.push(kpi('Wärmegrenze ' + fS(ai), PLAN[ai] + ' A'));
+        M.push(okT
+          ? msg('ok', 'Die Wärme passt: ' + fA(I) + ' liegen innerhalb der Wärmegrenze von ' + PLAN[ai] + ' A. Je kürzer, desto weniger Verlust.')
+          : msg('bad', 'Zu warm: ' + fA(I) + ' liegen über der Wärmegrenze von ' + PLAN[ai] + ' A für ' + fS(ai) + '. Das gilt unabhängig von der Länge. Nimm einen größeren Querschnitt.'));
+        head = '<thead><tr><th>Querschnitt</th><th>max. Abstand</th><th>Wärmegrenze</th><th>Bewertung</th></tr></thead><tbody>';
+        SIZES.forEach(function (s, i) {
+          var lm = dmax / (I * rpm(i) * 2), ok = I <= PLAN[i];
+          rows += '<tr' + (i === ai ? ' class="is-rec"' : '') + '><td>' + fS(i) + '</td><td>' + (ok ? fM(lm) : '–') + '</td><td>' + PLAN[i] + ' A</td><td><span class="dot ' + (ok ? 'g' : 'r') + '"></span>' + (ok ? 'passt' : 'zu warm') + '</td></tr>';
+        });
+        ot.textContent = 'Maximaler Abstand je Querschnitt bei ' + fA(I);
+      }
+
+      if (mode === 'strom') {
+        var Iv = dmax / (rpm(ai) * 2 * L);
+        var Imax = Math.min(Iv, PLAN[ai]);
+        var byHeat = PLAN[ai] < Iv;
+        var duA = Imax * rpm(ai) * 2 * L;
+        lbl.textContent = 'Maximaler Dauerstrom';
+        big.textContent = fA(Imax);
+        sub.textContent = 'mit ' + fS(ai) + ' bei ' + fM(L) + ' Abstand, das sind rund ' + fmt(Imax * ub, 0) + ' W bei ' + fmt(ub, 1) + ' Volt';
+        K.push(kpi('Grenze Spannungsabfall', fA(Iv)));
+        K.push(kpi('Grenze Wärme', PLAN[ai] + ' A'));
+        K.push(kpi('Spannungsabfall dann', fV(duA) + ' · ' + pctOf(duA)));
+        K.push(kpi('Verlust im Kabel dann', fW(duA * Imax)));
+        M.push(byHeat
+          ? msg('warn', 'Hier begrenzt die Wärme. Vom Spannungsabfall her wären ' + fA(Iv) + ' möglich, das Kabel würde dabei aber zu warm.')
+          : msg('ok', 'Hier begrenzt der Spannungsabfall. Die Wärmegrenze liegt mit ' + PLAN[ai] + ' A höher.'));
+        head = '<thead><tr><th>Querschnitt</th><th>max. Strom</th><th>begrenzt durch</th><th>Verlust</th></tr></thead><tbody>';
+        SIZES.forEach(function (s, i) {
+          var iv = dmax / (rpm(i) * 2 * L), im = Math.min(iv, PLAN[i]), h = PLAN[i] < iv;
+          var d = im * rpm(i) * 2 * L;
+          rows += '<tr' + (i === ai ? ' class="is-rec"' : '') + '><td>' + fS(i) + '</td><td>' + fA(im) + '</td><td><span class="dot ' + (h ? 'o' : 'g') + '"></span>' + (h ? 'Wärme' : 'Spannungsabfall') + '</td><td>' + fW(d * im) + '</td></tr>';
+        });
+        ot.textContent = 'Maximaler Strom je Querschnitt bei ' + fM(L) + ' Abstand';
+      }
+
+      if (mode === 'abfall') {
+        var du = I * rpm(ai) * 2 * L, p = du * I, okT = I <= PLAN[ai];
+        lbl.textContent = 'Spannungsabfall im Kabel';
+        big.textContent = fV(du);
+        sub.textContent = pctOf(du) + ' von ' + fmt(ub, 1) + ' Volt · ' + fS(ai) + ', ' + fA(I) + wNote + ', ' + fM(L) + ' Abstand';
+        K.push(kpi('Spannung am Gerät', fmt(ub - du, 2) + ' Volt'));
+        K.push(kpi('Verlust im Kabel', fW(p)));
+        K.push(kpi('Anteil der Leistung', fmt(p / (ub * I) * 100, 1) + ' %'));
+        K.push(kpi('Widerstand Plus + Minus', fmt(rpm(ai) * 2 * L * 1000, 2) + ' mΩ'));
+        M.push(du <= dmax + 1e-9
+          ? msg('ok', 'Unter deinem Richtwert von ' + fV(dmax) + '.')
+          : msg('warn', 'Über deinem Richtwert von ' + fV(dmax) + '. Kürzerer Weg oder größerer Querschnitt.'));
+        M.push(okT
+          ? msg('ok', 'Wärme passt: ' + fA(I) + ' liegen innerhalb der Wärmegrenze von ' + PLAN[ai] + ' A.')
+          : msg('bad', 'Zu warm: ' + fA(I) + ' liegen über der Wärmegrenze von ' + PLAN[ai] + ' A für ' + fS(ai) + '.'));
+        head = '<thead><tr><th>Querschnitt</th><th>Spannungsabfall</th><th>Verlust</th><th>Wärmegrenze</th><th>Bewertung</th></tr></thead><tbody>';
+        SIZES.forEach(function (s, i) {
+          var d = I * rpm(i) * 2 * L, okV = d <= dmax + 1e-9, ok = I <= PLAN[i];
+          var dot = okV && ok ? 'g' : (ok ? 'o' : 'r');
+          rows += '<tr' + (i === ai ? ' class="is-rec"' : '') + '><td>' + fS(i) + '</td><td>' + fV(d) + '</td><td>' + fW(d * I) + '</td><td>' + PLAN[i] + ' A</td><td><span class="dot ' + dot + '"></span>' + (okV && ok ? 'passt' : (!ok ? 'zu warm' : 'Abfall zu hoch')) + '</td></tr>';
+        });
+        ot.textContent = 'Alle Querschnitte bei ' + fA(I) + ' und ' + fM(L) + ' Abstand';
+      }
+
+      if (unit === 'W' && needI) M.push(msg('info', 'Aus ' + fmt(raw, 0) + ' W bei ' + fmt(ub, 1) + ' Volt' + (eta < 100 ? ' und ' + fmt(eta, 0) + ' % Wirkungsgrad' : '') + ' ergeben sich ' + fA(I) + ' aus der Batterie. Sinkt die Batteriespannung, steigt der Strom.'));
+      if (sys !== '12' && !duTouched) M.push(msg('info', 'Startwert ' + fV(dmax) + ': derselbe Anteil wie meine 0,3 Volt bei 12 Volt. Du kannst ihn ändern.'));
+
+      kp.innerHTML = K.join('');
+      ms.innerHTML = M.join('');
+      ov.innerHTML = head + rows + '</tbody>';
+    }
+
+    // Ereignisse
+    root.addEventListener('input', function (e) {
+      if (e.target.id === 'inDU') duTouched = true;
+      if (e.target.id === 'inUb') ubTouched = true;
+      calc();
+    });
+    root.addEventListener('change', function (e) {
+      if (e.target.name === 'sys') {
+        var s = SYS[e.target.value];
+        if (!duTouched) $('inDU').value = fmt(s.du, 1);
+        if (!ubTouched) $('inUb').value = fmt(s.ub, 1);
+        $('hintDU').textContent = e.target.value === '12'
+          ? 'Mein Richtwert bei 12 Volt: 0,3 Volt, Plus und Minus zusammen.'
+          : 'Startwert ' + fmt(s.du, 1) + ' Volt: gleicher Anteil wie 0,3 Volt bei 12 Volt.';
+      }
+      calc();
+    });
+    root.querySelectorAll('.unit-toggle button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (unit === b.dataset.unit) return;
+        var ub = num('inUb') > 0 ? num('inUb') : 12.8;
+        var v = num('inI');
+        unit = b.dataset.unit;
+        root.querySelectorAll('.unit-toggle button').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        if (v > 0) $('inI').value = unit === 'W' ? fmt(Math.round(v * ub), 0) : fmt(Math.round(v / ub * 10) / 10, 1);
+        $('lblI').textContent = unit === 'W' ? 'Leistung des Geräts' : 'Strom';
+        $('hintI').textContent = unit === 'W' ? 'Dauerleistung, z. B. 2000 W beim Wechselrichter.' : 'Dauerstrom, der durch das Kabel fließt.';
+        calc();
+      });
+    });
+    calc();
+  })();
+  </script>
+  <script>
+    const blogVideo = {
+      id: 'EhqQTA4N5vs',
+      alt: '1120 Ampere durch 70 mm²? Kabelquerschnitt im Wohnmobil'
+    };
+
+    function blogHasMediaConsent() {
+      return window.VKCookieConsent?.hasConsent('media') === true;
+    }
+
+    function renderBlogVideoState() {
+      const box = document.getElementById('blogVideoBox');
+      if (!box) return;
+
+      box.dataset.id = blogVideo.id;
+      const allowed = blogHasMediaConsent();
+      box.classList.toggle('video-box-locked', !allowed);
+      box.setAttribute('aria-label', allowed ? 'Video abspielen' : 'YouTube-Video nach Zustimmung laden');
+
+      if (allowed) {
+        box.innerHTML = `<img src="assets/blog/kabelquerschnitt-kabelrechner/1120-ampere-70mm2-titelbild-1440.webp" alt="${blogVideo.alt}" loading="lazy" decoding="async"/><div class="video-play" aria-hidden="true"></div>`;
+        return;
+      }
+
+      box.innerHTML = `
+        <div class="video-consent">
+          <b>YouTube-Video blockiert</b>
+          <p>Dieses Video wird erst geladen, wenn du externe Medien in den Cookie-Einstellungen erlaubst.</p>
+          <button type="button" class="btn btn-primary" data-cookie-settings>Auswahl anpassen</button>
+        </div>`;
+    }
+
+    function initBlogVideo() {
+      const box = document.getElementById('blogVideoBox');
+      if (!box) return;
+
+      const playVideo = () => {
+        if (!blogHasMediaConsent()) {
+          window.VKCookieConsent?.openSettings();
+          return;
+        }
+        box.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${blogVideo.id}?autoplay=1&rel=0" title="1120 Ampere durch 70 mm²?" allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>`;
+      };
+
+      box.addEventListener('click', (event) => {
+        if (event.target.closest('[data-cookie-settings]')) return;
+        playVideo();
+      });
+      box.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          playVideo();
+        }
+      });
+      window.VKCookieConsent?.onChange(renderBlogVideoState);
+    }
+
+    renderBlogVideoState();
+    initBlogVideo();
+  </script>
+<script src="site.js"></script>
+</body>
+</html>
