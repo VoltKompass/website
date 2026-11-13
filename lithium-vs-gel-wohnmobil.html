@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lithium vs. Gel im Wohnmobil: Kosten pro kWh ehrlich gerechnet</title>
+  <meta name="description" content="Lithium oder Gel im Wohnmobil? Gel mit Idealwerten, LiFePO4 bewusst pessimistisch: 4,9 ct gegen 21,3 ct pro kWh. Die komplette Rechnung zum Nachprüfen.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://voltkompass.com/lithium-vs-gel-wohnmobil.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="VoltKompass">
+  <meta property="og:title" content="Lithium vs. Gel im Wohnmobil: So gerechnet ist LiFePO4 praktisch geschenkt">
+  <meta property="og:description" content="Gleiche nutzbare Energie, Gel mit Datenblatt-Idealwerten: Pro Kilowattstunde ist Gel trotzdem mehr als viermal so teuer.">
+  <meta property="og:url" content="https://voltkompass.com/lithium-vs-gel-wohnmobil.html">
+  <meta property="og:image" content="https://voltkompass.com/assets/blog/lithium-vs-gel/lithium-vs-gel-titelbild.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:image:alt" content="Gel-Akku und LiFePO4-Akku nebeneinander, Schriftzug pro kWh 21,3 ct gegen 4,9 ct">
+  <meta property="article:published_time" content="2026-11-13T12:00:00+01:00">
+  <meta property="article:modified_time" content="2026-11-13T12:00:00+01:00">
+  <meta property="article:author" content="Andreas / VoltKompass">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lithium vs. Gel im Wohnmobil: Kosten pro kWh ehrlich gerechnet">
+  <meta name="twitter:description" content="4,9 ct gegen 21,3 ct pro kWh, obwohl Gel mit Idealwerten gerechnet wird. Die ganze Rechnung zum Nachprüfen.">
+  <meta name="twitter:image" content="https://voltkompass.com/assets/blog/lithium-vs-gel/lithium-vs-gel-titelbild.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20261028-2">
+  <link rel="stylesheet" href="blog.css?v=20260730-1">
+<link rel="stylesheet" href="theme.css?v=20261030-1" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="alternate icon" href="/favicon.ico" sizes="any">
+
+  <style>
+    /* Kosten-Balken: nur auf dieser Seite */
+    .kwh-chart{display:grid;gap:18px;margin:26px 0 10px}
+    .kwh-row{display:grid;gap:8px}
+    .kwh-row b{font-size:1rem;color:#fff}
+    .kwh-row b small{font-weight:500;color:var(--text-2);margin-left:6px}
+    .kwh-bar{display:flex;height:38px;border-radius:10px;overflow:hidden;border:1px solid var(--line-2);background:var(--ink-2)}
+    .kwh-bar span{display:flex;align-items:center;justify-content:flex-start;font-size:.82rem;font-weight:600;white-space:nowrap;overflow:visible;padding:0 10px}
+    .kwh-bar .k-li{background:linear-gradient(90deg,#e6b200,#f6d46a);color:#1a1300}
+    .kwh-bar .k-gel{background:#c2412d;color:#fff}
+    .kwh-bar .k-rest{color:var(--text-2)}
+    .blog-wrap > h3{margin-top:44px;margin-bottom:14px}
+    .chapter-list{columns:2;column-gap:28px;padding-left:1.1em}
+    .chapter-list li{margin:0 0 6px;break-inside:avoid}
+    @media (max-width:760px){
+      .kwh-bar{height:34px}
+      .kwh-bar span{font-size:.72rem;padding:0 6px}
+      .chapter-list{columns:1}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://voltkompass.com/lithium-vs-gel-wohnmobil.html#article",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://voltkompass.com/lithium-vs-gel-wohnmobil.html"
+        },
+        "headline": "Lithium vs. Gel im Wohnmobil: die ehrliche Rechnung pro Kilowattstunde",
+        "description": "Lithium (LiFePO4) gegen Gel im Wohnmobil bei gleicher nutzbarer Energie: Gel mit Datenblatt-Idealwerten, Lithium bewusst pessimistisch mit 4000 Zyklen. Ergebnis 4,9 ct gegen 21,3 ct pro kWh, dazu Gewicht, Platz und hohe Dauerlast.",
+        "image": [
+          "https://voltkompass.com/assets/blog/lithium-vs-gel/lithium-vs-gel-titelbild.jpg",
+          "https://voltkompass.com/assets/blog/lithium-vs-gel/kosten-pro-kwh-lithium-4-9ct-gel-21-3ct-full.webp",
+          "https://voltkompass.com/assets/blog/lithium-vs-gel/lithium-gel-nutzbare-kapazitaet-80ah-160ah-full.webp",
+          "https://voltkompass.com/assets/blog/lithium-vs-gel/platzbedarf-gel-27-liter-lithium-12-liter-full.webp"
+        ],
+        "datePublished": "2026-11-13T12:00:00+01:00",
+        "dateModified": "2026-11-13T12:00:00+01:00",
+        "inLanguage": "de-DE",
+        "isAccessibleForFree": true,
+        "articleSection": "Wohnmobil-Batterie",
+        "keywords": [
+          "Lithium vs Gel Wohnmobil",
+          "LiFePO4 oder Gel",
+          "Gel Batterie Wohnmobil",
+          "Aufbaubatterie Wohnmobil",
+          "Kosten pro kWh Batterie",
+          "Batterie Zyklen Entladetiefe",
+          "LiFePO4 Wohnmobil lohnt sich"
+        ],
+        "author": {
+          "@type": "Person",
+          "@id": "https://voltkompass.com/#andreas",
+          "name": "Andreas",
+          "url": "https://voltkompass.com/#ueber",
+          "jobTitle": "Berater für Wohnmobil-Elektrik",
+          "description": "18+ Jahre Elektrotechnik-Erfahrung und eigene Wohnmobil-Praxis."
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://voltkompass.com/#organization",
+          "name": "VoltKompass",
+          "url": "https://voltkompass.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://voltkompass.com/logo.png",
+            "width": 1082,
+            "height": 1082
+          }
+        },
+        "about": [
+          {"@type": "Thing", "name": "LiFePO4-Batterie im Wohnmobil"},
+          {"@type": "Thing", "name": "Gel-Batterie im Wohnmobil"},
+          {"@type": "Thing", "name": "Kosten pro Kilowattstunde einer Batterie"}
+        ],
+        "citation": [
+          "https://www.solaris-store.com/telechargement/fiche/Fiche-technique-Batterie-ultracell-UCG200.pdf",
+          "https://cdn.shopify.com/s/files/1/0281/3083/6559/files/ULTRACELL_100-12.pdf",
+          "https://www.vatrerpower.com/en-de/products/vatrer-12v-100ah-h190-bluetooth-lifepo4-battery"
+        ],
+        "video": {"@id": "https://voltkompass.com/lithium-vs-gel-wohnmobil.html#video"},
+        "isPartOf": {"@id": "https://voltkompass.com/blog.html#blog"}
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://voltkompass.com/lithium-vs-gel-wohnmobil.html#video",
+        "name": "Lithium vs. Gel im Wohnmobil: SO gerechnet ist LiFePO4 praktisch geschenkt!",
+        "description": "Andreas von VoltKompass rechnet Lithium (LiFePO4) gegen Gel bei gleicher nutzbarer Energie durch: Gel mit Datenblatt-Idealwerten, Lithium bewusst pessimistisch. Ergebnis pro Kilowattstunde, Gewicht, Platz und hohe Dauerlast.",
+        "thumbnailUrl": "https://voltkompass.com/assets/blog/lithium-vs-gel/lithium-vs-gel-titelbild.jpg",
+        "uploadDate": "2026-11-12T09:19:25-08:00",
+        "duration": "PT4M46S",
+        "embedUrl": "https://www.youtube-nocookie.com/embed/lIW-fQRRjkU",
+        "contentUrl": "https://www.youtube.com/watch?v=lIW-fQRRjkU",
+        "inLanguage": "de-DE",
+        "publisher": {"@id": "https://voltkompass.com/#organization"},
+        "isPartOf": {"@id": "https://voltkompass.com/lithium-vs-gel-wohnmobil.html#article"}
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://voltkompass.com/lithium-vs-gel-wohnmobil.html#faq",
+        "url": "https://voltkompass.com/lithium-vs-gel-wohnmobil.html#faq",
+        "inLanguage": "de-DE",
+        "isPartOf": {"@id": "https://voltkompass.com/lithium-vs-gel-wohnmobil.html"},
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Ist Lithium im Wohnmobil wirklich günstiger als Gel?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pro Kilowattstunde ja. In meiner Beispielrechnung kostet die Kilowattstunde aus einem 100-Ah-LiFePO4-Akku 4,9 Cent, aus einem 200-Ah-Gel-Akku 21,3 Cent. Und das, obwohl Gel mit den Idealwerten aus dem Datenblatt gerechnet ist und Lithium mit nur 4000 statt der üblichen 5000 und mehr Zyklen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Warum vergleicht man nicht einfach 100 Ah Lithium mit 100 Ah Gel?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Weil entscheidend ist, wie viel du regelmäßig nutzen kannst. Lithium entlade ich in der Rechnung zu 80 Prozent, das sind 80 Ah. Gel entlädt man im Alltag höchstens zur Hälfte, weil die Entladetiefe die Lebensdauer bestimmt. Für dieselben 80 Ah braucht man 160 Ah Gel, im Handel also einen 200-Ah-Akku."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie viele Zyklen hält ein Gel-Akku?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Das hängt stark von der Entladetiefe ab. Laut der Herstellerkurve des Gel-Akkus aus meiner Rechnung sind es bei 80 Prozent Entladung 600 Zyklen, bei 50 Prozent 1200 und bei 40 Prozent 1600 Zyklen, jeweils bei 25 °C. Das sind Idealwerte, die im Wohnmobil-Alltag meiner Meinung nach kaum jemand erreicht."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie viel wiegt ein Gel-Akku im Vergleich zu Lithium?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Für dieselbe nutzbare Energie wiegt der 200-Ah-Gel-Akku laut Datenblatt 62,2 kg, der 100-Ah-LiFePO4-Akku 9 kg. Das ist fast siebenmal so viel. Dazu braucht Gel mit rund 27 Litern mehr als doppelt so viel Platz wie Lithium mit rund 12 Litern."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wann lohnt sich Gel im Wohnmobil noch?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Meiner Meinung nach überhaupt nicht. Selbst mit Idealwerten ist die Kilowattstunde aus Gel mehr als viermal so teuer wie aus Lithium, dazu kommen Gewicht, Platz, Ladeverluste und der Kapazitätsverlust bei hohem Strom. AGM und Nassbatterien spielen in derselben Liga."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://voltkompass.com/lithium-vs-gel-wohnmobil.html#breadcrumb",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://voltkompass.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://voltkompass.com/blog.html"},
+          {"@type": "ListItem", "position": 3, "name": "Lithium vs. Gel", "item": "https://voltkompass.com/lithium-vs-gel-wohnmobil.html"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="blog-page ladebooster-page solar-page">
+  <div class="read-progress" aria-hidden="true"></div>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html#top" class="brand"><img class="brand-mark" src="compass.svg" alt="" width="28" height="28" /><span><span class="v">Volt</span><span class="k">Kompass</span></span></a>
+    <ul>
+      <li><a href="index.html#fachbereiche">Fachbereiche</a></li>
+      <li><a href="index.html#solaranlage-beratung">Solaranlage</a></li>
+      <li><a href="index.html#ablauf">Ablauf</a></li>
+      <li><a href="index.html#preise">Preise</a></li>
+      <li><a href="blog.html" aria-current="page">Blog</a></li>
+      <li><a href="produkte.html">Produkte</a></li>
+      <li><a href="index.html#ueber">Über mich</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="blog.html" class="nav-blog-mobile">Blog</a>
+      <a href="produkte.html" class="nav-blog-mobile">Produkte</a>
+      <a href="index.html#kontakt" class="cta">Beratung buchen →</a>
+    </div>
+  </div>
+</header>
+<nav class="article-jump" aria-label="Abschnitte dieses Beitrags">
+  <div class="wrap">
+    <b>Inhalt</b>
+    <a href="#video">Video</a>
+    <a href="#vergleich">Fairer Vergleich</a>
+    <a href="#rechnung">Rechnung</a>
+    <a href="#100-gegen-100">100 gegen 100</a>
+    <a href="#faq">FAQ</a>
+    <a href="#fazit">Fazit</a>
+  </div>
+</nav>
+
+  <main>
+    <article>
+      <section class="blog-hero">
+        <div class="wrap blog-hero-grid">
+          <div>
+          <nav class="blog-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html#top">Startseite</a>
+            <span>/</span>
+            <a href="blog.html">Blog</a>
+            <span>/</span>
+            <span>Lithium vs. Gel</span>
+          </nav>
+          <span class="eyebrow">Akku-Vergleich · Kosten pro kWh · Wohnmobil</span>
+          <h1>Lithium vs. Gel im Wohnmobil: die ehrliche Rechnung</h1>
+          <p class="blog-lead">Lithium ist teurer als Gel? Beim Kaufpreis vielleicht. Ich rechne beide Akkus pro Kilowattstunde durch, und zwar so, dass Gel so gut dasteht wie nur möglich: Gel bekommt die Idealwerte aus dem Datenblatt, Lithium bewusst nicht. Das Ergebnis ist trotzdem eindeutig.</p>
+          <p class="blog-byline">Von <a href="index.html#ueber">Andreas / VoltKompass</a> · 18+ Jahre Elektrotechnik-Erfahrung · veröffentlicht am <time datetime="2026-11-13">13. November 2026</time></p>
+          <aside class="blog-author-card" aria-label="Fachliche Einordnung des Autors">
+            <img src="assets/author/andreas-avatar-160.webp" width="160" height="160" decoding="async" alt="Andreas von VoltKompass" />
+            <p>
+              <strong>Praxiswissen von Andreas:</strong> mehr als 18 Jahre Erfahrung in der
+              Elektrotechnik und acht Jahre reisend im Wohnmobil.
+            </p>
+          </aside>
+          <div class="article-kicker">
+            <span>Gleiche nutzbare Energie</span>
+            <span>Gel mit Idealwerten</span>
+            <span>4,9 ct gegen 21,3 ct pro kWh</span>
+            <span>Mit Video</span>
+          </div>
+          <div class="blog-actions">
+            <a href="#kurzantwort" class="btn btn-primary">Direkt zur Kurzantwort</a>
+            <a href="#video" class="btn btn-ghost">Video ansehen</a>
+          </div>
+          </div>
+
+        <figure class="blog-hero-figure">
+          <button class="blog-zoom" type="button" data-full="assets/blog/lithium-vs-gel/lithium-vs-gel-titelbild-full.webp" data-caption="Pro Kilowattstunde: 21,3 Cent aus Gel gegen 4,9 Cent aus LiFePO4. Titelbild aus meinem VoltKompass-Video." aria-label="Titelbild Lithium gegen Gel vergrößern">
+            <picture>
+              <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/lithium-vs-gel/lithium-vs-gel-titelbild-960.webp">
+              <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/lithium-vs-gel/lithium-vs-gel-titelbild-1440.webp">
+              <source type="image/webp" srcset="assets/blog/lithium-vs-gel/lithium-vs-gel-titelbild-full.webp">
+              <img src="assets/blog/lithium-vs-gel/lithium-vs-gel-titelbild.jpg" width="1280" height="720" alt="Großer Gel-Akku und kleinerer LiFePO4-Akku nebeneinander, darüber pro kWh 21,3 ct gegen 4,9 ct" decoding="async" fetchpriority="high">
+            </picture>
+          </button>
+          <figcaption>Pro Kilowattstunde liegen Welten zwischen Gel und Lithium.</figcaption>
+        </figure>
+        </div>
+      </section>
+
+      <section class="blog-section" id="kurzantwort">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Direkte Antwort</p>
+          <h2>Lithium oder Gel im Wohnmobil?</h2>
+          <p class="blog-intro"><strong>Lithium. Bei gleicher nutzbarer Energie kostet die Kilowattstunde aus einem 100-Ah-LiFePO4-Akku in meiner Rechnung 4,9 Cent, aus dem passenden 200-Ah-Gel-Akku 21,3 Cent. Das ist mehr als viermal so viel, obwohl Gel mit den Idealwerten aus dem Datenblatt gerechnet ist und Lithium mit nur 4000 Zyklen. Vergleicht man gleich große Akkus, 100 Ah gegen 100 Ah, ist Gel sogar fast sechsmal so teuer.</strong></p>
+          <p>Dazu wiegt der Gel-Akku fast siebenmal so viel und braucht mehr als doppelt so viel Platz. Mein Fazit vorweg: Im Wohnmobil lohnt sich Gel meiner Meinung nach überhaupt nicht mehr.</p>
+
+          <div class="blog-answer-box" role="region" aria-label="Kurzüberblick Lithium gegen Gel">
+            <div><span>Lithium 100 Ah (LiFePO4)</span><strong>rund 190 €, 9 kg, gerechnet mit 4000 Zyklen bei 80 % Entladung</strong></div>
+            <div><span>Gel 200 Ah</span><strong>rund 358 €, 62 kg, 1600 Zyklen bei 40 % Entladung (Idealwert)</strong></div>
+            <div><span>Nutzbar pro Zyklus</span><strong>bei beiden 80 Ah × 12 V = 960 Wh</strong></div>
+            <div><span>Kosten pro kWh</span><strong>Lithium 4,9 ct, Gel 21,3 ct (× 4,3)</strong></div>
+            <div><span>100 Ah gegen 100 Ah</span><strong>Gel 29,5 ct pro kWh, fast sechsmal so viel</strong></div>
+            <div><span>Preisstand</span><strong>12.11.2026, Beispielrechnung mit Datenblattwerten</strong></div>
+          </div>
+
+          <nav class="blog-toc" aria-label="Inhaltsverzeichnis">
+            <h3>Inhaltsverzeichnis</h3>
+            <ol>
+              <li><a href="#video">Das Video zum Beitrag</a></li>
+              <li><a href="#vergleich">Der faire Vergleich: gleiche nutzbare Energie</a></li>
+              <li><a href="#akkus">Die beiden Akkus</a></li>
+              <li><a href="#rechnung">Die Rechnung pro Kilowattstunde</a></li>
+              <li><a href="#nicht-eingerechnet">Was noch nicht eingerechnet ist</a></li>
+              <li><a href="#100-gegen-100">100 Ah gegen 100 Ah</a></li>
+              <li><a href="#lohnt">Wann lohnt sich Gel noch?</a></li>
+              <li><a href="#quellen">Quellen und Rechenweg</a></li>
+              <li><a href="#faq">Häufige Fragen</a></li>
+              <li><a href="#fazit">Fazit</a></li>
+            </ol>
+          </nav>
+        </div>
+      </section>
+
+      <section id="video" class="blog-section blog-video-section">
+        <div class="wrap">
+          <div class="blog-narrow">
+            <span class="eyebrow">Video</span>
+            <h2>Lithium vs. Gel: das Video</h2>
+            <p>Im Video siehst du die ganze Rechnung Schritt für Schritt animiert. Hier im Beitrag findest du alle Zahlen zum Nachlesen, die Datenblätter und den kompletten Rechenweg.</p>
+          </div>
+          <div class="video-box blog-video-box" id="blogVideoBox" data-id="lIW-fQRRjkU" role="button" tabindex="0" aria-label="Video Lithium gegen Gel abspielen"></div>
+          <p class="blog-video-link">Video direkt auf YouTube ansehen: <a href="https://www.youtube.com/watch?v=lIW-fQRRjkU" target="_blank" rel="noopener">Lithium vs. Gel im Wohnmobil: SO gerechnet ist LiFePO4 praktisch geschenkt!</a></p>
+          <div class="blog-narrow">
+            <h3 style="margin-top:32px">Kapitel im Video</h3>
+            <ol class="chapter-list">
+              <li><a href="https://www.youtube.com/watch?v=lIW-fQRRjkU&amp;t=0s" target="_blank" rel="noopener">0:00</a> Lithium oder Gel?</li>
+              <li><a href="https://www.youtube.com/watch?v=lIW-fQRRjkU&amp;t=22s" target="_blank" rel="noopener">0:22</a> Der faire Vergleich</li>
+              <li><a href="https://www.youtube.com/watch?v=lIW-fQRRjkU&amp;t=68s" target="_blank" rel="noopener">1:08</a> Die Akkus</li>
+              <li><a href="https://www.youtube.com/watch?v=lIW-fQRRjkU&amp;t=111s" target="_blank" rel="noopener">1:51</a> Die Rechnung</li>
+              <li><a href="https://www.youtube.com/watch?v=lIW-fQRRjkU&amp;t=180s" target="_blank" rel="noopener">3:00</a> Was noch nicht eingerechnet ist</li>
+              <li><a href="https://www.youtube.com/watch?v=lIW-fQRRjkU&amp;t=207s" target="_blank" rel="noopener">3:27</a> 100 Ah gegen 100 Ah</li>
+              <li><a href="https://www.youtube.com/watch?v=lIW-fQRRjkU&amp;t=258s" target="_blank" rel="noopener">4:18</a> Wann lohnt sich Gel noch?</li>
+              <li><a href="https://www.youtube.com/watch?v=lIW-fQRRjkU&amp;t=270s" target="_blank" rel="noopener">4:30</a> Fazit</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="vergleich">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Grundlagen</p>
+          <h2>Der faire Vergleich: Es zählt, was du nutzen kannst</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Die meisten Vergleiche stellen 100 Amperestunden Lithium neben 100 Amperestunden Gel. Das ist nicht fair. Entscheidend ist, wie viel du davon <strong>regelmäßig nutzen</strong> kannst.</p>
+              <p>Einen Lithium-Akku entlade ich in dieser Rechnung nur zu 80 Prozent. Das sind <strong>80 Amperestunden pro Zyklus</strong>.</p>
+              <p>Bei Gel bestimmt die Entladetiefe die Lebensdauer. Laut Datenblatt hält der Gel-Akku bei 80 Prozent Entladung nur 600 Zyklen, bei 50 Prozent doppelt so viele. Deshalb entlädt man Gel im Alltag höchstens zur Hälfte.</p>
+              <p>Für dieselben 80 Amperestunden brauchst du also <strong>160 Amperestunden Gel</strong>. Die nächste Größe im Handel: 200 Amperestunden. Das ist mein Vergleich.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/lithium-vs-gel/lithium-gel-nutzbare-kapazitaet-80ah-160ah-full.webp" data-caption="Lithium 100 Ah liefert 80 Ah pro Zyklus. Gel entlädt man nur zur Hälfte, für dieselben 80 Ah sind 160 Ah Gel nötig. Standbild aus meinem VoltKompass-Video." aria-label="Grafik nutzbare Kapazität vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/lithium-vs-gel/lithium-gel-nutzbare-kapazitaet-80ah-160ah-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/lithium-vs-gel/lithium-gel-nutzbare-kapazitaet-80ah-160ah-1440.webp">
+                  <img src="assets/blog/lithium-vs-gel/lithium-gel-nutzbare-kapazitaet-80ah-160ah-full.webp" width="1920" height="1080" alt="Grafik: Lithium 100 Ah zu 80 Prozent gefüllt, 80 Ah pro Zyklus; zwei Gel-Akkus mit 100 Ah zu 50 Prozent, 160 Ah Gel nötig" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>80 Ah aus Lithium entsprechen 160 Ah Gel.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="akkus">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Die Kandidaten</p>
+          <h2>Die beiden Akkus: Preis-Leistung gegen Idealwerte</h2>
+          <div class="blog-split blog-split-reverse">
+            <div class="blog-split-copy">
+              <p><strong>Lithium:</strong> 100 Amperestunden LiFePO4 für rund 190 Euro, 9 kg. Kein Billigschrott, sondern Preis-Leistung. Übliche Werte für Lithium-Eisenphosphat-Zellen sind über 5000 Zyklen. Ich rechne bewusst nur mit <strong>4000</strong>.</p>
+              <p><strong>Gel:</strong> 200 Amperestunden, ein Akku mit sehr guten Datenblattwerten. Rund 358 Euro, 62 kg. Wir entnehmen 80 von 200 Amperestunden, also 40 Prozent. Dafür nennt das Datenblatt <strong>1600 Zyklen</strong>.</p>
+              <p>Das ist der Idealwert, gemessen bei 25 °C. Im echten Wohnmobil-Alltag erreicht den meiner Meinung nach keiner. Ich nehme ihn trotzdem, damit niemand sagen kann, Gel sei schlecht gerechnet.</p>
+              <p>Und AGM oder Bleisäure? Die spielen in derselben Liga. Nassbatterien gasen beim Laden sogar und brauchen eine Entlüftung nach außen.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/lithium-vs-gel/gel-200ah-datenblatt-1600-zyklen-idealwert-full.webp" data-caption="Gel 200 Ah laut Datenblatt: 358 €, 62 kg, 40 % Entladung, 1600 Zyklen. Ein Idealwert, im Wohnmobil-Alltag kaum erreichbar. Standbild aus meinem VoltKompass-Video." aria-label="Datenkarte Gel 200 Ah vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/lithium-vs-gel/gel-200ah-datenblatt-1600-zyklen-idealwert-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/lithium-vs-gel/gel-200ah-datenblatt-1600-zyklen-idealwert-1440.webp">
+                  <img src="assets/blog/lithium-vs-gel/gel-200ah-datenblatt-1600-zyklen-idealwert-full.webp" width="1920" height="1080" alt="Datenkarte Gel 200 Ah: Preis 358 Euro, Gewicht 62 kg, Entladung 40 Prozent, 1600 Zyklen laut Datenblatt, Stempel Idealwert" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Gel bekommt die besten Werte aus dem Datenblatt.</figcaption>
+            </figure>
+          </div>
+
+          <div class="blog-table-wrap" role="region" aria-label="Die beiden Akkus im Vergleich" tabindex="0">
+            <table class="blog-table">
+              <thead>
+                <tr>
+                  <th>Wert</th>
+                  <th>Lithium 100 Ah (LiFePO4)</th>
+                  <th>Gel 200 Ah</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>Preis (Stand 12.11.2026)</td><td>189,99 €</td><td>358,38 €</td></tr>
+                <tr><td>Gewicht</td><td>9 kg</td><td>62,2 kg</td></tr>
+                <tr><td>Entladung pro Zyklus</td><td>80 Ah (80 %)</td><td>80 Ah (40 %)</td></tr>
+                <tr><td>Zyklen</td><td>4000 (üblich: 5000+)</td><td>1600 (Herstellerkurve, 25 °C)</td></tr>
+                <tr><td>Volumen</td><td>ca. 12 Liter</td><td>ca. 27 Liter</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="rechnung">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Die Rechnung</p>
+          <h2>Kosten pro Kilowattstunde: 4,9 Cent gegen 21,3 Cent</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Ich rechne bei beiden mit <strong>12 Volt</strong>, denn unsere Verbraucher sind 12-Volt-Verbraucher. Die echte Spannung schwankt je nach Ladezustand und Last, ein voller Lithium-Akku hat zum Beispiel rund 13,4 Volt. Damit beide gleich behandelt werden, bleibe ich bei 12 Volt. Das geht sogar zulasten von Lithium, denn seine Nennspannung liegt bei 12,8 Volt.</p>
+              <ul>
+                <li><strong>Lithium:</strong> 80 Ah × 12 V = 960 Wh pro Zyklus × 4000 Zyklen = <strong>3840 kWh</strong></li>
+                <li><strong>Gel:</strong> 80 Ah × 12 V = 960 Wh pro Zyklus × 1600 Zyklen = <strong>1536 kWh</strong></li>
+              </ul>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/lithium-vs-gel/rechnung-lithium-3840kwh-gel-1536kwh-full.webp" data-caption="Lithium: 960 Wh × 4000 Zyklen = 3840 kWh. Gel: 960 Wh × 1600 Zyklen = 1536 kWh. Standbild aus meinem VoltKompass-Video." aria-label="Rechenkarte vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/lithium-vs-gel/rechnung-lithium-3840kwh-gel-1536kwh-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/lithium-vs-gel/rechnung-lithium-3840kwh-gel-1536kwh-1440.webp">
+                  <img src="assets/blog/lithium-vs-gel/rechnung-lithium-3840kwh-gel-1536kwh-full.webp" width="1920" height="1080" alt="Rechenkarte: Lithium 80 Ah mal 12 V gleich 960 Wh mal 4000 Zyklen gleich 3840 kWh; Gel 960 Wh mal 1600 Zyklen gleich 1536 kWh" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Über die Lebensdauer liefert Lithium 2,5-mal so viel Energie.</figcaption>
+            </figure>
+          </div>
+
+          <h3>Der Schrottwert wird gutgeschrieben</h3>
+          <p>Über die Lebensdauer des Lithium-Akkus brauchst du mehrere Gel-Akkus. Ist einer verbraucht, bringst du ihn zum Schrotthändler und bekommst Geld für das Blei. Ich rechne großzügig mit 0,50 € pro Kilo, bei 62 kg also rund <strong>31 Euro</strong>. Die ziehe ich bei jedem Gel-Akku vom Preis ab.</p>
+
+          <div class="kwh-chart" role="img" aria-label="Balkendiagramm: Lithium kostet 4,9 Cent pro Kilowattstunde, Gel 200 Ah 21,3 Cent, Gel 100 Ah 29,5 Cent.">
+            <div class="kwh-row">
+              <b>Lithium 100 Ah <small>189,99 € ÷ 3840 kWh</small></b>
+              <div class="kwh-bar">
+                <span class="k-li" style="flex:49">4,9 ct</span>
+                <span class="k-rest" style="flex:246"></span>
+              </div>
+            </div>
+            <div class="kwh-row">
+              <b>Gel 200 Ah <small>(358,38 € − 31,10 €) ÷ 1536 kWh</small></b>
+              <div class="kwh-bar">
+                <span class="k-gel" style="flex:213">21,3 ct · × 4,3</span>
+                <span class="k-rest" style="flex:82"></span>
+              </div>
+            </div>
+            <div class="kwh-row">
+              <b>Gel 100 Ah <small>(185,07 € − 15,30 €) ÷ 576 kWh</small></b>
+              <div class="kwh-bar">
+                <span class="k-gel" style="flex:295">29,5 ct · fast × 6</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="blog-split blog-split-reverse">
+            <div class="blog-split-copy">
+              <p>Das Ergebnis: Lithium kostet <strong>4,9 Cent pro Kilowattstunde</strong>, Gel <strong>21,3 Cent</strong>. Mehr als viermal so viel.</p>
+              <p>Bis der Lithium-Akku seine 4000 Zyklen erreicht, verbrauchst du <strong>zweieinhalb Gel-Akkus</strong>. Das sind nach Abzug des Schrottwerts rund <strong>818 Euro gegen 190 Euro</strong>.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/lithium-vs-gel/kosten-pro-kwh-lithium-4-9ct-gel-21-3ct-full.webp" data-caption="Kosten pro Kilowattstunde: Lithium 4,9 ct, Gel 21,3 ct, Faktor 4,3. Standbild aus meinem VoltKompass-Video." aria-label="Grafik Kosten pro kWh vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/lithium-vs-gel/kosten-pro-kwh-lithium-4-9ct-gel-21-3ct-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/lithium-vs-gel/kosten-pro-kwh-lithium-4-9ct-gel-21-3ct-1440.webp">
+                  <img src="assets/blog/lithium-vs-gel/kosten-pro-kwh-lithium-4-9ct-gel-21-3ct-full.webp" width="1920" height="1080" alt="Balkengrafik Kosten pro Kilowattstunde: Lithium 4,9 Cent, Gel 21,3 Cent, Stempel mal 4,3" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Gel ist pro kWh mehr als viermal so teuer.</figcaption>
+            </figure>
+          </div>
+
+          <figure class="blog-figure" style="margin-top:28px">
+            <button class="blog-zoom" type="button" data-full="assets/blog/lithium-vs-gel/gel-akkus-818-euro-lithium-190-euro-full.webp" data-caption="Bis 4000 Zyklen erreicht sind: ein Lithium-Akku für 190 € gegen zweieinhalb Gel-Akkus für zusammen rund 818 €. Standbild aus meinem VoltKompass-Video." aria-label="Grafik 818 Euro gegen 190 Euro vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/lithium-vs-gel/gel-akkus-818-euro-lithium-190-euro-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/lithium-vs-gel/gel-akkus-818-euro-lithium-190-euro-1440.webp">
+                <img src="assets/blog/lithium-vs-gel/gel-akkus-818-euro-lithium-190-euro-full.webp" width="1920" height="1080" alt="Ein LiFePO4-Akku für 190 Euro neben zweieinhalb Gel-Akkus mit 200 Ah für zusammen 818 Euro" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Ein Lithium-Akku gegen zweieinhalb Gel-Akkus.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="blog-section" id="nicht-eingerechnet">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Und das ist noch nicht alles</p>
+          <h2>Was in der Rechnung noch fehlt</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Nicht eingerechnet habe ich:</p>
+              <ul>
+                <li><strong>Alterung im Stand:</strong> Ein Akku verliert auch Kapazität, wenn er nur herumsteht.</li>
+                <li><strong>Höhere Ladeverluste</strong> beim Gel-Akku.</li>
+                <li><strong>Hoher Strom:</strong> Bei 85 Ampere liefert der 200er-Gel laut Entladetabelle nur noch rund 110 Amperestunden.</li>
+                <li><strong>Gewicht:</strong> 62 kg gegen 9 kg, fast siebenmal so viel. Im Wohnmobil zählt jedes Kilo.</li>
+                <li><strong>Platz:</strong> Für dieselbe nutzbare Energie braucht Gel mit rund 27 Litern mehr als doppelt so viel Platz wie Lithium mit rund 12 Litern.</li>
+              </ul>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/lithium-vs-gel/platzbedarf-gel-27-liter-lithium-12-liter-full.webp" data-caption="Gleiche nutzbare Energie: Gel 200 Ah mit ca. 27 Litern gegen Lithium 100 Ah mit ca. 12 Litern, Faktor 2,3. Standbild aus meinem VoltKompass-Video." aria-label="Grafik Platzbedarf vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/lithium-vs-gel/platzbedarf-gel-27-liter-lithium-12-liter-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/lithium-vs-gel/platzbedarf-gel-27-liter-lithium-12-liter-1440.webp">
+                  <img src="assets/blog/lithium-vs-gel/platzbedarf-gel-27-liter-lithium-12-liter-full.webp" width="1920" height="1080" alt="Gel 200 Ah mit ca. 27 Litern neben Lithium 100 Ah mit ca. 12 Litern, Stempel mal 2,3 Platz" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Mehr als doppelt so viel Platz für dieselbe nutzbare Energie.</figcaption>
+            </figure>
+          </div>
+          <div class="blog-note"><strong>Wichtig beim Platz:</strong> Ein 100-Ah-Gel-Akku ist etwa so groß wie ein 100-Ah-Lithium-Akku. Der Platzvorteil entsteht, weil du für dieselbe nutzbare Energie den doppelt so großen Gel-Akku brauchst.</div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="100-gegen-100">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Der Vergleich im Kopf</p>
+          <h2>100 Ah gegen 100 Ah: fast sechsmal so teuer</h2>
+          <div class="blog-split blog-split-reverse">
+            <div class="blog-split-copy">
+              <p>Und jetzt der Vergleich, den viele im Kopf haben: 100 Amperestunden Gel gegen 100 Amperestunden Lithium. Der Gel-Akku kostet rund 185 Euro, also fast dasselbe.</p>
+              <p>Holst du aus ihm dieselben 80 Amperestunden, entlädst du ihn zu 80 Prozent. Dann hält er laut Datenblatt nur noch <strong>600 Zyklen</strong>.</p>
+              <p>Das heißt: Bis der eine Lithium-Akku seine 4000 Zyklen erreicht, kaufst du <strong>fast sieben Gel-Akkus</strong>. Einbauen, ausbauen, zum Schrott bringen. Zusammen über <strong>1100 Euro</strong>. Pro Kilowattstunde <strong>29,5 Cent</strong>, fast sechsmal so viel wie Lithium.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/lithium-vs-gel/gel-100ah-29-5ct-pro-kwh-full.webp" data-caption="100 Ah gegen 100 Ah: Lithium 4,9 ct pro kWh, Gel 100 Ah 29,5 ct pro kWh. Standbild aus meinem VoltKompass-Video." aria-label="Grafik 100 Ah gegen 100 Ah vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/lithium-vs-gel/gel-100ah-29-5ct-pro-kwh-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/lithium-vs-gel/gel-100ah-29-5ct-pro-kwh-1440.webp">
+                  <img src="assets/blog/lithium-vs-gel/gel-100ah-29-5ct-pro-kwh-full.webp" width="1920" height="1080" alt="Balkengrafik Kosten pro Kilowattstunde: Lithium 4,9 Cent, Gel 100 Ah 29,5 Cent" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Gleich große Akkus: Gel ist fast sechsmal so teuer pro kWh.</figcaption>
+            </figure>
+          </div>
+
+          <h3>Hohe Dauerlast: nach knapp 30 Minuten leer</h3>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Und bei hoher Dauerlast, zum Beispiel 85 Ampere über einen Wechselrichter? Laut Entladetabelle liefert dieser 100-Ah-Gel-Akku dann nur noch rund <strong>40 Amperestunden</strong>. Nach knapp 30 Minuten ist er leer.</p>
+              <p>Der Lithium-Akku aus dem Vergleich hat laut Hersteller ein BMS für 100 Ampere und ist für die 85 Ampere ausgelegt.</p>
+              <p>Welche Kabel du für so hohe Ströme brauchst, erkläre ich im Beitrag <a href="kabelquerschnitt-wohnmobil-kabelrechner.html">Kabelquerschnitt im Wohnmobil</a>.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/lithium-vs-gel/gel-100ah-85a-dauerlast-leer-full.webp" data-caption="Gel 100 Ah bei 85 A Dauerlast: rund 40 Ah entnommen, nach knapp 30 Minuten leer. Standbild aus meinem VoltKompass-Video." aria-label="Grafik Dauerlast vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/lithium-vs-gel/gel-100ah-85a-dauerlast-leer-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/lithium-vs-gel/gel-100ah-85a-dauerlast-leer-1440.webp">
+                  <img src="assets/blog/lithium-vs-gel/gel-100ah-85a-dauerlast-leer-full.webp" width="1920" height="1080" alt="Gel-Akku 100 Ah an 85 A Dauerlast, Laufzeit 28 Minuten, 40 Ah entnommen, Stempel leer" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Bei 85 A bleiben vom 100-Ah-Gel nur rund 40 Ah.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="lohnt">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Kaufentscheidung</p>
+          <h2>Wann lohnt sich Gel im Wohnmobil noch?</h2>
+          <p>Meiner Meinung nach überhaupt nicht. Selbst mit Idealwerten nicht. Gel bekommt in dieser Rechnung jeden Vorteil: die besten Zyklenwerte aus dem Datenblatt, den Schrottwert gutgeschrieben, 12 Volt statt 12,8 Volt bei Lithium, und Lithium nur 4000 statt über 5000 Zyklen. Trotzdem bleibt die Kilowattstunde aus Gel mehr als viermal so teuer.</p>
+
+          <div class="blog-facts">
+            <div><span>Kosten pro kWh</span><strong>Lithium 4,9 ct, Gel 21,3 ct: über viermal günstiger</strong></div>
+            <div><span>Gewicht</span><strong>9 kg gegen 62 kg: ein Siebtel</strong></div>
+            <div><span>Platz</span><strong>ca. 12 Liter gegen ca. 27 Liter</strong></div>
+            <div><span>Gel</span><strong>mit Idealwerten gerechnet und trotzdem chancenlos</strong></div>
+          </div>
+
+          <p>Wie du eine LiFePO4-Batterie im Wohnmobil mit Solar, Ladebooster und Wechselrichter einbindest, zeige ich in <a href="blog-stufe-1.html">Stufe 1</a> meiner Solar-Ausbaustufen. Und falls dein Lithium-Akku nicht richtig voll wird, hilft dir der Beitrag <a href="lifepo4-batterie-laedt-nicht-voll.html">LiFePO4-Batterie lädt nicht voll</a>.</p>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="quellen">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Transparenz &amp; Quellen</p>
+          <h2>Quellen und Rechenweg zum Nachprüfen</h2>
+          <ul>
+            <li><a href="https://www.solaris-store.com/telechargement/fiche/Fiche-technique-Batterie-ultracell-UCG200.pdf" target="_blank" rel="noopener">Gel 200 Ah: Ultracell UCG200-12, Datenblatt UCG-V2-REV1 (PDF)</a>: Gewicht 62,2 kg, Abmessungen, Zyklenkurve (IEC 896-2, 25 °C), Entladetabelle</li>
+            <li><a href="https://cdn.shopify.com/s/files/1/0281/3083/6559/files/ULTRACELL_100-12.pdf" target="_blank" rel="noopener">Gel 100 Ah: Ultracell UCG100-12, Datenblatt UCG-V2-REV1 (PDF)</a>: Gewicht 30,6 kg, Zyklen, Entladetabelle</li>
+            <li><a href="https://www.vatrerpower.com/en-de/products/vatrer-12v-100ah-h190-bluetooth-lifepo4-battery" target="_blank" rel="noopener">Lithium 100 Ah: VATRER 12,8 V 100 Ah H190 LiFePO4</a>: 9 kg, 100-A-BMS, 5000+ Zyklen</li>
+          </ul>
+          <ul>
+            <li><strong>Preise:</strong> Stand 12.11.2026. Lithium 189,99 €, Gel 200 Ah 358,38 €, Gel 100 Ah 185,07 €.</li>
+            <li><strong>Energie pro Zyklus:</strong> 80 Ah × 12 V = 960 Wh bei allen Akkus.</li>
+            <li><strong>Zyklen Gel laut Herstellerkurve:</strong> 80 % Entladung → 600, 50 % → 1200, 40 % → 1600.</li>
+            <li><strong>Lithium:</strong> 4000 × 0,96 kWh = 3840 kWh; 189,99 € ÷ 3840 kWh = 4,9 ct/kWh.</li>
+            <li><strong>Gel 200 Ah:</strong> 1600 × 0,96 kWh = 1536 kWh; (358,38 € − 31,10 € Schrott) ÷ 1536 kWh = 21,3 ct/kWh; 4000 ÷ 1600 = 2,5 Akkus → rund 818 €.</li>
+            <li><strong>Gel 100 Ah:</strong> 600 × 0,96 kWh = 576 kWh; (185,07 € − 15,30 € Schrott) ÷ 576 kWh = 29,5 ct/kWh; 4000 ÷ 600 = 6,7 Akkus → rund 1132 €.</li>
+            <li><strong>Schrottwert:</strong> großzügig 0,50 €/kg. Privat gibt es oft weniger.</li>
+            <li><strong>Hohe Dauerlast (85 A), Entladetabelle bis 10,8 V bei 25 °C:</strong> Gel 200 Ah rund 110 Ah, Gel 100 Ah rund 40 Ah in knapp 30 Minuten.</li>
+            <li><strong>Volumen:</strong> Gel 200 Ah 52,2 × 24 × 21,8 cm ≈ 27,3 l; Lithium 35,8 × 17,7 × 18,8 cm ≈ 11,9 l.</li>
+          </ul>
+          <div class="blog-note"><strong>Zur Einordnung:</strong> Das ist eine Beispielrechnung mit Datenblattwerten. Preise ändern sich, und in der Praxis hängen Zyklen und Kapazität von Temperatur, Ladetechnik und Nutzung ab. Rechne gern mit deinen eigenen Preisen nach. Mehr zu meinem fachlichen Hintergrund findest du unter <a href="index.html#ueber">Über Andreas</a>.</div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="faq">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">FAQ</p>
+          <h2>Häufige Fragen zu Lithium und Gel im Wohnmobil</h2>
+          <div class="blog-faq">
+            <details>
+              <summary>Ist Lithium im Wohnmobil wirklich günstiger als Gel?</summary>
+              <p>Pro Kilowattstunde ja. In meiner Beispielrechnung kostet die Kilowattstunde aus einem 100-Ah-LiFePO4-Akku 4,9 Cent, aus einem 200-Ah-Gel-Akku 21,3 Cent. Und das, obwohl Gel mit den Idealwerten aus dem Datenblatt gerechnet ist und Lithium mit nur 4000 statt der üblichen 5000 und mehr Zyklen.</p>
+            </details>
+            <details>
+              <summary>Warum vergleicht man nicht einfach 100 Ah Lithium mit 100 Ah Gel?</summary>
+              <p>Weil entscheidend ist, wie viel du regelmäßig nutzen kannst. Lithium entlade ich in der Rechnung zu 80 Prozent, das sind 80 Ah. Gel entlädt man im Alltag höchstens zur Hälfte, weil die Entladetiefe die Lebensdauer bestimmt. Für dieselben 80 Ah braucht man 160 Ah Gel, im Handel also einen 200-Ah-Akku.</p>
+            </details>
+            <details>
+              <summary>Wie viele Zyklen hält ein Gel-Akku?</summary>
+              <p>Das hängt stark von der Entladetiefe ab. Laut der Herstellerkurve des Gel-Akkus aus meiner Rechnung sind es bei 80 Prozent Entladung 600 Zyklen, bei 50 Prozent 1200 und bei 40 Prozent 1600 Zyklen, jeweils bei 25 °C. Das sind Idealwerte, die im Wohnmobil-Alltag meiner Meinung nach kaum jemand erreicht.</p>
+            </details>
+            <details>
+              <summary>Wie viel wiegt ein Gel-Akku im Vergleich zu Lithium?</summary>
+              <p>Für dieselbe nutzbare Energie wiegt der 200-Ah-Gel-Akku laut Datenblatt 62,2 kg, der 100-Ah-LiFePO4-Akku 9 kg. Das ist fast siebenmal so viel. Dazu braucht Gel mit rund 27 Litern mehr als doppelt so viel Platz wie Lithium mit rund 12 Litern.</p>
+            </details>
+            <details>
+              <summary>Wann lohnt sich Gel im Wohnmobil noch?</summary>
+              <p>Meiner Meinung nach überhaupt nicht. Selbst mit Idealwerten ist die Kilowattstunde aus Gel mehr als viermal so teuer wie aus Lithium, dazu kommen Gewicht, Platz, Ladeverluste und der Kapazitätsverlust bei hohem Strom. AGM und Nassbatterien spielen in derselben Liga.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-final" id="fazit">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Fazit</p>
+          <h2>Geld verschwendet? Mit Lithium nicht.</h2>
+          <p>Selbst mit Idealwerten kostet die Kilowattstunde aus Gel mehr als viermal so viel wie aus Lithium. Vergleichst du gleich große Akkus, ist es fast sechsmal so viel. Dazu kommt fast siebenmal so viel Gewicht und mehr als doppelt so viel Platz.</p>
+          <p>Der höhere Kaufpreis eines LiFePO4-Akkus ist deshalb keine Mehrausgabe, sondern spart dir über die Lebensdauer richtig Geld. Bist du anderer Meinung? Dann schreib es mir gern in die Kommentare unter dem Video.</p>
+          <div class="blog-actions">
+            <a href="blog-stufe-1.html" class="btn btn-ghost">Solaranlage mit LiFePO4: Stufe 1</a>
+            <a href="index.html#kontakt" class="btn btn-primary">Meinen Akku planen lassen</a>
+          </div>
+          <p class="blog-disclaimer"><strong>Sicherheitshinweis:</strong> Akkus speichern große Energiemengen. Falsch dimensionierte Leitungen, fehlende Absicherung oder ein Ladegerät mit falscher Kennlinie können Schäden und Brände verursachen. Ein Wechsel von Gel auf Lithium erfordert in der Regel auch angepasste Ladetechnik. Dieser Beitrag erklärt Zusammenhänge und Beispielwerte und ersetzt keine Prüfung am konkreten Fahrzeug. Beachte die Vorgaben der Hersteller und lass die Anlage im Zweifel von einer qualifizierten Fachkraft prüfen.</p>
+        </div>
+      </section>
+    </article>
+  </main>
+
+<section class="related">
+  <div class="wrap">
+    <div class="related-head">
+      <div>
+        <span class="eyebrow">Weiterlesen</span>
+        <h2>Das könnte dich auch interessieren</h2>
+      </div>
+      <a class="btn btn-ghost" href="blog.html">Alle Beiträge →</a>
+    </div>
+    <div class="related-grid">
+      <a class="related-card" href="lifepo4-batterie-laedt-nicht-voll.html">
+        <div class="ri"><img src="assets/blog/lifepo4-laedt-nicht-voll/lifepo4-video-thumbnail-clean.webp" alt="" loading="lazy" decoding="async" /></div>
+        <small>Fehlersuche</small>
+        <strong>LiFePO4-Batterie lädt nicht voll</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+      <a class="related-card" href="blog-stufe-1.html">
+        <div class="ri"><img src="assets/blog/stufe-1/blog-hero-960.webp" alt="" loading="lazy" decoding="async" /></div>
+        <small>Solar-Ausbau</small>
+        <strong>Wohnmobil-Solaranlage Stufe 1: das Grundsystem</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+      <a class="related-card" href="kabelquerschnitt-wohnmobil-kabelrechner.html">
+        <div class="ri"><img src="assets/blog/kabelquerschnitt-kabelrechner/1120-ampere-70mm2-titelbild-960.webp" alt="" loading="lazy" decoding="async" /></div>
+        <small>Kabelrechner</small>
+        <strong>1120 Ampere durch 70 mm²? Kabelquerschnitt mit Kabelrechner</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="cta-band">
+  <div class="wrap">
+    <div class="cta-band-inner">
+      <div>
+        <img src="assets/author/andreas-avatar-160.webp" alt="Andreas von VoltKompass" width="56" height="56" loading="lazy" />
+        <div>
+          <strong>Welcher Akku passt in dein Wohnmobil?</strong>
+          <span>Ich plane Akku, Ladetechnik und Kabel passend zu deinem Fahrzeug – persönlich per WhatsApp, Telegram oder Signal.</span>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="index.html#kontakt">Beratung buchen →</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a href="index.html#top" class="brand"><img class="brand-mark" src="compass.svg" alt="" width="28" height="28" /><span><span class="v">Volt</span><span class="k">Kompass</span></span></a>
+      <p>© 2026 VoltKompass — Wohnmobil-Beratung für Strom &amp; Autarkie</p>
+    </div>
+    <nav>
+      <a href="index.html#top">Startseite</a>
+      <a href="blog.html">Blog</a>
+      <a href="produkte.html">Produkte</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="index.html#kontakt">Kontakt</a>
+      <button type="button" class="cookie-settings-link" data-cookie-settings>Cookie-Einstellungen</button>
+    </nav>
+  </div>
+</footer>
+
+  <script src="blog-lightbox.js"></script>
+  <script src="cookie-consent.js"></script>
+  <script>
+    const blogVideo = {
+      id: 'lIW-fQRRjkU',
+      alt: 'Lithium vs. Gel im Wohnmobil: Kosten pro Kilowattstunde'
+    };
+
+    function blogHasMediaConsent() {
+      return window.VKCookieConsent?.hasConsent('media') === true;
+    }
+
+    function renderBlogVideoState() {
+      const box = document.getElementById('blogVideoBox');
+      if (!box) return;
+
+      box.dataset.id = blogVideo.id;
+      const allowed = blogHasMediaConsent();
+      box.classList.toggle('video-box-locked', !allowed);
+      box.setAttribute('aria-label', allowed ? 'Video abspielen' : 'YouTube-Video nach Zustimmung laden');
+
+      if (allowed) {
+        box.innerHTML = `<img src="assets/blog/lithium-vs-gel/lithium-vs-gel-titelbild-1440.webp" alt="${blogVideo.alt}" loading="lazy" decoding="async"/><div class="video-play" aria-hidden="true"></div>`;
+        return;
+      }
+
+      box.innerHTML = `
+        <div class="video-consent">
+          <b>YouTube-Video blockiert</b>
+          <p>Dieses Video wird erst geladen, wenn du externe Medien in den Cookie-Einstellungen erlaubst.</p>
+          <button type="button" class="btn btn-primary" data-cookie-settings>Auswahl anpassen</button>
+        </div>`;
+    }
+
+    function initBlogVideo() {
+      const box = document.getElementById('blogVideoBox');
+      if (!box) return;
+
+      const playVideo = () => {
+        if (!blogHasMediaConsent()) {
+          window.VKCookieConsent?.openSettings();
+          return;
+        }
+        box.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${blogVideo.id}?autoplay=1&rel=0" title="Lithium vs. Gel im Wohnmobil: SO gerechnet ist LiFePO4 praktisch geschenkt!" allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>`;
+      };
+
+      box.addEventListener('click', (event) => {
+        if (event.target.closest('[data-cookie-settings]')) return;
+        playVideo();
+      });
+      box.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          playVideo();
+        }
+      });
+      window.VKCookieConsent?.onChange(renderBlogVideoState);
+    }
+
+    renderBlogVideoState();
+    initBlogVideo();
+  </script>
+<script src="site.js"></script>
+</body>
+</html>
