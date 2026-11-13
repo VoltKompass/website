@@ -1,6 +1,10 @@
 [build]
   publish = "."
 
+# Netlify soll interne Links nicht auf Adressen ohne .html umschreiben
+[build.processing.html]
+  pretty_urls = false
+
 [[redirects]]
   from = "/standby-charger-pro-wcs-rapid-vergleich"
   to = "/standby-charger-pro-wcs-rapid-vergleich.html"
