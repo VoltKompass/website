@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MPPT-Laderegler im Wohnmobil: welcher passt, richtig einstellen</title>
+  <meta name="description" content="Welcher MPPT-Laderegler passt zu deinen Solarmodulen? 75/15, 100/20 oder 100/30 verständlich erklärt, MPPT oder PWM, Laderegler für LiFePO4 richtig einstellen und anschließen.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://voltkompass.com/mppt-laderegler-wohnmobil.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="VoltKompass">
+  <meta property="og:title" content="MPPT-Laderegler im Wohnmobil: welcher passt, richtig einstellen">
+  <meta property="og:description" content="Was 75/15 und 100/20 bedeuten, MPPT oder PWM, Reihe oder parallel und wie du den Laderegler für LiFePO4 richtig einstellst.">
+  <meta property="og:url" content="https://voltkompass.com/mppt-laderegler-wohnmobil.html">
+  <meta property="og:image" content="https://voltkompass.com/assets/blog/stufe-2/wohnmobil-solaranlage-210w-mppt-7515-moeglichkeit-1.jpg">
+  <meta property="og:image:width" content="1440">
+  <meta property="og:image:height" content="575">
+  <meta property="og:image:alt" content="Schaltplan: 210-W-Solarmodul am MPPT-Laderegler 75/15 im Wohnmobil">
+  <meta property="article:published_time" content="2026-11-13T20:00:00+01:00">
+  <meta property="article:modified_time" content="2026-11-13T20:00:00+01:00">
+  <meta property="article:author" content="Andreas / VoltKompass">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MPPT-Laderegler im Wohnmobil: welcher passt, richtig einstellen">
+  <meta name="twitter:description" content="75/15, 100/20 oder 100/30, MPPT oder PWM und die richtigen Einstellungen für LiFePO4.">
+  <meta name="twitter:image" content="https://voltkompass.com/assets/blog/stufe-2/wohnmobil-solaranlage-210w-mppt-7515-moeglichkeit-1.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20261028-2">
+  <link rel="stylesheet" href="blog.css?v=20260730-1">
+<link rel="stylesheet" href="theme.css?v=20261030-1" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="alternate icon" href="/favicon.ico" sizes="any">
+
+  <style>
+    /* Nur auf dieser Seite */
+    .blog-wrap > h3{margin-top:44px;margin-bottom:14px}
+    .plan-figure{margin:22px 0 8px}
+    .plan-figure img{width:100%;height:auto;display:block}
+    .plan-path{list-style:none;counter-reset:step;padding:0;margin:22px 0;display:grid;gap:10px}
+    .plan-path li{counter-increment:step;display:flex;gap:14px;align-items:flex-start;padding:12px 16px;border:1px solid var(--line-2);border-radius:12px;background:var(--ink-2)}
+    .plan-path li::before{content:counter(step);flex:0 0 28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;background:var(--gold,#f6d46a);color:#1a1300}
+    .plan-path li span{line-height:1.5}
+    .plan-cta{display:flex;flex-wrap:wrap;gap:12px;margin:18px 0 6px}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://voltkompass.com/mppt-laderegler-wohnmobil.html#article",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://voltkompass.com/mppt-laderegler-wohnmobil.html"
+        },
+        "headline": "MPPT-Laderegler im Wohnmobil: auswählen, einstellen, anschließen",
+        "description": "Was ein MPPT-Laderegler macht, was 75/15, 100/20 und 100/30 bedeuten, MPPT oder PWM, Module in Reihe oder parallel und wie du den Laderegler für eine LiFePO4-Batterie richtig einstellst.",
+        "image": [
+          "https://voltkompass.com/assets/blog/stufe-2/wohnmobil-solaranlage-210w-mppt-7515-moeglichkeit-1-full.webp",
+          "https://voltkompass.com/assets/blog/renogy-shadowflux-120w/solarmodul-spannung-19-8v-28-9v-full.webp",
+          "https://voltkompass.com/assets/blog/stufe-4/450-watt-dachsolar-mppt-100-30-full.webp"
+        ],
+        "datePublished": "2026-11-13T20:00:00+01:00",
+        "dateModified": "2026-11-13T20:00:00+01:00",
+        "inLanguage": "de-DE",
+        "isAccessibleForFree": true,
+        "articleSection": "Wohnmobil-Solar",
+        "keywords": [
+          "MPPT Laderegler",
+          "MPPT Laderegler Wohnmobil",
+          "MPPT Laderegler richtig einstellen",
+          "Victron Solarregler einstellen",
+          "Victron 75/15",
+          "Victron Laderegler 100/30",
+          "Solarladeregler LiFePO4",
+          "MPPT oder PWM",
+          "Solar Wohnmobil Reihe oder parallel"
+        ],
+        "author": {
+          "@type": "Person",
+          "@id": "https://voltkompass.com/#andreas",
+          "name": "Andreas",
+          "url": "https://voltkompass.com/#ueber",
+          "jobTitle": "Berater für Wohnmobil-Elektrik",
+          "description": "18+ Jahre Elektrotechnik-Erfahrung und eigene Wohnmobil-Praxis."
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://voltkompass.com/#organization",
+          "name": "VoltKompass",
+          "url": "https://voltkompass.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://voltkompass.com/logo.png",
+            "width": 1082,
+            "height": 1082
+          }
+        },
+        "about": [
+          {"@type": "Thing", "name": "MPPT-Laderegler"},
+          {"@type": "Thing", "name": "Solarladeregler für LiFePO4-Batterien"},
+          {"@type": "Thing", "name": "Wohnmobil-Solaranlage"}
+        ],
+        "citation": [
+          "https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-75-10,-75-15,-100-15,-100-20_48V-EN.pdf",
+          "https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-100-30-&-100-50-EN.pdf",
+          "https://www.victronenergy.com/upload/documents/Manual_SmartSolar_MPPT_100-30__100-50/29694-MPPT_solar_charger_manual-pdf-en.pdf"
+        ],
+        "isPartOf": {"@id": "https://voltkompass.com/blog.html#blog"}
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://voltkompass.com/mppt-laderegler-wohnmobil.html#faq",
+        "url": "https://voltkompass.com/mppt-laderegler-wohnmobil.html#faq",
+        "inLanguage": "de-DE",
+        "isPartOf": {"@id": "https://voltkompass.com/mppt-laderegler-wohnmobil.html"},
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Welcher MPPT-Laderegler für 200 Watt Solar?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Victron gibt für den SmartSolar MPPT 75/15 eine Nennleistung von 220 W an einer 12-V-Batterie an. Damit passt er zu einem Modul um 200 W, sofern die Leerlaufspannung des Moduls auch bei Kälte unter 75 Volt bleibt. In meiner Stufe 2 hängen 210 bis 230 W Dachsolar an einem MPPT 75/15."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie stelle ich den MPPT-Laderegler für LiFePO4 richtig ein?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Wähle in der App den Batterietyp, der zu deinem Akku passt, und gleiche die Werte mit dem Datenblatt des Akkuherstellers ab. Victrons LiFePO4-Voreinstellung lädt laut Handbuch mit 14,2 Volt Absorption und 13,5 Volt Erhaltungsladung und hat eine Tieftemperatur-Ladesperre bei 5 °C. Die Ladesperre greift nur, wenn der Regler eine echte Batterietemperatur bekommt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Können zwei MPPT-Laderegler dieselbe Batterie laden?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ja. In meinen Stufen 2 bis 4 laden jeweils zwei Regler dieselbe Batterie: einer für die Dachmodule und einer für die Solartasche. Jeder Regler wird mit eigener Sicherung am Plus-Verteiler und hinter dem Shunt am Minus-Verteiler angeschlossen."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "MPPT oder PWM: was ist besser fürs Wohnmobil?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ein MPPT-Regler. Er wandelt die höhere Modulspannung in Ladestrom um. Ein einfacher PWM-Regler verschenkt den Teil der Modulspannung, der über der Batteriespannung liegt."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Warum lädt mein MPPT-Laderegler nicht?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Laut Victron-Handbuch startet der Regler erst, wenn die PV-Spannung 5 Volt über der Batteriespannung liegt, und lädt weiter, solange sie mindestens 1 Volt darüber bleibt. Bei schwachem Licht oder Schatten kann das nicht reichen. Prüfe außerdem die Sicherung in der Batterieleitung und die Kabelverbindungen."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://voltkompass.com/mppt-laderegler-wohnmobil.html#breadcrumb",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://voltkompass.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://voltkompass.com/blog.html"},
+          {"@type": "ListItem", "position": 3, "name": "MPPT-Laderegler im Wohnmobil", "item": "https://voltkompass.com/mppt-laderegler-wohnmobil.html"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="blog-page ladebooster-page solar-page">
+  <div class="read-progress" aria-hidden="true"></div>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html#top" class="brand"><img class="brand-mark" src="compass.svg" alt="" width="28" height="28" /><span><span class="v">Volt</span><span class="k">Kompass</span></span></a>
+    <ul>
+      <li><a href="index.html#fachbereiche">Fachbereiche</a></li>
+      <li><a href="index.html#solaranlage-beratung">Solaranlage</a></li>
+      <li><a href="index.html#ablauf">Ablauf</a></li>
+      <li><a href="index.html#preise">Preise</a></li>
+      <li><a href="blog.html" aria-current="page">Blog</a></li>
+      <li><a href="produkte.html">Produkte</a></li>
+      <li><a href="index.html#ueber">Über mich</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="blog.html" class="nav-blog-mobile">Blog</a>
+      <a href="produkte.html" class="nav-blog-mobile">Produkte</a>
+      <a href="index.html#kontakt" class="cta">Beratung buchen →</a>
+    </div>
+  </div>
+</header>
+<nav class="article-jump" aria-label="Abschnitte dieses Beitrags">
+  <div class="wrap">
+    <b>Inhalt</b>
+    <a href="#mppt-pwm">MPPT oder PWM</a>
+    <a href="#auswahl">Auswählen</a>
+    <a href="#reihe-parallel">Reihe oder parallel</a>
+    <a href="#einstellen">Einstellen</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</nav>
+
+  <main>
+    <article>
+      <section class="blog-hero">
+        <div class="wrap blog-hero-grid">
+          <div>
+          <nav class="blog-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html#top">Startseite</a>
+            <span>/</span>
+            <a href="blog.html">Blog</a>
+            <span>/</span>
+            <span>MPPT-Laderegler</span>
+          </nav>
+          <span class="eyebrow">MPPT-Laderegler · Solar · Wohnmobil</span>
+          <h1>MPPT-Laderegler im Wohnmobil: auswählen, einstellen, anschließen</h1>
+          <p class="blog-lead">Der MPPT-Laderegler entscheidet, wie viel von deinem Solarstrom in der Batterie ankommt. Hier erkläre ich, was Bezeichnungen wie 75/15 oder 100/20 bedeuten, warum es MPPT statt PWM sein sollte, wann du Module in Reihe oder parallel schaltest und wie du den Laderegler für eine LiFePO4-Batterie richtig einstellst.</p>
+          <p class="blog-byline">Von <a href="index.html#ueber">Andreas / VoltKompass</a> · 18+ Jahre Elektrotechnik-Erfahrung · veröffentlicht am <time datetime="2026-11-13">13. November 2026</time></p>
+          <aside class="blog-author-card" aria-label="Fachliche Einordnung des Autors">
+            <img src="assets/author/andreas-avatar-160.webp" width="160" height="160" decoding="async" alt="Andreas von VoltKompass" />
+            <p>
+              <strong>Praxiswissen von Andreas:</strong> mehr als 18 Jahre Erfahrung in der
+              Elektrotechnik und acht Jahre reisend im Wohnmobil.
+            </p>
+          </aside>
+          <div class="article-kicker">
+            <span>75/10 bis 100/30 erklärt</span>
+            <span>MPPT oder PWM</span>
+            <span>Einstellungen für LiFePO4</span>
+          </div>
+          <div class="blog-actions">
+            <a href="#auswahl" class="btn btn-primary">Regler auswählen</a>
+            <a href="#einstellen" class="btn btn-ghost">Richtig einstellen</a>
+          </div>
+          </div>
+
+        <figure class="blog-hero-figure">
+          <button class="blog-zoom" type="button" data-full="assets/blog/stufe-2/wohnmobil-solaranlage-210w-mppt-7515-moeglichkeit-1-full.webp" data-caption="210-W-Solarmodul über MC4-Stecker und DC-Trennautomat am MPPT 75/15." aria-label="Schaltplan vergrößern">
+            <picture>
+              <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/stufe-2/wohnmobil-solaranlage-210w-mppt-7515-moeglichkeit-1-960.webp">
+              <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/stufe-2/wohnmobil-solaranlage-210w-mppt-7515-moeglichkeit-1-1440.webp">
+              <img src="assets/blog/stufe-2/wohnmobil-solaranlage-210w-mppt-7515-moeglichkeit-1-full.webp" width="2880" height="1150" alt="Schaltplan: 210-W-Solarmodul mit MC4-Steckern und DC-Trennautomat am MPPT-Laderegler 75/15" decoding="async" fetchpriority="high">
+            </picture>
+          </button>
+          <figcaption>Ein 210-W-Modul am MPPT 75/15 aus meiner Stufe 2.</figcaption>
+        </figure>
+        </div>
+      </section>
+
+      <section class="blog-section" id="kurzantwort">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Direkte Antwort</p>
+          <h2>Welcher MPPT-Laderegler passt zu meiner Solaranlage?</h2>
+          <p class="blog-intro"><strong>Der Laderegler muss zwei Werte deiner Module aushalten: die Leerlaufspannung, auch bei Kälte, und die Leistung. Die erste Zahl in der Bezeichnung, etwa 75 bei 75/15, ist die maximale PV-Spannung in Volt. Die zweite ist der maximale Ladestrom in Ampere. Danach stellst du den Regler auf die Ladespannungen deines Akkus ein.</strong></p>
+
+          <div class="blog-answer-box" role="region" aria-label="Meine Laderegler in den vier Stufen">
+            <div><span>bis ca. 150 W</span><strong>MPPT 75/10 · Stufe 1</strong></div>
+            <div><span>ca. 200–230 W</span><strong>MPPT 75/15 · Stufe 2</strong></div>
+            <div><span>ca. 300 W</span><strong>MPPT 100/20 · Stufe 3</strong></div>
+            <div><span>ca. 450 W</span><strong>MPPT 100/30 · Stufe 4</strong></div>
+          </div>
+
+          <nav class="blog-toc" aria-label="Inhaltsverzeichnis">
+            <h3>Inhaltsverzeichnis</h3>
+            <ol>
+              <li><a href="#mppt-pwm">MPPT oder PWM?</a></li>
+              <li><a href="#bezeichnung">Was bedeuten 75/15 und 100/20?</a></li>
+              <li><a href="#auswahl">Den richtigen Laderegler auswählen</a></li>
+              <li><a href="#reihe-parallel">Module in Reihe oder parallel?</a></li>
+              <li><a href="#einstellen">MPPT-Laderegler richtig einstellen</a></li>
+              <li><a href="#anschliessen">An die Batterie anschließen</a></li>
+              <li><a href="#guenstig">Worauf du beim Kauf achten solltest</a></li>
+              <li><a href="#faq">Häufige Fragen</a></li>
+            </ol>
+          </nav>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="mppt-pwm">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Grundlagen</p>
+          <h2>MPPT oder PWM: welcher Laderegler fürs Wohnmobil?</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Ein Solarmodul liefert eine höhere Spannung, als die Batterie zum Laden braucht. Ein klassisches 12-V-Modul arbeitet bei rund 20 Volt, eine LiFePO4-Batterie lädt mit rund 14,4 Volt.</p>
+              <p>Ein <strong>MPPT-Regler</strong> sucht laufend den Punkt, an dem das Modul die meiste Leistung abgibt, und wandelt die überschüssige Spannung in zusätzlichen Ladestrom um. Ein einfacher <strong>PWM-Regler</strong> verbindet das Modul nur im Takt mit der Batterie und verschenkt den Teil der Modulspannung, der über der Batteriespannung liegt.</p>
+              <p>Deshalb gehört an jede Wohnmobil-Solaranlage ein MPPT-Laderegler, gerade bei Modulen mit höherer Spannung wie dem ShadowFlux 120 W mit 28,9 Volt aus meinem <a href="renogy-shadowflux-120w-solarmodul-schatten.html">Schattentest</a>.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/renogy-shadowflux-120w/solarmodul-spannung-19-8v-28-9v-full.webp" data-caption="Modulspannung 19,8 Volt und 28,9 Volt gegen 14,4 Volt Ladespannung." aria-label="Grafik Modulspannung vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/renogy-shadowflux-120w/solarmodul-spannung-19-8v-28-9v-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/renogy-shadowflux-120w/solarmodul-spannung-19-8v-28-9v-1440.webp">
+                  <img src="assets/blog/renogy-shadowflux-120w/solarmodul-spannung-19-8v-28-9v-full.webp" width="1920" height="1080" alt="Balkengrafik: klassisches 12-V-Modul 19,8 V, ShadowFlux 120 W 28,9 V, Linie bei 14,4 V Ladespannung" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Die Modulspannung liegt deutlich über der Ladespannung.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="bezeichnung">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Typenbezeichnung</p>
+          <h2>Was bedeuten 75/15, 100/20 und 100/30?</h2>
+          <p class="blog-intro">Bei Victron steckt die Auslegung direkt im Namen: Die erste Zahl ist die maximale PV-Spannung in Volt, die zweite der maximale Ladestrom in Ampere.</p>
+          <div class="blog-table-wrap" role="region" aria-label="Victron SmartSolar Laderegler im Vergleich" tabindex="0">
+            <table class="blog-table">
+              <thead><tr><th>Laderegler</th><th>max. PV-Spannung</th><th>max. Ladestrom</th><th>PV-Nennleistung an 12 V</th><th>In meinen Plänen</th></tr></thead>
+              <tbody>
+                <tr><td>SmartSolar MPPT 75/10</td><td>75 V</td><td>10 A</td><td>145 W</td><td>150 W Dach (Stufe 1), 160-W-Tasche (Stufe 2)</td></tr>
+                <tr><td>SmartSolar MPPT 75/15</td><td>75 V</td><td>15 A</td><td>220 W</td><td>210–230 W Dach (Stufe 2)</td></tr>
+                <tr><td>SmartSolar MPPT 100/20</td><td>100 V</td><td>20 A</td><td>290 W</td><td>bis 310 W Dach und 300-W-Tasche (Stufe 3 und 4)</td></tr>
+                <tr><td>SmartSolar MPPT 100/30</td><td>100 V</td><td>30 A</td><td>440 W</td><td>450 W Dach (Stufe 4)</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Die Nennleistung stammt aus den Victron-Datenblättern. Schließt du etwas mehr Modulleistung an, begrenzt der Regler laut Datenblatt die Eingangsleistung. Deshalb arbeiten in meinen Plänen zum Beispiel 150 W an einem 75/10. Die Spannungsgrenze dagegen darf nie überschritten werden.</p>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="auswahl">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Auswahl</p>
+          <h2>Den richtigen MPPT-Laderegler auswählen</h2>
+          <ol class="plan-path">
+            <li><span><strong>Leerlaufspannung bei Kälte prüfen:</strong> Die Leerlaufspannung eines Moduls steigt, wenn es kalt ist. Im Beispiel aus meinem Schattentest erreicht ein Modul bei −10 °C rund 36,7 Volt, zwei in Reihe rund 73 Volt. Das liegt knapp unter 75 Volt, deshalb nimmst du dafür direkt einen Regler mit 100 Volt.</span></li>
+            <li><span><strong>Leistung mit der Nennleistung abgleichen:</strong> Vergleiche die Modulleistung mit der PV-Nennleistung an 12 Volt aus dem Datenblatt des Reglers.</span></li>
+            <li><span><strong>Batterietyp prüfen:</strong> Der Regler muss die Ladespannungen deines Akkus einstellen können, bei LiFePO4 am besten mit Tieftemperatur-Ladesperre.</span></li>
+            <li><span><strong>Reserve für später:</strong> Wenn du die Solaranlage erweitern willst, kann ein etwas größerer Regler den späteren Tausch sparen. Für eine Solartasche plane ich immer einen eigenen Regler ein.</span></li>
+          </ol>
+          <div class="blog-note"><strong>Wichtig:</strong> Die Leerlaufspannung bei Kälte berechnest du mit dem Temperaturkoeffizienten aus dem Datenblatt deines Moduls. Victron bietet dafür auch einen Auslegungsrechner für seine Regler an.</div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="reihe-parallel">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Verschaltung</p>
+          <h2>Solarmodule in Reihe oder parallel am Laderegler?</h2>
+          <p class="blog-intro">In Reihe addieren sich die Spannungen, parallel die Ströme. Auf dem Wohnmobil schalte ich mehrere Module in meinen Plänen parallel.</p>
+          <figure class="blog-figure plan-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/stufe-4/450-watt-dachsolar-mppt-100-30-full.webp" data-caption="Drei 150-W-Module parallel am SmartSolar MPPT 100/30." aria-label="Schaltplan drei Module parallel vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/stufe-4/450-watt-dachsolar-mppt-100-30-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/stufe-4/450-watt-dachsolar-mppt-100-30-1440.webp">
+                <img src="assets/blog/stufe-4/450-watt-dachsolar-mppt-100-30-full.webp" width="2880" height="1015" alt="Drei Solarmodule mit je 150 W, parallele Verschaltung und SmartSolar MPPT 100/30" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Stufe 4: drei 150-W-Module parallel am MPPT 100/30.</figcaption>
+          </figure>
+          <p>Der Grund steht in meiner <a href="blog-stufe-4.html">Stufe 4</a>: Die Grafik nennt 44 Volt je Modul. In Reihe wären das schon 132 Volt, mehr als die 100-Volt-Grenze des MPPT 100/30. Parallel bleibt die Spannung etwa auf Modulniveau.</p>
+          <p>Parallel hat auf dem Wohnmobil noch einen Vorteil: Wird ein Modul verschattet, bremst es die anderen weniger aus als in einer Reihenschaltung. Wie stark Schatten ein einzelnes Modul ausbremst, zeigt mein <a href="renogy-shadowflux-120w-solarmodul-schatten.html">Test eines Solarmoduls im Schatten</a>. Den Teilplan zur Parallelschaltung findest du unter <a href="wohnmobil-solaranlage-schaltplan.html#module-parallel">Mehrere Solarmodule parallel</a>.</p>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="einstellen">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Einstellungen</p>
+          <h2>MPPT-Laderegler richtig einstellen</h2>
+          <p class="blog-intro">Ab Werk ist ein Laderegler nicht automatisch richtig für deinen Akku eingestellt. Bei den Victron SmartSolar-Reglern machst du das in der App VictronConnect.</p>
+          <ol class="plan-path">
+            <li><span><strong>Systemspannung prüfen:</strong> Der Regler erkennt 12 oder 24 Volt automatisch, wenn du zuerst die Batterie und erst dann die Module anschließt. Kontrolliere den Wert trotzdem in der App.</span></li>
+            <li><span><strong>Batterietyp wählen:</strong> Für LiFePO4 gibt es eine eigene Voreinstellung. Laut Victron-Handbuch lädt sie mit 14,2 Volt Absorption und 13,5 Volt Erhaltungsladung.</span></li>
+            <li><span><strong>Mit dem Akkuhersteller abgleichen:</strong> Gibt dein Akkuhersteller andere Ladespannungen vor, stellst du die Werte als benutzerdefinierten Batterietyp ein. Lass bei LiFePO4 nie die Werte für Blei-Akkus stehen.</span></li>
+            <li><span><strong>Tieftemperatur-Ladesperre:</strong> Die LiFePO4-Voreinstellung sperrt das Laden unter 5 °C. Laut Handbuch funktioniert das aber nur, wenn der Regler eine echte Batterietemperatur bekommt, zum Beispiel von einem Smart Battery Sense oder einem Batteriemonitor mit Temperaturfühler im VE.Smart-Netzwerk.</span></li>
+            <li><span><strong>Mehrere Regler gleich einstellen:</strong> Laden zwei Regler dieselbe Batterie, etwa für Dach und Solartasche, stellst du beide auf dieselben Werte ein.</span></li>
+          </ol>
+          <div class="blog-note"><strong>Batterie wird nicht voll?</strong> Oft liegt es an falschen Ladespannungen, einer BMS-Sperre oder Spannungsabfall auf der Leitung. Die Diagnose zeige ich im Beitrag <a href="lifepo4-batterie-laedt-nicht-voll.html">LiFePO4-Batterie lädt nicht voll</a>.</div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="anschliessen">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Anschluss</p>
+          <h2>MPPT-Laderegler an die Batterie anschließen</h2>
+          <p>Kurz zusammengefasst: BAT-Plus geht mit der Sicherung aus deinem Plan zum Plus-Verteiler, BAT-Minus zum Minus-Verteiler hinter dem Shunt. Laut Victron-Handbuch wird zuerst die Batterie angeschlossen und erst danach die Solarmodule. Nur so kann der Regler die Systemspannung richtig erkennen.</p>
+          <p>Die ausführliche Anleitung mit Querschnitten, Sicherungen und typischen Fehlern findest du im Beitrag <a href="wohnmobil-solaranlage-schaltplan.html#mppt-batterie">Wohnmobil-Solaranlage richtig anschließen</a>.</p>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="guenstig">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Kaufen</p>
+          <h2>Günstiger Laderegler oder Markengerät: worauf du achten solltest</h2>
+          <p>Es gibt MPPT-Laderegler in allen Preisklassen. Ein niedriger Preis allein ist kein Ausschlusskriterium, ein bekannter Name allein aber auch keine Garantie. Entscheidend ist, was im Datenblatt steht und ob der Hersteller es belegt:</p>
+          <ul>
+            <li><strong>Echtes MPPT:</strong> Das Datenblatt sollte Tracking-Wirkungsgrad und Umwandlungswirkungsgrad nennen.</li>
+            <li><strong>Maximale PV-Spannung</strong> mit Reserve für die Leerlaufspannung bei Kälte.</li>
+            <li><strong>Frei einstellbare Ladespannungen</strong> für LiFePO4 statt nur fester Blei-Programme.</li>
+            <li><strong>Tieftemperatur-Ladesperre</strong> oder Anbindung an einen Temperaturfühler.</li>
+            <li><strong>Anzeige oder App</strong>, damit du Ertrag und Ladezustand kontrollieren kannst.</li>
+            <li><strong>Deutsches Handbuch</strong> mit klaren Angaben zu Anschlussreihenfolge, Querschnitt und Sicherung.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="blog-section" id="faq">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">FAQ</p>
+          <h2>Häufige Fragen zum MPPT-Laderegler im Wohnmobil</h2>
+          <div class="blog-faq">
+            <details>
+              <summary>Welcher MPPT-Laderegler für 200 Watt Solar?</summary>
+              <p>Victron gibt für den SmartSolar MPPT 75/15 eine Nennleistung von 220 W an einer 12-V-Batterie an. Damit passt er zu einem Modul um 200 W, sofern die Leerlaufspannung des Moduls auch bei Kälte unter 75 Volt bleibt. In meiner Stufe 2 hängen 210 bis 230 W Dachsolar an einem MPPT 75/15.</p>
+            </details>
+            <details>
+              <summary>Wie stelle ich den MPPT-Laderegler für LiFePO4 richtig ein?</summary>
+              <p>Wähle in der App den Batterietyp, der zu deinem Akku passt, und gleiche die Werte mit dem Datenblatt des Akkuherstellers ab. Victrons LiFePO4-Voreinstellung lädt laut Handbuch mit 14,2 Volt Absorption und 13,5 Volt Erhaltungsladung und hat eine Tieftemperatur-Ladesperre bei 5 °C. Die Ladesperre greift nur, wenn der Regler eine echte Batterietemperatur bekommt.</p>
+            </details>
+            <details>
+              <summary>Können zwei MPPT-Laderegler dieselbe Batterie laden?</summary>
+              <p>Ja. In meinen Stufen 2 bis 4 laden jeweils zwei Regler dieselbe Batterie: einer für die Dachmodule und einer für die Solartasche. Jeder Regler wird mit eigener Sicherung am Plus-Verteiler und hinter dem Shunt am Minus-Verteiler angeschlossen.</p>
+            </details>
+            <details>
+              <summary>MPPT oder PWM: was ist besser fürs Wohnmobil?</summary>
+              <p>Ein MPPT-Regler. Er wandelt die höhere Modulspannung in Ladestrom um. Ein einfacher PWM-Regler verschenkt den Teil der Modulspannung, der über der Batteriespannung liegt.</p>
+            </details>
+            <details>
+              <summary>Warum lädt mein MPPT-Laderegler nicht?</summary>
+              <p>Laut Victron-Handbuch startet der Regler erst, wenn die PV-Spannung 5 Volt über der Batteriespannung liegt, und lädt weiter, solange sie mindestens 1 Volt darüber bleibt. Bei schwachem Licht oder Schatten kann das nicht reichen. Prüfe außerdem die Sicherung in der Batterieleitung und die Kabelverbindungen.</p>
+            </details>
+          </div>
+          <p class="blog-sources"><strong>Quellen:</strong>
+            <a href="https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-75-10,-75-15,-100-15,-100-20_48V-EN.pdf" target="_blank" rel="noopener">Victron Datenblatt SmartSolar 75/10 bis 100/20</a> ·
+            <a href="https://www.victronenergy.com/upload/documents/Datasheet-SmartSolar-charge-controller-MPPT-100-30-&amp;-100-50-EN.pdf" target="_blank" rel="noopener">Victron Datenblatt SmartSolar 100/30 und 100/50</a> ·
+            <a href="https://www.victronenergy.com/upload/documents/Manual_SmartSolar_MPPT_100-30__100-50/29694-MPPT_solar_charger_manual-pdf-en.pdf" target="_blank" rel="noopener">Victron Handbuch SmartSolar 100/30 und 100/50</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-final blog-section-alt" id="eigener-plan">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Dein Fahrzeug</p>
+          <h2>Welcher Laderegler passt zu deinen Modulen?</h2>
+          <p>Modulspannung, Leistung, Batterie und Kabelwege müssen zusammenpassen. Ich lege dir den passenden Laderegler mit Querschnitten und Sicherungen für dein Fahrzeug aus und gehe die Einstellungen persönlich mit dir durch, per WhatsApp, Telegram oder Signal.</p>
+          <div class="plan-cta">
+            <a href="index.html#kontakt" class="btn btn-primary">Meine Solaranlage planen lassen</a>
+            <a href="solarmodul-wohnmobil.html" class="btn btn-ghost">Passendes Solarmodul finden</a>
+          </div>
+          <p class="blog-disclaimer"><strong>Sicherheitshinweis:</strong> Die genannten Werte stammen aus den Datenblättern und Handbüchern der Hersteller sowie aus meinen Beispielplänen. Maßgeblich sind immer die Unterlagen deines Reglers und deines Akkus. Lass die Anlage im Zweifel von einer qualifizierten Fachkraft prüfen.</p>
+        </div>
+      </section>
+    </article>
+  </main>
+
+<section class="related">
+  <div class="wrap">
+    <div class="related-head">
+      <div>
+        <span class="eyebrow">Weiterlesen</span>
+        <h2>Das könnte dich auch interessieren</h2>
+      </div>
+      <a class="btn btn-ghost" href="blog.html">Alle Beiträge →</a>
+    </div>
+    <div class="related-grid">
+      <a class="related-card" href="wohnmobil-solaranlage-schaltplan.html">
+        <div class="ri"><img src="assets/blog/stufe-1/wohnmobil-solaranlage-stufe-1-schaltplan-960.webp" alt="" loading="lazy" decoding="async" /></div>
+        <small>Schaltplan</small>
+        <strong>Wohnmobil-Solaranlage richtig anschließen: Schaltplan &amp; Verkabelung</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+      <a class="related-card" href="solarmodul-wohnmobil.html">
+        <div class="ri"><img src="assets/blog/renogy-shadowflux-120w/solarmodul-wohnmobildach-960.webp" alt="" loading="lazy" decoding="async" /></div>
+        <small>Solarmodul</small>
+        <strong>Solarmodul fürs Wohnmobil: starr, flexibel oder Solartasche?</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+      <a class="related-card" href="lifepo4-batterie-laedt-nicht-voll.html">
+        <div class="ri"><img src="assets/blog/stufe-3/wohnmobil-solaranlage-200ah-lifepo4-batterie-smartshunt-960.webp" alt="" loading="lazy" decoding="async" /></div>
+        <small>Diagnose</small>
+        <strong>LiFePO4-Batterie lädt nicht voll</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="cta-band">
+  <div class="wrap">
+    <div class="cta-band-inner">
+      <div>
+        <img src="assets/author/andreas-avatar-160.webp" alt="Andreas von VoltKompass" width="56" height="56" loading="lazy" />
+        <div>
+          <strong>Welcher Laderegler passt zu deinem Wohnmobil?</strong>
+          <span>Ich plane Solar, Akku, Ladebooster und Kabel passend zu deinem Fahrzeug – persönlich per WhatsApp, Telegram oder Signal.</span>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="index.html#kontakt">Beratung buchen →</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a href="index.html#top" class="brand"><img class="brand-mark" src="compass.svg" alt="" width="28" height="28" /><span><span class="v">Volt</span><span class="k">Kompass</span></span></a>
+      <p>© 2026 VoltKompass — Wohnmobil-Beratung für Strom &amp; Autarkie</p>
+    </div>
+    <nav>
+      <a href="index.html#top">Startseite</a>
+      <a href="blog.html">Blog</a>
+      <a href="produkte.html">Produkte</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="index.html#kontakt">Kontakt</a>
+      <button type="button" class="cookie-settings-link" data-cookie-settings>Cookie-Einstellungen</button>
+    </nav>
+  </div>
+</footer>
+
+  <script src="blog-lightbox.js"></script>
+  <script src="cookie-consent.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
