@@ -208,10 +208,10 @@
 .post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .post{
   display:flex;flex-direction:column;padding:14px 14px 22px;border-radius:var(--radius);
-  border:1px solid var(--line);background:rgba(255,255,255,.02);
+  border:1px solid rgba(230,178,0,.4);background:rgba(255,255,255,.02);
   transition:transform .3s,border-color .3s;
 }
-.post:hover{border-color:rgba(230,178,0,.4)}
+.post:hover{border-color:rgba(230,178,0,.8)}
 .post-img{aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#0d2a44;margin-bottom:18px}
 .post-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
 .post:hover .post-img img{transform:scale(1.05)}

@@ -230,11 +230,11 @@ details[open] summary::after{content:"+";transform:rotate(45deg);border-color:rg
 .blog-list-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .blog-card{
   position:relative;display:flex;flex-direction:column;
-  border-radius:var(--radius);border-color:var(--line);
+  border-radius:var(--radius);border-color:rgba(230,178,0,.4);
   background:linear-gradient(180deg,var(--ink-2),var(--ink-3));
   box-shadow:none;transition:transform .3s,border-color .3s,box-shadow .3s;
 }
-.blog-card:hover{border-color:rgba(230,178,0,.4);box-shadow:0 30px 70px -40px rgba(0,0,0,.9)}
+.blog-card:hover{border-color:rgba(230,178,0,.8);box-shadow:0 30px 70px -40px rgba(0,0,0,.9)}
 .blog-card figure{aspect-ratio:16/9;overflow:hidden;background:#0d2a44;margin:10px 10px 0;border-radius:14px}
 .blog-card figure img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
 .blog-card:hover figure img{transform:scale(1.05)}
@@ -468,9 +468,9 @@ article > .blog-section:nth-of-type(even){background:rgba(255,255,255,.014)}
 .related-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .related-card{
   display:flex;flex-direction:column;padding:12px 12px 20px;border-radius:var(--radius);
-  border:1px solid var(--line);background:var(--ink-2);transition:transform .3s,border-color .3s;
+  border:1px solid rgba(230,178,0,.4);background:var(--ink-2);transition:transform .3s,border-color .3s;
 }
-.related-card:hover{border-color:rgba(230,178,0,.4)}
+.related-card:hover{border-color:rgba(230,178,0,.8)}
 .related-card .ri{aspect-ratio:16/9;border-radius:12px;overflow:hidden;background:#0d2a44;margin-bottom:16px}
 .related-card .ri img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
 .related-card:hover .ri img{transform:scale(1.05)}
