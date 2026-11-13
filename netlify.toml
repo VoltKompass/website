@@ -92,3 +92,27 @@
   to = "/produkte.html"
   status = 301
   force = true
+
+[[redirects]]
+  from = "/kabelquerschnitt-wohnmobil-kabelrechner"
+  to = "/kabelquerschnitt-wohnmobil-kabelrechner.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/renogy-shadowflux-120w-solarmodul-schatten"
+  to = "/renogy-shadowflux-120w-solarmodul-schatten.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/ladebooster-30a-oder-50a-wirkungsgrad"
+  to = "/ladebooster-30a-oder-50a-wirkungsgrad.html"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/lithium-vs-gel-wohnmobil"
+  to = "/lithium-vs-gel-wohnmobil.html"
+  status = 301
+  force = true
