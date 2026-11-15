@@ -37,3 +37,7 @@
   .bs-field input{font-size:1rem;padding:14px 10px}
   .bs-results{max-height:none}
 }
+/* Blog-Übersicht ohne Titelbild: Text und Suche über die volle Breite */
+.blog-hero-grid.blog-hero-solo{grid-template-columns:minmax(0,1fr)}
+.blog-hero-solo > div{max-width:900px}
+.blog-hero-solo .blog-suche{max-width:760px}
