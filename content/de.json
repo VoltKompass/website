@@ -6,7 +6,7 @@
         "href": "#fachbereiche"
       },
       {
-        "text": "Solaranlage",
+        "text": "Rechner",
         "href": "#solaranlage-beratung"
       },
       {
@@ -33,77 +33,79 @@
     "cta": "Beratung buchen →"
   },
   "meta": {
-    "title": "Wohnmobil Solaranlage nachrüsten: Schaltplan & Kosten | VoltKompass",
-    "description": "Wohnmobil Solaranlage nachrüsten oder selber bauen: 1:1 Beratung zu Schaltplan, Kosten, Komponenten, LiFePO4, Ladebooster, Wechselrichter und Autarkie."
+    "title": "Wohnmobil-Elektrik & Solaranlage nachrüsten: 1:1 Beratung | VoltKompass",
+    "description": "Solaranlage, LiFePO4-Batterie, Ladebooster, Wechselrichter, Kabel und Sicherungen im Wohnmobil: persönliche 1:1-Beratung und individueller Stromlaufplan von Andreas."
   },
   "ablauf": {
     "eyebrow": "So läuft es ab",
-    "heading": "In <span class=\"accent\">3 Schritten</span> zur Antwort",
-    "subtext": "Asynchron per Voicemail — du fragst, wenn es dir passt. Keine Telefontermine, keine Wartezeit.",
+    "heading": "In <span class=\"accent\">3 Schritten</span> zur Beratung",
+    "subtext": "Du schreibst, wenn es dir passt, auch per Sprachnachricht. Keine festen Telefontermine.",
     "steps": [
       {
-        "title": "Paket buchen",
-        "text": "Wähle einfach eines der drei Pakete aus, passend zum Umfang deiner Fragen. Schreibe mir kurz, worum es geht, trage deine E-Mail-Adresse ein und sende deine Anfrage ab."
+        "title": "Anfrage senden",
+        "text": "Wähle ein Paket und schreib mir kurz, worum es geht. Ich melde mich innerhalb von 24 Stunden und sage dir ehrlich, ob das Paket zu deiner Frage passt."
       },
       {
-        "title": "Zahlung",
-        "text": "Sobald ich deine E-Mail erhalten habe, klären wir kurz gemeinsam, ob das gewählte Paket zu deinem Anliegen passt. Danach sende ich dir alle Informationen zur Zahlung zu."
+        "title": "Rechnung bezahlen",
+        "text": "Du bekommst eine Rechnung mit allen Zahlungsinfos. Darauf steht auch meine Telefonnummer für den Messenger."
       },
       {
-        "title": "1 : 1 Beratung",
-        "text": "Sobald deine Zahlung bei mir eingegangen ist, erhältst du eine Rechnung von mir. Darauf findest du auch meine Telefonnummer. Anschließend kannst du mich ganz bequem per WhatsApp, Telegram oder Signal kontaktieren."
+        "title": "Loslegen",
+        "text": "Du schickst mir deine Fragen, Fotos oder deinen Plan per WhatsApp, Telegram oder Signal, und wir gehen alles gemeinsam durch."
       }
     ]
   },
   "fachbereiche": {
     "eyebrow": "Fachbereiche",
-    "heading": "Hier ist mein <span class=\"accent\">Fokus</span>",
-    "subtext": "3 Themen, in denen ich dich von Grundlagen bis Umsetzung begleite — verständlich, praxisnah, unabhängig und mit Blick auf echte Alltagstauglichkeit.",
+    "heading": "Mein Fokus: <span class=\"accent\">Strom im Wohnmobil</span>",
+    "subtext": "Von der ersten Idee bis zum fertigen Stromlaufplan. Auch wenn du noch überlegst, welches Fahrzeug und welche Ausstattung zu deinem Strombedarf und deiner Reiseart passen, berate ich dich.",
     "areas": [
       {
-        "title": "Kaufberatung",
-        "text": "Modell, Grundriss, Ausstattung, Budget. Ich helfe dir, die richtige Entscheidung für deine Reiseart zu treffen."
+        "title": "Solar & Laden",
+        "text": "Solarmodule, MPPT-Laderegler, Ladebooster und Landstrom: wie viel Energie wirklich in der Batterie ankommt, auf dem Dach, während der Fahrt und am Stellplatz."
       },
       {
-        "title": "Solaranlage",
-        "text": "Wohnmobil Solaranlage nachrüsten, Komponenten auswählen, Kabelquerschnitte verstehen und den passenden Schaltplan vorbereiten."
+        "title": "Batterie, Kabel & Sicherungen",
+        "text": "LiFePO4 oder Gel, passende Kabelquerschnitte, die richtige Sicherung an der richtigen Stelle, Busbars und Batteriemonitor."
       },
       {
-        "title": "Autarkie",
-        "text": "Frei stehen ohne Abhängigkeit. Strom-, Wasser-, Gas-, und Vorratsplanung für echte Unabhängigkeit."
+        "title": "Wechselrichter & Autarkie",
+        "text": "230 Volt unterwegs: welcher Wechselrichter passt, wie lange die Batterie reicht und wie du autark stehen kannst, ohne die Anlage zu überlasten."
       }
     ]
   },
   "solarGuide": {
-    "eyebrow": "Wohnmobil-Solar",
-    "heading": "Wohnmobil Solaranlage nachrüsten: <span class=\"accent\">Schaltplan, Kosten & Selbsteinbau</span>",
-    "subtext": "Ob Solaranlage Wohnmobil selber bauen, fertige Anlage prüfen oder Elektroplan verstehen: Ich helfe dir, die Technik passend zu deinem Fahrzeug und deinem Reisealltag einzuordnen.",
+    "eyebrow": "Kostenlos zum Ausprobieren",
+    "heading": "Rechner und <span class=\"accent\">Beispielanlagen</span>",
+    "subtext": "Vieles kannst du schon vorher selbst ausrechnen. Die Rechner nutzen dieselben Normwerte, mit denen ich auch in der Beratung arbeite.",
     "cards": [
       {
-        "num": "01 — SELBSTEINBAU",
-        "title": "Solaranlage Wohnmobil selber bauen",
-        "text": "Du bekommst eine verständliche Einschätzung, welche Komponenten zusammenpassen und worauf du achten musst, wenn du die Wohnmobil Solaranlage selber einbauen willst."
+        "num": "01 — Kabelrechner",
+        "title": "<a href=\"kabelquerschnitt-wohnmobil-kabelrechner.html#rechner\">Welcher Querschnitt passt?</a>",
+        "text": "Querschnitt, Länge, Strom und Spannungsabfall für 12, 24 und 48 Volt."
       },
       {
-        "num": "02 — KOSTEN",
-        "title": "Solaranlage Camper Kosten",
-        "text": "Ich ordne Materialkosten realistisch ein: Batterie, Module, Laderegler, Ladebooster, Wechselrichter, Kabel, Sicherungen und Reserven für spätere Erweiterungen."
+        "num": "02 — Sicherungsrechner",
+        "title": "<a href=\"sicherung-kabel-wohnmobil-sicherungsrechner.html#rechner\">Welche Sicherung gehört zu welchem Kabel?</a>",
+        "text": "Mit Kabeltyp, Temperatur und Verlegung. Du siehst, wie der Strom fließt und was im Fehlerfall passiert."
       },
       {
-        "num": "03 — PLAN",
-        "title": "Schaltplan Solaranlage Wohnmobil",
-        "text": "Aus Verbrauch, Standzeit, Dachfläche und vorhandener Elektrik entsteht ein nachvollziehbarer Plan statt einer zufälligen Einkaufsliste."
+        "num": "03 — Ausbaustufen",
+        "title": "<a href=\"blog-stufe-1.html\">Vier Beispielanlagen mit Schaltplan</a>",
+        "text": "Von 150 W Solar mit 100 Ah bis 450 W mit 320 Ah und 2000-W-Wechselrichter, jeweils mit Material und Kosten."
       }
     ],
-    "linkText": "Im Blog findest du ein konkretes Beispiel für eine kompakte Ausbaustufe mit 150 W Solar, LiFePO4, Ladebooster, Schaltplan-Orientierung und Kosten.",
-    "linkLabel": "Beispiel im Blog ansehen",
-    "linkHref": "blog-stufe-1.html"
+    "linkText": "Zu deiner Frage findest du über die Suche im Blog den passenden Beitrag.",
+    "linkLabel": "Zum Blog mit Suche",
+    "linkHref": "blog.html"
   },
   "about": {
     "eyebrow": "Über mich",
-    "heading": "18+ Jahre Elektrotechnik Erfahrung <br>",
+    "heading": "Industriemechatroniker, Elektrotechniker und selbst Camper",
     "paragraphs": [
-      "Seit vielen Jahren begleite ich Menschen beim Einstieg in die Wohnmobil-Welt und erstelle individuelle Stromlaufpläne nach ihren Wünschen. Ich weiß genau, welche Fragen am Anfang auftauchen, denn meine eigene Reise begann genauso. Aus Unsicherheit wurde Erfahrung, aus Interesse echte Leidenschaft: für Solaranlagen, Autarkie und ein unabhängiges Leben unterwegs im Wohnmobil."
+      "Ich bin Andreas. Gelernt habe ich Industriemechatroniker, danach habe ich ein Fernstudium in Elektrotechnik mit Schwerpunkt Prozess- und Automatisierungstechnik abgeschlossen. Seit über 18 Jahren arbeite ich in der Elektrotechnik.",
+      "Seit acht Jahren reise ich selbst im Wohnmobil. Ich weiß also, welche Fragen am Anfang auftauchen, denn meine eigene Anlage hat genauso angefangen. Heute plane ich Anlagen für andere und erstelle Stromlaufpläne, nach denen sie selbst bauen können.",
+      "Meine Empfehlungen stütze ich auf Normen und Herstellerangaben, nicht auf Bauchgefühl. Und ich bin an keinen Hersteller gebunden."
     ],
     "stats": [
       {
@@ -119,7 +121,7 @@
   "cta": {
     "eyebrow": "Bereit?",
     "heading": "Lass uns deine <span class=\"accent\">Wohnmobil-Elektrik</span> sauber planen.",
-    "text": "Schreib mir, ob es um Wohnmobil Solaranlage nachrüsten, Schaltplan, Kosten, Selbsteinbau oder Autarkie geht — ich melde mich innerhalb von 24 Stunden mit dem nächsten Schritt.",
+    "text": "Schreib mir kurz, was du vorhast oder wo es hakt. Ich melde mich innerhalb von 24 Stunden mit dem nächsten Schritt.",
     "ctaPrimary": "Nachricht senden",
     "email": "kontakt@voltkompass.com",
     "form": {
@@ -132,7 +134,7 @@
   "testimonials": {
     "eyebrow": "Kundenstimmen",
     "heading": "Was andere <span class=\"accent\">sagen</span>",
-    "subtext": "Echte Rückmeldungen von Menschen, die ihre Womo-Fragen mit mir geklärt haben.",
+    "subtext": "Rückmeldungen von Kunden, die ihre Anlage mit mir geplant haben.",
     "items": [
       {
         "name": "Daniele",
@@ -153,42 +155,42 @@
   },
   "faq": {
     "eyebrow": "FAQ",
-    "heading": "Häufige Fragen zur <span class=\"accent\">Wohnmobil Solaranlage</span>",
-    "subtext": "Kurze Antworten auf typische Fragen zu Nachrüstung, Selbsteinbau, Kosten und Schaltplan.",
+    "heading": "Häufige <span class=\"accent\">Fragen</span>",
+    "subtext": "Kurze Antworten auf das, was ich am häufigsten gefragt werde.",
     "items": [
       {
-        "question": "Kann ich eine Solaranlage im Wohnmobil selber bauen?",
-        "answer": "Ja, wenn du sauber planst und die Grenzen kennst. Ich helfe dir, Komponenten, Sicherungen, Kabelquerschnitte und Schaltplan zu verstehen, bevor du eine Solaranlage Wohnmobil selber bauen möchtest."
+        "question": "Kann ich die Solaranlage im Wohnmobil selbst einbauen?",
+        "answer": "Ja, viele meiner Kunden bauen selbst. Wichtig ist, dass Kabel, Sicherungen und Geräte zusammenpassen. Dabei helfe ich dir. Arbeiten, die Fachwissen erfordern, sollte eine Fachkraft prüfen."
       },
       {
-        "question": "Was kostet eine Solaranlage im Camper?",
-        "answer": "Die Solaranlage Camper Kosten hängen stark von Batteriegröße, Solarleistung, Ladebooster, Wechselrichter und Sicherheitskomponenten ab. Ich ordne dir realistisch ein, welches Budget zu deinem Nutzungsprofil passt."
+        "question": "Was kostet eine Solaranlage im Wohnmobil?",
+        "answer": "Das hängt vor allem von Batteriegröße, Solarleistung und Wechselrichter ab. Eine kleine Anlage mit 150 W und 100 Ah kostet deutlich weniger als eine große mit 450 W und 320 Ah. Meine vier Beispielanlagen im Blog zeigen die Materialkosten im Detail."
       },
       {
-        "question": "Bekomme ich einen Schaltplan für die Solaranlage im Wohnmobil?",
-        "answer": "Ja. Im Elektroplan geht es um den Schaltplan Solaranlage Wohnmobil: Batterie, Laderegler, Ladebooster, Sicherungen, Verteilerpunkte, Wechselrichter und Leitungswege werden passend zu deinem Fahrzeug geplant."
+        "question": "Was bekomme ich beim Elektroplan?",
+        "answer": "Einen Stromlaufplan für deine Anlage: alle Geräte, Plus und Minus, Kabelquerschnitte, Sicherungen und Verteilerpunkte, passend zu deinem Fahrzeug und deinen Kabelwegen. Dazu 60 Minuten Beratung und Begleitung beim Einbau."
       },
       {
-        "question": "Hilfst du beim Wohnmobil Solaranlage nachrüsten?",
-        "answer": "Ja. Ich begleite dich von der ersten Idee über Komponentenwahl und Kosten bis zur Schaltplan-Orientierung. Die praktische Umsetzung und Prüfung muss je nach Arbeitsschritt fachgerecht erfolgen."
+        "question": "Kannst du auch eine bestehende Anlage prüfen?",
+        "answer": "Ja. Schick mir Fotos, deinen Plan oder deine Einkaufsliste. Ich schaue, ob Querschnitte, Sicherungen und Geräte zusammenpassen, und sage dir, wo es Probleme geben kann."
       },
       {
-        "question": "Wie läuft die Beratung konkret ab?",
-        "answer": "Du buchst ein Paket, schickst mir deine Fragen und bekommst klare Antworten per WhatsApp, Telegram oder Signal. Bei Bedarf gehen wir deinen bestehenden Plan, deine Einkaufsliste oder deinen Schaltplan Schritt für Schritt durch."
+        "question": "Wie läuft die Beratung ab?",
+        "answer": "Du buchst ein Paket, bezahlst die Rechnung und schreibst mir per WhatsApp, Telegram oder Signal, gerne auch als Sprachnachricht. Abgerechnet wird minutengenau, die Zeit kannst du 30 Tage lang flexibel nutzen."
       }
     ]
   },
   "preise": {
     "eyebrow": "Preise",
-    "heading": "Beratung, <span class=\"accent\">Kostencheck</span> oder Elektroplan",
-    "subtext": "Drei Angebote: kurze Einschätzung, tiefere Solar-Beratung oder ein konkreter Elektroplan für deine Wohnmobil-Solaranlage. Kein Abo, keine versteckten Kosten.",
+    "heading": "Beratung oder <span class=\"accent\">fertiger Stromlaufplan</span>",
+    "subtext": "Drei Pakete, je nachdem, wie viel du wissen willst. Kein Abo, keine versteckten Kosten.",
     "plans": [
       {
         "key": "kurz-beratung",
         "name": "Kurz-Beratung",
         "price": "69",
         "unit": "€ / 30 Min",
-        "subtitle": "Ideal für eine konkrete Frage zu Solaranlage, Batterie, Ladebooster, Kosten oder Produktauswahl.",
+        "subtitle": "Für eine konkrete Frage: Passt dieses Kabel, reicht diese Batterie, welcher Laderegler?",
         "features": [
           "30 Minuten Beratungszeit",
           "WhatsApp, Telegram, Signal",
@@ -203,7 +205,7 @@
         "name": "Tiefen-Beratung",
         "price": "119",
         "unit": "€ / 60 Min",
-        "subtitle": "Ich hole dich von 0 ab — Wohnmobil Solaranlage nachrüsten, Autarkie planen, Komponenten verstehen und Fehler vermeiden.",
+        "subtitle": "Wenn du bei null anfängst: Wir gehen deine Anlage von Solar bis Steckdose gemeinsam durch.",
         "features": [
           "60 Minuten Beratungszeit",
           "WhatsApp, Telegram, Signal",
@@ -218,12 +220,12 @@
         "name": "Elektroplan",
         "price": "349",
         "unit": "€",
-        "subtitle": "Detaillierter Schaltplan für Solaranlage im Wohnmobil, abgestimmt auf Komponenten, Kabelwege und Kundenwunsch.",
+        "subtitle": "Ein Stromlaufplan für genau deine Anlage, mit Geräten, Querschnitten und Sicherungen, nach dem du bauen kannst.",
         "features": [
           "60 Minuten Beratungszeit",
-          "Detaillierter Stromlaufplan",
-          "Schaltplan Solaranlage Wohnmobil",
-          "Projektbegleitung",
+          "Individueller Stromlaufplan",
+          "Querschnitte und Sicherungen eingetragen",
+          "Begleitung beim Einbau",
           "30 Tage flexibel nutzbar"
         ],
         "cta": "Paket wählen",
@@ -232,11 +234,11 @@
     ]
   },
   "hero": {
-    "eyebrow": "1:1 Beratung",
-    "serviceTitle": "Wohnmobil Solaranlage nachrüsten",
-    "claim": "1:1 Beratung für <b>Wohnmobil Solaranlage nachrüsten, Schaltplan, Kosten & Autarkie</b>. Ich helfe dir, wenn du eine Solaranlage im Wohnmobil selber bauen, Komponenten auswählen oder einen sauberen Elektroplan verstehen möchtest.",
-    "ctaPrimary": "Termin sichern",
-    "ctaSecondary": "Fachbereiche ansehen",
+    "eyebrow": "Wohnmobil-Elektrik · 1:1 Beratung",
+    "serviceTitle": "Strom im Wohnmobil, sauber geplant",
+    "claim": "Ich helfe dir, deine <b>Solaranlage, Batterie und Verkabelung</b> so zu planen, dass alles zusammenpasst, sicher ist und im Alltag funktioniert. Persönlich per WhatsApp, Telegram oder Signal.",
+    "ctaPrimary": "Beratung anfragen",
+    "ctaSecondary": "Was ich mache",
     "stats": [
       {
         "value": "230+",
@@ -244,11 +246,11 @@
       },
       {
         "value": "1:1",
-        "label": "Persönliche Beratung"
+        "label": "Persönlich, kein Callcenter"
       },
       {
-        "value": "100%",
-        "label": "Unabhängig"
+        "value": "18+",
+        "label": "Jahre Elektrotechnik"
       }
     ]
   },
@@ -285,24 +287,24 @@
     ]
   },
   "problem": {
-    "eyebrow": "Stell dir vor…",
-    "heading": "Solar im Wohnmobil klingt einfach — bis es <span class=\"accent\">konkret</span> wird.",
-    "subtext": "Du willst in dein Womo investieren, aber bei Solaranlage, Batterie, Ladebooster, Wechselrichter, Kosten und Schaltplan werden die Fragen schnell mehr. Genau hier setze ich an.",
+    "eyebrow": "Kennst du das?",
+    "heading": "Solar im Wohnmobil klingt einfach, bis es <span class=\"accent\">konkret</span> wird.",
+    "subtext": "Jedes Forum sagt etwas anderes, jeder Shop will dir ein Set verkaufen. Am Ende stehst du vor einer Einkaufsliste und weißt nicht, ob alles zusammenpasst.",
     "cards": [
       {
-        "num": "01 — PLANUNG",
-        "title": "Wohnmobil Solaranlage nachrüsten",
-        "text": "Welche Modulgröße, welche Batterie, welcher Ladebooster? Ich helfe dir, das System passend zu Reiseprofil, Dachfläche und Verbrauch zu planen."
+        "num": "01 — Planung",
+        "title": "Was brauche ich wirklich?",
+        "text": "Wie viel Solar, wie groß die Batterie, welcher Ladebooster? Das hängt davon ab, wie du reist und was du verbrauchst, nicht vom größten Set im Angebot."
       },
       {
-        "num": "02 — SCHALTPLAN",
-        "title": "Schaltplan Solaranlage Wohnmobil",
-        "text": "Plus, Minus, Sicherungen, Busbars, SmartShunt, MPPT, Ladebooster: Ich übersetze die Technik in einen verständlichen Elektroplan."
+        "num": "02 — Sicherheit",
+        "title": "Welches Kabel, welche Sicherung?",
+        "text": "Querschnitt, Sicherung, Abstand zur Batterie: Hier passieren die meisten Fehler. Ich zeige dir, was Normen und Herstellerhandbücher dazu sagen."
       },
       {
-        "num": "03 — KOSTEN",
-        "title": "Solaranlage Camper Kosten",
-        "text": "Ich zeige dir, welche Komponenten wirklich nötig sind, wo Sparen sinnvoll ist und wo Sicherheit wichtiger ist als der günstigste Preis."
+        "num": "03 — Kosten",
+        "title": "Wo darf ich sparen?",
+        "text": "Ich sage dir ehrlich, wo ein günstiges Teil reicht und wo du nicht sparen solltest, weil es um Brandschutz und Lebensdauer geht."
       }
     ]
   }
