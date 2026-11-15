@@ -1,0 +1,1658 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welche Sicherung für welches Kabel? Sicherungsrechner Wohnmobil | VoltKompass</title>
+  <meta name="description" content="Sicherung hält, Kabel schmilzt: Welche Sicherung zu welchem Kabel passt, warum der Wechselrichter die Ausnahme ist, wohin die Sicherung gehört, Richtwert-Tabelle 1,5 bis 95 mm² und Sicherungsrechner.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://voltkompass.com/sicherung-kabel-wohnmobil-sicherungsrechner.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="VoltKompass">
+  <meta property="og:title" content="Sicherung hält, Kabel schmilzt! Welche Sicherung passt zu welchem Kabel?">
+  <meta property="og:description" content="Gerät &lt; Sicherung ≤ Kabel: die drei Werte, die Ausnahme Wechselrichter, wohin die Sicherung gehört, Richtwert-Tabelle und Sicherungsrechner mit Strom-Animation.">
+  <meta property="og:url" content="https://voltkompass.com/sicherung-kabel-wohnmobil-sicherungsrechner.html">
+  <meta property="og:image" content="https://voltkompass.com/assets/blog/sicherung-kabel/sicherung-haelt-kabel-schmilzt-titelbild.jpg">
+  <meta property="og:image:width" content="1920">
+  <meta property="og:image:height" content="1080">
+  <meta property="og:image:alt" content="Rotes Kabel mit geschmolzener Isolierung neben intakter Sicherung, Schriftzug Sicherung hält, Kabel schmilzt">
+  <meta property="article:published_time" content="2026-11-15T12:00:00+01:00">
+  <meta property="article:modified_time" content="2026-11-15T12:00:00+01:00">
+  <meta property="article:author" content="Andreas / VoltKompass">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Sicherung hält, Kabel schmilzt! Welche Sicherung passt zu welchem Kabel?">
+  <meta name="twitter:description" content="Welche Sicherung zu welchem Kabel passt: Richtwert-Tabelle 1,5 bis 95 mm², Ausnahme Wechselrichter und Sicherungsrechner.">
+  <meta name="twitter:image" content="https://voltkompass.com/assets/blog/sicherung-kabel/sicherung-haelt-kabel-schmilzt-titelbild.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20261028-2">
+  <link rel="stylesheet" href="blog.css?v=20260730-1">
+  <link rel="stylesheet" href="theme.css?v=20261030-1" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="alternate icon" href="/favicon.ico" sizes="any">
+
+  <style>
+    /* Nur auf dieser Seite: Sicherungsrechner, Strom-Animation, Tabelle */
+    .blog-wrap > h3{margin-top:44px;margin-bottom:14px}
+    .chapter-list{columns:2;column-gap:28px;padding-left:1.1em}
+    .chapter-list li{margin:0 0 6px;break-inside:avoid}
+
+    .calc{margin:28px 0 8px;border:1px solid var(--line-2);border-radius:var(--radius);background:linear-gradient(180deg,rgba(230,178,0,.06),rgba(255,255,255,.015) 40%),var(--ink-2);padding:26px;box-shadow:var(--shadow)}
+    .calc-step{margin:0 0 20px}
+    .calc-step > b{display:block;font-size:.78rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:10px}
+    .seg{display:flex;flex-wrap:wrap;gap:8px}
+    .seg label{position:relative;cursor:pointer}
+    .seg input{position:absolute;opacity:0;pointer-events:none}
+    .seg span{display:inline-flex;align-items:center;gap:6px;padding:11px 16px;border-radius:12px;border:1px solid var(--line-2);background:rgba(0,0,0,.22);font-size:.95rem;font-weight:600;color:var(--text-2);transition:border-color .2s,background .2s,color .2s}
+    .seg input:checked + span{border-color:var(--gold);background:rgba(230,178,0,.13);color:#fff}
+    .seg input:focus-visible + span{outline:2px solid var(--gold-hi);outline-offset:2px}
+    .seg-big span{font-family:"Orbitron",var(--font);font-size:1.05rem;padding:12px 22px}
+    .calc-fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:16px;margin-bottom:6px}
+    .calc-field{display:flex;flex-direction:column;gap:6px}
+    .calc-field[hidden]{display:none}
+    .calc-field label{font-size:.82rem;font-weight:600;color:var(--text-2)}
+    .calc-field .inp{display:flex;align-items:stretch;border:1px solid var(--line-2);border-radius:12px;background:rgba(0,0,0,.28);overflow:hidden;transition:border-color .2s}
+    .calc-field .inp:focus-within{border-color:var(--gold)}
+    .calc-field input,.calc-field select{flex:1;min-width:0;padding:13px 14px;border:0;background:transparent;color:var(--text);font:inherit;font-size:1rem}
+    .calc-field select{appearance:none;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,var(--gold) 50%),linear-gradient(135deg,var(--gold) 50%,transparent 50%);background-position:calc(100% - 18px) 55%,calc(100% - 12px) 55%;background-size:6px 6px;background-repeat:no-repeat;padding-right:34px}
+    .calc-field select option{background:#0e1626;color:#e9eef7}
+    .calc-field input:focus,.calc-field select:focus{outline:none}
+    .calc-field .unit{display:flex;align-items:center;padding:0 14px;color:var(--mute);font-size:.9rem;border-left:1px solid var(--line);background:rgba(255,255,255,.03)}
+    .calc-field .unit-toggle{display:flex;border-left:1px solid var(--line)}
+    .calc-field .unit-toggle button{border:0;background:transparent;color:var(--mute);font:inherit;font-size:.88rem;font-weight:600;padding:0 12px;cursor:pointer}
+    .calc-field .unit-toggle button[aria-pressed="true"]{background:rgba(230,178,0,.16);color:var(--gold-hi)}
+    .calc-field small{color:var(--mute);font-size:.78rem;line-height:1.4}
+    .calc-result{margin-top:22px;border-top:1px solid var(--line-2);padding-top:22px}
+    .calc-main{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 14px}
+    .calc-main .lbl{width:100%;font-size:.8rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--mute)}
+    .calc-main .big{font-family:"Orbitron",var(--font);font-size:clamp(2rem,6vw,3.1rem);font-weight:800;color:var(--gold);line-height:1.05}
+    .calc-main .sub{color:var(--text-2);font-size:1rem}
+    .calc-kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin:18px 0 0}
+    .calc-kpis div{border:1px solid var(--line);border-radius:14px;padding:12px 14px;background:rgba(0,0,0,.2)}
+    .calc-kpis span{display:block;font-size:.74rem;color:var(--mute);margin-bottom:4px}
+    .calc-kpis strong{font-size:1.08rem;color:#fff;font-weight:600}
+    .calc-msgs{display:grid;gap:8px;margin-top:14px}
+    .calc-msg{border-radius:12px;padding:11px 14px;font-size:.92rem;line-height:1.45;border:1px solid}
+    .calc-msg.ok{border-color:rgba(74,222,128,.35);background:rgba(74,222,128,.08);color:#c8f5d8}
+    .calc-msg.warn{border-color:rgba(251,146,60,.45);background:rgba(251,146,60,.09);color:#fed7aa}
+    .calc-msg.bad{border-color:rgba(248,113,113,.5);background:rgba(248,113,113,.1);color:#fecaca}
+    .calc-msg.info{border-color:rgba(106,180,240,.35);background:rgba(106,180,240,.08);color:#cfe6fb}
+    .calc-overview{margin-top:20px}
+    .calc-overview summary{cursor:pointer;font-weight:600;color:var(--text-2);padding:6px 0}
+    .calc-table{width:100%;border-collapse:collapse;font-size:.88rem;margin-top:10px}
+    .calc-table th,.calc-table td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+    .calc-table th:first-child,.calc-table td:first-child{text-align:left}
+    .calc-table thead th{color:var(--mute);font-weight:600;font-size:.78rem}
+    .calc-table tr.is-rec td{background:rgba(230,178,0,.12);color:#fff;font-weight:600}
+    .calc-table .dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;vertical-align:middle}
+    .calc-table .dot.g{background:#4ade80}.calc-table .dot.o{background:#fb923c}.calc-table .dot.r{background:#f87171}
+    .calc-wrap-table{overflow-x:auto}
+    .calc-foot{margin-top:16px;font-size:.8rem;color:var(--mute);line-height:1.5}
+
+    .calc-modehint{display:block;margin-top:10px;color:var(--mute);font-size:.84rem;line-height:1.45}
+    .calc-field small a{color:var(--gold-hi)}
+    .calc-field select option:disabled{color:#5b6577}
+    .calc-main .big.is-bad{color:#f87171}
+    .formula{font-family:"Orbitron",var(--font);font-size:clamp(1.1rem,3.4vw,1.5rem);font-weight:800;color:var(--gold);margin:14px 0;letter-spacing:.02em}
+    .blog-quote{margin:18px 0;padding:16px 18px;border-left:3px solid var(--gold);background:rgba(230,178,0,.07);border-radius:0 12px 12px 0;color:#fff;font-size:1.02rem;line-height:1.55}
+    .blog-quote cite{display:block;margin-top:8px;color:var(--mute);font-size:.8rem;font-style:normal}
+    .sk-table td.g{color:var(--gold-hi);font-weight:600}
+    .sk-table tr.hl th,.sk-table tr.hl td{background:rgba(230,178,0,.13);color:#fff}
+
+    .sim{margin:20px 0 4px;border:1px solid var(--line-2);border-radius:16px;background:radial-gradient(120% 140% at 50% 0%,rgba(230,178,0,.06),rgba(0,0,0,.25) 60%);padding:14px 14px 16px;transition:box-shadow .4s}
+    .sim.is-hot{box-shadow:0 0 0 1px rgba(248,113,113,.45),0 0 40px rgba(248,113,113,.18) inset}
+    .sim-svg{display:block;width:100%;height:auto}
+    .sim-cable-plus{stroke:#c8312f;fill:none;stroke-linecap:round;transition:stroke .4s}
+    .sim-cable-minus{stroke:#2a2f38;fill:none;stroke-linecap:round}
+    .sim-glow{stroke:#fb923c;fill:none;stroke-linecap:round;opacity:0;transition:opacity .5s,stroke .4s}
+    .sim-flow{stroke:rgba(255,255,255,.85);fill:none;stroke-linecap:round;stroke-dasharray:3 17;transition:opacity .3s}
+    .sim-fuse{fill:#2a2410;stroke:var(--gold);stroke-width:2}
+    .sim-fusewire{stroke:#f6d46a;stroke-width:3;fill:none;transition:opacity .2s}
+    #gFuse.is-broken .sim-fusewire{stroke-dasharray:16 14 60;stroke:#7a6420}
+    .sim-spark{transition:opacity .2s}
+    .sim-t{fill:#e9eef7;font:600 15px var(--body,Inter,sans-serif)}
+    .sim-ts{font-size:13px;font-weight:500;fill:#c3cddd}
+    .sim-tc{text-anchor:middle}
+    .sim-gold{fill:var(--gold-hi,#f6d46a)}
+    .sim-mute{fill:#8b97ab}
+    .sim-good{fill:#86efac}
+    .sim-bad{fill:#fca5a5;font-weight:700}
+    .sim-ctrl{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+    .sim-btn{border:1px solid var(--line-2);background:rgba(0,0,0,.25);color:var(--text-2);font:inherit;font-size:.86rem;font-weight:600;padding:9px 13px;border-radius:10px;cursor:pointer}
+    .sim-btn[aria-pressed="true"]{border-color:var(--gold);background:rgba(230,178,0,.13);color:#fff}
+    .sim-btn:focus-visible{outline:2px solid var(--gold-hi);outline-offset:2px}
+    .sim-note{margin:10px 2px 0;font-size:.9rem;color:var(--text-2);line-height:1.5;min-height:2.9em}
+    .bars{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;align-items:end;height:150px;margin-top:14px;padding:0 6px;border-bottom:1px solid var(--line-2)}
+    .bar{position:relative;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+    .bar i{display:block;width:min(70px,80%);border-radius:8px 8px 0 0;transition:height .5s ease}
+    .bar span{position:absolute;bottom:-22px;font-size:.78rem;color:var(--mute)}
+    .bar b{order:-1;margin-bottom:4px;font-size:.85rem;color:#fff}
+    .b-dev i{background:linear-gradient(180deg,#8cc8f5,#4a95d6)}
+    .b-fuse i{background:linear-gradient(180deg,#f6d46a,#c99a00)}
+    .b-cab i{background:linear-gradient(180deg,#fdba74,#ea7a2a)}
+    #bars{margin-bottom:26px}
+    @media (prefers-reduced-motion: reduce){.bar i,.sim-glow,.sim-cable-plus{transition:none}}
+    @media (max-width:600px){
+      .sim{padding:10px 8px 14px}
+      .sim-t{font-size:24px}
+      .sim-ts{font-size:21px}
+      #tState,#tFlow{display:none}
+      .sim-note{font-size:.88rem}
+      .bars{height:130px}
+      .calc-kpis{grid-template-columns:1fr 1fr}
+    }
+
+    @media (max-width:760px){
+      .calc{padding:18px}
+      .chapter-list{columns:1}
+      .amm-row{grid-template-columns:64px 1fr}
+    }
+  </style>
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://voltkompass.com/sicherung-kabel-wohnmobil-sicherungsrechner.html#article",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://voltkompass.com/sicherung-kabel-wohnmobil-sicherungsrechner.html"
+      },
+      "headline": "Sicherung hält, Kabel schmilzt: Welche Sicherung passt zu welchem Kabel?",
+      "description": "Welche Sicherung zu welchem Kabel im Wohnmobil passt: die Regel Gerät < Sicherung ≤ Kabel, warum Sicherungen später auslösen, die Ausnahme Wechselrichter, wohin Hauptsicherung und Busbar-Sicherungen gehören, Richtwert-Tabelle 1,5 bis 95 mm² nach DIN VDE 0298-4 und ein Sicherungsrechner.",
+      "image": [
+        "https://voltkompass.com/assets/blog/sicherung-kabel/sicherung-haelt-kabel-schmilzt-titelbild.jpg",
+        "https://voltkompass.com/assets/blog/sicherung-kabel/richtwert-tabelle-sicherung-kabel-full.webp",
+        "https://voltkompass.com/assets/blog/sicherung-kabel/wechselrichter-3000va-400a-sicherung-full.webp"
+      ],
+      "datePublished": "2026-11-15T12:00:00+01:00",
+      "dateModified": "2026-11-15T12:00:00+01:00",
+      "inLanguage": "de-DE",
+      "isAccessibleForFree": true,
+      "articleSection": "Kabel und Absicherung",
+      "keywords": [
+        "Sicherung Wohnmobil",
+        "welche Sicherung für welches Kabel",
+        "Kabel absichern",
+        "Sicherung Kabelquerschnitt",
+        "Hauptsicherung Batterie",
+        "Sicherung Wechselrichter",
+        "Busbar Sicherung",
+        "MEGA Sicherung",
+        "Klasse T Sicherung",
+        "Sicherungsrechner"
+      ],
+      "author": {
+        "@type": "Person",
+        "@id": "https://voltkompass.com/#andreas",
+        "name": "Andreas",
+        "url": "https://voltkompass.com/#ueber",
+        "jobTitle": "Berater für Wohnmobil-Elektrik",
+        "description": "18+ Jahre Elektrotechnik-Erfahrung und eigene Wohnmobil-Praxis."
+      },
+      "publisher": {
+        "@type": "Organization",
+        "@id": "https://voltkompass.com/#organization",
+        "name": "VoltKompass",
+        "url": "https://voltkompass.com/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://voltkompass.com/logo.png",
+          "width": 1082,
+          "height": 1082
+        }
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Absicherung von Kabeln im Wohnmobil"
+        },
+        {
+          "@type": "Thing",
+          "name": "Strombelastbarkeit flexibler Kupferkabel"
+        },
+        {
+          "@type": "Thing",
+          "name": "Kfz-Sicherungen"
+        }
+      ],
+      "citation": [
+        "https://cdn.standards.iteh.ai/samples/45867/0dceabde692c42a2abe7f580f3b099ff/ISO-10133-2012.pdf",
+        "https://www.victronenergy.com/media/pg/The_Wiring_Unlimited_book/en/dc-wiring.html",
+        "https://www.bayka.de/wp-content/uploads/2022/03/TD06DE-Strombelastbarkeit-flexible-Kupferkabel-und-Leitungen.pdf",
+        "https://cdn.standards.iteh.ai/samples/58088/f865563d0c3b43fc97612493fa6a3db4/ISO-8820-3-2015.pdf"
+      ],
+      "video": {
+        "@id": "https://voltkompass.com/sicherung-kabel-wohnmobil-sicherungsrechner.html#video"
+      },
+      "isPartOf": {
+        "@id": "https://voltkompass.com/blog.html#blog"
+      }
+    },
+    {
+      "@type": "VideoObject",
+      "@id": "https://voltkompass.com/sicherung-kabel-wohnmobil-sicherungsrechner.html#video",
+      "name": "Sicherung hält, Kabel schmilzt! So findet ihr die richtige Sicherung",
+      "description": "Ist die Sicherung zu groß, schmilzt das Kabel, und die Sicherung hält. Ist sie zu klein, schmilzt der Sicherungshalter. Andreas von VoltKompass zeigt, welche Sicherung zu welchem Kabel gehört, warum der Wechselrichter die Ausnahme ist und wohin die Sicherung im Wohnmobil gehört.",
+      "thumbnailUrl": "https://voltkompass.com/assets/blog/sicherung-kabel/sicherung-haelt-kabel-schmilzt-titelbild.jpg",
+      "uploadDate": "2026-11-15T12:00:00+01:00",
+      "duration": "PT6M59S",
+      "embedUrl": "https://www.youtube-nocookie.com/embed/C6aMlEdopp8",
+      "contentUrl": "https://www.youtube.com/watch?v=C6aMlEdopp8",
+      "inLanguage": "de-DE",
+      "publisher": {
+        "@id": "https://voltkompass.com/#organization"
+      },
+      "isPartOf": {
+        "@id": "https://voltkompass.com/sicherung-kabel-wohnmobil-sicherungsrechner.html#article"
+      }
+    },
+    {
+      "@type": "WebApplication",
+      "@id": "https://voltkompass.com/sicherung-kabel-wohnmobil-sicherungsrechner.html#rechner",
+      "name": "VoltKompass Sicherungsrechner",
+      "url": "https://voltkompass.com/sicherung-kabel-wohnmobil-sicherungsrechner.html#rechner",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Alle",
+      "inLanguage": "de-DE",
+      "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "description": "Findet die passende Sicherung zu einem Kabel, Kabel und Sicherung zu einem Gerät oder prüft, ob ein Kabel die vom Hersteller vorgegebene Sicherung tragen kann, mit Kabeltyp, Temperatur, Bündelung und Strom-Animation."
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://voltkompass.com/sicherung-kabel-wohnmobil-sicherungsrechner.html#faq",
+      "url": "https://voltkompass.com/sicherung-kabel-wohnmobil-sicherungsrechner.html#faq",
+      "inLanguage": "de-DE",
+      "isPartOf": {
+        "@id": "https://voltkompass.com/sicherung-kabel-wohnmobil-sicherungsrechner.html"
+      },
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Welche Sicherung gehört zu einem 70-mm²-Kabel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Einzeln und frei verlegt bei 30 °C verträgt ein 70-mm²-Kabel mit PVC-Isolierung nach DIN VDE 0298-4 Tabelle 11 245 Ampere. Die Sicherung darf also höchstens 225 Ampere haben. Ist es am Einbauort 40 °C warm, sind es 213 Ampere, dann höchstens 200 Ampere. Im Bündel oder im Kabelkanal wird es weniger."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Darf die Sicherung größer sein als das Kabel?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nein. Die Sicherung darf nicht größer sein als das, was das dünnste Kabel im Stromkreis verträgt. So steht es in der Bootsnorm ISO 10133 und im Victron-Handbuch Wiring Unlimited. Schreibt ein Hersteller, zum Beispiel beim Wechselrichter, eine bestimmte Sicherung vor, muss das Kabel so bemessen sein, dass es den Nennstrom dieser Sicherung tragen kann."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was passiert, wenn die Sicherung zu klein ist?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Dann läuft sie dauerhaft an ihrer Grenze, wird selbst heiß und gibt die Wärme an Anschlüsse und Verschraubungen weiter. Dauert das lange genug, kann der Sicherungshalter schmelzen. Die Sicherung muss deshalb mehr aushalten, als das Gerät dauerhaft zieht, mit etwas Luft."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie nah muss die Hauptsicherung an die Batterie?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "So nah wie möglich, denn das Kabelstück vor der Sicherung ist ungeschützt. Die Bootsnorm ISO 10133 nennt höchstens 200 mm ab der Batterie, gemessen am Kabel, mit Ausnahmen für geschützt verlegte Leitungen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Braucht jeder Abgang an den Busbars eine eigene Sicherung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Die Kabel zu den Geräten sind dünner als die Hauptleitung, deshalb bekommt jedes eine eigene Sicherung, direkt an den Busbars, passend zu seinem Querschnitt. Jede Sicherung sitzt dort, wo ihr Kabel beginnt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Warum hält eine 250-A-Sicherung 340 Ampere aus?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sicherungen lösen nicht beim Nennwert aus. Eine Mega-Sicherung mit 250 Ampere darf laut Herstellerdatenblatt beim 1,35-Fachen, also rund 340 Ampere, bis zu 30 Minuten halten. Deshalb muss das Kabel selbst Reserve haben und die Sicherung darf nicht über dem Kabelwert liegen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hängt die Sicherung von der Kabellänge ab?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Nein. Ein langes Kabel wird bei gleichem Strom nicht wärmer als ein kurzes. Die Länge bestimmt nur den Spannungsabfall. Für die Sicherung zählen Querschnitt, Kabeltyp, Temperatur und Verlegung."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://voltkompass.com/sicherung-kabel-wohnmobil-sicherungsrechner.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Startseite",
+          "item": "https://voltkompass.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "https://voltkompass.com/blog.html"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Sicherung und Kabel",
+          "item": "https://voltkompass.com/sicherung-kabel-wohnmobil-sicherungsrechner.html"
+        }
+      ]
+    }
+  ]
+}
+  </script>
+</head>
+<body class="blog-page ladebooster-page solar-page">
+  <div class="read-progress" aria-hidden="true"></div>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html#top" class="brand"><img class="brand-mark" src="compass.svg" alt="" width="28" height="28" /><span><span class="v">Volt</span><span class="k">Kompass</span></span></a>
+    <ul>
+      <li><a href="index.html#fachbereiche">Fachbereiche</a></li>
+      <li><a href="index.html#solaranlage-beratung">Solaranlage</a></li>
+      <li><a href="index.html#ablauf">Ablauf</a></li>
+      <li><a href="index.html#preise">Preise</a></li>
+      <li><a href="blog.html" aria-current="page">Blog</a></li>
+      <li><a href="produkte.html">Produkte</a></li>
+      <li><a href="index.html#ueber">Über mich</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="blog.html" class="nav-blog-mobile">Blog</a>
+      <a href="produkte.html" class="nav-blog-mobile">Produkte</a>
+      <a href="index.html#kontakt" class="cta">Beratung buchen →</a>
+    </div>
+  </div>
+</header>
+<nav class="article-jump" aria-label="Abschnitte dieses Beitrags">
+  <div class="wrap">
+    <b>Inhalt</b>
+    <a href="#rechner">Rechner</a>
+    <a href="#video">Video</a>
+    <a href="#drei-werte">Regel</a>
+    <a href="#wechselrichter">Wechselrichter</a>
+    <a href="#wohin">Wohin</a>
+    <a href="#tabelle">Tabelle</a>
+    <a href="#faq">FAQ</a>
+  </div>
+</nav>
+
+  <main>
+    <article>
+      <section class="blog-hero">
+        <div class="wrap blog-hero-grid">
+          <div>
+          <nav class="blog-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html#top">Startseite</a>
+            <span>/</span>
+            <a href="blog.html">Blog</a>
+            <span>/</span>
+            <span>Sicherung und Kabel</span>
+          </nav>
+          <span class="eyebrow">Sicherung · Kabel · Wohnmobil</span>
+          <h1>Sicherung hält, Kabel schmilzt: Welche Sicherung passt zu welchem Kabel?</h1>
+          <p class="blog-lead">Ist die Sicherung zu groß, schützt sie das Kabel nicht. Ist sie zu klein, läuft sie dauerhaft an ihrer Grenze und heizt ihren eigenen Halter auf. Ich zeige dir, welche drei Werte du brauchst, warum der Wechselrichter die Ausnahme ist und wohin die Sicherung gehört. Mit meinem Sicherungsrechner findest du für dein Kabel oder dein Gerät die passende Sicherung und siehst, wie der Strom durch das Kabel fließt.</p>
+          <p class="blog-byline">Von <a href="index.html#ueber">Andreas / VoltKompass</a> · 18+ Jahre Elektrotechnik-Erfahrung · veröffentlicht am <time datetime="2026-11-15">15. November 2026</time></p>
+          <aside class="blog-author-card" aria-label="Fachliche Einordnung des Autors">
+            <img src="assets/author/andreas-avatar-160.webp" width="160" height="160" decoding="async" alt="Andreas von VoltKompass" />
+            <p>
+              <strong>Praxiswissen von Andreas:</strong> mehr als 18 Jahre Erfahrung in der
+              Elektrotechnik und acht Jahre reisend im Wohnmobil.
+            </p>
+          </aside>
+          <div class="article-kicker">
+            <span>Sicherungsrechner</span>
+            <span>Richtwert-Tabelle 1,5 bis 95 mm²</span>
+            <span>Ausnahme Wechselrichter</span>
+            <span>Mit Video</span>
+          </div>
+          <div class="blog-actions">
+            <a href="#rechner" class="btn btn-primary">Direkt zum Sicherungsrechner</a>
+            <a href="#video" class="btn btn-ghost">Video ansehen</a>
+          </div>
+          </div>
+
+        <figure class="blog-hero-figure">
+          <button class="blog-zoom" type="button" data-full="assets/blog/sicherung-kabel/sicherung-haelt-kabel-schmilzt-titelbild-full.webp" data-caption="Sicherung hält, Kabel schmilzt: Genau das passiert, wenn die Sicherung zu groß für das Kabel ist. Titelbild aus meinem VoltKompass-Video." aria-label="Titelbild Sicherung hält, Kabel schmilzt vergrößern">
+            <picture>
+              <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/sicherung-kabel/sicherung-haelt-kabel-schmilzt-titelbild-960.webp">
+              <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/sicherung-kabel/sicherung-haelt-kabel-schmilzt-titelbild-1440.webp">
+              <source type="image/webp" srcset="assets/blog/sicherung-kabel/sicherung-haelt-kabel-schmilzt-titelbild-full.webp">
+              <img src="assets/blog/sicherung-kabel/sicherung-haelt-kabel-schmilzt-titelbild.jpg" width="1920" height="1080" alt="Rotes Kabel mit geschmolzener Isolierung neben einer intakten Sicherung, Schriftzug Sicherung hält, Kabel schmilzt" decoding="async" fetchpriority="high">
+            </picture>
+          </button>
+          <figcaption>Zu große Sicherung: Das Kabel wird heiß, die Sicherung hält.</figcaption>
+        </figure>
+        </div>
+      </section>
+
+      <section class="blog-section" id="kurzantwort">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Direkte Antwort</p>
+          <h2>Welche Sicherung gehört zu welchem Kabel?</h2>
+          <p class="blog-intro"><strong>Die Sicherung schützt das Kabel. Sie darf nicht größer sein als das, was das dünnste Kabel im Stromkreis verträgt. Und sie muss mehr aushalten, als das Gerät dauerhaft zieht. Kurz: Gerät &lt; Sicherung ≤ Kabel. Ein 70-mm²-Kabel verträgt einzeln und frei verlegt bei 30 °C 245 Ampere, die Sicherung darf also höchstens 225 Ampere haben. Sie sitzt dort, wo das Kabel beginnt: an der Batterie oder an den Busbars.</strong></p>
+          <p>Die Regel steht so in der Bootsnorm ISO 10133 und im Handbuch „Wiring Unlimited“ von Victron. Die Kabelwerte kommen aus der Kabelnorm DIN VDE 0298-4. Die Ausnahme sind große Geräte wie der Wechselrichter: Dort gibt der Hersteller die Sicherung vor, und das Kabel muss dann diese Sicherung tragen können.</p>
+
+          <div class="blog-answer-box" role="region" aria-label="Kurzüberblick Sicherung und Kabel">
+            <div><span>Die Regel</span><strong>Gerät &lt; Sicherung ≤ Kabel (dünnstes Kabel im Stromkreis)</strong></div>
+            <div><span>70 mm², 30 °C, einzeln, frei</span><strong>Kabel verträgt 245 A, Sicherung höchstens 225 A</strong></div>
+            <div><span>Sicherung zu groß</span><strong>Kabel wird heiß, Isolierung schmilzt, Sicherung hält</strong></div>
+            <div><span>Sicherung zu klein</span><strong>läuft an der Grenze, Halter wird heiß und kann schmelzen</strong></div>
+            <div><span>Wechselrichter</span><strong>Kabel muss die Sicherung tragen, nicht nur das Gerät</strong></div>
+            <div><span>Wohin?</span><strong>so nah wie möglich an die Batterie, jeder Abgang an den Busbars eine eigene</strong></div>
+          </div>
+
+          <nav class="blog-toc" aria-label="Inhaltsverzeichnis">
+            <h3>Inhaltsverzeichnis</h3>
+            <ol>
+              <li><a href="#rechner">Sicherungsrechner: Kabel, Gerät oder Herstellervorgabe</a></li>
+              <li><a href="#video">Das Video zum Beitrag</a></li>
+              <li><a href="#zu-gross-zu-klein">Zu groß oder zu klein: beides geht schief</a></li>
+              <li><a href="#schmelzleiter">Was eine Sicherung macht</a></li>
+              <li><a href="#drei-werte">Drei Werte: Gerät, Sicherung, Kabel</a></li>
+              <li><a href="#ausloesen">Sicherungen lösen später aus, als du denkst</a></li>
+              <li><a href="#wechselrichter">Die Ausnahme: der Wechselrichter</a></li>
+              <li><a href="#wohin">Wohin die Sicherung gehört</a></li>
+              <li><a href="#tabelle">Meine Richtwert-Tabelle</a></li>
+              <li><a href="#einbauort">Einbauort, Bündel und Dauerlast</a></li>
+              <li><a href="#quellen">Quellen und Rechenweg</a></li>
+              <li><a href="#faq">Häufige Fragen</a></li>
+              <li><a href="#fazit">Fazit: drei Schritte</a></li>
+            </ol>
+          </nav>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="rechner">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Sicherungsrechner</p>
+          <h2>Sicherungsrechner: Welche Sicherung passt zu deinem Kabel?</h2>
+          <p class="blog-intro">Wähle aus, wovon du ausgehst: von einem Kabel, das schon liegt, von einem Gerät, für das du Kabel und Sicherung suchst, oder von einer Sicherung, die der Hersteller vorschreibt. Unten siehst du, wie der Strom durch das Kabel fließt, und kannst den Fehlerfall durchspielen.</p>
+
+          <div class="calc" id="sicherungsrechner" aria-label="Sicherungsrechner">
+            <div class="calc-step">
+              <b>1 · Wovon gehst du aus?</b>
+              <div class="seg" role="radiogroup" aria-label="Ausgangspunkt">
+                <label><input type="radio" name="mode" value="kabel" checked><span>Ich habe ein Kabel</span></label>
+                <label><input type="radio" name="mode" value="geraet"><span>Ich habe ein Gerät</span></label>
+                <label><input type="radio" name="mode" value="vorgabe"><span>Hersteller gibt Sicherung vor</span></label>
+              </div>
+              <small class="calc-modehint" id="modeHint"></small>
+            </div>
+
+            <div class="calc-step">
+              <b>2 · Systemspannung</b>
+              <div class="seg seg-big" role="radiogroup" aria-label="Systemspannung">
+                <label><input type="radio" name="sys" value="12" checked><span>12 V</span></label>
+                <label><input type="radio" name="sys" value="24"><span>24 V</span></label>
+                <label><input type="radio" name="sys" value="48"><span>48 V</span></label>
+              </div>
+            </div>
+
+            <div class="calc-step">
+              <b>3 · Kabel und Einbau</b>
+              <div class="calc-fields">
+                <div class="calc-field" data-for="kabel vorgabe">
+                  <label for="inA">Querschnitt</label>
+                  <div class="inp"><select id="inA"></select></div>
+                  <small>Kupfer, feindrähtig, einadrig (Plus und Minus als eigene Leitung).</small>
+                </div>
+                <div class="calc-field" data-for="vorgabe">
+                  <label for="inN">Kabel parallel je Pol</label>
+                  <div class="inp"><select id="inN">
+                    <option value="1" selected>1 Kabel</option>
+                    <option value="2">2 Kabel parallel</option>
+                  </select></div>
+                  <small>Große Wechselrichter haben oft je zwei Plus- und Minus-Anschlüsse.</small>
+                </div>
+                <div class="calc-field" data-for="kabel geraet vorgabe">
+                  <label for="inTyp">Kabeltyp (Isolierung)</label>
+                  <div class="inp"><select id="inTyp">
+                    <option value="pvc" selected>PVC, Leiter bis 70 °C (z. B. H07V-K)</option>
+                    <option value="gummi">Gummi, Leiter bis 60 °C (z. B. H07RN-F)</option>
+                    <option value="xlpe">vernetzt, Leiter bis 90 °C</option>
+                    <option value="eigen">Wert aus dem Datenblatt</option>
+                  </select></div>
+                  <small id="hintTyp">Steht auf dem Kabel oder im Datenblatt.</small>
+                </div>
+                <div class="calc-field" data-for="kabel vorgabe" id="fieldEigen" hidden>
+                  <label for="inEigen">Belastbarkeit laut Datenblatt</label>
+                  <div class="inp"><input id="inEigen" type="text" inputmode="decimal" value="" placeholder="z. B. 245" autocomplete="off"><span class="unit">A</span></div>
+                  <small>Gilt nur unter den Bedingungen, die im Datenblatt stehen. Der Rechner mindert hier nichts ab.</small>
+                </div>
+                <div class="calc-field" data-for="kabel geraet vorgabe" data-norm="1">
+                  <label for="inUmg">Temperatur am Einbauort</label>
+                  <div class="inp"><select id="inUmg">
+                    <option value="30" selected>30 °C (Normalwert der Kabelnorm)</option>
+                    <option value="40">40 °C (warmes Staufach)</option>
+                    <option value="50">50 °C (heißes Fach, neben Geräten)</option>
+                    <option value="60">60 °C</option>
+                  </select></div>
+                  <small>Die Luft rund ums Kabel, nicht die Außentemperatur.</small>
+                </div>
+                <div class="calc-field" data-for="kabel geraet vorgabe" data-norm="1">
+                  <label for="inB">Verlegung</label>
+                  <div class="inp"><select id="inB">
+                    <option value="1" selected>einzeln, frei verlegt</option>
+                    <option value="2">gebündelt mit 1 anderen Stromkreis / im Kabelkanal</option>
+                    <option value="3">gebündelt, 3 Stromkreise</option>
+                    <option value="4">gebündelt, 4 Stromkreise</option>
+                    <option value="6">gebündelt, 6 Stromkreise</option>
+                  </select></div>
+                  <small>Plus und Minus desselben Geräts zählen zusammen als ein Stromkreis.</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-step">
+              <b id="stepGeraet">4 · Gerät</b>
+              <div class="calc-fields">
+                <div class="calc-field" data-for="kabel geraet vorgabe">
+                  <label for="inI" id="lblI">Dauerstrom des Geräts</label>
+                  <div class="inp">
+                    <input id="inI" type="text" inputmode="decimal" value="" autocomplete="off">
+                    <div class="unit-toggle" role="group" aria-label="Einheit">
+                      <button type="button" data-unit="A" aria-pressed="true">A</button>
+                      <button type="button" data-unit="W" aria-pressed="false">W</button>
+                    </div>
+                  </div>
+                  <small id="hintI">Was das Gerät dauerhaft aus der Batterie zieht.</small>
+                </div>
+                <div class="calc-field" data-for="kabel geraet vorgabe" id="fieldEta" hidden>
+                  <label for="inEta">Wirkungsgrad des Geräts</label>
+                  <div class="inp"><input id="inEta" type="text" inputmode="decimal" value="100" autocomplete="off"><span class="unit">%</span></div>
+                  <small>Beim Wechselrichter laut Datenblatt, z. B. 92 %. Sonst 100 lassen.</small>
+                </div>
+                <div class="calc-field" data-for="vorgabe">
+                  <label for="inF">Sicherung laut Anleitung</label>
+                  <div class="inp"><input id="inF" type="text" inputmode="decimal" value="400" autocomplete="off"><span class="unit">A</span></div>
+                  <small>Der Wert, den der Hersteller in der Anleitung nennt.</small>
+                </div>
+                <div class="calc-field" data-for="geraet">
+                  <label for="inL">Abstand Batterie → Gerät (optional)</label>
+                  <div class="inp"><input id="inL" type="text" inputmode="decimal" value="" placeholder="leer = nur Wärme" autocomplete="off"><span class="unit">m</span></div>
+                  <small>Mit Abstand prüft der Rechner auch den Spannungsabfall, wie im <a href="kabelquerschnitt-wohnmobil-kabelrechner.html#rechner">Kabelrechner</a>.</small>
+                </div>
+                <div class="calc-field" data-for="geraet" id="fieldDU" hidden>
+                  <label for="inDU">Erlaubter Spannungsabfall</label>
+                  <div class="inp"><input id="inDU" type="text" inputmode="decimal" value="0,3" autocomplete="off"><span class="unit">Volt</span></div>
+                  <small id="hintDU">Mein Richtwert bei 12 Volt: 0,3 Volt, Plus und Minus zusammen.</small>
+                </div>
+              </div>
+            </div>
+
+            <div class="calc-result" aria-live="polite">
+              <div class="calc-main">
+                <span class="lbl" id="resLbl">Ergebnis</span>
+                <span class="big" id="resBig">–</span>
+                <span class="sub" id="resSub"></span>
+              </div>
+              <div class="calc-kpis" id="resKpis"></div>
+
+              <div class="sim" id="sim">
+                <svg class="sim-svg" viewBox="0 0 760 230" role="img" aria-labelledby="simTitle">
+                  <title id="simTitle">Stromkreis: Batterie, Sicherung, Kabel und Gerät</title>
+                  <defs>
+                    <filter id="simGlow" x="-20%" y="-200%" width="140%" height="500%"><feGaussianBlur stdDeviation="7"/></filter>
+                    <linearGradient id="simBat" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2b3445"/><stop offset="1" stop-color="#151b26"/></linearGradient>
+                  </defs>
+                  <!-- Minus-Leitung -->
+                  <path id="pMinus" class="sim-cable-minus" d="M128 168 H632"/>
+                  <path id="fMinus" class="sim-flow" d="M632 168 H128"/>
+                  <!-- Plus vor der Sicherung -->
+                  <path class="sim-cable-plus" id="pPlus0" d="M128 70 H196"/>
+                  <!-- Glühen und Plus nach der Sicherung -->
+                  <path id="pGlow" class="sim-glow" d="M274 70 H632" filter="url(#simGlow)"/>
+                  <path class="sim-cable-plus" id="pPlus" d="M274 70 H632"/>
+                  <path id="fPlus" class="sim-flow" d="M128 70 H632"/>
+                  <!-- Batterie -->
+                  <rect x="20" y="40" width="110" height="160" rx="12" fill="url(#simBat)" stroke="rgba(255,255,255,.18)"/>
+                  <rect x="40" y="28" width="22" height="14" rx="3" fill="#d23b3b"/>
+                  <rect x="88" y="28" width="22" height="14" rx="3" fill="#30343c"/>
+                  <text x="75" y="118" class="sim-t sim-tc">Batterie</text>
+                  <text x="75" y="140" class="sim-t sim-ts sim-tc" id="tBat">12,8 V</text>
+                  <!-- Sicherung -->
+                  <g id="gFuse">
+                    <rect x="194" y="48" width="82" height="44" rx="9" class="sim-fuse"/>
+                    <path id="fuseWire" d="M204 70 C220 70 222 62 235 62 C248 62 250 78 263 78 C268 78 270 70 268 70" class="sim-fusewire"/>
+                    <text x="235" y="114" class="sim-t sim-tc sim-gold" id="tFuse">Sicherung</text>
+                  </g>
+                  <g id="gSpark" class="sim-spark" opacity="0">
+                    <path d="M235 40 l-6 14 h9 l-8 16" stroke="#fff6c2" stroke-width="3" fill="none"/>
+                    <circle cx="235" cy="70" r="20" fill="rgba(255,220,120,.35)"/>
+                  </g>
+                  <!-- Gerät -->
+                  <rect x="630" y="40" width="112" height="160" rx="12" fill="#1d4e89" stroke="rgba(255,255,255,.2)"/>
+                  <text x="686" y="112" class="sim-t sim-tc">Gerät</text>
+                  <text x="686" y="134" class="sim-t sim-ts sim-tc" id="tDev">–</text>
+                  <!-- Beschriftung Kabel -->
+                  <text x="453" y="44" class="sim-t sim-tc" id="tCable">Kabel</text>
+                  <text x="453" y="128" class="sim-t sim-ts sim-tc" id="tState"></text>
+                  <text x="380" y="212" class="sim-t sim-ts sim-tc sim-mute" id="tFlow"></text>
+                </svg>
+                <div class="sim-ctrl" role="group" aria-label="Fehlerfall durchspielen">
+                  <button type="button" class="sim-btn" data-sim="normal" aria-pressed="true">Normalbetrieb</button>
+                  <button type="button" class="sim-btn" data-sim="ueberlast" aria-pressed="false">Überlast: Strom = Sicherungswert</button>
+                  <button type="button" class="sim-btn" data-sim="kurz" aria-pressed="false">Kurzschluss</button>
+                </div>
+                <p class="sim-note" id="simNote"></p>
+
+                <div class="bars" id="bars" aria-hidden="true">
+                  <div class="bar b-dev"><i></i><span>Gerät</span><b id="vDev">–</b></div>
+                  <div class="bar b-fuse"><i></i><span>Sicherung</span><b id="vFuse">–</b></div>
+                  <div class="bar b-cab"><i></i><span>Kabel</span><b id="vCab">–</b></div>
+                </div>
+              </div>
+
+              <div class="calc-msgs" id="resMsgs"></div>
+              <details class="calc-overview" open>
+                <summary id="ovTitle">Alle Querschnitte im Vergleich</summary>
+                <div class="calc-wrap-table"><table class="calc-table" id="ovTable"></table></div>
+              </details>
+              <p class="calc-foot">Grundlage: Kabel verträgt nach DIN VDE 0298-4 Tabelle 11, einadrig, frei in Luft, 30 °C (Bayka TD06DE). Wärmer: Umrechnungsfaktoren nach VDE 0298-4 Tabelle 17, Bündel nach Tabelle 21 (Lapp, Technische Tabellen T12). Sicherung höchstens = größter gängiger Wert, der nicht über dem Kabelwert liegt (Regel aus ISO 10133:2012, 8.2 und Victron „Wiring Unlimited“ 4.6). Die Wertereihe der Sicherungen ist eine Auswahl gängiger Größen, keine Norm. Spannungsabfall wie im Kabelrechner: Leiter warm (70 °C), Plus und Minus. Richtwerte zur Orientierung, keine Installationsanleitung. Die Anleitung deines Geräts und das Datenblatt deines Kabels gehen immer vor.</p>
+            </div>
+          </div>
+          <p>Wie viel Spannung auf langen Wegen verloren geht und welcher Querschnitt dafür nötig ist, rechnest du ausführlich im <a href="kabelquerschnitt-wohnmobil-kabelrechner.html">Kabelrechner für 12, 24 und 48 Volt</a>.</p>
+        </div>
+      </section>
+
+      <section id="video" class="blog-section blog-video-section">
+        <div class="wrap">
+          <div class="blog-narrow">
+            <span class="eyebrow">Video</span>
+            <h2>Sicherung hält, Kabel schmilzt: das Video</h2>
+            <p>Im Video siehst du als Animation, wie der Strom durch Sicherung und Kabel fließt, wie das Kabel im Wärmebild heiß wird, während die Sicherung hält, und wie die Hauptsicherung und die Sicherungen an den Busbars sitzen. Hier im Beitrag findest du alle Zahlen zum Nachlesen und den Sicherungsrechner.</p>
+          </div>
+          <div class="video-box blog-video-box" id="blogVideoBox" data-id="C6aMlEdopp8" role="button" tabindex="0" aria-label="Video Sicherung hält, Kabel schmilzt abspielen"></div>
+          <p class="blog-video-link">Video direkt auf YouTube ansehen: <a href="https://www.youtube.com/watch?v=C6aMlEdopp8" target="_blank" rel="noopener">Sicherung hält, Kabel schmilzt! So findet ihr die richtige Sicherung</a></p>
+          <div class="blog-narrow">
+            <h3 style="margin-top:32px">Kapitel im Video</h3>
+            <ol class="chapter-list">
+              <li><a href="https://www.youtube.com/watch?v=C6aMlEdopp8&amp;t=0s" target="_blank" rel="noopener">0:00</a> Sicherung zu groß oder zu klein?</li>
+              <li><a href="https://www.youtube.com/watch?v=C6aMlEdopp8&amp;t=47s" target="_blank" rel="noopener">0:47</a> Was eine Sicherung macht</li>
+              <li><a href="https://www.youtube.com/watch?v=C6aMlEdopp8&amp;t=94s" target="_blank" rel="noopener">1:34</a> Drei Werte: Gerät, Sicherung, Kabel</li>
+              <li><a href="https://www.youtube.com/watch?v=C6aMlEdopp8&amp;t=118s" target="_blank" rel="noopener">1:58</a> Sicherungen lösen später aus</li>
+              <li><a href="https://www.youtube.com/watch?v=C6aMlEdopp8&amp;t=147s" target="_blank" rel="noopener">2:27</a> Die Ausnahme: der Wechselrichter</li>
+              <li><a href="https://www.youtube.com/watch?v=C6aMlEdopp8&amp;t=254s" target="_blank" rel="noopener">4:14</a> Wohin die Sicherung gehört</li>
+              <li><a href="https://www.youtube.com/watch?v=C6aMlEdopp8&amp;t=279s" target="_blank" rel="noopener">4:39</a> Meine Richtwert-Tabelle</li>
+              <li><a href="https://www.youtube.com/watch?v=C6aMlEdopp8&amp;t=382s" target="_blank" rel="noopener">6:22</a> Fazit: drei Schritte</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="zu-gross-zu-klein">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Einstieg</p>
+          <h2>Zu groß oder zu klein: In beide Richtungen geht es schief</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p><strong>Ist die Sicherung zu groß</strong>, schützt sie das Kabel nicht. Fließt zu viel Strom, wird das Kabel heiß, die Isolierung wird weich und schmilzt. Und die Sicherung hält trotzdem, denn für sie ist der Strom ja noch in Ordnung.</p>
+              <p>Das Tückische: Eine zu große Sicherung merkst du im Alltag gar nicht. Alles funktioniert. Das Problem zeigt sich erst im Fehlerfall, wenn das Kabel schon heiß wird und die Sicherung immer noch hält.</p>
+            </div>
+            <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/sicherung-kabel/sicherung-zu-gross-kabel-schmilzt-full.webp" data-caption="Sicherung zu groß: Die Sicherung hält, das dünne Kabel dahinter schmilzt. Standbild aus meinem VoltKompass-Video." aria-label="Grafik vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/sicherung-kabel/sicherung-zu-gross-kabel-schmilzt-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/sicherung-kabel/sicherung-zu-gross-kabel-schmilzt-1440.webp">
+                <img src="assets/blog/sicherung-kabel/sicherung-zu-gross-kabel-schmilzt-full.webp" width="1920" height="1080" alt="Sicherung 100 A mit grünem Haken Sicherung hält, das dünne rote Kabel dahinter ist geschmolzen, Etikett Kabel schmilzt" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Sicherung hält, Kabel schmilzt.</figcaption>
+          </figure>
+          </div>
+          <div class="blog-split blog-split-reverse">
+            <div class="blog-split-copy">
+              <p><strong>Ist die Sicherung zu klein</strong>, läuft sie dauerhaft an ihrer Grenze. Dann wird sie selbst heiß, und die Wärme geht in die Anschlüsse und Verschraubungen. Dauert das lange genug, wird der Sicherungshalter so heiß, dass sein Kunststoffgehäuse schmilzt.</p>
+              <p>Beides wollen wir nicht. Deshalb liegt die richtige Sicherung immer <strong>zwischen</strong> dem Gerät und dem Kabel.</p>
+            </div>
+            <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/sicherung-kabel/sicherung-zu-klein-halter-schmilzt-full.webp" data-caption="Sicherung zu klein: Sie läuft stundenlang an ihrer Grenze, bis der Sicherungshalter schmilzt. Standbild aus meinem VoltKompass-Video." aria-label="Grafik vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/sicherung-kabel/sicherung-zu-klein-halter-schmilzt-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/sicherung-kabel/sicherung-zu-klein-halter-schmilzt-1440.webp">
+                <img src="assets/blog/sicherung-kabel/sicherung-zu-klein-halter-schmilzt-full.webp" width="1920" height="1080" alt="Sicherungshalter mit 250-A-Sicherung, Kunststoffgehäuse verformt und verfärbt, Uhr zeigt 6 Stunden, Etikett Sicherungshalter schmilzt" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Sicherung zu klein: Der Halter schmilzt.</figcaption>
+          </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="schmelzleiter">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Grundlagen</p>
+          <h2>Was eine Sicherung macht: Kurzschluss und Überlast</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>In jeder Sicherung steckt ein dünner <strong>Schmelzleiter</strong>. Fließt zu viel Strom, wird er heiß, schmilzt und trennt den Stromkreis.</p>
+              <p>Dabei gibt es zwei ganz verschiedene Fälle:</p>
+              <ul>
+                <li><strong>Kurzschluss:</strong> In einem Augenblick fließt ein riesiger Strom. Die Sicherung trennt sofort.</li>
+                <li><strong>Überlast:</strong> Es fließt nur etwas zu viel, dafür lange. Die Sicherung lässt sich Zeit, und in dieser Zeit wird das Kabel warm.</li>
+              </ul>
+            </div>
+            <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/sicherung-kabel/mega-sicherung-schmelzleiter-full.webp" data-caption="In jeder Sicherung steckt ein dünner Schmelzleiter, hier in einer Mega-Sicherung. Standbild aus meinem VoltKompass-Video." aria-label="Grafik vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/sicherung-kabel/mega-sicherung-schmelzleiter-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/sicherung-kabel/mega-sicherung-schmelzleiter-1440.webp">
+                <img src="assets/blog/sicherung-kabel/mega-sicherung-schmelzleiter-full.webp" width="1920" height="1080" alt="Mega-Sicherung 250 A in Nahaufnahme mit sichtbarem Schmelzleiter, daneben eine gelbe Flachsicherung" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Der Schmelzleiter trennt den Stromkreis.</figcaption>
+          </figure>
+          </div>
+          <div class="blog-split blog-split-reverse">
+            <div class="blog-split-copy">
+              <p>Im Normalfall ist die Sicherung also dafür da, <strong>das Kabel zu schützen</strong>, nicht das Gerät. Viele Geräte schalten bei Überlast ohnehin selbst ab. Das Kabel kann das nicht.</p>
+              <p>Es gibt aber eine Ausnahme: große Geräte wie ein Wechselrichter. Dort gibt der Hersteller die Sicherung vor, und die ist oft deutlich größer, als das Gerät dauerhaft zieht. Dazu gleich <a href="#wechselrichter">mehr</a>.</p>
+            </div>
+            <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/sicherung-kabel/kurzschluss-ueberlast-full.webp" data-caption="Kurzschluss: riesiger Strom, die Sicherung trennt sofort. Überlast: etwas zu viel, dafür lange. Standbild aus meinem VoltKompass-Video." aria-label="Grafik vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/sicherung-kabel/kurzschluss-ueberlast-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/sicherung-kabel/kurzschluss-ueberlast-1440.webp">
+                <img src="assets/blog/sicherung-kabel/kurzschluss-ueberlast-full.webp" width="1920" height="1080" alt="Zwei Karten: Kurzschluss mit riesigem Strom, Sicherung trennt sofort; Überlast etwas zu viel, lange, Uhr läuft 16 Minuten" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Kurzschluss trennt sofort, Überlast dauert.</figcaption>
+          </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="drei-werte">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Die Regel</p>
+          <h2>Drei Werte, die du nie verwechseln darfst</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <ol>
+                <li><strong>Gerät:</strong> Wie viel Strom zieht es dauerhaft?</li>
+                <li><strong>Sicherung:</strong> Welchen Nennwert hat sie?</li>
+                <li><strong>Kabel:</strong> Wie viel Strom verträgt es dauerhaft, bei deiner Temperatur und deiner Verlegung?</li>
+              </ol>
+              <p>Die wichtigste Regel: <strong>Die Sicherung darf nicht größer sein als das, was das dünnste Kabel im Stromkreis verträgt.</strong> Und nach unten: Die Sicherung muss mehr aushalten, als das Gerät dauerhaft zieht. Sie wird nämlich selbst warm. Lass deshalb etwas Luft zwischen Gerät und Sicherung.</p>
+              <p class="formula">Gerät &lt; Sicherung ≤ Kabel</p>
+              <p>Wie viel Luft genau, steht in der Abminderungskurve im Datenblatt der Sicherung: Je wärmer es am Einbauort ist, desto weniger Dauerstrom verträgt die Sicherung selbst.</p>
+            </div>
+            <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/sicherung-kabel/geraet-sicherung-kabel-drei-werte-full.webp" data-caption="Gerät, Sicherung, Kabel: Die Sicherung bleibt unter der Grenze des dünnsten Kabels, zum Gerät bleibt Luft. Standbild aus meinem VoltKompass-Video." aria-label="Grafik vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/sicherung-kabel/geraet-sicherung-kabel-drei-werte-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/sicherung-kabel/geraet-sicherung-kabel-drei-werte-1440.webp">
+                <img src="assets/blog/sicherung-kabel/geraet-sicherung-kabel-drei-werte-full.webp" width="1920" height="1080" alt="Drei Säulen: blau Gerät, gold Sicherung, orange Kabel, rote Linie Grenze dünnstes Kabel, Lücke Luft zwischen Gerät und Sicherung, Thermometer 65 °C" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Gerät &lt; Sicherung ≤ Kabel.</figcaption>
+          </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="ausloesen">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Unterschätzt</p>
+          <h2>Sicherungen lösen später aus, als du denkst</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Eine Sicherung brennt nicht durch, sobald ihr Nennwert erreicht ist. Eine Mega-Sicherung mit <strong>250 Ampere</strong> darf laut Herstellerdatenblatt beim 1,35-Fachen ihres Nennwerts zwischen 2 und 30 Minuten durchhalten. Das sind rund <strong>340 Ampere bis zu einer halben Stunde lang</strong>.</p>
+              <p>Deshalb muss das Kabel selbst Reserve haben, und deshalb gehört die Sicherung nicht über den Kabelwert. Kauf Sicherungen mit Datenblatt, dann weißt du, wann sie auslösen.</p>
+            </div>
+            <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/sicherung-kabel/mega-sicherung-250a-340a-full.webp" data-caption="250 A × 1,35 = rund 340 A: So lange darf eine Mega-Sicherung laut Datenblatt bis zu 30 Minuten halten (MTA MegaVAL nach ISO 8820-5). Standbild aus meinem VoltKompass-Video." aria-label="Grafik vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/sicherung-kabel/mega-sicherung-250a-340a-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/sicherung-kabel/mega-sicherung-250a-340a-1440.webp">
+                <img src="assets/blog/sicherung-kabel/mega-sicherung-250a-340a-full.webp" width="1920" height="1080" alt="Mega-Sicherung 250 A, Karte laut Herstellerdatenblatt 250 A mal 1,35 gleich 340 A, Uhr bis die Sicherung trennen muss" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>340 A, bis zu 30 Minuten.</figcaption>
+          </figure>
+          </div>
+
+          <h3>Auch bei Flachsicherungen dauert es</h3>
+          <p>Für die bekannten Flachsicherungen aus dem Auto legt die Norm ISO 8820-3 Prüfzeiten fest. Ein Auszug für die Typen C und F:</p>
+          <div class="blog-table-wrap" role="region" aria-label="Auslösezeiten Flachsicherungen nach ISO 8820-3" tabindex="0">
+            <table class="blog-table">
+              <thead><tr><th>Strom</th><th>darf frühestens trennen</th><th>muss spätestens trennen</th></tr></thead>
+              <tbody>
+                <tr><td>1,1 × Nennwert</td><td>nach 100 Stunden noch nicht</td><td>–</td></tr>
+                <tr><td>1,35 × Nennwert</td><td>0,75 s</td><td>600 s (10 min)</td></tr>
+                <tr><td>2 × Nennwert</td><td>0,15 s</td><td>5 s</td></tr>
+                <tr><td>3,5 × Nennwert</td><td>0,04 s</td><td>0,5 s</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Eine 20-A-Flachsicherung darf also mit 27 Ampere bis zu zehn Minuten halten. Ein Kabel, das genau 20 Ampere verträgt, liegt in dieser Zeit über seiner Belastbarkeit. Auch deshalb gehört die Sicherung nie über den Kabelwert.</p>
+
+          <h3>Lithium-Batterien: Die Sicherung muss den Kurzschluss abschalten können</h3>
+          <div class="blog-split blog-split-reverse">
+            <div class="blog-split-copy">
+              <p>Eine Lithium-Batterie kann im Kurzschluss einen riesigen Strom liefern. Mindestens eine Sicherung in der Leitung muss diesen Strom sicher abschalten können. Victron nennt das in „Wiring Unlimited“ eine Pflicht: Das <strong>Schaltvermögen</strong> der Sicherung muss mindestens so groß sein wie der mögliche Kurzschlussstrom der Batterie. Typisch dafür ist eine <strong>Klasse-T-Sicherung</strong> als Hauptsicherung.</p>
+              <p>Achte außerdem darauf, dass die Sicherung für Gleichstrom und für deine Anlagenspannung ausgelegt ist.</p>
+            </div>
+            <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/sicherung-kabel/klasse-t-sicherung-lithium-full.webp" data-caption="Bei Lithium-Batterien muss mindestens eine Sicherung den Kurzschlussstrom sicher abschalten, zum Beispiel eine Klasse-T-Sicherung. Standbild aus meinem VoltKompass-Video." aria-label="Grafik vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/sicherung-kabel/klasse-t-sicherung-lithium-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/sicherung-kabel/klasse-t-sicherung-lithium-1440.webp">
+                <img src="assets/blog/sicherung-kabel/klasse-t-sicherung-lithium-full.webp" width="1920" height="1080" alt="Zwei Klasse-T-Sicherungen in Haltern direkt über dem Batteriepol, Etiketten Lithium: riesiger Kurzschlussstrom und Klasse-T-Sicherung" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Klasse-T-Sicherung an der Lithium-Batterie.</figcaption>
+          </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="wechselrichter">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Die Ausnahme</p>
+          <h2>Der Wechselrichter: Das Kabel muss die Sicherung tragen</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Nehmen wir einen Wechselrichter mit <strong>3000 Voltampere</strong> an 12 Volt. Voltampere sind aber nicht dasselbe wie Watt: Laut Datenblatt liefert er bei 25 °C dauerhaft <strong>2400 Watt</strong>. Dafür zieht er aus der Batterie <strong>gut 200 Ampere</strong>.</p>
+              <p>Der Hersteller schreibt aber eine Sicherung mit <strong>400 Ampere</strong> vor. Und dazu steht im Handbuch der entscheidende Satz:</p>
+              <blockquote class="blog-quote">„Ein Kabel muss so bemessen sein, dass es den Nennstrom der Sicherung ohne Überhitzung übertragen kann.“<cite>Herstellerhandbuch eines Wechselrichters 12 V / 3000 VA, Batterieanschluss</cite></blockquote>
+            </div>
+            <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/sicherung-kabel/wechselrichter-3000va-400a-sicherung-full.webp" data-caption="3000 VA sind dauerhaft 2400 W bei 25 °C, gut 200 A aus der Batterie. Der Hersteller schreibt 400 A vor. Standbild aus meinem VoltKompass-Video." aria-label="Grafik vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/sicherung-kabel/wechselrichter-3000va-400a-sicherung-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/sicherung-kabel/wechselrichter-3000va-400a-sicherung-1440.webp">
+                <img src="assets/blog/sicherung-kabel/wechselrichter-3000va-400a-sicherung-full.webp" width="1920" height="1080" alt="Wechselrichter Inverter 3000VA mit Karte: 3000 VA ungleich Watt, dauerhaft 2400 W bei 25 °C, Gerät zieht gut 200 A, Sicherung laut Hersteller 400 A" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Gerät gut 200 A, Sicherung 400 A.</figcaption>
+          </figure>
+          </div>
+          <div class="blog-split blog-split-reverse">
+            <div class="blog-split-copy">
+              <p>Das Kabel muss also nicht nur das Gerät tragen. <strong>Es muss die Sicherung tragen.</strong></p>
+              <ul>
+                <li>Ein Kabel mit 95 mm² schafft 292 Ampere: genug für das Gerät, zu wenig für die 400-A-Sicherung.</li>
+                <li>Deshalb nennt der Hersteller <strong>2 × 95 mm²</strong>. Zusammen tragen sie 584 Ampere.</li>
+                <li>Löst sich an einem Kabel mal ein Anschluss, schafft das andere den Dauerstrom von gut 200 A immer noch allein.</li>
+              </ul>
+              <p>Ob bei zwei parallelen Kabeln eine gemeinsame Sicherung reicht oder jedes Kabel eine eigene braucht, lässt Victron in „Wiring Unlimited“ offen und verweist auf örtliche Vorschriften. Probier den Fall im <a href="#rechner">Rechner</a> aus: „Hersteller gibt Sicherung vor“, 400 A, 2 Kabel parallel.</p>
+            </div>
+            <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/sicherung-kabel/2x95mm2-traegt-allein-292a-full.webp" data-caption="2 × 95 mm² tragen zusammen 584 A. Fällt ein Strang aus, trägt der andere den Dauerstrom von gut 200 A allein. Standbild aus meinem VoltKompass-Video." aria-label="Grafik vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/sicherung-kabel/2x95mm2-traegt-allein-292a-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/sicherung-kabel/2x95mm2-traegt-allein-292a-1440.webp">
+                <img src="assets/blog/sicherung-kabel/2x95mm2-traegt-allein-292a-full.webp" width="1920" height="1080" alt="Anschlüsse eines Wechselrichters mit zwei roten und zwei schwarzen 95-mm²-Kabeln, ein rotes Kabel ist abgeklemmt und dunkel, Etikett trägt allein: 292 A größer 200 A" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Ein Strang trägt den Dauerstrom allein.</figcaption>
+          </figure>
+          </div>
+
+          <h3>Die Kabellänge ändert daran nichts</h3>
+          <p>Ein langes Kabel wird bei gleichem Strom nicht wärmer als ein kurzes. Die Länge bestimmt nur den <strong>Spannungsabfall</strong>, nicht, wie warm das Kabel wird. Für die Sicherung zählt deshalb nur der Querschnitt, für die Spannung am Gerät zusätzlich die Länge. Das rechnet der <a href="kabelquerschnitt-wohnmobil-kabelrechner.html">Kabelrechner</a>.</p>
+
+          <h3>Warum ein 70er mal 245 und mal 390 Ampere hat</h3>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Andere Hersteller nennen für 3000 W deutlich dünnere Kabel. Einer schreibt dazu: Seine Angaben beziehen sich auf ein Kabel, das bis <strong>125 °C</strong> warm werden darf.</p>
+              <p>Das macht viel aus. Ein solches Hochtemperatur-Kabel mit 70 mm² wird im Handel mit <strong>390 Ampere</strong> angegeben, ohne Angabe der Bedingungen. Eine normale Gummi- oder PVC-Leitung gleicher Größe verträgt laut Kabelnorm <strong>245 Ampere</strong>. Der Unterschied kommt vor allem daher, dass das eine Kabel viel heißer werden darf.</p>
+            </div>
+            <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/sicherung-kabel/70mm2-245a-390a-hochtemperatur-full.webp" data-caption="Gleiches Kupfer, 70 mm²: Gummi/PVC 245 A nach DIN VDE 0298-4, Hochtemperatur-Kabel 390 A laut Händlerangabe. Standbild aus meinem VoltKompass-Video." aria-label="Grafik vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/sicherung-kabel/70mm2-245a-390a-hochtemperatur-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/sicherung-kabel/70mm2-245a-390a-hochtemperatur-1440.webp">
+                <img src="assets/blog/sicherung-kabel/70mm2-245a-390a-hochtemperatur-full.webp" width="1920" height="1080" alt="Zwei gleich dicke 70-mm²-Kabel auf Holz, schwarz 60 °C und rot 125 °C, Balken 245 A und 390 A, Hinweis dünnere Isolierung, aber hitzefester" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>245 A oder 390 A: Es kommt auf die Isolierung an.</figcaption>
+          </figure>
+          </div>
+          <div class="blog-note"><strong>Aber:</strong> Geht so ein Kabel ans Limit, werden auch die Kabelschuhe heiß und mit ihnen die Anschlüsse am Sicherungshalter und am Gerät. Ist der Halter aus Kunststoff und nicht für solche Temperaturen ausgelegt, kann er Schaden nehmen. Prüf also, ob alle Teile das aushalten. Nimmst du ein normales Kabel, brauchst du mehr Querschnitt. <strong>Übernimm Kabel und Sicherung deshalb immer als Paar</strong>, mit genau dem Kabeltyp aus der Anleitung.</div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="wohin">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Einbauort</p>
+          <h2>Wohin die Sicherung gehört: dort, wo das Kabel beginnt</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Die <strong>Hauptsicherung</strong> sitzt in der Plus-Leitung, so nah an der Batterie wie möglich. Denn das Stück Kabel davor schützt keine Sicherung. Die Bootsnorm ISO 10133 nennt dafür höchstens 200 mm ab der Batterie, gemessen am Kabel, mit Ausnahmen für Leitungen, die durchgehend geschützt verlegt sind.</p>
+              <p>Wie das in einer kompletten Anlage aussieht, zeige ich im <a href="wohnmobil-solaranlage-schaltplan.html">Schaltplan für die Wohnmobil-Solaranlage</a>.</p>
+            </div>
+            <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/sicherung-kabel/hauptsicherung-direkt-an-der-batterie-full.webp" data-caption="Die Hauptsicherung sitzt direkt an der Batterie. ISO 10133:2012, 8.1: höchstens 200 mm vom Pol. Standbild aus meinem VoltKompass-Video." aria-label="Grafik vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/sicherung-kabel/hauptsicherung-direkt-an-der-batterie-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/sicherung-kabel/hauptsicherung-direkt-an-der-batterie-1440.webp">
+                <img src="assets/blog/sicherung-kabel/hauptsicherung-direkt-an-der-batterie-full.webp" width="1920" height="1080" alt="Zwei Sicherungshalter direkt über dem Pluspol der Batterie, Etikett Hauptsicherung: direkt an der Batterie" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Hauptsicherung direkt an der Batterie.</figcaption>
+          </figure>
+          </div>
+          <div class="blog-split blog-split-reverse">
+            <div class="blog-split-copy">
+              <p>Danach kommen meist <strong>Busbars</strong> als Knotenpunkt. Die Kabel zu den Geräten sind dünner als die Hauptleitung. Deshalb bekommt jedes seine <strong>eigene Sicherung, direkt an den Busbars</strong>, passend zu seinem Querschnitt.</p>
+              <p>Die Regel: <strong>Jede Sicherung sitzt dort, wo ihr Kabel beginnt.</strong></p>
+            </div>
+            <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/sicherung-kabel/jede-sicherung-am-kabelanfang-busbar-full.webp" data-caption="An den Busbars bekommt jeder Abgang seine eigene Sicherung, direkt am Kabelanfang. Standbild aus meinem VoltKompass-Video." aria-label="Grafik vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/sicherung-kabel/jede-sicherung-am-kabelanfang-busbar-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/sicherung-kabel/jede-sicherung-am-kabelanfang-busbar-1440.webp">
+                <img src="assets/blog/sicherung-kabel/jede-sicherung-am-kabelanfang-busbar-full.webp" width="1920" height="1080" alt="Staufach-Anlage mit Batterie, Hauptsicherung, Busbars und Abgängen zu zwei Ladereglern und Wechselrichter, jede Sicherung an ihrem Kabelanfang markiert, Text Jede Sicherung sitzt dort, wo ihr Kabel beginnt" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Jede Sicherung sitzt am Kabelanfang.</figcaption>
+          </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="tabelle">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Zum Nachschlagen</p>
+          <h2>Meine Richtwert-Tabelle: Sicherung zu Kabel von 1,5 bis 95 mm²</h2>
+          <p class="blog-intro">Die Tabelle gilt für Kupferkabel mit PVC-Isolierung (Leiter bis 70 °C), einzeln und frei verlegt, bei 30 °C Umgebung. Die Sicherung ist jeweils der größte gängige Wert, der nicht über dem Kabelwert liegt.</p>
+          <div class="blog-table-wrap" role="region" aria-label="Richtwert-Tabelle Sicherung zu Kabel" tabindex="0">
+            <table class="blog-table sk-table">
+              <thead><tr><th>Querschnitt</th><th>Kabel verträgt (30 °C)</th><th>Sicherung höchstens</th></tr></thead>
+              <tbody>
+                <tr><th>1,5 mm²</th><td>24 A</td><td class="g">20 A</td></tr>
+                <tr><th>2,5 mm²</th><td>32 A</td><td class="g">30 A</td></tr>
+                <tr><th>4 mm²</th><td>42 A</td><td class="g">40 A</td></tr>
+                <tr><th>6 mm²</th><td>54 A</td><td class="g">50 A</td></tr>
+                <tr><th>10 mm²</th><td>73 A</td><td class="g">70 A</td></tr>
+                <tr><th>16 mm²</th><td>98 A</td><td class="g">80 A</td></tr>
+                <tr><th>25 mm²</th><td>129 A</td><td class="g">125 A</td></tr>
+                <tr><th>35 mm²</th><td>158 A</td><td class="g">150 A</td></tr>
+                <tr><th>50 mm²</th><td>198 A</td><td class="g">175 A</td></tr>
+                <tr class="hl"><th>70 mm²</th><td>245 A</td><td class="g">225 A</td></tr>
+                <tr><th>95 mm²</th><td>292 A</td><td class="g">250 A</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Quelle Kabelwerte: DIN VDE 0298-4 Tabelle 11, einadrig, frei in Luft (Bayka TD06DE). Die Sicherungswerte sind eine Auswahl gängiger Größen. Gibt es bei deinem Hersteller einen Zwischenwert, darf es auch der sein, solange er nicht über dem Kabelwert liegt.</p>
+          <div class="blog-split" style="margin-top:22px">
+            <div class="blog-split-copy">
+              <h3 style="margin-top:0">Zwei verschiedene Temperaturen</h3>
+              <p>Die <strong>70 °C</strong> sind das, was das Kabel selbst aushält: So warm darf der Leiter im Betrieb werden. Die <strong>30 °C</strong> sind die Luft drumherum. Das ist der Normalwert, mit dem die Kabelnorm rechnet.</p>
+              <p>Wird es dort, wo Kabel und Sicherung eingebaut sind, wärmer, zum Beispiel 40 °C, werden die Werte kleiner. Ein 70er verträgt dann noch 213 A statt 245 A, und die Sicherung darf höchstens 200 A haben. Im <a href="#rechner">Sicherungsrechner</a> stellst du die Temperatur am Einbauort ein.</p>
+            </div>
+            <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/sicherung-kabel/waermer-kleiner-70mm2-225a-full.webp" data-caption="Wärmer am Einbauort heißt: Das Kabel verträgt weniger, die Sicherung muss kleiner werden. Standbild aus meinem VoltKompass-Video." aria-label="Grafik vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/sicherung-kabel/waermer-kleiner-70mm2-225a-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/sicherung-kabel/waermer-kleiner-70mm2-225a-1440.webp">
+                <img src="assets/blog/sicherung-kabel/waermer-kleiner-70mm2-225a-full.webp" width="1920" height="1080" alt="Wärmebild eines Fachs mit Geräten, Thermometer 40 °C, Karte Kabel 70 mm² bei wärmerer Luft, 245 A und 225 A mit Pfeil nach unten" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Wärmer → kleiner.</figcaption>
+          </figure>
+          </div>
+          <figure class="blog-figure" style="margin-top:22px">
+            <button class="blog-zoom" type="button" data-full="assets/blog/sicherung-kabel/richtwert-tabelle-sicherung-kabel-full.webp" data-caption="Meine Richtwert-Tabelle aus dem Video: Kabel verträgt (orange) und Sicherung höchstens (gold), bei 30 °C. Standbild aus meinem VoltKompass-Video." aria-label="Grafik vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/sicherung-kabel/richtwert-tabelle-sicherung-kabel-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/sicherung-kabel/richtwert-tabelle-sicherung-kabel-1440.webp">
+                <img src="assets/blog/sicherung-kabel/richtwert-tabelle-sicherung-kabel-full.webp" width="1920" height="1080" alt="Richtwert-Tabelle Sicherung zu Kabel von 1,5 bis 95 mm², Kupfer, PVC 70 °C, einzeln, frei verlegt, 30 °C, Zeile 70 mm² 245 A zu 225 A hervorgehoben" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Die Tabelle aus dem Video zum Vergrößern.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="blog-section" id="einbauort">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Praxis</p>
+          <h2>Einbauort, Bündel und Dauerlast</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Ob es bei dir wärmer wird, hängt vom Einbauort ab. In einem kleinen, geschlossenen Fach, in dem auch Geräte Wärme abgeben, staut sie sich schnell. Ein Staufach im Unterboden oder eine große Heckgarage ist dagegen oft sogar kühler als der Wohnraum.</p>
+              <p>Liegt das Kabel <strong>im Bündel</strong> mit anderen Stromkreisen oder im Kabelkanal, verträgt es ebenfalls weniger: Bei zwei Stromkreisen nur noch 80 %, bei drei 70 %. Dann nimmst du eine kleinere Sicherung oder ein dickeres Kabel.</p>
+            </div>
+            <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/sicherung-kabel/einbauort-enges-fach-heckgarage-full.webp" data-caption="Enges Fach: Die Wärme staut sich. Unterboden oder Heckgarage: oft kühler. Standbild aus meinem VoltKompass-Video." aria-label="Grafik vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/sicherung-kabel/einbauort-enges-fach-heckgarage-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/sicherung-kabel/einbauort-enges-fach-heckgarage-1440.webp">
+                <img src="assets/blog/sicherung-kabel/einbauort-enges-fach-heckgarage-full.webp" width="1920" height="1080" alt="Links Wärmebild eines engen Fachs mit 44 °C, Etikett Wärme staut sich; rechts Heckgarage mit Technik und 24 °C, Etikett oft kühler" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Der Einbauort entscheidet mit.</figcaption>
+          </figure>
+          </div>
+          <div class="blog-split blog-split-reverse">
+            <div class="blog-split-copy">
+              <p>In vielen Anlagen siehst du trotzdem dünnere Kabel. Das funktioniert oft, weil das Gerät bei Überlast selbst abschaltet und große Verbraucher im Wohnmobil meist nur kurz laufen, etwa ein Induktionskochfeld.</p>
+              <p>Läuft aber eine Klimaanlage oder eine Waschmaschine über den Wechselrichter, ist das <strong>Dauerlast</strong>. Und die Sicherung ist für den Fehlerfall da, nicht für den Normalfall.</p>
+              <p>Die Tabelle zeigt also Richtwerte. Wie du sie auslegst, hängt davon ab, wo und wie du einbaust. An erster Stelle stehen die Anleitung deines Geräts und das Datenblatt deines Kabels.</p>
+            </div>
+            <figure class="blog-figure">
+            <button class="blog-zoom" type="button" data-full="assets/blog/sicherung-kabel/dauerlast-waschmaschine-induktion-full.webp" data-caption="Induktion: kurz und schwankend. Waschmaschine oder Klimaanlage: Dauerlast. Standbild aus meinem VoltKompass-Video." aria-label="Grafik vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/sicherung-kabel/dauerlast-waschmaschine-induktion-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/sicherung-kabel/dauerlast-waschmaschine-induktion-1440.webp">
+                <img src="assets/blog/sicherung-kabel/dauerlast-waschmaschine-induktion-full.webp" width="1920" height="1080" alt="Induktionskochfeld mit Anzeige kurz, schwankend 164 A und Waschmaschine mit Anzeige Dauerlast 142 A, Hinweis z. B. Klimaanlage oder Waschmaschine" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Kurze Spitzen oder Dauerlast.</figcaption>
+          </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="quellen">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Transparenz &amp; Quellen</p>
+          <h2>Quellen und Rechenweg</h2>
+          <ul>
+            <li><a href="https://cdn.standards.iteh.ai/samples/45867/0dceabde692c42a2abe7f580f3b099ff/ISO-10133-2012.pdf" target="_blank" rel="noopener">ISO 10133:2012, Abschnitt 8.1 und 8.2 (Leseprobe, PDF)</a>: Sicherung nicht größer als der Wert des dünnsten Kabels im Stromkreis; Sicherung höchstens 200 mm von der Stromquelle. Die Norm gilt für Boote mit Kleinspannung bis 50 V, für Wohnmobile gibt es keinen frei lesbaren Wortlaut (DIN EN 1648-2).</li>
+            <li><a href="https://www.victronenergy.com/media/pg/The_Wiring_Unlimited_book/en/dc-wiring.html" target="_blank" rel="noopener">Victron Energy, „Wiring Unlimited“, Kapitel 4</a>: Sicherung passend zum Gerät oder zum Kabel, je nachdem, was kleiner ist; jeder Verbraucher eigene Sicherung; Schaltvermögen bei Lithium; parallele Kabel</li>
+            <li><a href="https://www.bayka.de/wp-content/uploads/2022/03/TD06DE-Strombelastbarkeit-flexible-Kupferkabel-und-Leitungen.pdf" target="_blank" rel="noopener">Strombelastbarkeit nach DIN VDE 0298-4, Tabelle 11 (Bayka TD06DE, 07/2022, PDF)</a>: einadrig, frei in Luft, 30 °C; Grenztemperatur der Anschlussklemmen beachten</li>
+            <li><a href="https://contentmedia.lappcdn.com/e/lapp/fuk2Jf1cPlV6EesaZZFavA~~" target="_blank" rel="noopener">Umrechnungsfaktoren für Temperatur und Häufung nach DIN VDE 0298-4 (Lapp, Technische Tabellen T12)</a></li>
+            <li><a href="https://cdn.standards.iteh.ai/samples/58088/f865563d0c3b43fc97612493fa6a3db4/ISO-8820-3-2015.pdf" target="_blank" rel="noopener">ISO 8820-3:2015, Tabelle 4 (Leseprobe, PDF)</a>: Auslösezeiten von Flachsicherungen</li>
+            <li>MTA MegaVAL, Datenblatt nach ISO 8820-5: 1,35 × Nennstrom 120 bis 1800 s, Schaltvermögen 2000 A bei 32 V DC</li>
+            <li><a href="https://www.victronenergy.com/upload/documents/Datasheet-Inverter-Smart-1600VA-5000VA-EN-.pdf" target="_blank" rel="noopener">Victron Phoenix Inverter Smart, Datenblatt</a> (12/3000: 2400 W dauerhaft bei 25 °C) und Handbuch, Abschnitt 3.2.1 Batterieanschluss (2 × 95 mm², 400 A, Fußnote zum Kabel)</li>
+            <li>Ective CSI 30 PRO, Bedienungsanleitung (Angaben für SGX-Kabel bis 125 °C) · SGX-Batteriekabel 70 mm², Händlerangabe 390 A ohne Bedingungen</li>
+          </ul>
+          <ul>
+            <li><strong>Kabel verträgt:</strong> I<sub>z</sub> = Wert Tabelle 11 × Temperaturfaktor × Bündelfaktor</li>
+            <li><strong>Temperaturfaktoren (Tab. 17):</strong> PVC 70 °C: 40 °C 0,87 · 50 °C 0,71 · 60 °C 0,50 · Gummi 60 °C: 40 °C 0,82 · 50 °C 0,58 · vernetzt 90 °C: 40 °C 0,91 · 50 °C 0,82 · 60 °C 0,71</li>
+            <li><strong>Bündel (Tab. 21):</strong> 2 Stromkreise oder Kabelkanal 0,80 · 3 → 0,70 · 4 → 0,65 · 6 → 0,57</li>
+            <li><strong>Sicherung höchstens:</strong> größter Wert aus 5 · 7,5 · 10 · 15 · 20 · 25 · 30 · 35 · 40 · 50 · 60 · 70 · 80 · 100 · 125 · 150 · 175 · 200 · 225 · 250 · 300 · 350 · 400 · 500 A, der nicht über I<sub>z</sub> liegt</li>
+            <li><strong>Wechselrichter:</strong> 2400 W ÷ (12,8 V × 0,93) ≈ 202 A, bei 12 V ≈ 215 A → „gut 200 A“</li>
+            <li><strong>Mega-Sicherung:</strong> 250 A × 1,35 = 337,5 A → „rund 340 A“, höchstens 1800 s = 30 min</li>
+          </ul>
+          <div class="blog-note"><strong>Zur Einordnung:</strong> Normen sind keine Gesetze, gelten aber als anerkannte Regel der Technik. Die Wohnmobilnorm DIN EN 1648-2 liegt mir nicht im Wortlaut vor, deshalb stütze ich mich auf die Bootsnorm für Kleinspannung und auf die Herstellerhandbücher. Mehr zu meinem fachlichen Hintergrund findest du unter <a href="index.html#ueber">Über Andreas</a>.</div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="faq">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">FAQ</p>
+          <h2>Häufige Fragen zu Sicherung und Kabel im Wohnmobil</h2>
+          <div class="blog-faq">
+            <details>
+              <summary>Welche Sicherung gehört zu einem 70-mm²-Kabel?</summary>
+              <p>Einzeln und frei verlegt bei 30 °C verträgt ein 70-mm²-Kabel mit PVC-Isolierung nach DIN VDE 0298-4 Tabelle 11 245 Ampere. Die Sicherung darf also höchstens 225 Ampere haben. Ist es am Einbauort 40 °C warm, sind es 213 Ampere, dann höchstens 200 Ampere. Im Bündel oder im Kabelkanal wird es weniger.</p>
+            </details>
+            <details>
+              <summary>Darf die Sicherung größer sein als das Kabel?</summary>
+              <p>Nein. Die Sicherung darf nicht größer sein als das, was das dünnste Kabel im Stromkreis verträgt. So steht es in der Bootsnorm ISO 10133 und im Victron-Handbuch Wiring Unlimited. Schreibt ein Hersteller, zum Beispiel beim Wechselrichter, eine bestimmte Sicherung vor, muss das Kabel so bemessen sein, dass es den Nennstrom dieser Sicherung tragen kann.</p>
+            </details>
+            <details>
+              <summary>Was passiert, wenn die Sicherung zu klein ist?</summary>
+              <p>Dann läuft sie dauerhaft an ihrer Grenze, wird selbst heiß und gibt die Wärme an Anschlüsse und Verschraubungen weiter. Dauert das lange genug, kann der Sicherungshalter schmelzen. Die Sicherung muss deshalb mehr aushalten, als das Gerät dauerhaft zieht, mit etwas Luft.</p>
+            </details>
+            <details>
+              <summary>Wie nah muss die Hauptsicherung an die Batterie?</summary>
+              <p>So nah wie möglich, denn das Kabelstück vor der Sicherung ist ungeschützt. Die Bootsnorm ISO 10133 nennt höchstens 200 mm ab der Batterie, gemessen am Kabel, mit Ausnahmen für geschützt verlegte Leitungen.</p>
+            </details>
+            <details>
+              <summary>Braucht jeder Abgang an den Busbars eine eigene Sicherung?</summary>
+              <p>Ja. Die Kabel zu den Geräten sind dünner als die Hauptleitung, deshalb bekommt jedes eine eigene Sicherung, direkt an den Busbars, passend zu seinem Querschnitt. Jede Sicherung sitzt dort, wo ihr Kabel beginnt.</p>
+            </details>
+            <details>
+              <summary>Warum hält eine 250-A-Sicherung 340 Ampere aus?</summary>
+              <p>Sicherungen lösen nicht beim Nennwert aus. Eine Mega-Sicherung mit 250 Ampere darf laut Herstellerdatenblatt beim 1,35-Fachen, also rund 340 Ampere, bis zu 30 Minuten halten. Deshalb muss das Kabel selbst Reserve haben und die Sicherung darf nicht über dem Kabelwert liegen.</p>
+            </details>
+            <details>
+              <summary>Hängt die Sicherung von der Kabellänge ab?</summary>
+              <p>Nein. Ein langes Kabel wird bei gleichem Strom nicht wärmer als ein kurzes. Die Länge bestimmt nur den Spannungsabfall. Für die Sicherung zählen Querschnitt, Kabeltyp, Temperatur und Verlegung.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="fazit">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Fazit</p>
+          <h2>Drei Schritte zur passenden Sicherung</h2>
+          <figure class="blog-figure" style="margin:0 0 22px">
+            <button class="blog-zoom" type="button" data-full="assets/blog/sicherung-kabel/fazit-sicherung-schuetzt-kabel-full.webp" data-caption="Die Sicherung schützt das Kabel. Wähle sie für das Kabel. Standbild aus meinem VoltKompass-Video." aria-label="Grafik vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/sicherung-kabel/fazit-sicherung-schuetzt-kabel-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/sicherung-kabel/fazit-sicherung-schuetzt-kabel-1440.webp">
+                <img src="assets/blog/sicherung-kabel/fazit-sicherung-schuetzt-kabel-full.webp" width="1920" height="1080" alt="Staufach-Anlage mit Batterie, Busbars, Ladereglern und Wechselrichter, Text Die Sicherung schützt das Kabel. Wählt sie für das Kabel." loading="lazy" decoding="async">
+              </picture>
+            </button>
+          </figure>
+          <ol>
+            <li><strong>Gerät:</strong> Wie viel Strom zieht es dauerhaft, und was sagt seine Anleitung?</li>
+            <li><strong>Kabel:</strong> Wie viel verträgt es, bei deiner Temperatur im Staufach und deiner Verlegung?</li>
+            <li><strong>Sicherung:</strong> Sie liegt dazwischen und sitzt dort, wo das Kabel beginnt, an der Batterie oder an den Busbars.</li>
+          </ol>
+          <p>Die Sicherung schützt das Kabel. Wähle sie für das Kabel.</p>
+          <p>Und jetzt interessiert mich: Welche Hauptsicherung hast du direkt an deiner Batterie, und wie dick ist das Kabel dahinter? Schreib es mir in die Kommentare unter dem <a href="https://www.youtube.com/watch?v=C6aMlEdopp8" target="_blank" rel="noopener">Video</a>.</p>
+          <div class="blog-actions">
+            <a href="#rechner" class="btn btn-ghost">Zurück zum Sicherungsrechner</a>
+            <a href="index.html#kontakt" class="btn btn-primary">Meine Anlage planen lassen</a>
+          </div>
+          <p class="blog-disclaimer"><strong>Sicherheitshinweis:</strong> Zu große oder fehlende Sicherungen, zu dünne Kabel und schlechte Verbindungen können Kabel überhitzen und Brände verursachen. Dieser Beitrag und der Sicherungsrechner erklären Zusammenhänge und Richtwerte. Sie ersetzen keine Prüfung am konkreten Fahrzeug, keine Installationsanleitung und keine Rechtsberatung. Beachte die Vorgaben der Geräte-, Kabel-, Sicherungs- und Batteriehersteller und lass die Anlage im Zweifel von einer qualifizierten Fachkraft prüfen.</p>
+        </div>
+      </section>
+
+    </article>
+  </main>
+
+<section class="related">
+  <div class="wrap">
+    <div class="related-head">
+      <div>
+        <span class="eyebrow">Weiterlesen</span>
+        <h2>Das könnte dich auch interessieren</h2>
+      </div>
+      <a class="btn btn-ghost" href="blog.html">Alle Beiträge →</a>
+    </div>
+    <div class="related-grid">
+      <a class="related-card" href="kabelquerschnitt-wohnmobil-kabelrechner.html">
+        <div class="ri"><img src="assets/blog/kabelquerschnitt-kabelrechner/1120-ampere-70mm2-titelbild-960.webp" alt="" loading="lazy" decoding="async" /></div>
+        <small>Kabelrechner</small>
+        <strong>1120 Ampere durch 70 mm²? Kabelquerschnitt im Wohnmobil</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+      <a class="related-card" href="blog-stufe-4.html">
+        <div class="ri"><img src="assets/blog/stufe-4/wohnmobil-solaranlage-stufe-4-schaltplan-960.webp" alt="" loading="lazy" decoding="async" /></div>
+        <small>Stufe 4</small>
+        <strong>Wohnmobil-Solaranlage mit 320 Ah und 2000 W Wechselrichter</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+            <a class="related-card" href="ladebooster-wohnmobil.html">
+        <div class="ri"><img src="assets/blog/ladebooster-wohnmobil/ladebooster.jpg" alt="" loading="lazy" decoding="async" /></div>
+        <small>Ladebooster</small>
+        <strong>Ladebooster im Wohnmobil: auswählen, anschließen, absichern</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="cta-band">
+  <div class="wrap">
+    <div class="cta-band-inner">
+      <div>
+        <img src="assets/author/andreas-avatar-160.webp" alt="Andreas von VoltKompass" width="56" height="56" loading="lazy" />
+        <div>
+          <strong>Welche Sicherung passt in deiner Anlage?</strong>
+          <span>Ich plane Kabel, Sicherungen und Geräte passend zu deinem Fahrzeug – persönlich per WhatsApp, Telegram oder Signal.</span>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="index.html#kontakt">Beratung buchen →</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a href="index.html#top" class="brand"><img class="brand-mark" src="compass.svg" alt="" width="28" height="28" /><span><span class="v">Volt</span><span class="k">Kompass</span></span></a>
+      <p>© 2026 VoltKompass — Wohnmobil-Beratung für Strom &amp; Autarkie</p>
+    </div>
+    <nav>
+      <a href="index.html#top">Startseite</a>
+      <a href="blog.html">Blog</a>
+      <a href="produkte.html">Produkte</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="index.html#kontakt">Kontakt</a>
+      <button type="button" class="cookie-settings-link" data-cookie-settings>Cookie-Einstellungen</button>
+    </nav>
+  </div>
+</footer>
+
+    <script src="blog-lightbox.js"></script>
+  <script src="cookie-consent.js"></script>
+  <script>
+  /* ===== VoltKompass Sicherungsrechner ===== */
+  (function () {
+    var SIZES = [1.5, 2.5, 4, 6, 10, 16, 25, 35, 50, 70, 95, 120, 150];
+    // DIN VDE 0298-4 Tab. 11, einadrig, frei in Luft, 30 °C (Bayka TD06DE)
+    var IZ30 = [24, 32, 42, 54, 73, 98, 129, 158, 198, 245, 292, 344, 391];
+    // Leiterwiderstand Klasse 5, 20 °C (Ω/km, EN 60228)
+    var R20 = [13.3, 7.98, 4.95, 3.3, 1.91, 1.21, 0.78, 0.554, 0.386, 0.272, 0.206, 0.161, 0.129];
+    var K70 = 1.1965;
+    // VDE 0298-4 Tab. 17 (Lapp T12-2)
+    var TEMP = {
+      pvc:   { 30: 1, 40: 0.87, 50: 0.71, 60: 0.50 },
+      gummi: { 30: 1, 40: 0.82, 50: 0.58, 60: null },
+      xlpe:  { 30: 1, 40: 0.91, 50: 0.82, 60: 0.71 }
+    };
+    var TYPNAME = { pvc: 'PVC 70 °C', gummi: 'Gummi 60 °C', xlpe: 'vernetzt 90 °C', eigen: 'Datenblatt' };
+    // VDE 0298-4 Tab. 21 (Lapp T12-5)
+    var BUND = { 1: 1, 2: 0.80, 3: 0.70, 4: 0.65, 6: 0.57 };
+    var FUSES = [5, 7.5, 10, 15, 20, 25, 30, 35, 40, 50, 60, 70, 80, 100, 125, 150, 175, 200, 225, 250, 300, 350, 400, 500];
+    var SYS = { '12': { ub: 12.8, du: 0.3 }, '24': { ub: 25.6, du: 0.6 }, '48': { ub: 51.2, du: 1.2 } };
+    var HINT = {
+      kabel: 'Du hast ein Kabel verlegt oder ausgesucht und willst wissen, wie groß die Sicherung höchstens sein darf.',
+      geraet: 'Du kennst den Strom oder die Leistung deines Geräts und suchst Kabel und Sicherung.',
+      vorgabe: 'Die Anleitung nennt eine Sicherung, z. B. beim Wechselrichter. Der Rechner prüft, ob dein Kabel sie tragen kann.'
+    };
+
+    var $ = function (id) { return document.getElementById(id); };
+    var root = $('sicherungsrechner');
+    if (!root) return;
+    var unit = 'A', duTouched = false;
+    var vis = { ib: 0, fuse: 0, iz: 0, size: 35, n: 1 };
+    var simMode = 'normal';
+
+    var sel = $('inA');
+    SIZES.forEach(function (s, i) {
+      var o = document.createElement('option');
+      o.value = i; o.textContent = fS(i);
+      if (s === 35) o.selected = true;
+      sel.appendChild(o);
+    });
+
+    function fmt(x, d) { return x.toLocaleString('de-DE', { minimumFractionDigits: d, maximumFractionDigits: d }); }
+    function num(id) {
+      var v = String($(id).value).trim().replace(/\s/g, '').replace(',', '.');
+      return v === '' ? NaN : Number(v);
+    }
+    function fA(x) { return fmt(x, x < 10 && x % 1 ? 1 : 0) + ' A'; }
+    function fV(x) { return fmt(x, x < 10 ? 2 : 1) + ' Volt'; }
+    function fS(i) { var s = SIZES[i]; return fmt(s, s % 1 ? 1 : 0) + ' mm²'; }
+    function radio(name) { return root.querySelector('input[name="' + name + '"]:checked').value; }
+    function kpi(l, v) { return '<div><span>' + l + '</span><strong>' + v + '</strong></div>'; }
+    function msg(c, t) { return '<div class="calc-msg ' + c + '">' + t + '</div>'; }
+    function maxFuse(iz) { var r = 0; FUSES.forEach(function (f) { if (f <= iz + 1e-9) r = f; }); return r; }
+    function fusesBetween(lo, hi) { return FUSES.filter(function (f) { return f > lo + 1e-9 && f <= hi + 1e-9; }); }
+    function passt(a) { return a.length === 1 ? 'Es passt genau eine Sicherung: ' + list(a) : 'Jede Sicherung von ' + list(a) + ' passt'; }
+    function list(a) { return a.map(function (f) { return fmt(f, f % 1 ? 1 : 0); }).join(' · ') + ' A'; }
+
+    function factor() {
+      var typ = $('inTyp').value;
+      if (typ === 'eigen') return 1;
+      var t = TEMP[typ][$('inUmg').value];
+      if (t === null) return null;
+      return t * BUND[$('inB').value];
+    }
+    function izOf(i) {
+      var f = factor();
+      if (f === null) return 0;
+      return IZ30[i] * f;
+    }
+
+    function syncFields(mode) {
+      var typ = $('inTyp');
+      var eigOpt = typ.querySelector('option[value="eigen"]');
+      eigOpt.disabled = mode === 'geraet';
+      if (mode === 'geraet' && typ.value === 'eigen') typ.value = 'pvc';
+      var eigen = typ.value === 'eigen';
+      root.querySelectorAll('.calc-field[data-for]').forEach(function (f) {
+        var show = f.getAttribute('data-for').split(' ').indexOf(mode) >= 0;
+        if (f.id === 'fieldEta') show = show && unit === 'W';
+        if (f.id === 'fieldEigen') show = show && eigen;
+        if (f.hasAttribute('data-norm')) show = show && !eigen;
+        if (f.id === 'fieldDU') show = mode === 'geraet' && num('inL') > 0;
+        f.hidden = !show;
+      });
+      $('modeHint').textContent = HINT[mode];
+      $('lblI').textContent = (unit === 'W' ? 'Leistung des Geräts' : 'Dauerstrom des Geräts') + (mode === 'geraet' ? '' : ' (optional)');
+      $('stepGeraet').textContent = mode === 'vorgabe' ? '4 · Gerät und Sicherung' : '4 · Gerät';
+    }
+
+    function condText() {
+      if ($('inTyp').value === 'eigen') return 'laut Datenblatt';
+      var b = $('inB').value;
+      return TYPNAME[$('inTyp').value] + ', ' + $('inUmg').value + ' °C, ' + (b === '1' ? 'einzeln, frei' : 'Bündel ' + b + ' Stromkreise');
+    }
+
+    function calc() {
+      var mode = radio('mode'), sys = radio('sys');
+      syncFields(mode);
+      var ub = SYS[sys].ub;
+      $('tBat').textContent = fmt(ub, 1) + ' V';
+      var raw = num('inI'), eta = num('inEta');
+      var ib = raw;
+      if (unit === 'W') ib = raw / ub / ((eta > 0 && eta <= 100 ? eta : 100) / 100);
+      var hasIb = ib > 0;
+      var lbl = $('resLbl'), big = $('resBig'), sub = $('resSub'), kp = $('resKpis'), ms = $('resMsgs'), ov = $('ovTable'), ot = $('ovTitle');
+      var K = [], M = [], rows = '', head = '';
+      var f = factor();
+      var eigen = $('inTyp').value === 'eigen';
+      var ibTxt = hasIb ? fA(ib) + (unit === 'W' ? ' (aus ' + fmt(raw, 0) + ' W)' : '') : '';
+
+      function fail(t) {
+        lbl.textContent = 'Ergebnis'; big.textContent = '–'; sub.textContent = t; big.classList.remove('is-bad');
+        kp.innerHTML = ''; ms.innerHTML = ''; ov.innerHTML = '';
+        vis = { ib: 0, fuse: 0, iz: 0, size: SIZES[Number(sel.value)], n: 1 }; draw();
+      }
+      if (f === null) {
+        fail('');
+        ms.innerHTML = msg('bad', 'Für Gummi-Leitungen mit 60 °C Leitertemperatur gibt es bei 60 °C Umgebung keinen Wert: Das Kabel ist dort nicht belastbar. Nimm ein Kabel mit höherer Temperaturklasse.');
+        return;
+      }
+      if (mode === 'geraet' && !hasIb) return fail('Bitte gib den Dauerstrom oder die Leistung deines Geräts ein.');
+
+      // Übersichtstabelle (Kabel verträgt / Sicherung höchstens)
+      function overview(mark) {
+        head = '<thead><tr><th>Querschnitt</th><th>Kabel verträgt</th><th>Sicherung höchstens</th>' + (hasIb ? '<th>für dein Gerät</th>' : '') + '</tr></thead><tbody>';
+        SIZES.forEach(function (s, i) {
+          var iz = IZ30[i] * f, fm = maxFuse(iz), ok = fm > ib;
+          rows += '<tr' + (i === mark ? ' class="is-rec"' : '') + '><td>' + fS(i) + '</td><td>' + fA(Math.floor(iz)) + '</td><td>' + (fm ? fA(fm) : '–') + '</td>' +
+            (hasIb ? '<td><span class="dot ' + (ok ? 'g' : 'r') + '"></span>' + (ok ? 'passt' : 'zu dünn') + '</td>' : '') + '</tr>';
+        });
+        ot.textContent = 'Alle Querschnitte: ' + condText();
+      }
+      function minSizeFor(ibx) {
+        for (var i = 0; i < SIZES.length; i++) if (maxFuse(IZ30[i] * f) > ibx) return i;
+        return -1;
+      }
+
+      if (mode === 'kabel') {
+        var ai = Number(sel.value);
+        var iz = eigen ? num('inEigen') : izOf(ai);
+        if (!(iz > 0)) return fail('Bitte trage die Belastbarkeit aus dem Datenblatt deines Kabels ein.');
+        var fm = maxFuse(iz);
+        lbl.textContent = 'Sicherung höchstens';
+        big.textContent = fm ? fA(fm) : 'keine passende';
+        sub.textContent = 'für ' + fS(ai) + ', ' + condText() + ': Kabel verträgt ' + fA(Math.floor(iz));
+        K.push(kpi('Kabel verträgt', fA(Math.floor(iz))));
+        K.push(kpi('Sicherung höchstens', fm ? fA(fm) : '–'));
+        if (!eigen) K.push(kpi('Faktor Temperatur × Verlegung', fmt(f, 2)));
+        if (hasIb) {
+          K.push(kpi('Gerät dauerhaft', fA(ib)));
+          var rng = fusesBetween(ib, iz);
+          if (!rng.length) {
+            var mi = eigen ? -1 : minSizeFor(ib);
+            M.push(msg('bad', 'Das Kabel ist zu dünn für dein Gerät: Es zieht ' + ibTxt + ', die Sicherung darf aber höchstens ' + fA(fm) + ' haben. Eine größere Sicherung würde das Kabel nicht mehr schützen.' + (mi >= 0 ? ' Unter denselben Bedingungen brauchst du mindestens ' + fS(mi) + '.' : '')));
+          } else {
+            K.push(kpi('Passende Sicherungen', list(rng)));
+            M.push(msg('ok', 'Gerät &lt; Sicherung ≤ Kabel: ' + passt(rng) + '. Je näher am Gerätestrom, desto wärmer läuft die Sicherung. Wie viel Luft sie braucht, zeigt die Abminderungskurve in ihrem Datenblatt.'));
+          }
+        } else {
+          M.push(msg('info', 'Trag den Dauerstrom deines Geräts ein, dann zeigt der Rechner, welche Sicherungswerte dazwischen passen.'));
+        }
+        if (eigen) M.push(msg('warn', 'Datenblattwerte gelten nur unter den dort genannten Bedingungen (Umgebung, Verlegung, Leitertemperatur). Bei Kabeln bis 105 oder 125 °C werden auch Kabelschuhe, Sicherungshalter und Klemmen heiß: Prüf, ob sie das aushalten.'));
+        if (!eigen) overview(ai); else { head = ''; rows = ''; ot.textContent = 'Übersicht nur mit Normwerten'; }
+        vis = { ib: hasIb ? ib : 0, fuse: fm, iz: iz, size: SIZES[ai], n: 1 };
+      }
+
+      if (mode === 'geraet') {
+        var L = num('inL'), dmax = num('inDU'), useL = L > 0;
+        var rpm = function (i) { return R20[i] / 1000 * K70; };
+        var recH = minSizeFor(ib), rec = -1;
+        for (var i = Math.max(recH, 0); recH >= 0 && i < SIZES.length; i++) {
+          if (!useL || ib * rpm(i) * 2 * L <= dmax + 1e-9) { rec = i; break; }
+        }
+        if (useL && !(dmax > 0)) return fail('Bitte prüfe den erlaubten Spannungsabfall.');
+        if (rec < 0) {
+          lbl.textContent = 'Kabel und Sicherung';
+          big.textContent = 'über 150 mm²';
+          sub.textContent = 'für ' + ibTxt;
+          M.push(msg('bad', 'Kein einzelnes Kabel bis 150 mm² reicht. Verkürze den Weg, plane eine höhere Systemspannung oder zwei parallele Kabel nach Anleitung des Geräts.'));
+          overview(-1);
+          vis = { ib: ib, fuse: 0, iz: 0, size: 150, n: 1 };
+        } else {
+          var izr = izOf(rec), fmr = maxFuse(izr), rng2 = fusesBetween(ib, izr);
+          lbl.textContent = 'Mindestens nötig';
+          big.textContent = fS(rec) + ' · bis ' + fA(fmr);
+          sub.textContent = 'für ' + ibTxt + ', ' + condText();
+          K.push(kpi('Kabel verträgt', fA(Math.floor(izr))));
+          K.push(kpi('Passende Sicherungen', list(rng2)));
+          if (useL) {
+            var du = ib * rpm(rec) * 2 * L;
+            K.push(kpi('Spannungsabfall (' + fmt(L, 1) + ' m)', fV(du)));
+          }
+          if (rec > recH) {
+            M.push(msg('warn', 'Von der Wärme her würde schon ' + fS(recH) + ' reichen (Sicherung bis ' + fA(maxFuse(izOf(recH))) + '). Wegen des Spannungsabfalls auf ' + fmt(L, 1) + ' m brauchst du aber ' + fS(rec) + '. Die Sicherung richtet sich nach dem Kabel, das du tatsächlich verlegst.'));
+          } else {
+            M.push(msg('ok', 'Gerät &lt; Sicherung ≤ Kabel: ' + passt(rng2) + ' (Kabel ' + fS(rec) + ').' + (rng2.length > 1 ? ' Die größte schützt das Kabel gerade noch und lässt der Sicherung am meisten Luft.' : ' Mehr Luft gibt es mit dem nächstgrößeren Kabel.')));
+          }
+          if (!useL) M.push(msg('info', 'Ohne Abstand prüft der Rechner nur die Wärme. Trag den Abstand Batterie → Gerät ein, dann prüft er auch den Spannungsabfall.'));
+          M.push(msg('info', 'Nennt die Anleitung deines Geräts eine Sicherung? Dann nimm die und prüf im Modus „Hersteller gibt Sicherung vor“, ob dein Kabel sie tragen kann.'));
+          overview(rec);
+          vis = { ib: ib, fuse: fmr, iz: izr, size: SIZES[rec], n: 1 };
+        }
+      }
+
+      if (mode === 'vorgabe') {
+        var aj = Number(sel.value), n = Number($('inN').value), fin = num('inF');
+        if (!(fin > 0)) return fail('Bitte trage die Sicherung aus der Anleitung ein.');
+        var izS = eigen ? num('inEigen') : izOf(aj);
+        if (!(izS > 0)) return fail('Bitte trage die Belastbarkeit aus dem Datenblatt deines Kabels ein.');
+        var tot = izS * n, okF = tot >= fin - 1e-9, okS = !hasIb || izS >= ib;
+        lbl.textContent = n + ' × ' + fS(aj) + ' für ' + fA(fin);
+        big.textContent = okF && okS ? 'passt' : 'zu dünn';
+        big.classList.toggle('is-bad', !(okF && okS));
+        sub.textContent = (n > 1 ? 'zusammen ' : 'Kabel verträgt ') + fA(Math.floor(tot)) + ' · ' + condText();
+        K.push(kpi(n > 1 ? 'Ein Kabel verträgt' : 'Kabel verträgt', fA(Math.floor(izS))));
+        if (n > 1) K.push(kpi('Zusammen', fA(Math.floor(tot))));
+        K.push(kpi('Sicherung laut Anleitung', fA(fin)));
+        if (hasIb) K.push(kpi('Gerät dauerhaft', fA(ib)));
+        M.push(okF
+          ? msg('ok', 'Das Kabel kann den Nennstrom der Sicherung tragen: ' + fA(Math.floor(tot)) + ' ≥ ' + fA(fin) + '.')
+          : msg('bad', 'Das Kabel kann die Sicherung nicht tragen: ' + fA(Math.floor(tot)) + ' &lt; ' + fA(fin) + '. Im Fehlerfall würde es heiß, während die Sicherung hält. Nimm mehr Querschnitt oder genau das Kabel, für das der Hersteller seine Werte angibt.'));
+        if (hasIb && ib >= fin) M.push(msg('bad', 'Dein Gerät zieht ' + ibTxt + ', die Sicherung hat nur ' + fA(fin) + '. Sie muss über dem Dauerstrom liegen. Prüf die Werte in der Anleitung.'));
+        if (n > 1) {
+          M.push(hasIb
+            ? (okS ? msg('ok', 'Löst sich ein Anschluss, trägt ein Kabel allein den Dauerstrom: ' + fA(Math.floor(izS)) + ' &gt; ' + fA(ib) + '.')
+                   : msg('warn', 'Fällt ein Kabel aus, trägt das andere den Dauerstrom von ' + fA(ib) + ' nicht allein (' + fA(Math.floor(izS)) + ').'))
+            : msg('info', 'Trag den Dauerstrom des Geräts ein, dann prüft der Rechner, ob ein Kabel ihn allein tragen kann.'));
+          M.push(msg('info', 'Ob zwei parallele Kabel eine gemeinsame Sicherung haben dürfen, lässt Victron offen und verweist auf örtliche Vorschriften. Streng nach ISO 10133 bekommt jedes Kabel eine eigene Sicherung von höchstens ' + fA(maxFuse(izS)) + '. Liegen die Kabel eng aneinander, vertragen sie etwas weniger.'));
+        }
+        if (!eigen) {
+          head = '<thead><tr><th>Querschnitt</th><th>' + (n > 1 ? n + ' Kabel zusammen' : 'Kabel verträgt') + '</th><th>' + fA(fin) + ' tragbar?</th></tr></thead><tbody>';
+          SIZES.forEach(function (s, i) {
+            var t = izOf(i) * n, ok = t >= fin - 1e-9 && (!hasIb || izOf(i) >= ib);
+            rows += '<tr' + (i === aj ? ' class="is-rec"' : '') + '><td>' + (n > 1 ? n + ' × ' : '') + fS(i) + '</td><td>' + fA(Math.floor(t)) + '</td><td><span class="dot ' + (ok ? 'g' : 'r') + '"></span>' + (ok ? 'ja' : 'nein') + '</td></tr>';
+          });
+          ot.textContent = 'Welche Querschnitte tragen ' + fA(fin) + '? ' + condText();
+        } else { head = ''; ot.textContent = 'Übersicht nur mit Normwerten'; }
+        vis = { ib: hasIb ? ib : 0, fuse: fin, iz: tot, size: SIZES[aj], n: n };
+      }
+      if (mode !== 'vorgabe') big.classList.remove('is-bad');
+
+      kp.innerHTML = K.join('');
+      ms.innerHTML = M.join('');
+      ov.innerHTML = head ? head + rows + '</tbody>' : '';
+      draw();
+    }
+
+    /* ----- Strom-Animation ----- */
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var fPlus = $('fPlus'), fMinus = $('fMinus'), glow = $('pGlow'), cab = $('pPlus'), cab0 = $('pPlus0'), cabM = $('pMinus');
+    var offset = 0, speed = 0, last = 0, kurzT = null;
+
+    function setWidth(el, w) { el.setAttribute('stroke-width', w); }
+    function draw() {
+      var w = Math.min(30, 6 + Math.sqrt(vis.size) * 2.1) * (vis.n > 1 ? 1.15 : 1);
+      [cab, cab0, cabM].forEach(function (p) { setWidth(p, w); });
+      setWidth(glow, w * 2.4);
+      setWidth(fPlus, Math.max(3, w * 0.28)); setWidth(fMinus, Math.max(3, w * 0.28));
+
+      var I = vis.ib, state = '', note = '', heat = 0, cls = 'ok';
+      var broken = simMode === 'kurz';
+      if (simMode === 'ueberlast') I = vis.fuse;
+      if (vis.iz > 0) heat = I / vis.iz;
+      $('tCable').textContent = (vis.n > 1 ? vis.n + ' × ' : 'Kabel ') + fmt(vis.size, vis.size % 1 ? 1 : 0) + ' mm²' + (vis.iz ? ' · verträgt ' + fA(Math.floor(vis.iz)) : '');
+      $('tFuse').textContent = vis.fuse ? 'Sicherung ' + fA(vis.fuse) : 'Sicherung';
+      $('tDev').textContent = vis.ib ? fA(vis.ib) : '–';
+
+      if (broken) {
+        I = 0; heat = 0;
+        state = 'Sicherung hat getrennt'; cls = 'ok';
+        note = 'Kurzschluss: Ein riesiger Strom fließt, der Schmelzleiter schmilzt in Sekundenbruchteilen und trennt den Stromkreis. Bei Lithium-Batterien muss die Sicherung diesen Strom auch abschalten können (Schaltvermögen).';
+      } else if (simMode === 'ueberlast') {
+        if (!vis.fuse) { note = 'Erst eine Sicherung berechnen.'; }
+        else if (heat > 1.0001) {
+          state = 'Kabel überhitzt – Sicherung hält'; cls = 'bad';
+          note = 'Überlast: Es fließen dauerhaft ' + fA(vis.fuse) + ', genau der Sicherungswert. Die Sicherung trennt dabei nicht, das Kabel verträgt aber nur ' + fA(Math.floor(vis.iz)) + '. Es wird zu heiß. Genau das passiert, wenn die Sicherung zu groß ist.';
+        } else {
+          state = 'Kabel bleibt im grünen Bereich'; cls = 'ok';
+          note = 'Überlast: Selbst wenn dauerhaft ' + fA(vis.fuse) + ' fließen, so viel lässt die Sicherung höchstens dauerhaft durch, bleibt das Kabel innerhalb seiner Belastbarkeit von ' + fA(Math.floor(vis.iz)) + '. Darüber trennt die Sicherung, je nach Überstrom nach Sekunden bis Minuten.';
+        }
+      } else {
+        if (!vis.ib) { state = ''; note = 'Trag den Dauerstrom deines Geräts ein, dann fließt hier der Strom. Mit den Knöpfen spielst du Überlast und Kurzschluss durch.'; }
+        else if (heat > 1.0001) { state = 'Gerät zieht mehr, als das Kabel verträgt'; cls = 'bad'; note = 'Schon im Normalbetrieb liegt der Strom über der Belastbarkeit des Kabels.'; }
+        else { state = 'Normalbetrieb: ' + fmt(Math.round(heat * 100), 0) + ' % der Kabelbelastbarkeit'; cls = 'ok'; note = 'Normalbetrieb: Das Gerät zieht ' + fA(vis.ib) + '. Die Strichel zeigen den Strom: von der Batterie über die Sicherung zum Gerät und über Minus zurück.'; }
+      }
+      var tS = $('tState'); tS.textContent = state; tS.setAttribute('class', 'sim-t sim-ts sim-tc ' + (cls === 'bad' ? 'sim-bad' : 'sim-good'));
+      $('simNote').textContent = note;
+      $('tFlow').textContent = broken ? '' : (I > 0 ? 'Strom im Kabel: ' + fA(I) : '');
+
+      // Wärme: Farbe und Glühen
+      var h = Math.max(0, Math.min(1.6, heat));
+      var g = h < 0.7 ? 0 : Math.min(1, (h - 0.7) / 0.6);
+      glow.style.opacity = g;
+      glow.style.stroke = h > 1 ? '#ffd28a' : '#fb923c';
+      cab.style.stroke = h > 1 ? '#ff6a3d' : (h > 0.85 ? '#e2492f' : '#c8312f');
+      $('sim').classList.toggle('is-hot', h > 1 && !broken);
+      $('gFuse').classList.toggle('is-broken', broken);
+      $('gSpark').setAttribute('opacity', broken ? 1 : 0);
+      fPlus.style.opacity = fMinus.style.opacity = I > 0 ? 1 : 0;
+      speed = vis.iz > 0 ? 40 + Math.min(1.6, I / vis.iz) * 160 : (I > 0 ? 80 : 0);
+
+      // Balken
+      var mx = Math.max(vis.ib, vis.fuse, vis.iz, 1) * 1.22;
+      [['b-dev', vis.ib, 'vDev'], ['b-fuse', vis.fuse, 'vFuse'], ['b-cab', vis.iz, 'vCab']].forEach(function (b) {
+        root.querySelector('.' + b[0] + ' i').style.height = (b[1] / mx * 100) + '%';
+        $(b[2]).textContent = b[1] ? fA(b[0] === 'b-cab' ? Math.floor(b[1]) : b[1]) : '–';
+      });
+      if (reduce) { fPlus.style.strokeDashoffset = 0; fMinus.style.strokeDashoffset = 0; }
+    }
+    function tick(t) {
+      var dt = last ? Math.min(0.05, (t - last) / 1000) : 0; last = t;
+      offset -= speed * dt;
+      fPlus.style.strokeDashoffset = offset;
+      fMinus.style.strokeDashoffset = offset;
+      requestAnimationFrame(tick);
+    }
+    if (!reduce) requestAnimationFrame(tick);
+
+    root.querySelectorAll('.sim-btn').forEach(function (b) {
+      b.addEventListener('click', function () {
+        simMode = b.dataset.sim;
+        root.querySelectorAll('.sim-btn').forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
+        draw();
+      });
+    });
+
+    /* ----- Ereignisse ----- */
+    root.addEventListener('input', function (e) { if (e.target.id === 'inDU') duTouched = true; calc(); });
+    root.addEventListener('change', function (e) {
+      if (e.target.name === 'sys') {
+        var s = SYS[e.target.value];
+        if (!duTouched) $('inDU').value = fmt(s.du, 1);
+        $('hintDU').textContent = e.target.value === '12'
+          ? 'Mein Richtwert bei 12 Volt: 0,3 Volt, Plus und Minus zusammen.'
+          : 'Startwert ' + fmt(s.du, 1) + ' Volt: gleicher Anteil wie 0,3 Volt bei 12 Volt.';
+      }
+      if (e.target.name === 'mode') {
+        if (e.target.value === 'geraet' && !(num('inI') > 0)) $('inI').value = unit === 'W' ? '1000' : '60';
+        if (e.target.value === 'vorgabe') { sel.value = SIZES.indexOf(95); $('inN').value = '2'; if (!(num('inI') > 0)) { unit = 'A'; setUnitBtns(); $('inI').value = '215'; } }
+        simMode = 'normal';
+        root.querySelectorAll('.sim-btn').forEach(function (x) { x.setAttribute('aria-pressed', x.dataset.sim === 'normal' ? 'true' : 'false'); });
+      }
+      calc();
+    });
+    function setUnitBtns() {
+      root.querySelectorAll('.unit-toggle button').forEach(function (x) { x.setAttribute('aria-pressed', x.dataset.unit === unit ? 'true' : 'false'); });
+      $('hintI').textContent = unit === 'W' ? 'Dauerleistung, z. B. 2400 W beim 3000-VA-Wechselrichter.' : 'Was das Gerät dauerhaft aus der Batterie zieht.';
+    }
+    root.querySelectorAll('.unit-toggle button').forEach(function (b) {
+      b.addEventListener('click', function () {
+        if (unit === b.dataset.unit) return;
+        var ub = SYS[radio('sys')].ub, v = num('inI');
+        unit = b.dataset.unit;
+        setUnitBtns();
+        if (v > 0) $('inI').value = unit === 'W' ? fmt(Math.round(v * ub), 0) : fmt(Math.round(v / ub * 10) / 10, 1);
+        calc();
+      });
+    });
+    // Start: 35 mm² mit einem Gerät von 120 A
+    $('inI').value = '120';
+    calc();
+  })();
+  </script>
+  <script>
+    const blogVideo = {
+      id: 'C6aMlEdopp8',
+      alt: 'Sicherung hält, Kabel schmilzt: Welche Sicherung passt zu welchem Kabel?'
+    };
+
+    function blogHasMediaConsent() {
+      return window.VKCookieConsent?.hasConsent('media') === true;
+    }
+
+    function renderBlogVideoState() {
+      const box = document.getElementById('blogVideoBox');
+      if (!box) return;
+
+      box.dataset.id = blogVideo.id;
+      const allowed = blogHasMediaConsent();
+      box.classList.toggle('video-box-locked', !allowed);
+      box.setAttribute('aria-label', allowed ? 'Video abspielen' : 'YouTube-Video nach Zustimmung laden');
+
+      if (allowed) {
+        box.innerHTML = `<img src="assets/blog/sicherung-kabel/sicherung-haelt-kabel-schmilzt-titelbild-1440.webp" alt="${blogVideo.alt}" loading="lazy" decoding="async"/><div class="video-play" aria-hidden="true"></div>`;
+        return;
+      }
+
+      box.innerHTML = `
+        <div class="video-consent">
+          <b>YouTube-Video blockiert</b>
+          <p>Dieses Video wird erst geladen, wenn du externe Medien in den Cookie-Einstellungen erlaubst.</p>
+          <button type="button" class="btn btn-primary" data-cookie-settings>Auswahl anpassen</button>
+        </div>`;
+    }
+
+    function initBlogVideo() {
+      const box = document.getElementById('blogVideoBox');
+      if (!box) return;
+
+      const playVideo = () => {
+        if (!blogHasMediaConsent()) {
+          window.VKCookieConsent?.openSettings();
+          return;
+        }
+        box.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${blogVideo.id}?autoplay=1&rel=0" title="Sicherung hält, Kabel schmilzt" allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>`;
+      };
+
+      box.addEventListener('click', (event) => {
+        if (event.target.closest('[data-cookie-settings]')) return;
+        playVideo();
+      });
+      box.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          playVideo();
+        }
+      });
+      window.VKCookieConsent?.onChange(renderBlogVideoState);
+    }
+
+    renderBlogVideoState();
+    initBlogVideo();
+  </script>
+<script src="site.js"></script>
+</body>
+</html>
