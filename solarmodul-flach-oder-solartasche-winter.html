@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Solarmodul flach oder Solartasche? Im Winter im Süden das Doppelte</title>
+  <meta name="description" content="Autark überwintern im Süden: 100 W flach auf dem Dach bringen Ende Dezember rund 240 Wh am Tag, eine steil aufgestellte Solartasche mindestens 480 Wh. Warum, welche Neigung und worauf du achten musst.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://voltkompass.com/solarmodul-flach-oder-solartasche-winter.html">
+
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="VoltKompass">
+  <meta property="og:title" content="Flach aufs Dach oder Solartasche? Im Winter holt die Solartasche das Doppelte">
+  <meta property="og:description" content="100 Wp flach: rund 240 Wh am Tag. 100 Wp als Solartasche, steil zur Sonne: mindestens 480 Wh. Mitte bis Ende Dezember in südlichen Ländern.">
+  <meta property="og:url" content="https://voltkompass.com/solarmodul-flach-oder-solartasche-winter.html">
+  <meta property="og:image" content="https://voltkompass.com/assets/blog/flach-vs-solartasche/flach-vs-solartasche-titelbild.jpg">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="720">
+  <meta property="og:image:alt" content="Wohnmobil mit Solarmodul auf dem Dach und schräg aufgestellter Solartasche, Schriftzug Im Winter × 2">
+  <meta property="article:published_time" content="2026-11-20T12:00:00+01:00">
+  <meta property="article:modified_time" content="2026-11-20T12:00:00+01:00">
+  <meta property="article:author" content="Andreas / VoltKompass">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Solarmodul flach oder Solartasche? Im Winter im Süden das Doppelte">
+  <meta name="twitter:description" content="Rund 240 Wh flach gegen mindestens 480 Wh mit der Solartasche, Mitte bis Ende Dezember im Süden.">
+  <meta name="twitter:image" content="https://voltkompass.com/assets/blog/flach-vs-solartasche/flach-vs-solartasche-titelbild.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20261028-2">
+  <link rel="stylesheet" href="blog.css?v=20260730-1">
+<link rel="stylesheet" href="theme.css?v=20261030-1" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="alternate icon" href="/favicon.ico" sizes="any">
+
+  <style>
+    /* Ertrags-Balken: nur auf dieser Seite */
+    .wh-chart{display:grid;gap:18px;margin:26px 0 10px}
+    .wh-row{display:grid;gap:8px}
+    .wh-row b{font-size:1rem;color:#fff}
+    .wh-row b small{font-weight:500;color:var(--text-2);margin-left:6px}
+    .wh-bar{display:flex;height:38px;border-radius:10px;overflow:hidden;border:1px solid var(--line-2);background:var(--ink-2)}
+    .wh-bar span{display:flex;align-items:center;justify-content:flex-start;font-size:.82rem;font-weight:600;white-space:nowrap;overflow:visible;padding:0 10px}
+    .wh-bar .w-flach{background:#3b82c4;color:#fff}
+    .wh-bar .w-tasche{background:linear-gradient(90deg,#e6b200,#f6d46a);color:#1a1300}
+    .wh-bar .w-rest{color:var(--text-2)}
+    .blog-wrap > h3{margin-top:44px;margin-bottom:14px}
+    .chapter-list{columns:2;column-gap:28px;padding-left:1.1em}
+    .chapter-list li{margin:0 0 6px;break-inside:avoid}
+    @media (max-width:760px){
+      .wh-bar{height:34px}
+      .wh-bar span{font-size:.72rem;padding:0 6px}
+      .chapter-list{columns:1}
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": "https://voltkompass.com/solarmodul-flach-oder-solartasche-winter.html#article",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "https://voltkompass.com/solarmodul-flach-oder-solartasche-winter.html"
+        },
+        "headline": "Solarmodul flach aufs Dach oder Solartasche? Was im Winter im Süden wirklich ankommt",
+        "description": "Vergleich 100 Wp flach auf dem Wohnmobildach gegen 100 Wp als Solartasche, Mitte bis Ende Dezember in südlichen Ländern: rund 240 Wh gegen mindestens 480 Wh am Tag. Sonnenstand, Neigung, Ausrichten, Dezember in Südspanien mit Wetter, Schatten und Laderegler-Position.",
+        "image": [
+          "https://voltkompass.com/assets/blog/flach-vs-solartasche/flach-vs-solartasche-titelbild.jpg",
+          "https://voltkompass.com/assets/blog/flach-vs-solartasche/flach-240wh-solartasche-480wh-full.webp",
+          "https://voltkompass.com/assets/blog/flach-vs-solartasche/sonne-30-grad-flach-50-prozent-full.webp",
+          "https://voltkompass.com/assets/blog/flach-vs-solartasche/dezember-suedspanien-200wh-400wh-full.webp"
+        ],
+        "datePublished": "2026-11-20T12:00:00+01:00",
+        "dateModified": "2026-11-20T12:00:00+01:00",
+        "inLanguage": "de-DE",
+        "isAccessibleForFree": true,
+        "articleSection": "Wohnmobil-Solaranlage",
+        "keywords": [
+          "Solartasche Wohnmobil Winter",
+          "Solarmodul flach oder schräg",
+          "Solarmodul Neigung Winter",
+          "autark überwintern Spanien",
+          "100 Watt Solarmodul Ertrag Winter",
+          "Solar Wohnmobil Dezember",
+          "Laderegler Solartasche"
+        ],
+        "author": {
+          "@type": "Person",
+          "@id": "https://voltkompass.com/#andreas",
+          "name": "Andreas",
+          "url": "https://voltkompass.com/#ueber",
+          "jobTitle": "Berater für Wohnmobil-Elektrik",
+          "description": "18+ Jahre Elektrotechnik-Erfahrung und eigene Wohnmobil-Praxis."
+        },
+        "publisher": {
+          "@type": "Organization",
+          "@id": "https://voltkompass.com/#organization",
+          "name": "VoltKompass",
+          "url": "https://voltkompass.com/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://voltkompass.com/logo.png",
+            "width": 1082,
+            "height": 1082
+          }
+        },
+        "about": [
+          {"@type": "Thing", "name": "Solartasche im Wohnmobil"},
+          {"@type": "Thing", "name": "Solarertrag im Winter"},
+          {"@type": "Thing", "name": "Neigung von Solarmodulen"}
+        ],
+        "citation": [
+          "https://re.jrc.ec.europa.eu/pvg_tools/"
+        ],
+        "video": {"@id": "https://voltkompass.com/solarmodul-flach-oder-solartasche-winter.html#video"},
+        "isPartOf": {"@id": "https://voltkompass.com/blog.html#blog"}
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://voltkompass.com/solarmodul-flach-oder-solartasche-winter.html#video",
+        "name": "Solarmodul flach aufs Dach? Im Winter holt die Solartasche das Doppelte!",
+        "description": "Andreas von VoltKompass vergleicht ein starres 100-Wp-Modul flach auf dem Wohnmobildach mit einer 100-Wp-Solartasche an den kürzesten Tagen im Winter in südlichen Ländern: Sonnenstand, Neigung, Ausrichten, Dezember in Südspanien, Schatten und Laderegler.",
+        "thumbnailUrl": "https://voltkompass.com/assets/blog/flach-vs-solartasche/flach-vs-solartasche-titelbild.jpg",
+        "uploadDate": "2026-11-20T12:00:00+01:00",
+        "duration": "PT5M3S",
+        "embedUrl": "https://www.youtube-nocookie.com/embed/XaFiHnMPICA",
+        "contentUrl": "https://www.youtube.com/watch?v=XaFiHnMPICA",
+        "inLanguage": "de-DE",
+        "publisher": {"@id": "https://voltkompass.com/#organization"},
+        "isPartOf": {"@id": "https://voltkompass.com/solarmodul-flach-oder-solartasche-winter.html#article"}
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://voltkompass.com/solarmodul-flach-oder-solartasche-winter.html#faq",
+        "url": "https://voltkompass.com/solarmodul-flach-oder-solartasche-winter.html#faq",
+        "inLanguage": "de-DE",
+        "isPartOf": {"@id": "https://voltkompass.com/solarmodul-flach-oder-solartasche-winter.html"},
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Wie viel bringt ein 100-Watt-Solarmodul im Winter im Süden?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Flach auf dem Wohnmobildach bringt ein starres 100-Wp-Modul Mitte bis Ende Dezember in südlichen Ländern bei wolkenlosem Himmel ungefähr 240 Wh am Tag. Im Dezember-Durchschnitt mit echtem Wetter sind es in Südspanien knapp 200 Wh am Tag."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie viel mehr bringt eine Solartasche im Winter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Steil aufgestellt und drei- bis viermal am Tag zur Sonne ausgerichtet, holt eine 100-Wp-Solartasche an den kürzesten Tagen mindestens das Doppelte, also mindestens rund 480 Wh statt 240 Wh. Im 12-V-System sind das mindestens gut 37 Ah statt knapp 19 Ah."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Welche Neigung braucht eine Solartasche im Winter?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ab etwa 45 Grad bist du auf der sicheren Seite für das Doppelte, mit 60 Grad steht die Solartasche fast senkrecht zur tiefen Wintersonne. Mit nur 30 Grad landest du auch mit Ausrichten etwas unter dem Doppelten."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wie oft muss ich die Solartasche am Tag ausrichten?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Drei- bis viermal am Tag reicht: morgens aufstellen, mittags und nachmittags neu ausrichten und gegen Abend noch einmal. Den größten Gewinn bringt aber die Neigung: Mit 60 Grad nach Süden und nie gedreht holt die Solartasche schon das Doppelte, das Ausrichten legt nur noch etwa 5 bis 10 Prozent drauf."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Wohin gehört der Laderegler einer Solartasche?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Am besten ins Wohnmobil, nah an den Akku. Dann läuft nur das Solarkabel hinaus zur Solartasche. Bei 10 m Leitungsweg mit 4 mm² liegt der Verlust dann unter 3 Prozent. Hängt der Regler an der Solartasche, läuft das lange Kabel auf Akkuspannung, und der Spannungsabfall wiegt deutlich schwerer."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://voltkompass.com/solarmodul-flach-oder-solartasche-winter.html#breadcrumb",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Startseite", "item": "https://voltkompass.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Blog", "item": "https://voltkompass.com/blog.html"},
+          {"@type": "ListItem", "position": 3, "name": "Flach oder Solartasche", "item": "https://voltkompass.com/solarmodul-flach-oder-solartasche-winter.html"}
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="blog-page ladebooster-page solar-page">
+  <div class="read-progress" aria-hidden="true"></div>
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html#top" class="brand"><img class="brand-mark" src="compass.svg" alt="" width="28" height="28" /><span><span class="v">Volt</span><span class="k">Kompass</span></span></a>
+    <ul>
+      <li><a href="index.html#fachbereiche">Fachbereiche</a></li>
+      <li><a href="index.html#solaranlage-beratung">Solaranlage</a></li>
+      <li><a href="index.html#ablauf">Ablauf</a></li>
+      <li><a href="index.html#preise">Preise</a></li>
+      <li><a href="blog.html" aria-current="page">Blog</a></li>
+      <li><a href="produkte.html">Produkte</a></li>
+      <li><a href="index.html#ueber">Über mich</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="blog.html" class="nav-blog-mobile">Blog</a>
+      <a href="produkte.html" class="nav-blog-mobile">Produkte</a>
+      <a href="index.html#kontakt" class="cta">Beratung buchen →</a>
+    </div>
+  </div>
+</header>
+<nav class="article-jump" aria-label="Abschnitte dieses Beitrags">
+  <div class="wrap">
+    <b>Inhalt</b>
+    <a href="#video">Video</a>
+    <a href="#flach">Warum flach so wenig</a>
+    <a href="#solartasche">Solartasche</a>
+    <a href="#neigung">Neigung</a>
+    <a href="#achten">Schatten &amp; Regler</a>
+    <a href="#faq">FAQ</a>
+    <a href="#fazit">Fazit</a>
+  </div>
+</nav>
+
+  <main>
+    <article>
+      <section class="blog-hero">
+        <div class="wrap blog-hero-grid">
+          <div>
+          <nav class="blog-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html#top">Startseite</a>
+            <span>/</span>
+            <a href="blog.html">Blog</a>
+            <span>/</span>
+            <span>Flach oder Solartasche</span>
+          </nav>
+          <span class="eyebrow">Solar im Winter · Autark überwintern · Wohnmobil</span>
+          <h1>Flach aufs Dach oder Solartasche? Was im Winter im Süden wirklich ankommt</h1>
+          <p class="blog-lead">Du willst autark im Süden überwintern? Dann zählt jede Wattstunde. Ich vergleiche ein starres 100-Watt-Modul, flach auf dem Wohnmobildach, mit einer Solartasche mit ebenfalls 100 Watt, an den kürzesten Tagen des Jahres. Der Unterschied ist größer, als die meisten denken.</p>
+          <p class="blog-byline">Von <a href="index.html#ueber">Andreas / VoltKompass</a> · 18+ Jahre Elektrotechnik-Erfahrung · veröffentlicht am <time datetime="2026-11-20">20. November 2026</time></p>
+          <aside class="blog-author-card" aria-label="Fachliche Einordnung des Autors">
+            <img src="assets/author/andreas-avatar-160.webp" width="160" height="160" decoding="async" alt="Andreas von VoltKompass" />
+            <p>
+              <strong>Praxiswissen von Andreas:</strong> mehr als 18 Jahre Erfahrung in der
+              Elektrotechnik und acht Jahre reisend im Wohnmobil.
+            </p>
+          </aside>
+          <div class="article-kicker">
+            <span>100 Wp gegen 100 Wp</span>
+            <span>Mitte bis Ende Dezember</span>
+            <span>240 Wh gegen mind. 480 Wh</span>
+            <span>Mit Video</span>
+          </div>
+          <div class="blog-actions">
+            <a href="#kurzantwort" class="btn btn-primary">Direkt zur Kurzantwort</a>
+            <a href="#video" class="btn btn-ghost">Video ansehen</a>
+          </div>
+          </div>
+
+        <figure class="blog-hero-figure">
+          <button class="blog-zoom" type="button" data-full="assets/blog/flach-vs-solartasche/flach-vs-solartasche-titelbild-full.webp" data-caption="Im Winter holt die schräg aufgestellte Solartasche mindestens das Doppelte. Titelbild aus meinem VoltKompass-Video." aria-label="Titelbild Flach gegen Solartasche vergrößern">
+            <picture>
+              <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/flach-vs-solartasche/flach-vs-solartasche-titelbild-960.webp">
+              <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/flach-vs-solartasche/flach-vs-solartasche-titelbild-1440.webp">
+              <source type="image/webp" srcset="assets/blog/flach-vs-solartasche/flach-vs-solartasche-titelbild-full.webp">
+              <img src="assets/blog/flach-vs-solartasche/flach-vs-solartasche-titelbild.jpg" width="1280" height="720" alt="Wohnmobil mit flachem Solarmodul auf dem Dach, davor eine schräg aufgestellte Solartasche, Schriftzug Im Winter × 2" decoding="async" fetchpriority="high">
+            </picture>
+          </button>
+          <figcaption>Gleiches Modul, gleiche Sonne, doppelter Ertrag.</figcaption>
+        </figure>
+        </div>
+      </section>
+
+      <section class="blog-section" id="kurzantwort">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Direkte Antwort</p>
+          <h2>Wie viel mehr bringt eine Solartasche im Winter?</h2>
+          <p class="blog-intro"><strong>Mindestens das Doppelte. Ein starres 100-Wp-Modul flach auf dem Dach bringt Mitte bis Ende Dezember in südlichen Ländern bei Sonne ungefähr 240 Wattstunden am Tag. Dasselbe Modul als Solartasche, steil aufgestellt und drei- bis viermal am Tag zur Sonne ausgerichtet, holt mindestens rund 480 Wattstunden.</strong></p>
+          <p>Den größten Anteil daran hat nicht das Drehen, sondern das Schrägstellen. Und damit die Solartasche das auch wirklich bringt, musst du auf Schatten und auf den Platz des Ladereglers achten.</p>
+
+          <div class="blog-answer-box" role="region" aria-label="Kurzüberblick flach gegen Solartasche">
+            <div><span>100 Wp flach auf dem Dach</span><strong>ca. 240 Wh am Tag, im 12-V-System knapp 19 Ah</strong></div>
+            <div><span>100 Wp Solartasche, steil</span><strong>mind. ca. 480 Wh am Tag, mind. gut 37 Ah</strong></div>
+            <div><span>Ständig nachgeführt</span><strong>ca. 600 Wh, in der Praxis macht das keiner</strong></div>
+            <div><span>Neigung</span><strong>ab ca. 45° auf der sicheren Seite, 60° ideal</strong></div>
+            <div><span>Dezember in Südspanien mit Wetter</span><strong>flach knapp 200 Wh, Solartasche rund 400 Wh</strong></div>
+            <div><span>Bedingungen</span><strong>Mitte bis Ende Dezember, ca. 37° Nord, sonnig, sauber, unverschattet</strong></div>
+          </div>
+
+          <nav class="blog-toc" aria-label="Inhaltsverzeichnis">
+            <h3>Inhaltsverzeichnis</h3>
+            <ol>
+              <li><a href="#video">Das Video zum Beitrag</a></li>
+              <li><a href="#bedingungen">Die Bedingungen für den Vergleich</a></li>
+              <li><a href="#flach">Warum flach im Winter so wenig bringt</a></li>
+              <li><a href="#solartasche">Die Solartasche zur Sonne</a></li>
+              <li><a href="#neigung">Die Neigung entscheidet</a></li>
+              <li><a href="#dezember">Der ganze Dezember in Südspanien</a></li>
+              <li><a href="#achten">Schatten und Laderegler</a></li>
+              <li><a href="#dachmodul">Was für das Dachmodul spricht</a></li>
+              <li><a href="#quellen">Quellen und Rechenweg</a></li>
+              <li><a href="#faq">Häufige Fragen</a></li>
+              <li><a href="#fazit">Fazit</a></li>
+            </ol>
+          </nav>
+        </div>
+      </section>
+
+      <section id="video" class="blog-section blog-video-section">
+        <div class="wrap">
+          <div class="blog-narrow">
+            <span class="eyebrow">Video</span>
+            <h2>Flach oder Solartasche: das Video</h2>
+            <p>Im Video siehst du Sonnenstand, Licht und Schatten animiert. Hier im Beitrag findest du alle Zahlen zum Nachlesen und den Rechenweg.</p>
+          </div>
+          <div class="video-box blog-video-box" id="blogVideoBox" data-id="XaFiHnMPICA" role="button" tabindex="0" aria-label="Video Flach gegen Solartasche abspielen"></div>
+          <p class="blog-video-link">Video direkt auf YouTube ansehen: <a href="https://www.youtube.com/watch?v=XaFiHnMPICA" target="_blank" rel="noopener">Solarmodul flach aufs Dach? Im Winter holt die Solartasche das Doppelte!</a></p>
+          <div class="blog-narrow">
+            <h3 style="margin-top:32px">Kapitel im Video</h3>
+            <ol class="chapter-list">
+              <li><a href="https://www.youtube.com/watch?v=XaFiHnMPICA&amp;t=0s" target="_blank" rel="noopener">0:00</a> Autark überwintern im Süden</li>
+              <li><a href="https://www.youtube.com/watch?v=XaFiHnMPICA&amp;t=27s" target="_blank" rel="noopener">0:27</a> Die Bedingungen</li>
+              <li><a href="https://www.youtube.com/watch?v=XaFiHnMPICA&amp;t=51s" target="_blank" rel="noopener">0:51</a> Warum flach im Winter so wenig bringt</li>
+              <li><a href="https://www.youtube.com/watch?v=XaFiHnMPICA&amp;t=89s" target="_blank" rel="noopener">1:29</a> Die Solartasche zur Sonne</li>
+              <li><a href="https://www.youtube.com/watch?v=XaFiHnMPICA&amp;t=147s" target="_blank" rel="noopener">2:27</a> Die Neigung entscheidet</li>
+              <li><a href="https://www.youtube.com/watch?v=XaFiHnMPICA&amp;t=189s" target="_blank" rel="noopener">3:09</a> Der ganze Dezember in Südspanien</li>
+              <li><a href="https://www.youtube.com/watch?v=XaFiHnMPICA&amp;t=212s" target="_blank" rel="noopener">3:32</a> Schatten und Laderegler</li>
+              <li><a href="https://www.youtube.com/watch?v=XaFiHnMPICA&amp;t=263s" target="_blank" rel="noopener">4:23</a> Was für das Dachmodul spricht</li>
+              <li><a href="https://www.youtube.com/watch?v=XaFiHnMPICA&amp;t=276s" target="_blank" rel="noopener">4:36</a> Mein Fazit</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="bedingungen">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Ausgangslage</p>
+          <h2>Die Bedingungen: die kürzesten Tage des Jahres</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Verglichen werden zwei <strong>starre 100-Wp-Module</strong>: eines flach auf dem Dach, eines als Solartasche neben dem Wohnmobil. Als Beispiel nehme ich <strong>Mitte bis Ende Dezember</strong>, die kürzesten Tage des Jahres. Ob ein paar Minuten Sonne mehr oder weniger, spielt in diesem Zeitraum keine Rolle.</p>
+              <ul>
+                <li>südliches Land, etwa auf der Höhe von Südspanien, Sizilien oder dem Peloponnes (ca. 37° Nord)</li>
+                <li>sonnig und wolkenfrei</li>
+                <li>beide Module sauber und unverschattet</li>
+                <li>der Akku nimmt den ganzen Tag Ladung auf, der Laderegler regelt also nicht ab</li>
+              </ul>
+              <p>Unter diesen guten Bedingungen bringt das 100-Wp-Modul flach auf dem Dach ungefähr <strong>240 Wattstunden am Tag</strong>.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/flach-vs-solartasche/flaches-modul-dezember-240wh-full.webp" data-caption="Die Bedingungen: Mitte bis Ende Dezember, südliches Land, sonnig, sauber, unverschattet. 100 Wp flach auf dem Dach bringen ca. 240 Wh am Tag. Standbild aus meinem VoltKompass-Video." aria-label="Bedingungen und 240 Wh vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/flach-vs-solartasche/flaches-modul-dezember-240wh-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/flach-vs-solartasche/flaches-modul-dezember-240wh-1440.webp">
+                  <img src="assets/blog/flach-vs-solartasche/flaches-modul-dezember-240wh-full.webp" width="1920" height="1080" alt="Wohnmobil mit flachem Solarmodul auf dem Dach, Liste der Bedingungen mit Haken, Anzeige 100 Wp flach auf dem Dach ca. 240 Wh pro Tag" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>100 Wp flach: rund 240 Wh an einem sonnigen Dezembertag.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="flach">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Physik</p>
+          <h2>Warum ein flaches Solarmodul im Winter so wenig bringt</h2>
+          <div class="blog-split blog-split-reverse">
+            <div class="blog-split-copy">
+              <p>Mitte bis Ende Dezember steht die Sonne mittags nur <strong>knapp 30 Grad</strong> hoch. Das Licht fällt sehr schräg auf das flache Modul, und dasselbe Lichtbündel verteilt sich auf eine viel größere Fläche.</p>
+              <p>Selbst mittags kommt deshalb nur etwa <strong>die Hälfte der direkten Strahlung</strong> auf dem Modul an. Morgens und nachmittags steht die Sonne noch tiefer, dann streift das Licht fast nur über die Oberfläche.</p>
+              <p>Dazu spiegelt das Glas bei so flachem Einfall mehr Licht weg. Und nach <strong>knapp zehn Stunden</strong>, von etwa 8:30 bis 18:00 Uhr, ist die Sonne ganz weg.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/flach-vs-solartasche/sonne-30-grad-flach-50-prozent-full.webp" data-caption="Mittags nur knapp 30° Sonnenhöhe: Die gleiche Lichtmenge verteilt sich auf die doppelte Fläche, nur rund 50 % der direkten Strahlung kommen auf dem flachen Modul an. Standbild aus meinem VoltKompass-Video." aria-label="Sonnenwinkel 30 Grad vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/flach-vs-solartasche/sonne-30-grad-flach-50-prozent-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/flach-vs-solartasche/sonne-30-grad-flach-50-prozent-1440.webp">
+                  <img src="assets/blog/flach-vs-solartasche/sonne-30-grad-flach-50-prozent-full.webp" width="1920" height="1080" alt="Wohnmobil von der Seite, Wintersonne mittags knapp 30 Grad hoch, Lichtbündel verteilt auf doppelte Fläche, direkte Strahlung auf dem Modul 50 Prozent" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Mittags kommt flach nur rund die Hälfte der direkten Strahlung an.</figcaption>
+            </figure>
+          </div>
+          <div class="blog-note"><strong>Kurz erklärt:</strong> Wie viel direkte Strahlung auf einer waagerechten Fläche ankommt, hängt vom Sinus der Sonnenhöhe ab. Bei knapp 30 Grad ist das sin 30° ≈ 0,5, also die Hälfte. Ein Modul, das senkrecht zur Sonne steht, bekommt die volle direkte Strahlung.</div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="solartasche">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Die Alternative</p>
+          <h2>Die Solartasche: schräg zur Wintersonne aufgestellt</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Die Solartasche stellst du schräg auf, so dass sie der Sonne möglichst direkt gegenübersteht. Steht die Sonne mittags knapp 30 Grad hoch, steht eine Solartasche mit <strong>60 Grad Neigung</strong> fast senkrecht zum Licht.</p>
+              <p>Würdest du sie den ganzen Tag ständig der Sonne nachführen, kämen ungefähr <strong>600 Wattstunden</strong> zusammen. Das macht natürlich in der Regel keiner.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/flach-vs-solartasche/solartasche-60-grad-100-prozent-full.webp" data-caption="Solartasche mit 60° Neigung: Das Licht der tiefen Wintersonne trifft fast senkrecht. Flach auf dem Dach 50 %, Solartasche 100 % der direkten Strahlung. Standbild aus meinem VoltKompass-Video." aria-label="Solartasche 60 Grad vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/flach-vs-solartasche/solartasche-60-grad-100-prozent-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/flach-vs-solartasche/solartasche-60-grad-100-prozent-1440.webp">
+                  <img src="assets/blog/flach-vs-solartasche/solartasche-60-grad-100-prozent-full.webp" width="1920" height="1080" alt="Solartasche mit 60 Grad Neigung auf Kies, Sonnenlicht trifft fast senkrecht, Anzeigen flach auf dem Dach 50 Prozent und Solartasche 100 Prozent" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Mit 60° steht die Solartasche fast senkrecht zum Licht.</figcaption>
+            </figure>
+          </div>
+
+          <h3>So richtest du sie in der Praxis aus</h3>
+          <div class="blog-split blog-split-reverse">
+            <div class="blog-split-copy">
+              <p>Morgens aufstellen, mittags und nachmittags neu ausrichten und gegen Abend noch einmal. Also <strong>drei- bis viermal am Tag</strong>.</p>
+              <p><strong>Ein einfacher Trick:</strong> Steht die Solartasche richtig zur Sonne, fällt ihr Schatten genau gerade dahinter und nicht schräg zur Seite. Fällt der Schatten schräg, ist sie verdreht.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/flach-vs-solartasche/schatten-trick-gerade-dahinter-full.webp" data-caption="Schatten-Trick: Steht die Solartasche richtig zur Sonne, fällt ihr Schatten genau gerade dahinter. Standbild aus meinem VoltKompass-Video." aria-label="Schatten-Trick vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/flach-vs-solartasche/schatten-trick-gerade-dahinter-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/flach-vs-solartasche/schatten-trick-gerade-dahinter-1440.webp">
+                  <img src="assets/blog/flach-vs-solartasche/schatten-trick-gerade-dahinter-full.webp" width="1920" height="1080" alt="Solartasche von oben auf Kies, Sonne im Süden, Schatten fällt genau gerade hinter die Tasche, Hinweis Schatten gerade dahinter" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Schatten gerade dahinter = richtig ausgerichtet.</figcaption>
+            </figure>
+          </div>
+
+          <h3>Ergebnis: mindestens das Doppelte</h3>
+          <div class="wh-chart" role="img" aria-label="Balkendiagramm: flach auf dem Dach ca. 240 Wh, Solartasche drei- bis viermal ausgerichtet mindestens ca. 480 Wh, ständig nachgeführt ca. 600 Wh pro Tag.">
+            <div class="wh-row">
+              <b>Flach auf dem Dach <small>100 Wp, sonniger Tag</small></b>
+              <div class="wh-bar">
+                <span class="w-flach" style="flex:240">ca. 240 Wh</span>
+                <span class="w-rest" style="flex:360"></span>
+              </div>
+            </div>
+            <div class="wh-row">
+              <b>Solartasche, 3- bis 4-mal ausgerichtet <small>steil aufgestellt</small></b>
+              <div class="wh-bar">
+                <span class="w-tasche" style="flex:480">mind. ca. 480 Wh · × 2</span>
+                <span class="w-rest" style="flex:120"></span>
+              </div>
+            </div>
+            <div class="wh-row">
+              <b>Solartasche, ständig nachgeführt <small>nur theoretisch</small></b>
+              <div class="wh-bar">
+                <span class="w-tasche" style="flex:600">ca. 600 Wh</span>
+              </div>
+            </div>
+          </div>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Statt 240 holt die Solartasche also <strong>mindestens rund 480 Wattstunden</strong> am Tag. Umgerechnet auf einen Akku im 12-Volt-System sind das statt <strong>knapp 19</strong> mindestens <strong>gut 37 Amperestunden</strong> am Tag.</p>
+              <p>Wie viel du davon im Alltag brauchst, hängt von deinen Verbrauchern ab. Rechne deinen Tagesverbrauch in Amperestunden aus und vergleiche ihn mit diesen Werten.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/flach-vs-solartasche/flach-240wh-solartasche-480wh-full.webp" data-caption="Flach auf dem Dach 240 Wh (≈ 19 Ah), Solartasche mindestens 480 Wh (mind. 37 Ah) im 12-V-System. Standbild aus meinem VoltKompass-Video." aria-label="Grafik 240 Wh gegen 480 Wh vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/flach-vs-solartasche/flach-240wh-solartasche-480wh-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/flach-vs-solartasche/flach-240wh-solartasche-480wh-1440.webp">
+                  <img src="assets/blog/flach-vs-solartasche/flach-240wh-solartasche-480wh-full.webp" width="1920" height="1080" alt="Zwei Akkus: flach auf dem Dach 240 Wh, etwa 19 Ah; Solartasche mindestens 480 Wh, mindestens 37 Ah, Stempel mindestens mal 2" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Knapp 19 Ah gegen mindestens gut 37 Ah am Tag.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="neigung">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Der wichtigste Punkt</p>
+          <h2>Die Neigung entscheidet, nicht das Drehen</h2>
+          <div class="blog-split blog-split-reverse">
+            <div class="blog-split-copy">
+              <p>Den größten Gewinn bringt nicht das Drehen, sondern das <strong>Schrägstellen</strong>. Stellst du die Solartasche mit 60 Grad einfach nach Süden und rührst sie den ganzen Tag nicht an, holt sie <strong>schon das Doppelte</strong>.</p>
+              <p>Das Ausrichten über den Tag legt nur noch etwa <strong>5 bis 10 Prozent</strong> drauf.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/flach-vs-solartasche/neigung-60-grad-nie-gedreht-x2-full.webp" data-caption="Flach × 1, Solartasche mit 60° nach Süden und nie gedreht × 2. Standbild aus meinem VoltKompass-Video." aria-label="Grafik Neigung vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/flach-vs-solartasche/neigung-60-grad-nie-gedreht-x2-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/flach-vs-solartasche/neigung-60-grad-nie-gedreht-x2-1440.webp">
+                  <img src="assets/blog/flach-vs-solartasche/neigung-60-grad-nie-gedreht-x2-full.webp" width="1920" height="1080" alt="Akku-Grafik: flach mal 1, Solartasche 60 Grad nach Süden nie gedreht mal 2, gestrichelte Linie das Doppelte" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Schon ohne Drehen: 60° nach Süden bringen das Doppelte.</figcaption>
+            </figure>
+          </div>
+
+          <div class="blog-table-wrap" role="region" aria-label="Ertrag der Solartasche je nach Neigung im Vergleich zu flach" tabindex="0">
+            <table class="blog-table">
+              <thead>
+                <tr>
+                  <th>Solartasche</th>
+                  <th>Faktor gegenüber flach</th>
+                  <th>Bei 240 Wh flach</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>30°, dreimal ausgerichtet</td><td>knapp unter × 2</td><td>ca. 430 bis 480 Wh</td></tr>
+                <tr><td>45°, dreimal ausgerichtet</td><td>× 2,1 bis × 2,3</td><td>ca. 490 bis 560 Wh</td></tr>
+                <tr><td>60°, nach Süden, nie gedreht</td><td>× 2,05 bis × 2,3</td><td>ca. 490 bis 550 Wh</td></tr>
+                <tr><td>60°, dreimal ausgerichtet</td><td>× 2,2 bis × 2,5</td><td>ca. 530 bis 600 Wh</td></tr>
+                <tr><td>ständig nachgeführt</td><td>× 2,3 bis × 2,7</td><td>ca. 560 bis 640 Wh</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Die Spannen ergeben sich aus verschiedenen Standorten im Süden (Südspanien, Sizilien, Peloponnes) an einem wolkenlosen Tag Ende Dezember. Mit vier statt drei Ausrichtungen am Tag wird es eher noch etwas mehr. Deshalb sage ich bewusst „mindestens das Doppelte“ und rechne mit 480 Wattstunden.</p>
+
+          <h3>Mit 30 Grad wird es knapp</h3>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Mit nur <strong>30 Grad</strong> Neigung landest du auch mit Ausrichten etwas unter dem Doppelten. Ab etwa <strong>45 Grad</strong> bist du auf der sicheren Seite.</p>
+              <p><strong>Mein Tipp:</strong> Wenn du dir eine Solartasche kaufst, schau genau auf die Stützen. Nicht jede Solartasche lässt sich so steil aufstellen. Achte darauf, dass die Stützen diese Neigung mitmachen und die Solartasche dabei auch bei Wind sicher steht.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/flach-vs-solartasche/neigung-30-grad-x1-9-full.webp" data-caption="Mit nur 30° Neigung bleibt die Solartasche bei rund × 1,9, also knapp unter dem Doppelten. Standbild aus meinem VoltKompass-Video." aria-label="Grafik Neigung 30 Grad vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/flach-vs-solartasche/neigung-30-grad-x1-9-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/flach-vs-solartasche/neigung-30-grad-x1-9-1440.webp">
+                  <img src="assets/blog/flach-vs-solartasche/neigung-30-grad-x1-9-full.webp" width="1920" height="1080" alt="Solartasche mit 30 Grad Neigung im Sonnenlicht, Akku knapp unter der Linie mal 2, Wert mal 1,9" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>30° reichen im Winter nicht ganz für das Doppelte.</figcaption>
+            </figure>
+          </div>
+          <figure class="blog-figure" style="margin-top:28px">
+            <button class="blog-zoom" type="button" data-full="assets/blog/flach-vs-solartasche/solartasche-stuetzen-60-grad-full.webp" data-caption="Stützen prüfen: Die Solartasche muss sich auf 60° stellen lassen und dabei auch bei Wind sicher stehen. Standbild aus meinem VoltKompass-Video." aria-label="Stützen der Solartasche vergrößern">
+              <picture>
+                <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/flach-vs-solartasche/solartasche-stuetzen-60-grad-960.webp">
+                <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/flach-vs-solartasche/solartasche-stuetzen-60-grad-1440.webp">
+                <img src="assets/blog/flach-vs-solartasche/solartasche-stuetzen-60-grad-full.webp" width="1920" height="1080" alt="Rückseite einer Solartasche mit verstellbaren Aluminium-Stützen auf 60 Grad, Hinweis steht sicher bei Wind" loading="lazy" decoding="async">
+              </picture>
+            </button>
+            <figcaption>Beim Kauf auf die Stützen achten: steil genug und windfest.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="dezember">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Mit echtem Wetter</p>
+          <h2>Der ganze Dezember in Südspanien</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Und wie sieht das über den ganzen Dezember aus, mit echtem Wetter? Nehmen wir <strong>Südspanien</strong>. Dort ist es im Winter oft sonnig, deshalb ist die Region zum Überwintern so beliebt.</p>
+              <p>Im Durchschnitt über den Dezember bringt das flache Modul dort <strong>knapp 200 Wattstunden</strong> am Tag. Die schräg aufgestellte Solartasche kommt auf <strong>rund 400 Wattstunden</strong>.</p>
+              <p>Auch über den ganzen Monat, mit bewölkten Tagen, bleibt es also <strong>beim Doppelten</strong>.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/flach-vs-solartasche/dezember-suedspanien-200wh-400wh-full.webp" data-caption="Dezember-Durchschnitt in Südspanien mit echtem Wetter: flach knapp 200 Wh, Solartasche schräg rund 400 Wh am Tag (100 Wp). Standbild aus meinem VoltKompass-Video." aria-label="Dezember in Südspanien vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/flach-vs-solartasche/dezember-suedspanien-200wh-400wh-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/flach-vs-solartasche/dezember-suedspanien-200wh-400wh-1440.webp">
+                  <img src="assets/blog/flach-vs-solartasche/dezember-suedspanien-200wh-400wh-full.webp" width="1920" height="1080" alt="Kalender Dezember mit Sonne und Wolken, zwei Akkus: flach auf dem Dach knapp 200 Wh, Solartasche schräg rund 400 Wh" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Im Monatsschnitt: knapp 200 Wh gegen rund 400 Wh.</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="achten">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Praxis</p>
+          <h2>Worauf du bei der Solartasche achten musst</h2>
+          <h3 style="margin-top:8px">1. Schatten vermeiden</h3>
+          <div class="blog-split blog-split-reverse">
+            <div class="blog-split-copy">
+              <p>Stell die Solartasche so auf, dass im Laufe des Tages <strong>kein Schatten auf sie wandert</strong>, zum Beispiel von einem Baum oder vom Wohnmobil selbst. Die Wintersonne steht tief, Schatten sind deshalb lang und wandern schnell.</p>
+              <p>Schon ein Schatten auf einem Teil des Moduls kann den Ertrag stark einbrechen lassen. Warum das so ist, erkläre ich im Beitrag <a href="renogy-shadowflux-120w-solarmodul-schatten.html">Solarmodul im Schatten</a>.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/flach-vs-solartasche/baumschatten-solartasche-61-prozent-full.webp" data-caption="Ein Baumschatten wandert auf die Solartasche, der Ertrag fällt auf 61 %. Standbild aus meinem VoltKompass-Video." aria-label="Baumschatten auf der Solartasche vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/flach-vs-solartasche/baumschatten-solartasche-61-prozent-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/flach-vs-solartasche/baumschatten-solartasche-61-prozent-1440.webp">
+                  <img src="assets/blog/flach-vs-solartasche/baumschatten-solartasche-61-prozent-full.webp" width="1920" height="1080" alt="Wohnmobil auf Stellplatz, Baumschatten wandert auf die Solartasche, Anzeige Ertrag des Moduls 61 Prozent" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Ein wandernder Schatten kostet schnell viel Ertrag.</figcaption>
+            </figure>
+          </div>
+
+          <h3>2. Den Laderegler ins Wohnmobil</h3>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Bei vielen Solartaschen ist ein Laderegler dabei. Den baust du am besten <strong>im Wohnmobil ein, nah am Akku</strong>. Nur das Solarkabel geht hinaus zur Solartasche.</p>
+              <p>Hängt der Laderegler dagegen direkt an der Solartasche und das lange Kabel läuft von dort zum Akku, läuft dieses Kabel auf Akkuspannung. Derselbe Spannungsabfall wiegt dann prozentual deutlich schwerer, und der Regler misst die Akkuspannung zu hoch. Er lädt also schlechter.</p>
+              <p>Mit dem Regler im Wohnmobil bleibt der Verlust klein: Bei <strong>10 Metern Solarkabel mit 4 mm²</strong> liegt er <strong>unter 3 Prozent</strong>.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/flach-vs-solartasche/laderegler-im-wohnmobil-statt-an-solartasche-full.webp" data-caption="Links: Laderegler im Wohnmobil, nur das Solarkabel läuft hinaus, Verlust klein. Rechts: Laderegler an der Solartasche, das lange Kabel läuft auf Akkuspannung, Spannungsabfall groß. Standbild aus meinem VoltKompass-Video." aria-label="Laderegler-Position vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/flach-vs-solartasche/laderegler-im-wohnmobil-statt-an-solartasche-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/flach-vs-solartasche/laderegler-im-wohnmobil-statt-an-solartasche-1440.webp">
+                  <img src="assets/blog/flach-vs-solartasche/laderegler-im-wohnmobil-statt-an-solartasche-full.webp" width="1920" height="1080" alt="Zwei Varianten: Laderegler im Wohnmobil mit Haken und Verlust klein, Laderegler an der Solartasche mit Kreuz und Spannungsabfall groß, Hinweis 10 m 4 mm² Solarkabel unter 3 Prozent Verlust" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Regler nah am Akku, nur das Solarkabel nach draußen.</figcaption>
+            </figure>
+          </div>
+          <p>Wie du den Laderegler auswählst, für LiFePO4 einstellst und richtig anschließt, steht im Beitrag <a href="mppt-laderegler-wohnmobil.html">MPPT-Laderegler im Wohnmobil</a>. Einen kompletten Plan mit Solartasche am eigenen Regler findest du in <a href="blog-stufe-2.html">Stufe 2</a> meiner Solar-Ausbaustufen. Kabel und Sicherung legst du nach den Vorgaben des Reglerherstellers aus, siehe <a href="sicherung-kabel-wohnmobil-sicherungsrechner.html">Welche Sicherung für welches Kabel</a>.</p>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="dachmodul">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Fair bleiben</p>
+          <h2>Was für das Modul auf dem Dach spricht</h2>
+          <p>Natürlich hat das Modul auf dem Dach seine Vorteile. Es ist einfach da und erzeugt Energie, auch während der Fahrt und wenn du den ganzen Tag unterwegs bist. Du musst nichts aufbauen, nichts ausrichten und nichts wegschließen.</p>
+          <div class="blog-facts">
+            <div><span>Dachmodul</span><strong>immer da, lädt auch während der Fahrt, kein Aufbau</strong></div>
+            <div><span>Solartasche</span><strong>im Winter mindestens das Doppelte, aus dem Schatten heraus stellbar</strong></div>
+            <div><span>Aufwand Solartasche</span><strong>aufbauen, drei- bis viermal am Tag ausrichten, wegräumen</strong></div>
+            <div><span>Am besten</span><strong>beides: Dachmodul als Basis, Solartasche als Ergänzung</strong></div>
+          </div>
+          <p>Welche Modulart aufs Dach passt, starr oder flexibel, und ob du kleben oder bohren solltest, liest du im Beitrag <a href="solarmodul-wohnmobil.html">Solarmodul fürs Wohnmobil</a>.</p>
+        </div>
+      </section>
+
+      <section class="blog-section" id="quellen">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Transparenz &amp; Quellen</p>
+          <h2>Quellen und Rechenweg zum Nachprüfen</h2>
+          <ul>
+            <li><a href="https://re.jrc.ec.europa.eu/pvg_tools/" target="_blank" rel="noopener">PVGIS 5.3, Gemeinsame Forschungsstelle der EU-Kommission</a>: Stundenwerte für einen wolkenlosen Tag am 21. Dezember und Dezember-Monatsmittel mit Wetter (2005 bis 2023), Abfrage 19.11.2026</li>
+          </ul>
+          <ul>
+            <li><strong>240 Wh flach:</strong> Praxiswert, gegengeprüft mit PVGIS (wolkenlos, flach 2,7 bis 3,2 kWh/m² am Tag in Südspanien, Sizilien und auf dem Peloponnes).</li>
+            <li><strong>Mindestens das Doppelte:</strong> dreimal am Tag ausgerichtet (Südost, Süd, Südwest) bei 45° Faktor 2,06 bis 2,32, bei 60° Faktor 2,19 bis 2,49. Mit vier Ausrichtungen eher mehr. 240 Wh × 2 = 480 Wh.</li>
+            <li><strong>Ständig nachgeführt:</strong> zweiachsig, Faktor 2,33 bis 2,68, also 560 bis 640 Wh, Mitte ca. 600 Wh.</li>
+            <li><strong>60° nach Süden, nie gedreht:</strong> Faktor 2,05 bis 2,28. Ausrichten bringt gegenüber nie gedreht 5 bis 9 Prozent mehr.</li>
+            <li><strong>30°, dreimal ausgerichtet:</strong> Faktor 1,81 bis 1,99.</li>
+            <li><strong>Sonnenhöhe mittags</strong> auf ca. 37° Nord: 15.12. ≈ 29,7°, 21.12. ≈ 29,6°, 31.12. ≈ 29,9°. sin 29,6° ≈ 0,49. Tageslänge ca. 9,5 bis 9,7 Stunden.</li>
+            <li><strong>Amperestunden im 12-V-System:</strong> gerechnet mit 12,8 V Nennspannung (LiFePO4): 240 Wh ÷ 12,8 V = 18,75 Ah, 480 Wh ÷ 12,8 V = 37,5 Ah.</li>
+            <li><strong>Südspanien, Dezember mit Wetter</strong> (Andalusien 37,0° N / 4,5° W, 14 % Systemverluste): flach 187 Wh, 60° nach Süden fest 385 Wh, 60° nachgeführt 437 Wh. Mehrmals ausgerichtet liegt dazwischen, rund 400 Wh.</li>
+            <li><strong>Spannungsabfall Solarkabel:</strong> Regler im Fahrzeug, ca. 18 V und 5,5 A am Modul, Kupfer 0,0178 Ω·mm²/m, 10 m Leitungsweg (Plus und Minus je 10 m), 4 mm²: 0,49 V = 2,7 %.</li>
+          </ul>
+          <div class="blog-note"><strong>Zur Einordnung:</strong> Die Werte gelten für ein starres 100-Wp-Modul, sauber und unverschattet, Mitte bis Ende Dezember in südlichen Ländern (ca. 37° Nord). Die Wattstunden sind gerundete Richtwerte. In der Praxis hängen sie von Standort, Wetter, Laderegler, Kabeln und davon ab, ob der Akku die Ladung aufnehmen kann. Mehr zu meinem fachlichen Hintergrund findest du unter <a href="index.html#ueber">Über Andreas</a>.</div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="faq">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">FAQ</p>
+          <h2>Häufige Fragen zu Solar im Winter</h2>
+          <div class="blog-faq">
+            <details>
+              <summary>Wie viel bringt ein 100-Watt-Solarmodul im Winter im Süden?</summary>
+              <p>Flach auf dem Wohnmobildach bringt ein starres 100-Wp-Modul Mitte bis Ende Dezember in südlichen Ländern bei wolkenlosem Himmel ungefähr 240 Wh am Tag. Im Dezember-Durchschnitt mit echtem Wetter sind es in Südspanien knapp 200 Wh am Tag.</p>
+            </details>
+            <details>
+              <summary>Wie viel mehr bringt eine Solartasche im Winter?</summary>
+              <p>Steil aufgestellt und drei- bis viermal am Tag zur Sonne ausgerichtet, holt eine 100-Wp-Solartasche an den kürzesten Tagen mindestens das Doppelte, also mindestens rund 480 Wh statt 240 Wh. Im 12-V-System sind das mindestens gut 37 Ah statt knapp 19 Ah.</p>
+            </details>
+            <details>
+              <summary>Welche Neigung braucht eine Solartasche im Winter?</summary>
+              <p>Ab etwa 45 Grad bist du auf der sicheren Seite für das Doppelte, mit 60 Grad steht die Solartasche fast senkrecht zur tiefen Wintersonne. Mit nur 30 Grad landest du auch mit Ausrichten etwas unter dem Doppelten.</p>
+            </details>
+            <details>
+              <summary>Wie oft muss ich die Solartasche am Tag ausrichten?</summary>
+              <p>Drei- bis viermal am Tag reicht: morgens aufstellen, mittags und nachmittags neu ausrichten und gegen Abend noch einmal. Den größten Gewinn bringt aber die Neigung: Mit 60 Grad nach Süden und nie gedreht holt die Solartasche schon das Doppelte, das Ausrichten legt nur noch etwa 5 bis 10 Prozent drauf.</p>
+            </details>
+            <details>
+              <summary>Wohin gehört der Laderegler einer Solartasche?</summary>
+              <p>Am besten ins Wohnmobil, nah an den Akku. Dann läuft nur das Solarkabel hinaus zur Solartasche. Bei 10 m Leitungsweg mit 4 mm² liegt der Verlust dann unter 3 Prozent. Hängt der Regler an der Solartasche, läuft das lange Kabel auf Akkuspannung, und der Spannungsabfall wiegt deutlich schwerer.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-final" id="fazit">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Fazit</p>
+          <h2>Im Winter im Süden: Solartasche als Ergänzung lohnt sich</h2>
+          <div class="blog-split">
+            <div class="blog-split-copy">
+              <p>Wer im Winter im Süden steht und viel am Platz bleibt, für den lohnt sich eine Solartasche als Ergänzung zum Dachmodul. Steil aufgestellt, ab etwa 45 Grad, und drei- bis viermal am Tag zur Sonne ausgerichtet, holt sie <strong>mindestens das Doppelte</strong>.</p>
+              <p>Wer viel fährt, hat mit dem Dachmodul die Basis. Am besten hast du beides. Wie machst du das im Winter? Schreib es mir gern in die Kommentare unter dem Video.</p>
+            </div>
+            <figure class="blog-figure">
+              <button class="blog-zoom" type="button" data-full="assets/blog/flach-vs-solartasche/fazit-solartasche-dachmodul-full.webp" data-caption="Mein Fazit: Solartasche steil aufstellen ab 45°, drei- bis viermal am Tag ausrichten, im Winter mindestens × 2. Dachmodul = Basis, am besten beides. Standbild aus meinem VoltKompass-Video." aria-label="Fazit vergrößern">
+                <picture>
+                  <source type="image/webp" media="(max-width: 700px)" srcset="assets/blog/flach-vs-solartasche/fazit-solartasche-dachmodul-960.webp">
+                  <source type="image/webp" media="(max-width: 1300px)" srcset="assets/blog/flach-vs-solartasche/fazit-solartasche-dachmodul-1440.webp">
+                  <img src="assets/blog/flach-vs-solartasche/fazit-solartasche-dachmodul-full.webp" width="1920" height="1080" alt="Wohnmobil im Abendlicht mit Solartasche, Fazit: Solartasche steil aufstellen ab 45 Grad, drei- bis viermal am Tag ausrichten, im Winter mindestens mal 2, Dachmodul gleich Basis, am besten beides" loading="lazy" decoding="async">
+                </picture>
+              </button>
+              <figcaption>Dachmodul als Basis, Solartasche für den Winter.</figcaption>
+            </figure>
+          </div>
+          <div class="blog-actions">
+            <a href="blog-stufe-2.html" class="btn btn-ghost">Plan mit Solartasche: Stufe 2</a>
+            <a href="index.html#kontakt" class="btn btn-primary">Meine Solaranlage planen lassen</a>
+          </div>
+          <p class="blog-disclaimer"><strong>Sicherheitshinweis:</strong> Eine Solartasche liefert auch bei Wintersonne Spannungen und Ströme, die Kabel und Stecker erwärmen können. Falsch dimensionierte Leitungen, fehlende Absicherung oder ein falsch eingestellter Laderegler können Schäden und Brände verursachen. Stell die Solartasche so auf, dass sie auch bei Wind sicher steht. Dieser Beitrag erklärt Zusammenhänge und Beispielwerte und ersetzt keine Prüfung am konkreten Fahrzeug. Beachte die Vorgaben der Hersteller und lass die Anlage im Zweifel von einer qualifizierten Fachkraft prüfen.</p>
+        </div>
+      </section>
+    </article>
+  </main>
+
+<section class="related">
+  <div class="wrap">
+    <div class="related-head">
+      <div>
+        <span class="eyebrow">Weiterlesen</span>
+        <h2>Das könnte dich auch interessieren</h2>
+      </div>
+      <a class="btn btn-ghost" href="blog.html">Alle Beiträge →</a>
+    </div>
+    <div class="related-grid">
+      <a class="related-card" href="solarmodul-wohnmobil.html">
+        <div class="ri"><img src="assets/blog/renogy-shadowflux-120w/solarmodul-wohnmobildach-960.webp" alt="" loading="lazy" decoding="async" /></div>
+        <small>Solarmodul</small>
+        <strong>Solarmodul fürs Wohnmobil: starr, flexibel oder Solartasche?</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+      <a class="related-card" href="mppt-laderegler-wohnmobil.html">
+        <div class="ri"><img src="assets/blog/mppt-laderegler/victron-smartsolar-mppt-laderegler-titelbild-960.webp" alt="" loading="lazy" decoding="async" /></div>
+        <small>Laderegler</small>
+        <strong>MPPT-Laderegler im Wohnmobil: welcher passt, richtig einstellen</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+      <a class="related-card" href="renogy-shadowflux-120w-solarmodul-schatten.html">
+        <div class="ri"><img src="assets/blog/renogy-shadowflux-120w/renogy-shadowflux-120w-titelbild-960.webp" alt="" loading="lazy" decoding="async" /></div>
+        <small>Schatten</small>
+        <strong>Ein Blatt legt dein Solarmodul lahm</strong>
+        <span>Beitrag lesen →</span>
+      </a>
+    </div>
+  </div>
+</section>
+<section class="cta-band">
+  <div class="wrap">
+    <div class="cta-band-inner">
+      <div>
+        <img src="assets/author/andreas-avatar-160.webp" alt="Andreas von VoltKompass" width="56" height="56" loading="lazy" />
+        <div>
+          <strong>Reicht dein Solar für den Winter im Süden?</strong>
+          <span>Ich plane Module, Solartasche, Laderegler und Kabel passend zu deinem Fahrzeug – persönlich per WhatsApp, Telegram oder Signal.</span>
+        </div>
+      </div>
+      <a class="btn btn-primary" href="index.html#kontakt">Beratung buchen →</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a href="index.html#top" class="brand"><img class="brand-mark" src="compass.svg" alt="" width="28" height="28" /><span><span class="v">Volt</span><span class="k">Kompass</span></span></a>
+      <p>© 2026 VoltKompass — Wohnmobil-Beratung für Strom &amp; Autarkie</p>
+    </div>
+    <nav>
+      <a href="index.html#top">Startseite</a>
+      <a href="blog.html">Blog</a>
+      <a href="produkte.html">Produkte</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="index.html#kontakt">Kontakt</a>
+      <button type="button" class="cookie-settings-link" data-cookie-settings>Cookie-Einstellungen</button>
+    </nav>
+  </div>
+</footer>
+
+  <script src="blog-lightbox.js"></script>
+  <script src="cookie-consent.js"></script>
+  <script>
+    const blogVideo = {
+      id: 'XaFiHnMPICA',
+      alt: 'Solarmodul flach oder Solartasche im Winter'
+    };
+
+    function blogHasMediaConsent() {
+      return window.VKCookieConsent?.hasConsent('media') === true;
+    }
+
+    function renderBlogVideoState() {
+      const box = document.getElementById('blogVideoBox');
+      if (!box) return;
+
+      box.dataset.id = blogVideo.id;
+      const allowed = blogHasMediaConsent();
+      box.classList.toggle('video-box-locked', !allowed);
+      box.setAttribute('aria-label', allowed ? 'Video abspielen' : 'YouTube-Video nach Zustimmung laden');
+
+      if (allowed) {
+        box.innerHTML = `<img src="assets/blog/flach-vs-solartasche/flach-vs-solartasche-titelbild-1440.webp" alt="${blogVideo.alt}" loading="lazy" decoding="async"/><div class="video-play" aria-hidden="true"></div>`;
+        return;
+      }
+
+      box.innerHTML = `
+        <div class="video-consent">
+          <b>YouTube-Video blockiert</b>
+          <p>Dieses Video wird erst geladen, wenn du externe Medien in den Cookie-Einstellungen erlaubst.</p>
+          <button type="button" class="btn btn-primary" data-cookie-settings>Auswahl anpassen</button>
+        </div>`;
+    }
+
+    function initBlogVideo() {
+      const box = document.getElementById('blogVideoBox');
+      if (!box) return;
+
+      const playVideo = () => {
+        if (!blogHasMediaConsent()) {
+          window.VKCookieConsent?.openSettings();
+          return;
+        }
+        box.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${blogVideo.id}?autoplay=1&rel=0" title="Solarmodul flach aufs Dach? Im Winter holt die Solartasche das Doppelte!" allow="accelerometer;autoplay;encrypted-media;gyroscope;picture-in-picture" allowfullscreen></iframe>`;
+      };
+
+      box.addEventListener('click', (event) => {
+        if (event.target.closest('[data-cookie-settings]')) return;
+        playVideo();
+      });
+      box.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          playVideo();
+        }
+      });
+      window.VKCookieConsent?.onChange(renderBlogVideoState);
+    }
+
+    renderBlogVideoState();
+    initBlogVideo();
+  </script>
+<script src="site.js"></script>
+</body>
+</html>
