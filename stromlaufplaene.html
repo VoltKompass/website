@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Stromlaufpläne fürs Wohnmobil: fertig verdrahtet | VoltKompass</title>
+  <meta name="description" content="Fertig verdrahtete Stromlaufpläne für deine Wohnmobil-Elektrik: Solarleistung, Ladebooster, Akku und Wechselrichter auswählen und den passenden Plan als PDF mit Materialliste erhalten.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <link rel="canonical" href="https://voltkompass.com/stromlaufplaene.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="VoltKompass">
+  <meta property="og:title" content="Stromlaufpläne fürs Wohnmobil | VoltKompass">
+  <meta property="og:description" content="Solar, Ladebooster, Akku und Wechselrichter auswählen und den passenden, fertig verdrahteten Plan erhalten.">
+  <meta property="og:url" content="https://voltkompass.com/stromlaufplaene.html">
+  <meta property="og:image" content="https://voltkompass.com/assets/stromlaufplaene/plan-solar300-booster50-akku100-1000w.webp">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20261028-2">
+  <link rel="stylesheet" href="blog.css?v=20260730-1">
+  <link rel="stylesheet" href="theme.css?v=20261030-1" />
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png">
+  <link rel="alternate icon" href="/favicon.ico" sizes="any">
+
+  <style>
+    /* Stromlaufplan-Auswahl: nur auf dieser Seite */
+    .slp-hero p.blog-lead{max-width:62ch}
+    .slp-config{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(20px,3vw,40px);align-items:start}
+    .slp-panel{padding:clamp(18px,2.4vw,28px);border-radius:20px;border:1px solid var(--line-2);background:linear-gradient(180deg,var(--ink-2),var(--ink-3))}
+    .slp-group{margin:0 0 26px}
+    .slp-group:last-of-type{margin-bottom:8px}
+    .slp-head{display:flex;align-items:center;gap:10px;margin:0 0 4px}
+    .slp-head label{font-family:var(--font);font-weight:600;color:#fff;font-size:1.02rem}
+    .slp-head .n{display:inline-grid;place-items:center;flex:0 0 24px;height:24px;border-radius:50%;background:rgba(230,178,0,.15);color:var(--gold);font:600 .8rem/1 var(--font)}
+    .slp-val{margin-left:auto;text-align:right;font:700 1.35rem/1 var(--font);color:var(--gold);white-space:nowrap}
+    .slp-val small{display:block;margin-top:3px;font:500 .74rem/1.2 Inter,sans-serif;color:var(--text-2)}
+    /* Schieberegler */
+    .slp-range{--p:0%;width:100%;height:34px;margin:6px 0 0;background:transparent;-webkit-appearance:none;appearance:none;cursor:pointer}
+    .slp-range:disabled{cursor:default}
+    .slp-range::-webkit-slider-runnable-track{height:8px;border-radius:99px;background:linear-gradient(90deg,var(--gold) var(--p),rgba(255,255,255,.12) var(--p))}
+    .slp-range::-moz-range-track{height:8px;border-radius:99px;background:rgba(255,255,255,.12)}
+    .slp-range::-moz-range-progress{height:8px;border-radius:99px;background:var(--gold)}
+    .slp-range::-webkit-slider-thumb{-webkit-appearance:none;width:26px;height:26px;margin-top:-9px;border-radius:50%;background:#fff;border:4px solid var(--gold);box-shadow:0 2px 10px rgba(0,0,0,.45);transition:transform .15s}
+    .slp-range::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:#fff;border:4px solid var(--gold);box-shadow:0 2px 10px rgba(0,0,0,.45)}
+    .slp-range:active::-webkit-slider-thumb{transform:scale(1.15)}
+    .slp-range:disabled::-webkit-slider-thumb{border-color:#7a828f}
+    .slp-range:disabled::-webkit-slider-runnable-track{background:rgba(255,255,255,.12)}
+    .slp-ticks{position:relative;height:20px;margin:0 13px}
+    .slp-ticks span{position:absolute;top:0;transform:translateX(-50%);font-size:.76rem;color:var(--text-2);white-space:nowrap;cursor:pointer}
+    .slp-ticks span.is-off{opacity:.35;text-decoration:line-through}
+    .slp-ticks span.is-on{color:var(--gold);font-weight:600}
+    .slp-ticks.dicht span:not(.is-on):not(.rand){font-size:0}
+    .slp-ticks.dicht span:not(.is-on):not(.rand)::after{content:"";display:block;width:2px;height:7px;margin-top:2px;border-radius:2px;background:currentColor}
+    .slp-more{margin:2px 0 0;font-size:.78rem !important;color:var(--text-2) !important;opacity:.8}
+    .slp-note{min-height:1.4em;margin:6px 0 0;font-size:.86rem !important;color:var(--gold) !important}
+    .slp-result{position:sticky;top:96px}
+    .slp-result figure{margin:0 0 16px;border-radius:14px;overflow:hidden;border:1px solid var(--line-2);background:#fff;aspect-ratio:2/1}
+    .slp-result figure img{display:block;width:100%;height:100%;object-fit:cover;transition:opacity .25s}
+    .slp-result h2{margin:2px 0 6px;font-size:clamp(1.25rem,2vw,1.6rem)}
+    .slp-tags{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+    .slp-tags span{padding:4px 10px;border-radius:999px;border:1px solid var(--line-2);font-size:.8rem;color:var(--text-2)}
+    .slp-list{margin:0 0 16px;padding:0;list-style:none;display:grid;gap:6px}
+    .slp-list li{display:flex;gap:10px;font-size:.95rem !important;line-height:1.45 !important}
+    .slp-list li::before{content:"";flex:0 0 18px;height:18px;margin-top:2px;border-radius:50%;background:rgba(230,178,0,.15) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M5 12.5l4.2 4.2L19 7' fill='none' stroke='%23e6b200' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/12px no-repeat}
+    .slp-buy{display:flex;flex-wrap:wrap;align-items:center;gap:12px 18px;padding-top:14px;border-top:1px solid var(--line-2)}
+    .slp-price{font:700 1.5rem/1 var(--font);color:#fff}
+    .slp-price small{display:block;margin-top:4px;font:500 .75rem/1.2 Inter,sans-serif;color:var(--text-2)}
+    .slp-buy .btn{margin-left:auto}
+    .slp-buy .btn[aria-disabled="true"]{pointer-events:none;opacity:.5;filter:grayscale(.4)}
+    .slp-empty{padding:30px 10px;text-align:center}
+    .slp-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+    .slp-card{display:flex;flex-direction:column;gap:8px;padding:14px;border-radius:16px;border:1px solid var(--line-2);background:linear-gradient(180deg,var(--ink-2),var(--ink-3));color:inherit;text-align:left;cursor:pointer;font:inherit;transition:border-color .18s,transform .18s}
+    .slp-card:hover{border-color:rgba(230,178,0,.55);transform:translateY(-2px)}
+    .slp-card.is-active{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset}
+    .slp-card img{width:100%;height:auto;aspect-ratio:2/1;object-fit:cover;border-radius:10px;background:#fff}
+    .slp-card h3{margin:0;font-size:1rem;color:#fff;line-height:1.35}
+    .slp-card span{font-size:.82rem;color:var(--text-2)}
+    .slp-incl{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
+    .slp-incl div{padding:18px;border-radius:16px;border:1px solid var(--line-2);background:rgba(255,255,255,.02)}
+    .slp-incl h3{margin:0 0 6px;font-size:1.02rem}
+    .slp-incl p{margin:0;font-size:.93rem !important}
+    @media (max-width:900px){.slp-config{grid-template-columns:1fr}.slp-result{position:static}}
+    @media (max-width:520px){.slp-buy .btn{margin-left:0;width:100%;text-align:center}}
+  </style>
+</head>
+<body class="blog-page">
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a href="index.html#top" class="brand"><img class="brand-mark" src="compass.svg" alt="" width="28" height="28" /><span><span class="v">Volt</span><span class="k">Kompass</span></span></a>
+    <ul>
+      <li><a href="index.html#fachbereiche">Fachbereiche</a></li>
+      <li><a href="index.html#solaranlage-beratung">Solaranlage</a></li>
+      <li><a href="index.html#preise">Preise</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="stromlaufplaene.html" aria-current="page">Stromlaufpläne</a></li>
+      <li><a href="produkte.html">Produkte</a></li>
+      <li><a href="index.html#ueber">Über mich</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="stromlaufplaene.html" class="nav-blog-mobile">Pläne</a>
+      <a href="blog.html" class="nav-blog-mobile">Blog</a>
+      <a href="index.html#kontakt" class="cta">Beratung buchen →</a>
+    </div>
+  </div>
+</header>
+
+  <main>
+    <article>
+      <section class="blog-hero slp-hero">
+        <div class="wrap">
+          <nav class="blog-breadcrumb" aria-label="Breadcrumb">
+            <a href="index.html#top">Startseite</a><span>/</span><span>Stromlaufpläne</span>
+          </nav>
+          <span class="eyebrow">Fertig verdrahtet · PDF zum Ausdrucken</span>
+          <h1>Stromlaufpläne für dein Wohnmobil</h1>
+          <p class="blog-lead">Wähle aus, was in dein Fahrzeug soll: Solarleistung, Ladebooster, Akku und Wechselrichter. Du bekommst den passenden Plan mit allen Leitungen, Querschnitten, Sicherungen, einer verlinkten Materialliste und den Einstellungen für die Geräte.</p>
+        </div>
+      </section>
+
+      <section class="blog-section" id="auswahl" style="padding-top:8px">
+        <div class="wrap slp-config">
+          <form class="slp-panel" id="slpForm" aria-label="Plan auswählen" onsubmit="return false">
+            <div class="slp-group" data-key="solar" data-n="1" data-name="Solarleistung"></div>
+            <div class="slp-group" data-key="booster" data-n="2" data-name="Ladebooster"></div>
+            <div class="slp-group" data-key="akku" data-n="3" data-name="Akku (LiFePO4)"></div>
+            <div class="slp-group" data-key="inverter" data-n="4" data-name="Spannungswandler (230 V)"></div>
+            <p class="slp-note" id="slpNote" aria-live="polite"></p>
+          </form>
+
+          <div class="slp-panel slp-result" id="slpResult" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-alt" id="alle">
+        <div class="wrap">
+          <p class="blog-eyebrow" id="slpCount"></p>
+          <h2>Alle verfügbaren Pläne</h2>
+          <p style="max-width:60ch">Ein Klick auf einen Plan übernimmt die Auswahl oben.</p>
+          <div class="slp-grid" id="slpGrid"></div>
+        </div>
+      </section>
+
+      <section class="blog-section" id="inhalt">
+        <div class="wrap">
+          <p class="blog-eyebrow">Das steckt in jedem Plan</p>
+          <h2>Mehr als eine Zeichnung</h2>
+          <div class="slp-incl">
+            <div><h3>Gesamtplan</h3><p>Alle Geräte mit echten Anschlussklemmen, rote und schwarze Leitungen, Querschnitt an jeder Leitung und jede Sicherung mit Wert.</p></div>
+            <div><h3>Teilpläne</h3><p>Solar, Ladebooster, Batterie und 230 V einzeln, damit du Schritt für Schritt verkabeln kannst.</p></div>
+            <div><h3>Materialliste</h3><p>Jedes Teil mit Anzahl und Länge, direkt verlinkt. Kabel, Kabelschuhe und Sicherungen passend zum Plan.</p></div>
+            <div><h3>Geräte-Einstellungen</h3><p>Die Parameter für Laderegler und Ladebooster passend zum LiFePO4-Akku.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="blog-section blog-section-final">
+        <div class="blog-wrap">
+          <p class="blog-eyebrow">Deine Kombination ist nicht dabei?</p>
+          <h2>Ich plane dein System individuell</h2>
+          <p>Andere Akkugröße, mehr Solar oder ein größerer Wechselrichter: Dann plane ich die Anlage für dein Fahrzeug mit dir zusammen.</p>
+          <div class="blog-actions">
+            <a href="index.html#kontakt" class="btn btn-primary">Beratung buchen</a>
+          </div>
+          <p class="blog-disclaimer"><strong>Sicherheitshinweis:</strong> Die Pläne sind Beispielpläne nach bestem Wissen und ersetzen keine Fachberatung. Herstellerangaben haben Vorrang. Lass die Anlage vor der Inbetriebnahme von einer Elektrofachkraft prüfen. Die PDFs sind nur für die private Nutzung bestimmt.</p>
+        </div>
+      </section>
+    </article>
+  </main>
+
+<footer>
+  <div class="wrap foot">
+    <div class="foot-brand">
+      <a href="index.html#top" class="brand"><img class="brand-mark" src="compass.svg" alt="" width="28" height="28" /><span><span class="v">Volt</span><span class="k">Kompass</span></span></a>
+      <p>© 2026 VoltKompass — Wohnmobil-Beratung für Strom &amp; Autarkie</p>
+    </div>
+    <nav>
+      <a href="index.html#top">Startseite</a>
+      <a href="blog.html">Blog</a>
+      <a href="stromlaufplaene.html">Stromlaufpläne</a>
+      <a href="produkte.html">Produkte</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+      <a href="index.html#kontakt">Kontakt</a>
+      <button type="button" class="cookie-settings-link" data-cookie-settings>Cookie-Einstellungen</button>
+    </nav>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   PLÄNE – hier pflegen.
+   Nur Pläne in dieser Liste erscheinen auf der Seite.
+   digistore: Kauf-Link von Digistore24 (leer = "bald verfügbar")
+   preis:     z. B. "19,90 €" (leer = "Preis folgt")
+   ============================================================ */
+let PLAENE = [
+  {solar:100, booster:30, akku:100, inverter:0,    regler:"MPPT 75/10",  seiten:6, preis:"", digistore:""},
+  {solar:100, booster:30, akku:100, inverter:1000, regler:"MPPT 75/10",  seiten:7, preis:"", digistore:""},
+  {solar:100, booster:50, akku:100, inverter:1000, regler:"MPPT 75/10",  seiten:7, preis:"", digistore:""},
+  {solar:200, booster:30, akku:100, inverter:0,    regler:"MPPT 75/15",  seiten:6, preis:"", digistore:""},
+  {solar:200, booster:30, akku:100, inverter:1000, regler:"MPPT 75/15",  seiten:7, preis:"", digistore:""},
+  {solar:200, booster:50, akku:100, inverter:1000, regler:"MPPT 75/15",  seiten:7, preis:"", digistore:""},
+  {solar:300, booster:30, akku:100, inverter:0,    regler:"MPPT 100/20", seiten:6, preis:"", digistore:""},
+  {solar:300, booster:30, akku:100, inverter:1000, regler:"MPPT 100/20", seiten:7, preis:"", digistore:""},
+  {solar:300, booster:50, akku:100, inverter:1000, regler:"MPPT 100/20", seiten:7, preis:"", digistore:""},
+];
+
+const KEYS = ["solar","booster","akku","inverter"];
+const NAME = {solar:"Solarleistung", booster:"Ladebooster", akku:"Akku", inverter:"Spannungswandler"};
+const LABEL = {
+  solar: v => v + " W",
+  booster: v => v + " A",
+  akku: v => v + " Ah",
+  inverter: v => v ? v + " W" : "ohne",
+};
+const SUB = {
+  solar: () => "Modulleistung gesamt",
+  booster: () => "Ladestrom während der Fahrt",
+  akku: () => "12,8 V LiFePO4",
+  inverter: v => v ? "Sinus, 230 V mit FI/LS" : "nur 12 V",
+};
+const slug = p => `plan-solar${p.solar}-booster${p.booster}-akku${p.akku}${p.inverter ? "-" + p.inverter + "w" : ""}`;
+const bild = p => `assets/stromlaufplaene/${slug(p)}.webp`;
+const titel = p => `Solar ${p.solar} W · Ladebooster ${p.booster} A · Akku ${p.akku} Ah` + (p.inverter ? ` · Wechselrichter ${p.inverter} W` : "");
+
+const werte = k => [...new Set(PLAENE.map(p => p[k]))].sort((a, b) => a - b);
+const passt = sel => PLAENE.find(p => KEYS.every(k => p[k] === sel[k]));
+let auswahl;
+
+// Gibt es die Kombination nicht: den ähnlichsten Plan mit dem neuen Wert nehmen
+// (möglichst viele gleiche Werte, sonst die nächstgelegenen auf den Reglern)
+function waehle(key, wert) {
+  const neu = {...auswahl, [key]: wert};
+  if (passt(neu)) { auswahl = neu; return ""; }
+  const abstand = p => KEYS.reduce((s, k) => {
+    const w = werte(k); return s + Math.abs(w.indexOf(p[k]) - w.indexOf(auswahl[k])) / Math.max(1, w.length - 1);
+  }, 0);
+  const best = PLAENE.filter(p => p[key] === wert)
+    .sort((a, b) => KEYS.filter(k => b[k] === auswahl[k]).length - KEYS.filter(k => a[k] === auswahl[k]).length || abstand(a) - abstand(b))[0];
+  const geaendert = KEYS.filter(k => k !== key && best[k] !== auswahl[k]).map(k => NAME[k] + " → " + LABEL[k](best[k]));
+  auswahl = KEYS.reduce((o, k) => (o[k] = best[k], o), {});
+  return "Angepasst, damit es einen Plan gibt: " + geaendert.join(", ");
+}
+
+// Schieberegler einmal aufbauen (pro Gruppe ein Regler über alle vorhandenen Werte)
+function baueRegler() {
+  for (const g of document.querySelectorAll(".slp-group")) {
+    const k = g.dataset.key, w = werte(k), id = "slp-" + k;
+    const pos = i => w.length > 1 ? (i / (w.length - 1) * 100) + "%" : "0%";
+    g.innerHTML = `
+      <div class="slp-head"><span class="n">${g.dataset.n}</span><label for="${id}">${g.dataset.name}</label>
+        <output class="slp-val" for="${id}"></output></div>
+      <input type="range" class="slp-range" id="${id}" min="0" max="${Math.max(0, w.length - 1)}" step="1" ${w.length < 2 ? "disabled" : ""}>
+      <div class="slp-ticks${w.length > 6 ? " dicht" : ""}">${w.map((v, i) =>
+        `<span data-i="${i}" class="${i === 0 || i === w.length - 1 ? "rand" : ""}" style="left:${pos(i)}">${LABEL[k](v)}</span>`).join("")}</div>
+      ${w.length < 2 ? '<p class="slp-more">Weitere Größen folgen.</p>' : ""}`;
+    const r = g.querySelector("input");
+    r.addEventListener("input", () => zeichne(waehle(k, w[+r.value])));
+    g.querySelector(".slp-ticks").addEventListener("click", e => {
+      const t = e.target.closest("span"); if (!t || r.disabled) return;
+      zeichne(waehle(k, w[+t.dataset.i]));
+    });
+  }
+}
+
+function zeichne(hinweis = "") {
+  for (const g of document.querySelectorAll(".slp-group")) {
+    const k = g.dataset.key, w = werte(k), i = w.indexOf(auswahl[k]);
+    const r = g.querySelector("input");
+    r.value = i;
+    r.style.setProperty("--p", w.length > 1 ? (i / (w.length - 1) * 100) + "%" : "0%");
+    r.setAttribute("aria-valuetext", LABEL[k](auswahl[k]));
+    g.querySelector(".slp-val").innerHTML = `${LABEL[k](auswahl[k])}<small>${SUB[k](auswahl[k])}</small>`;
+    g.querySelectorAll(".slp-ticks span").forEach(t => {
+      const v = w[+t.dataset.i];
+      t.classList.toggle("is-on", v === auswahl[k]);
+      t.classList.toggle("is-off", v !== auswahl[k] && !passt({...auswahl, [k]: v}));
+    });
+  }
+  document.getElementById("slpNote").textContent = hinweis;
+
+  const p = passt(auswahl), r = document.getElementById("slpResult");
+  if (!p) { r.innerHTML = `<div class="slp-empty"><h2>Kein Plan für diese Auswahl</h2><p>Für diese Kombination gibt es noch keinen fertigen Plan.</p></div>`; return; }
+  const kaufbar = !!p.digistore;
+  r.innerHTML = `
+    <figure><img src="${bild(p)}" width="1200" height="600" alt="Vorschau Stromlaufplan ${titel(p)}"></figure>
+    <p class="blog-eyebrow" style="margin:0">Dein passender Plan</p>
+    <h2>${titel(p)}</h2>
+    <div class="slp-tags"><span>PDF · ${p.seiten} Seiten</span><span>Laderegler ${p.regler}</span><span>12 V</span></div>
+    <ul class="slp-list">
+      <li>Gesamtplan mit allen Querschnitten und Sicherungen</li>
+      <li>Teilpläne zum schrittweisen Verkabeln</li>
+      <li>Materialliste mit Links zu jedem Teil</li>
+      <li>Einstellungen für Laderegler und Ladebooster</li>
+      ${p.inverter ? "<li>230-V-Seite mit FI/LS und Landstrom</li>" : ""}
+    </ul>
+    <div class="slp-buy">
+      <div class="slp-price">${p.preis || "Preis folgt"}<small>${kaufbar ? "Sofort-Download über Digistore24" : "Bald verfügbar"}</small></div>
+      <a class="btn btn-primary" href="${kaufbar ? p.digistore : "#"}" ${kaufbar ? 'target="_blank" rel="noopener"' : 'aria-disabled="true" tabindex="-1"'}>Plan kaufen →</a>
+    </div>`;
+
+  document.getElementById("slpGrid").querySelectorAll(".slp-card")
+    .forEach(c => c.classList.toggle("is-active", c.dataset.slug === slug(p)));
+}
+
+// Übersicht aller Pläne
+function baueUebersicht() {
+  document.getElementById("slpCount").textContent = PLAENE.length + " Pläne";
+  document.getElementById("slpGrid").innerHTML = PLAENE.map(p => `
+    <button type="button" class="slp-card" data-slug="${slug(p)}">
+      <img src="${bild(p)}" width="1200" height="600" alt="" loading="lazy">
+      <h3>${titel(p)}</h3>
+      <span>${p.preis || "Preis folgt"} · ${p.seiten} Seiten</span>
+    </button>`).join("");
+}
+document.getElementById("slpGrid").addEventListener("click", e => {
+  const c = e.target.closest(".slp-card"); if (!c) return;
+  const p = PLAENE.find(x => slug(x) === c.dataset.slug);
+  auswahl = KEYS.reduce((o, k) => (o[k] = p[k], o), {});
+  zeichne();
+  document.getElementById("auswahl").scrollIntoView({behavior: "smooth"});
+});
+
+function start() {
+  auswahl = KEYS.reduce((o, k) => (o[k] = PLAENE[0][k], o), {});
+  baueRegler(); baueUebersicht(); zeichne();
+}
+start();
+</script>
+  <script src="cookie-consent.js"></script>
+<script src="site.js"></script>
+</body>
+</html>
