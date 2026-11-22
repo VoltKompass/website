@@ -73,6 +73,7 @@ p{margin:0}
   font-size:13px;
   font-weight:600;
 }
+.nav-blog-mobile[href$="stromlaufplaene.html"]{border:2px solid var(--gold);box-shadow:0 8px 24px -10px rgba(230,178,0,.7)}
 .lang-switch{
   display:none;align-items:center;gap:2px;
   margin-right:16px;
