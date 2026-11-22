@@ -231,6 +231,7 @@ const VORSCHAU = {
 };
 PLAENE.forEach(p => p.vorschau ||= VORSCHAU[p.seiten]);
 
+const LADER = 20; // Ladestrom des Wechselrichters (Ective 1000 W) am Landstrom, in A
 const KEYS = ["solar","booster","akku","inverter"];
 const NAME = {solar:"Solarleistung", booster:"Ladebooster", akku:"Akku", inverter:"Spannungswandler"};
 const LABEL = {
@@ -243,11 +244,11 @@ const SUB = {
   solar: () => "Modulleistung gesamt",
   booster: () => "Ladestrom während der Fahrt",
   akku: () => "12,8 V LiFePO4",
-  inverter: v => v ? "Sinus, 230 V mit FI/LS" : "nur 12 V",
+  inverter: v => v ? `Sinus 230 V · ${LADER} A Ladegerät` : "nur 12 V",
 };
 const slug = p => `plan-solar${p.solar}-booster${p.booster}-akku${p.akku}${p.inverter ? "-" + p.inverter + "w" : ""}`;
 const bild = p => `assets/stromlaufplaene/${slug(p)}.webp`;
-const titel = p => `Solar ${p.solar} W · Ladebooster ${p.booster} A · Akku ${p.akku} Ah` + (p.inverter ? ` · Wechselrichter ${p.inverter} W` : "");
+const titel = p => `Solar ${p.solar} W · Ladebooster ${p.booster} A · Akku ${p.akku} Ah` + (p.inverter ? ` · Wechselrichter ${p.inverter} W mit ${LADER} A Ladegerät` : "");
 
 const werte = k => [...new Set(PLAENE.map(p => p[k]))].sort((a, b) => a - b);
 const passt = sel => PLAENE.find(p => KEYS.every(k => p[k] === sel[k]));
@@ -312,13 +313,13 @@ function zeichne(hinweis = "") {
     ${p.vorschau ? karussellHtml(p) : `<figure><img src="${bild(p)}" width="1200" height="600" alt="Vorschau Stromlaufplan ${titel(p)}"></figure>`}
     <p class="blog-eyebrow" style="margin:0">Dein passender Plan</p>
     <h2>${titel(p)}</h2>
-    <div class="slp-tags"><span>PDF · ${p.seiten} Seiten</span><span>Laderegler ${p.regler}</span><span>12 V</span></div>
+    <div class="slp-tags"><span>PDF · ${p.seiten} Seiten</span><span>Laderegler ${p.regler}</span>${p.inverter ? `<span>${LADER} A Landstrom-Ladegerät</span>` : ""}<span>12 V</span></div>
     <ul class="slp-list">
       <li>Gesamtplan mit allen Querschnitten und Sicherungen</li>
       <li>Teilpläne zum schrittweisen Verkabeln</li>
       <li>Materialliste mit Links zu jedem Teil</li>
       <li>Einstellungen für Laderegler und Ladebooster</li>
-      ${p.inverter ? "<li>230-V-Seite mit FI/LS und Landstrom</li>" : ""}
+      ${p.inverter ? `<li>230-V-Seite mit FI/LS und Landstrom</li><li>Wechselrichter mit eingebautem ${LADER}-A-Ladegerät: lädt den Akku am Landstrom</li>` : ""}
     </ul>
     <div class="slp-buy">
       <div class="slp-price">${p.preis || "Preis folgt"}<small>${kaufbar ? "Sofort-Download über Digistore24" : "Bald verfügbar"}</small></div>
