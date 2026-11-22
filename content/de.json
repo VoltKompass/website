@@ -22,12 +22,12 @@
         "href": "blog.html"
       },
       {
-        "text": "Stromlaufpläne",
-        "href": "stromlaufplaene.html"
-      },
-      {
         "text": "Über mich",
         "href": "#ueber"
+      },
+      {
+        "text": "Stromlaufpläne",
+        "href": "stromlaufplaene.html"
       }
     ],
     "cta": "Beratung buchen →"

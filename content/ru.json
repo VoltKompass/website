@@ -22,12 +22,12 @@
         "href": "blog.html"
       },
       {
-        "text": "Схемы",
-        "href": "stromlaufplaene.html"
-      },
-      {
         "text": "Обо мне",
         "href": "#ueber"
+      },
+      {
+        "text": "Схемы",
+        "href": "stromlaufplaene.html"
       }
     ],
     "cta": "Записаться на консультацию →"

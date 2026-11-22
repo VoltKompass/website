@@ -76,6 +76,10 @@ body::before{
 .nav ul a:hover::after,.nav ul a[aria-current="page"]::after{transform:scaleX(1)}
 .nav ul a[aria-current="page"]{color:var(--text)}
 .nav .cta{box-shadow:0 8px 24px -10px rgba(230,178,0,.7)}
+.nav ul{align-items:center}
+.nav ul .nav-plaene a{display:inline-flex;align-items:center;padding:7px 14px;border:2px solid var(--gold);border-radius:999px;color:var(--text);font-weight:600;box-shadow:0 8px 24px -10px rgba(230,178,0,.7)}
+.nav ul .nav-plaene a::after{display:none}
+.nav ul .nav-plaene a:hover{background:rgba(230,178,0,.12)}
 @media (max-width:480px){
   .nav .brand-mark{display:none}
   .nav .cta{white-space:nowrap}
@@ -107,6 +111,13 @@ body::before{
   .nav ul a{font-size:13px}
   .nav .brand{font-size:19px}
   .nav .cta{padding:9px 14px;font-size:13px}
+  .nav ul .nav-plaene a{padding:5px 10px}
+  .nav-actions{margin-left:10px}
+}
+@media (max-width:960px) and (min-width:861px){
+  .nav ul{gap:10px}
+  .nav ul a{font-size:12.5px}
+  .nav .brand-mark{display:none}
 }
 /* Lesefortschritt (Blogbeiträge) */
 .read-progress{

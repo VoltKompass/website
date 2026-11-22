@@ -222,8 +222,8 @@
       <li><a href="#ablauf">Ablauf</a></li>
       <li><a href="#preise">Preise</a></li>
       <li><a href="blog.html">Blog</a></li>
-      <li><a href="stromlaufplaene.html">Stromlaufpläne</a></li>
       <li><a href="#ueber">Über mich</a></li>
+      <li class="nav-plaene"><a href="stromlaufplaene.html">Stromlaufpläne</a></li>
     </ul>
     <div class="nav-actions">
       <a href="blog.html" class="nav-blog-mobile">Blog</a>
@@ -579,7 +579,7 @@
 
     // Nav
     const navUl = document.getElementById('navLinks');
-    navUl.innerHTML = d.nav.links.map(l => `<li><a href="${l.href}">${l.text}</a></li>`).join('');
+    navUl.innerHTML = d.nav.links.map(l => `<li${l.href === 'stromlaufplaene.html' ? ' class="nav-plaene"' : ''}><a href="${l.href}">${l.text}</a></li>`).join('');
     document.getElementById('navCta').textContent = d.nav.cta;
 
     // Hero
