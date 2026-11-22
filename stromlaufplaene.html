@@ -247,7 +247,9 @@ const SUB = {
   inverter: v => v ? `Sinus 230 V · ${LADER} A Ladegerät` : "nur 12 V",
 };
 const slug = p => `plan-solar${p.solar}-booster${p.booster}-akku${p.akku}${p.inverter ? "-" + p.inverter + "w" : ""}`;
-const bild = p => `assets/stromlaufplaene/${slug(p)}.webp`;
+// Bilder unter /assets/ sind ein Jahr im Browser gespeichert: nach neuen Vorschaubildern BILD_V erhöhen
+const BILD_V = "2";
+const bild = p => `assets/stromlaufplaene/${slug(p)}.webp?v=${BILD_V}`;
 const titel = p => `Solar ${p.solar} W · Ladebooster ${p.booster} A · Akku ${p.akku} Ah` + (p.inverter ? ` · Wechselrichter ${p.inverter} W mit ${LADER} A Ladegerät` : "");
 
 const werte = k => [...new Set(PLAENE.map(p => p[k]))].sort((a, b) => a - b);
@@ -337,7 +339,7 @@ function karussellHtml(p) {
   const n = p.vorschau.length;
   return `<figure class="slp-3d" aria-roledescription="Karussell" aria-label="Vorschau aller Seiten">
     <div class="slp-stage">${p.vorschau.map(([s, name], i) =>
-      `<div class="slp-slide" data-i="${i}"><img src="assets/stromlaufplaene/${slug(p)}/${s}.webp" width="1200" height="600" alt="Vorschau ${name}" ${i > 1 ? 'loading="lazy"' : ""}></div>`).join("")}</div>
+      `<div class="slp-slide" data-i="${i}"><img src="assets/stromlaufplaene/${slug(p)}/${s}.webp?v=${BILD_V}" width="1200" height="600" alt="Vorschau ${name}" ${i > 1 ? 'loading="lazy"' : ""}></div>`).join("")}</div>
     <div class="slp-3d-bar"><div class="mitte"><b></b><br><small></small></div></div>
     <div class="slp-dots" aria-hidden="true">${p.vorschau.map(() => "<span></span>").join("")}</div>
   </figure>`;
