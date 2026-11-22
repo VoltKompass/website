@@ -88,18 +88,16 @@
     .slp-result figure.slp-3d{overflow:hidden;border:0;background:none;aspect-ratio:auto;margin:0 0 18px}
     .slp-stage{position:relative;aspect-ratio:2/.88;perspective:1400px;touch-action:pan-y;user-select:none}
     .slp-slide{position:absolute;left:12%;top:4%;width:76%;aspect-ratio:2/1;border-radius:12px;overflow:hidden;background:#fff;border:1px solid var(--line-2);
-      box-shadow:0 18px 40px -18px rgba(0,0,0,.8);transition:transform .6s cubic-bezier(.2,.7,.2,1),opacity .6s,filter .6s;cursor:pointer;will-change:transform}
+      box-shadow:0 18px 40px -18px rgba(0,0,0,.8);transition:transform .6s cubic-bezier(.2,.7,.2,1),opacity .6s,filter .6s;will-change:transform}
     .slp-slide img{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none}
-    .slp-slide.is-on{cursor:default;box-shadow:0 26px 60px -20px rgba(0,0,0,.9),0 0 0 2px var(--gold)}
+    .slp-slide.is-on{box-shadow:0 26px 60px -20px rgba(0,0,0,.9),0 0 0 2px var(--gold)}
     .slp-3d-bar{display:flex;align-items:center;gap:12px;margin-top:6px}
     .slp-3d-bar b{font:600 .95rem/1.2 var(--font);color:#fff}
     .slp-3d-bar small{color:var(--text-2);font-size:.8rem}
-    .slp-3d-btn{flex:0 0 38px;height:38px;border-radius:50%;border:1px solid var(--line-2);background:rgba(255,255,255,.04);color:var(--gold);font-size:18px;cursor:pointer;transition:border-color .2s,background .2s}
-    .slp-3d-btn:hover{border-color:var(--gold);background:rgba(230,178,0,.1)}
     .slp-3d-bar .mitte{flex:1;text-align:center}
     .slp-dots{display:flex;justify-content:center;gap:6px;margin-top:6px}
-    .slp-dots button{width:8px;height:8px;padding:0;border-radius:99px;border:0;background:rgba(255,255,255,.2);cursor:pointer;transition:width .3s,background .3s}
-    .slp-dots button.is-on{width:22px;background:var(--gold)}
+    .slp-dots span{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.2);transition:width .3s,background .3s}
+    .slp-dots span.is-on{width:22px;background:var(--gold)}
     @media (prefers-reduced-motion:reduce){.slp-slide{transition:none}}
     @media (max-width:900px){.slp-config{grid-template-columns:1fr}.slp-result{position:static}}
     @media (max-width:520px){.slp-buy .btn{margin-left:0;width:100%;text-align:center}}
@@ -215,8 +213,7 @@
    preis:     z. B. "19,90 €" (leer = "Preis folgt")
    ============================================================ */
 let PLAENE = [
-  {solar:100, booster:30, akku:100, inverter:0,    regler:"MPPT 75/10",  seiten:6, preis:"15 €", digistore:"https://www.checkout-ds24.com/product/770782",
-   vorschau:[[2,"Gesamtplan"],[3,"Teilplan Batterie"],[4,"Teilplan Ladebooster"],[5,"Teilplan Solar"],[6,"Materialliste"],[1,"Hinweise"]]},
+  {solar:100, booster:30, akku:100, inverter:0,    regler:"MPPT 75/10",  seiten:6, preis:"15 €", digistore:"https://www.checkout-ds24.com/product/770782"},
   {solar:100, booster:30, akku:100, inverter:1000, regler:"MPPT 75/10",  seiten:7, preis:"17 €", digistore:"https://www.checkout-ds24.com/product/770921"},
   {solar:100, booster:50, akku:100, inverter:1000, regler:"MPPT 75/10",  seiten:7, preis:"17 €", digistore:"https://www.checkout-ds24.com/product/770931"},
   {solar:200, booster:30, akku:100, inverter:0,    regler:"MPPT 75/15",  seiten:6, preis:"15 €", digistore:"https://www.checkout-ds24.com/product/770897"},
@@ -226,6 +223,13 @@ let PLAENE = [
   {solar:300, booster:30, akku:100, inverter:1000, regler:"MPPT 100/20", seiten:7, preis:"17 €", digistore:"https://www.checkout-ds24.com/product/770930"},
   {solar:300, booster:50, akku:100, inverter:1000, regler:"MPPT 100/20", seiten:7, preis:"17 €", digistore:"https://www.checkout-ds24.com/product/770933"},
 ];
+
+// Seiten im 3D-Karussell (Bild = PDF-Seite, Ordner assets/stromlaufplaene/<plan>/)
+const VORSCHAU = {
+  6: [[2,"Gesamtplan"],[3,"Teilplan Batterie"],[4,"Teilplan Ladebooster"],[5,"Teilplan Solar"],[6,"Materialliste"],[1,"Hinweise"]],
+  7: [[2,"Gesamtplan"],[3,"Teilplan Batterie"],[4,"Teilplan Ladebooster"],[5,"Teilplan Solar"],[6,"Teilplan 230 V"],[7,"Materialliste"],[1,"Hinweise"]],
+};
+PLAENE.forEach(p => p.vorschau ||= VORSCHAU[p.seiten]);
 
 const KEYS = ["solar","booster","akku","inverter"];
 const NAME = {solar:"Solarleistung", booster:"Ladebooster", akku:"Akku", inverter:"Spannungswandler"};
@@ -333,19 +337,15 @@ function karussellHtml(p) {
   return `<figure class="slp-3d" aria-roledescription="Karussell" aria-label="Vorschau aller Seiten">
     <div class="slp-stage">${p.vorschau.map(([s, name], i) =>
       `<div class="slp-slide" data-i="${i}"><img src="assets/stromlaufplaene/${slug(p)}/${s}.webp" width="1200" height="600" alt="Vorschau ${name}" ${i > 1 ? 'loading="lazy"' : ""}></div>`).join("")}</div>
-    <div class="slp-3d-bar">
-      <button type="button" class="slp-3d-btn" data-d="-1" aria-label="Vorherige Seite">‹</button>
-      <div class="mitte"><b></b><br><small></small></div>
-      <button type="button" class="slp-3d-btn" data-d="1" aria-label="Nächste Seite">›</button>
-    </div>
-    <div class="slp-dots">${p.vorschau.map((_, i) => `<button type="button" data-i="${i}" aria-label="Seite ${i + 1} von ${n}"></button>`).join("")}</div>
+    <div class="slp-3d-bar"><div class="mitte"><b></b><br><small></small></div></div>
+    <div class="slp-dots" aria-hidden="true">${p.vorschau.map(() => "<span></span>").join("")}</div>
   </figure>`;
 }
 
 let karussellTimer;
 function starteKarussell(fig, p) {
   clearInterval(karussellTimer);
-  const slides = [...fig.querySelectorAll(".slp-slide")], dots = [...fig.querySelectorAll(".slp-dots button")], n = slides.length;
+  const slides = [...fig.querySelectorAll(".slp-slide")], dots = [...fig.querySelectorAll(".slp-dots span")], n = slides.length;
   let akt = 0;
   const zeige = i => {
     akt = (i + n) % n;
@@ -363,25 +363,9 @@ function starteKarussell(fig, p) {
     fig.querySelector(".mitte b").textContent = p.vorschau[akt][1];
     fig.querySelector(".mitte small").textContent = `Seite ${akt + 1} von ${n}`;
   };
-  const auto = () => { clearInterval(karussellTimer); karussellTimer = setInterval(() => document.hidden || zeige(akt + 1), 4000); };
-  const geh = i => { zeige(i); auto(); };
-  let gewischt = false;
-  fig.addEventListener("click", e => {
-    if (gewischt) { gewischt = false; return; }
-    const b = e.target.closest("[data-d]"); if (b) return geh(akt + +b.dataset.d);
-    const d = e.target.closest(".slp-dots button, .slp-slide"); if (d) geh(+d.dataset.i);
-  });
-  let x0 = null;
-  const stage = fig.querySelector(".slp-stage");
-  stage.addEventListener("pointerdown", e => { x0 = e.clientX; gewischt = false; });
-  stage.addEventListener("pointerup", e => {
-    if (x0 !== null && Math.abs(e.clientX - x0) > 40) { gewischt = true; geh(akt + (e.clientX < x0 ? 1 : -1)); }
-    x0 = null;
-  });
-  fig.addEventListener("mouseenter", () => clearInterval(karussellTimer));
-  fig.addEventListener("mouseleave", auto);
+  // dreht sich von selbst weiter, ohne Bedienung
   zeige(0);
-  if (!matchMedia("(prefers-reduced-motion: reduce)").matches) auto();
+  karussellTimer = setInterval(() => document.hidden || zeige(akt + 1), 3500);
 }
 
 // Übersicht aller Pläne
