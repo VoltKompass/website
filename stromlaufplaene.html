@@ -98,7 +98,21 @@
     .slp-dots{display:flex;justify-content:center;gap:6px;margin-top:6px}
     .slp-dots span{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.2);transition:width .3s,background .3s}
     .slp-dots span.is-on{width:22px;background:var(--gold)}
-    @media (prefers-reduced-motion:reduce){.slp-slide{transition:none}}
+    /* Handy: alle Pläne auf einer senkrechten Walze zum Drehen */
+    .slp-walze-nav{display:none}
+    @media (max-width:700px){
+      .slp-grid.slp-walze{display:block;position:relative;perspective:1100px;overflow:hidden;touch-action:none;user-select:none;-webkit-user-select:none;
+        -webkit-mask-image:linear-gradient(transparent,#000 16%,#000 84%,transparent);mask-image:linear-gradient(transparent,#000 16%,#000 84%,transparent)}
+      .slp-walze .slp-card{position:absolute;left:5%;right:5%;top:50%;backface-visibility:hidden;-webkit-backface-visibility:hidden;
+        transition:transform .5s cubic-bezier(.2,.7,.2,1),opacity .5s,filter .5s;will-change:transform}
+      .slp-walze.zieht .slp-card{transition:none}
+      .slp-walze .slp-card img{pointer-events:none;-webkit-user-drag:none}
+      .slp-walze .slp-card.ist-vorn{border-color:rgba(230,178,0,.7)}
+      .slp-walze-nav{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:10px}
+      .slp-walze-nav button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);background:var(--ink-2);color:#fff;font-size:1.1rem;cursor:pointer}
+      .slp-walze-nav span{min-width:90px;text-align:center;font-size:.85rem;color:var(--text-2)}
+    }
+    @media (prefers-reduced-motion:reduce){.slp-slide,.slp-walze .slp-card{transition:none}}
     @media (max-width:900px){.slp-config{grid-template-columns:1fr}.slp-result{position:static}}
     @media (max-width:520px){.slp-buy .btn{margin-left:0;width:100%;text-align:center}}
   </style>
@@ -157,6 +171,11 @@
           <h2>Alle verfügbaren Pläne</h2>
           <p style="max-width:60ch">Ein Klick auf einen Plan übernimmt die Auswahl oben.</p>
           <div class="slp-grid" id="slpGrid"></div>
+          <div class="slp-walze-nav" id="slpWalzeNav">
+            <button type="button" data-d="-1" aria-label="Vorheriger Plan">▲</button>
+            <span>Wischen zum Drehen<br><b id="slpWalzeZahl"></b></span>
+            <button type="button" data-d="1" aria-label="Nächster Plan">▼</button>
+          </div>
         </div>
       </section>
 
@@ -342,6 +361,7 @@ function zeichne(hinweis = "") {
 
   document.getElementById("slpGrid").querySelectorAll(".slp-card")
     .forEach(c => c.classList.toggle("is-active", c.dataset.slug === slug(p)));
+  walzeZu(PLAENE.indexOf(p));
 }
 
 // 3D-Karussell: alle Seiten eines Plans, die nächste liegt schon sichtbar dahinter
@@ -391,8 +411,82 @@ function baueUebersicht() {
       <span>${p.preis || "Preis folgt"} · ${p.seiten} Seiten</span>
     </button>`).join("");
 }
+// Handy: Walze – Karten liegen auf einem Zylinder, Wischen dreht ihn (endlos im Kreis)
+const walzeMQ = matchMedia("(max-width:700px)");
+const W = {an: false, pos: 0, schritt: 24, r: 600, gezogen: false};
+const ring = i => ((Math.round(i) % PLAENE.length) + PLAENE.length) % PLAENE.length;
+function walzeZeichne() {
+  const grid = document.getElementById("slpGrid"), karten = [...grid.querySelectorAll(".slp-card")], n = karten.length;
+  if (!W.an) { karten.forEach(c => { c.style.cssText = ""; c.classList.remove("ist-vorn"); }); return; }
+  karten.forEach((c, i) => {
+    let o = i - W.pos; o -= Math.round(o / n) * n;             // kürzester Weg im Ring
+    const a = Math.abs(o);
+    c.style.transform = `translateY(-50%) translateZ(${-W.r}px) rotateX(${-o * W.schritt}deg) translateZ(${W.r}px)`;
+    c.style.opacity = a > 2.6 ? 0 : 1 - a * .22;
+    c.style.filter = a > .5 ? `brightness(${1 - Math.min(a, 2.5) * .22})` : "none";
+    c.style.zIndex = 100 - Math.round(a * 10);
+    c.style.pointerEvents = a > 2.6 ? "none" : "";
+    c.classList.toggle("ist-vorn", ring(W.pos) === i);
+  });
+  document.getElementById("slpWalzeZahl").textContent = `${ring(W.pos) + 1} / ${n}`;
+}
+function walzeZu(i) {
+  if (!W.an) return;
+  // auf dem kürzesten Weg zur Karte i drehen
+  const n = PLAENE.length; let d = i - ring(W.pos); d -= Math.round(d / n) * n;
+  W.pos = Math.round(W.pos) + d; walzeZeichne();
+}
+function walzeMessen() {
+  const grid = document.getElementById("slpGrid");
+  W.an = walzeMQ.matches; grid.classList.toggle("slp-walze", W.an);
+  if (!W.an) { grid.style.height = ""; walzeZeichne(); return; }
+  const h = Math.max(...[...grid.querySelectorAll(".slp-card")].map(c => c.offsetHeight));
+  W.r = (h / 2 + 8) / Math.tan(W.schritt / 2 * Math.PI / 180);
+  grid.style.height = Math.round(h * 1.7) + "px";
+  walzeZeichne();
+}
+function baueWalze() {
+  const grid = document.getElementById("slpGrid");
+  let y0, p0, letzt, tLetzt, v = 0, id = null;
+  const proKarte = () => grid.offsetHeight / 3.2;               // Pixel Wischweg pro Plan
+  grid.addEventListener("pointerdown", e => {
+    if (!W.an) return;
+    y0 = letzt = e.clientY; tLetzt = e.timeStamp; p0 = W.pos; v = 0; id = e.pointerId; W.gezogen = false;
+  });
+  grid.addEventListener("pointermove", e => {
+    if (!W.an || e.pointerId !== id) return;
+    if (!W.gezogen && Math.abs(e.clientY - y0) > 6) { W.gezogen = true; grid.classList.add("zieht"); grid.setPointerCapture(id); }
+    if (!W.gezogen) return;
+    const dt = Math.max(1, e.timeStamp - tLetzt);
+    v = .7 * v + .3 * (-(e.clientY - letzt) / proKarte() / dt);  // Karten pro ms
+    letzt = e.clientY; tLetzt = e.timeStamp;
+    W.pos = p0 - (e.clientY - y0) / proKarte(); walzeZeichne();
+  });
+  const los = e => {
+    if (e.pointerId !== id) return; id = null;
+    if (!W.gezogen) return;
+    W.gezogen = false; W.losZeit = performance.now();
+    grid.classList.remove("zieht");
+    W.pos = Math.round(W.pos + Math.max(-4, Math.min(4, v * 260))); walzeZeichne();   // Schwung, dann einrasten
+  };
+  grid.addEventListener("pointerup", los);
+  grid.addEventListener("pointercancel", los);
+  document.getElementById("slpWalzeNav").addEventListener("click", e => {
+    const b = e.target.closest("button"); if (!b) return;
+    W.pos = Math.round(W.pos) + +b.dataset.d; walzeZeichne();
+  });
+  walzeMQ.addEventListener("change", walzeMessen);
+  addEventListener("resize", () => W.an && walzeMessen());
+  walzeMessen();
+}
+
 document.getElementById("slpGrid").addEventListener("click", e => {
   const c = e.target.closest(".slp-card"); if (!c) return;
+  if (W.an) {
+    if (performance.now() - (W.losZeit || 0) < 350) return;      // war Wischen, kein Tippen
+    const i = [...c.parentNode.children].indexOf(c);
+    if (i !== ring(W.pos)) { walzeZu(i); return; }               // hintere Karte antippen: nach vorn drehen
+  }
   const p = PLAENE.find(x => slug(x) === c.dataset.slug);
   auswahl = KEYS.reduce((o, k) => (o[k] = p[k], o), {});
   zeichne();
@@ -404,7 +498,7 @@ function start() {
   const wunsch = new URLSearchParams(location.search).get("plan");
   const p = PLAENE.find(x => slug(x) === wunsch) || PLAENE[0];
   auswahl = KEYS.reduce((o, k) => (o[k] = p[k], o), {});
-  baueRegler(); baueUebersicht(); zeichne();
+  baueRegler(); baueUebersicht(); baueWalze(); zeichne();
   if (p !== PLAENE[0]) document.getElementById("auswahl").scrollIntoView();
 }
 start();
