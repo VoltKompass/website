@@ -215,13 +215,17 @@
 let PLAENE = [
   {solar:100, booster:30, akku:100, inverter:0,    regler:"MPPT 75/10",  seiten:6, preis:"15 €", digistore:"https://www.checkout-ds24.com/product/770782"},
   {solar:100, booster:30, akku:100, inverter:1000, regler:"MPPT 75/10",  seiten:7, preis:"17 €", digistore:"https://www.checkout-ds24.com/product/770921"},
+  {solar:100, booster:50, akku:100, inverter:0,    regler:"MPPT 75/10",  seiten:6, preis:"15 €", digistore:"https://www.checkout-ds24.com/product/771188"},
   {solar:100, booster:50, akku:100, inverter:1000, regler:"MPPT 75/10",  seiten:7, preis:"17 €", digistore:"https://www.checkout-ds24.com/product/770931"},
   {solar:200, booster:30, akku:100, inverter:0,    regler:"MPPT 75/15",  seiten:6, preis:"15 €", digistore:"https://www.checkout-ds24.com/product/770897"},
   {solar:200, booster:30, akku:100, inverter:1000, regler:"MPPT 75/15",  seiten:7, preis:"17 €", digistore:"https://www.checkout-ds24.com/product/770929"},
+  {solar:200, booster:50, akku:100, inverter:0,    regler:"MPPT 75/15",  seiten:6, preis:"15 €", digistore:"https://www.checkout-ds24.com/product/771194"},
   {solar:200, booster:50, akku:100, inverter:1000, regler:"MPPT 75/15",  seiten:7, preis:"17 €", digistore:"https://www.checkout-ds24.com/product/770932"},
   {solar:300, booster:30, akku:100, inverter:0,    regler:"MPPT 100/20", seiten:6, preis:"15 €", digistore:"https://www.checkout-ds24.com/product/770911"},
   {solar:300, booster:30, akku:100, inverter:1000, regler:"MPPT 100/20", seiten:7, preis:"17 €", digistore:"https://www.checkout-ds24.com/product/770930"},
+  {solar:300, booster:50, akku:100, inverter:0,    regler:"MPPT 100/20", seiten:6, preis:"15 €", digistore:"https://www.checkout-ds24.com/product/771195"},
   {solar:300, booster:50, akku:100, inverter:1000, regler:"MPPT 100/20", seiten:7, preis:"17 €", digistore:"https://www.checkout-ds24.com/product/770933"},
+  {solar:300, booster:50, akku:200, inverter:1500, regler:"MPPT 100/20", seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/771197"},
 ];
 
 // Seiten im 3D-Karussell (Bild = PDF-Seite, Ordner assets/stromlaufplaene/<plan>/)
@@ -231,7 +235,8 @@ const VORSCHAU = {
 };
 PLAENE.forEach(p => p.vorschau ||= VORSCHAU[p.seiten]);
 
-const LADER = 20; // Ladestrom des Wechselrichters (Ective 1000 W) am Landstrom, in A
+// Ladestrom des Wechselrichters am Landstrom, in A (Ective 1000 W: 20 A, Ective CSI 15 PRO 1500 W: 30 A)
+const LADER = {1000: 20, 1500: 30};
 const KEYS = ["solar","booster","akku","inverter"];
 const NAME = {solar:"Solarleistung", booster:"Ladebooster", akku:"Akku", inverter:"Spannungswandler"};
 const LABEL = {
@@ -244,13 +249,13 @@ const SUB = {
   solar: () => "Modulleistung gesamt",
   booster: () => "Ladestrom während der Fahrt",
   akku: () => "12,8 V LiFePO4",
-  inverter: v => v ? `Sinus 230 V · ${LADER} A Ladegerät` : "nur 12 V",
+  inverter: v => v ? `Sinus 230 V · ${LADER[v]} A Ladegerät` : "nur 12 V",
 };
 const slug = p => `plan-solar${p.solar}-booster${p.booster}-akku${p.akku}${p.inverter ? "-" + p.inverter + "w" : ""}`;
 // Bilder unter /assets/ sind ein Jahr im Browser gespeichert: nach neuen Vorschaubildern BILD_V erhöhen
 const BILD_V = "2";
 const bild = p => `assets/stromlaufplaene/${slug(p)}.webp?v=${BILD_V}`;
-const titel = p => `Solar ${p.solar} W · Ladebooster ${p.booster} A · Akku ${p.akku} Ah` + (p.inverter ? ` · Wechselrichter ${p.inverter} W mit ${LADER} A Ladegerät` : "");
+const titel = p => `Solar ${p.solar} W · Ladebooster ${p.booster} A · Akku ${p.akku} Ah` + (p.inverter ? ` · Wechselrichter ${p.inverter} W mit ${LADER[p.inverter]} A Ladegerät` : "");
 
 const werte = k => [...new Set(PLAENE.map(p => p[k]))].sort((a, b) => a - b);
 const passt = sel => PLAENE.find(p => KEYS.every(k => p[k] === sel[k]));
@@ -315,13 +320,13 @@ function zeichne(hinweis = "") {
     ${p.vorschau ? karussellHtml(p) : `<figure><img src="${bild(p)}" width="1200" height="600" alt="Vorschau Stromlaufplan ${titel(p)}"></figure>`}
     <p class="blog-eyebrow" style="margin:0">Dein passender Plan</p>
     <h2>${titel(p)}</h2>
-    <div class="slp-tags"><span>PDF · ${p.seiten} Seiten</span><span>Laderegler ${p.regler}</span>${p.inverter ? `<span>${LADER} A Landstrom-Ladegerät</span>` : ""}<span>12 V</span></div>
+    <div class="slp-tags"><span>PDF · ${p.seiten} Seiten</span><span>Laderegler ${p.regler}</span>${p.inverter ? `<span>${LADER[p.inverter]} A Landstrom-Ladegerät</span>` : ""}<span>12 V</span></div>
     <ul class="slp-list">
       <li>Gesamtplan mit allen Querschnitten und Sicherungen</li>
       <li>Teilpläne zum schrittweisen Verkabeln</li>
       <li>Materialliste mit Links zu jedem Teil</li>
       <li>Einstellungen für Laderegler und Ladebooster</li>
-      ${p.inverter ? `<li>230-V-Seite mit FI/LS und Landstrom</li><li>Wechselrichter mit eingebautem ${LADER}-A-Ladegerät: lädt den Akku am Landstrom</li>` : ""}
+      ${p.inverter ? `<li>230-V-Seite mit FI/LS und Landstrom</li><li>Wechselrichter mit eingebautem ${LADER[p.inverter]}-A-Ladegerät: lädt den Akku am Landstrom</li>` : ""}
     </ul>
     <div class="slp-buy">
       <div class="slp-price">${p.preis || "Preis folgt"}<small>${kaufbar ? "Sofort-Download über Digistore24" : "Bald verfügbar"}</small></div>
@@ -389,9 +394,13 @@ document.getElementById("slpGrid").addEventListener("click", e => {
   document.getElementById("auswahl").scrollIntoView({behavior: "smooth"});
 });
 
+// Direktlink aus Digistore24: stromlaufplaene.html?plan=<slug> wählt diesen Plan vor
 function start() {
-  auswahl = KEYS.reduce((o, k) => (o[k] = PLAENE[0][k], o), {});
+  const wunsch = new URLSearchParams(location.search).get("plan");
+  const p = PLAENE.find(x => slug(x) === wunsch) || PLAENE[0];
+  auswahl = KEYS.reduce((o, k) => (o[k] = p[k], o), {});
   baueRegler(); baueUebersicht(); zeichne();
+  if (p !== PLAENE[0]) document.getElementById("auswahl").scrollIntoView();
 }
 start();
 </script>
