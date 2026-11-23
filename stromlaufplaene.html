@@ -270,6 +270,12 @@ let PLAENE = [
   {solar:300, booster:30, akku:200, inverter:0,    regler:"MPPT 100/20", seiten:6, preis:"15 €", digistore:"https://www.checkout-ds24.com/product/771749"},
   {solar:300, booster:30, akku:200, inverter:1000, regler:"MPPT 100/20", seiten:7, preis:"17 €", digistore:"https://www.checkout-ds24.com/product/771751"},
   {solar:300, booster:30, akku:200, inverter:1500, regler:"MPPT 100/20", seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/771752"},
+  {solar:100, booster:30, akku:200, inverter:2000, regler:"MPPT 75/10",  seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/771949"},
+  {solar:100, booster:50, akku:200, inverter:2000, regler:"MPPT 75/10",  seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/771950"},
+  {solar:200, booster:30, akku:200, inverter:2000, regler:"MPPT 75/15",  seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/771951"},
+  {solar:200, booster:50, akku:200, inverter:2000, regler:"MPPT 75/15",  seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/771952"},
+  {solar:300, booster:30, akku:200, inverter:2000, regler:"MPPT 100/20", seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/771954"},
+  {solar:300, booster:50, akku:200, inverter:2000, regler:"MPPT 100/20", seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/771948"},
 ];
 
 // Rabatt-Aktion: Streichpreis + Aktionspreis bis zum Ende-Zeitpunkt, danach automatisch wieder Normalpreis.
@@ -289,8 +295,8 @@ const VORSCHAU = {
 };
 PLAENE.forEach(p => p.vorschau ||= VORSCHAU[p.seiten]);
 
-// Ladestrom des Wechselrichters am Landstrom, in A (Ective 1000 W: 20 A, Ective CSI 15 PRO 1500 W: 30 A)
-const LADER = {1000: 20, 1500: 30};
+// Ladestrom des Wechselrichters am Landstrom, in A (Ective 1000 W: 20 A, Ective CSI 15 PRO 1500 W: 30 A, Ective CSI 20 PRO Gen2 2000 W: 40 A)
+const LADER = {1000: 20, 1500: 30, 2000: 40};
 const KEYS = ["solar","booster","akku","inverter"];
 const NAME = {solar:"Solarleistung", booster:"Ladebooster", akku:"Akku", inverter:"Spannungswandler"};
 const LABEL = {
