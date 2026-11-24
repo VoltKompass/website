@@ -14,16 +14,16 @@
         "href": "#solaranlage-beratung"
       },
       {
-        "text": "Beratung",
-        "href": "#beratung"
-      },
-      {
         "text": "Blog",
         "href": "blog.html"
       },
       {
         "text": "Über mich",
         "href": "#ueber"
+      },
+      {
+        "text": "Beratung",
+        "href": "#beratung"
       }
     ],
     "cta": "Stromlaufpläne →"
