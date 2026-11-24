@@ -352,7 +352,7 @@ function starteKarussell(fig, p) {
   };
   // dreht sich von selbst weiter, ohne Bedienung
   zeige(0);
-  karussellTimer = setInterval(() => document.hidden || zeige(akt + 1), 2000);
+  karussellTimer = setInterval(() => document.hidden || zeige(akt + 1), 1600);   // 0,6 s Drehung + 1 s Pause
 }
 
 // Übersicht aller Pläne

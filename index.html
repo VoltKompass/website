@@ -30,7 +30,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css?v=20261028-2" />
 <link rel="stylesheet" href="theme.css?v=20261124-5" />
-<link rel="stylesheet" href="home.css?v=20261124-8" />
+<link rel="stylesheet" href="home.css?v=20261124-9" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -974,7 +974,12 @@
       </div>`).join('');
     const p = pfPasst(pfAuswahl);
     document.getElementById('pfErgebnis').innerHTML = `
-      <a class="pf-bild" href="stromlaufplaene.html?plan=${slug(p)}"><img src="${bild(p)}" width="1200" height="600" alt="Vorschau ${titel(p)}" loading="lazy" decoding="async"/></a>
+      ${p.vorschau ? `<a class="pf-3d" href="stromlaufplaene.html?plan=${slug(p)}" aria-roledescription="Karussell" aria-label="Vorschau aller Seiten von ${titel(p)}">
+        <div class="pf-stage">${p.vorschau.map(([s, name], i) =>
+          `<div class="pf-slide"><img src="assets/stromlaufplaene/${slug(p)}/${s}.webp?v=${BILD_V}" width="1200" height="600" alt="Vorschau ${name}" ${i > 1 ? 'loading="lazy"' : ''} decoding="async"></div>`).join('')}</div>
+        <div class="pf-3d-name"><b></b><small></small></div>
+        <div class="pf-dots" aria-hidden="true">${p.vorschau.map(() => '<span></span>').join('')}</div>
+      </a>` : `<a class="pf-bild" href="stromlaufplaene.html?plan=${slug(p)}"><img src="${bild(p)}" width="1200" height="600" alt="Vorschau ${titel(p)}" loading="lazy" decoding="async"/></a>`}
       <div class="pf-text">
         <span class="eyebrow">Dein passender Plan</span>
         <h3>${titel(p)}</h3>
@@ -986,6 +991,32 @@
           ${p.digistore ? `<a class="btn btn-ghost" href="${kaufLink(p)}" target="_blank" rel="noopener">Direkt kaufen</a>` : ''}
         </div>
       </div>`;
+    if (p.vorschau) pfKarussell(document.querySelector('#pfErgebnis .pf-3d'), p);
+  }
+
+  // 3D-Karussell aller Seiten: 0,6 s Drehung, dann 1 s Pause
+  let pfTimer;
+  function pfKarussell(fig, p) {
+    clearInterval(pfTimer);
+    const slides = [...fig.querySelectorAll('.pf-slide')], dots = [...fig.querySelectorAll('.pf-dots span')], n = slides.length;
+    let akt = 0;
+    const zeige = i => {
+      akt = (i + n) % n;
+      slides.forEach((s, j) => {
+        let o = j - akt; if (o > n / 2) o -= n; if (o < -n / 2) o += n;
+        const a = Math.abs(o);
+        s.style.transform = `translateX(${o * 34}%) translateZ(${-a * 170}px) rotateY(${-o * 38}deg)`;
+        s.style.opacity = a > 2 ? 0 : 1 - a * .28;
+        s.style.filter = a ? `brightness(${1 - a * .25})` : 'none';
+        s.style.zIndex = 10 - a;
+        s.classList.toggle('is-on', !o);
+      });
+      dots.forEach((d, j) => d.classList.toggle('is-on', j === akt));
+      fig.querySelector('.pf-3d-name b').textContent = p.vorschau[akt][1];
+      fig.querySelector('.pf-3d-name small').textContent = `Seite ${akt + 1} von ${n}`;
+    };
+    zeige(0);
+    pfTimer = setInterval(() => document.hidden || zeige(akt + 1), 1600);
   }
 
   document.getElementById('pfFragen').addEventListener('click', e => {
