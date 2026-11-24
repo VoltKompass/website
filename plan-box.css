@@ -1,0 +1,47 @@
+/* Plan-Kasten in Blogartikeln und Rechnern (plan-box.js) */
+.planbox-sektion{padding:clamp(40px,5vw,72px) 0}
+.planbox{
+  display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(22px,3vw,44px);align-items:center;
+  padding:clamp(22px,3vw,40px);border-radius:26px;border:1px solid transparent;
+  background:
+    linear-gradient(180deg,var(--ink-2,#0e1626),var(--ink-3,#131d31)) padding-box,
+    linear-gradient(160deg,rgba(230,178,0,.75),rgba(230,178,0,.12) 45%,rgba(106,180,240,.35)) border-box;
+  box-shadow:0 40px 100px -50px rgba(230,178,0,.45);
+}
+.planbox:not(.fertig){display:block;text-align:center}
+.planbox > a{font-weight:600;color:var(--gold,#e6b200)}
+.planbox-kopf h2{margin:14px 0 12px;font-size:clamp(24px,2.6vw,34px);line-height:1.15}
+.planbox-kopf p{color:var(--mute,#9aa6bd);font-size:16px;margin:0}
+.planbox-kopf .planbox-hinweis{margin-top:12px;font-size:14px;color:var(--blue-hi,#6ab4f0)}
+.planbox-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.planbox-tab{
+  flex:1 1 0;min-width:max-content;padding:11px 14px;border-radius:12px;cursor:pointer;
+  border:1px solid var(--line-2,rgba(255,255,255,.12));background:rgba(255,255,255,.03);
+  color:var(--text,#e8edf7);font:600 14.5px/1 var(--font,inherit);white-space:nowrap;
+  transition:background .2s,border-color .2s,color .2s;
+}
+.planbox-tab:hover{border-color:rgba(230,178,0,.6)}
+.planbox-tab.an{background:linear-gradient(180deg,#ffd23f,var(--gold,#e6b200));border-color:transparent;color:#1a1200}
+.planbox-plan{display:grid;grid-template-columns:1fr;gap:18px}
+.planbox-bild{display:block;aspect-ratio:2/1;border-radius:16px;overflow:hidden;background:#fff;border:1px solid var(--line-2,rgba(255,255,255,.12))}
+.planbox-bild img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.planbox-bild:hover img{transform:scale(1.04)}
+.planbox-daten h3{margin:0 0 6px;font-size:18px;line-height:1.35}
+.planbox-meta{margin:0;color:var(--mute,#9aa6bd);font-size:14px}
+.planbox-preis{margin:14px 0 6px;font-family:var(--font,inherit);font-weight:700;font-size:30px;line-height:1;color:var(--text,#e8edf7)}
+.planbox-preis .slp-alt{font-weight:500;font-size:.6em;color:var(--mute,#9aa6bd);text-decoration-thickness:2px;margin-right:6px}
+.planbox-preis .slp-neu{color:var(--gold,#e6b200)}
+.planbox-aktion{margin:4px 0 0;font-size:13.5px;color:var(--mute,#9aa6bd)}
+.planbox-aktion b{color:var(--gold,#e6b200)}
+.planbox-knoepfe{display:flex;flex-wrap:wrap;align-items:center;gap:12px 20px;margin-top:16px}
+.planbox-alle{font-size:14.5px;font-weight:600;color:var(--mute,#9aa6bd);text-decoration:none}
+.planbox-alle:hover{color:var(--gold,#e6b200)}
+@media (max-width:900px){
+  .planbox{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .planbox{padding:20px 16px;border-radius:20px}
+  .planbox-tab{min-width:0;padding:11px 6px;font-size:13.5px}
+  .planbox-knoepfe .btn{flex:1 1 100%;justify-content:center}
+  .planbox-knoepfe{justify-content:center}
+}

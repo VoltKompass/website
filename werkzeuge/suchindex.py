@@ -16,7 +16,7 @@ VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'met
 SKIP_TAGS = {'script', 'style', 'nav', 'figure', 'svg', 'button', 'noscript', 'template'}
 SKIP_CLASSES = {'blog-breadcrumb', 'blog-byline', 'blog-author-card', 'article-kicker', 'blog-actions',
                 'calc', 'related', 'blog-toc', 'chapter-list', 'blog-disclaimer', 'video-box', 'blog-video-link',
-                'cta-band', 'sim'}
+                'cta-band', 'sim', 'planbox-sektion'}
 SKIP_IDS = {'weiterlesen'}  # Linklisten zu anderen Beiträgen
 BLOCK = {'p', 'li', 'div', 'td', 'th', 'tr', 'h1', 'h2', 'h3', 'h4', 'section', 'details', 'summary', 'ul', 'ol', 'table', 'blockquote', 'dd', 'dt'}
 
