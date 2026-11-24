@@ -137,7 +137,7 @@
             "name": "Wie schließe ich den MPPT-Laderegler an die Batterie an?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "BAT-Plus geht mit der Sicherung aus dem Plan zum Plus-Verteiler, BAT-Minus zum Minus-Verteiler hinter dem Shunt. In meinem Stufe-1-Plan sind das beim MPPT 75/10 6 mm² und 20 A. Laut Victron-Handbuch wird zuerst die Batterie angeschlossen und erst danach die Solarmodule. Anschließend stellst du in der App die Ladespannungen nach den Angaben deines Akkuherstellers ein."
+              "text": "BAT-Plus geht mit der Sicherung aus dem Plan zum Plus-Verteiler, BAT-Minus zum Minus-Verteiler hinter dem Shunt. Querschnitt und Sicherung dafür stehen in meinen fertigen Stromlaufplänen. Laut Victron-Handbuch wird zuerst die Batterie angeschlossen und erst danach die Solarmodule. Anschließend stellst du in der App die Ladespannungen nach den Angaben deines Akkuherstellers ein."
             }
           },
           {
@@ -153,7 +153,7 @@
             "name": "Wie wird der Ladebooster im Schaltplan angeschlossen?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Der Ladebooster sitzt zwischen Starterbatterie und Aufbaubatterie. In meinem Stufe-1-Plan wird ein 30-A-Booster auf Ein- und Ausgangsseite mit 16 mm² angeschlossen und beidseitig mit 60 A abgesichert, je eine Sicherung nah an jeder Batterie. Ein vorhandenes Trennrelais muss bei einer LiFePO4-Umrüstung deaktiviert werden."
+              "text": "Der Ladebooster sitzt zwischen Starterbatterie und Aufbaubatterie. Der Booster wird auf Ein- und Ausgangsseite abgesichert, je eine Sicherung nah an jeder Batterie – Querschnitte und Sicherungswerte stehen im fertigen Stromlaufplan. Ein vorhandenes Trennrelais muss bei einer LiFePO4-Umrüstung deaktiviert werden."
             }
           }
         ]
@@ -289,7 +289,7 @@
           <h2>Der Grundaufbau: was jedes Bauteil im Schaltplan macht</h2>
           <p class="blog-intro">Jeder meiner Pläne folgt demselben Prinzip. Wenn du diesen Weg einmal verstanden hast, kannst du jeden Plan lesen.</p>
           <ol class="plan-path">
-            <li><span><strong>Solarmodul mit MC4-Steckern:</strong> erzeugt den Strom. Die Solarleitung ist in meinen Plänen 4 mm².</span></li>
+            <li><span><strong>Solarmodul mit MC4-Steckern:</strong> erzeugt den Strom. Den Querschnitt der Solarleitung findest du im fertigen Stromlaufplan.</span></li>
             <li><span><strong>Dachdurchführung:</strong> führt die Solarleitung dicht ins Fahrzeug.</span></li>
             <li><span><strong>DC-Trennautomat:</strong> damit du die Solarseite gefahrlos abschalten kannst, zum Beispiel bei Arbeiten am Regler.</span></li>
             <li><span><strong>MPPT-Laderegler:</strong> wandelt die Modulspannung in die passende Ladespannung für die Batterie. Ein einfacher PWM-Regler würde einen Teil der Modulspannung verschenken.</span></li>
@@ -413,7 +413,7 @@
             </table>
           </div>
           <p class="plan-tabelle-hinweis">Alle Querschnitte und Sicherungen stehen im fertigen <a href="stromlaufplaene.html">Stromlaufplan</a>.</p>
-          <div class="blog-note"><strong>Hinweis zu Stufe 4:</strong> Bei Orion XS und den beiden MPPT-Reglern weichen die Sicherungswerte in der Zeichnung von den Herstellerangaben ab. Die Details dazu stehen in der ausführlichen Stufe 4. Prüfe die Werte immer anhand der Herstelleranleitung.</div>
+          <div class="blog-note"><strong>Hinweis zu Stufe 4:</strong> Bei Orion XS und den beiden MPPT-Reglern weichen die Sicherungswerte im Stromlaufplan von den Herstellerangaben ab. Die Details dazu stehen in der ausführlichen Stufe 4. Prüfe die Werte immer anhand der Herstelleranleitung.</div>
           <p><a href="blog-stufe-4.html">Zur ausführlichen Stufe 4 mit Materialliste</a></p>
         </div>
       </section>
@@ -427,7 +427,7 @@
           <h3 id="ladebooster-schaltplan">Ladebooster-Schaltplan: Starterbatterie zur Aufbaubatterie</h3>
           <div class="blog-split">
             <div class="blog-split-copy">
-              <p>Der Ladebooster sitzt zwischen Starterbatterie und Aufbaubatterie und lädt die LiFePO4-Batterie während der Fahrt kontrolliert. Im Stufe-1-Plan bekommt der 30-A-Booster auf beiden Seiten 16 mm² und je eine 60-A-Sicherung nah an der jeweiligen Batterie.</p>
+              <p>Der Ladebooster sitzt zwischen Starterbatterie und Aufbaubatterie und lädt die LiFePO4-Batterie während der Fahrt kontrolliert. Im Stufe-1-Plan bekommt der 30-A-Booster auf beiden Seiten eine eigene Sicherung nah an der jeweiligen Batterie – die Werte stehen im fertigen <a href="stromlaufplaene.html">Stromlaufplan</a>.</p>
               <p>Ein vorhandenes Trennrelais muss bei der LiFePO4-Umrüstung deaktiviert werden. Auswahl, D+, Querschnitte für 30 und 50 A und die Einstellung erkläre ich im <a href="ladebooster-wohnmobil.html">Ratgeber zum Ladebooster im Wohnmobil</a>. Wie viel Strom deine Lichtmaschine dafür übrig hat, steht im Beitrag <a href="ladebooster-lichtmaschine.html">Ladebooster und Lichtmaschine</a>.</p>
             </div>
             <figure class="blog-figure">
@@ -481,7 +481,7 @@
           <h3 id="wechselrichter-schaltplan">Wechselrichter mit 230-V-Seite</h3>
           <div class="blog-split blog-split-reverse">
             <div class="blog-split-copy">
-              <p>Der Wechselrichter hängt mit kurzen, dicken Leitungen und eigener Sicherung am Plus-Verteiler. In Stufe 1 sind das 35 mm² und 175 A für 1000 W, in Stufe 3 50 mm² und 200 A für 1500 W.</p>
+              <p>Der Wechselrichter hängt mit kurzen, dicken Leitungen und eigener Sicherung am Plus-Verteiler. Je größer der Wechselrichter, desto dicker Leitung und Sicherung – die genauen Werte für 1000, 1500 und 2000 W stehen im fertigen <a href="stromlaufplaene.html">Stromlaufplan</a>.</p>
               <p>Auf der 230-V-Seite wird der Landstrom über einen FI-Schutz zum Wechselrichter geführt. Verbraucher, die nicht über den Wechselrichter laufen sollen, etwa ein Absorberkühlschrank, werden vorher abgegriffen. Arbeiten an 230 V sollten fachkundig geplant und geprüft werden.</p>
             </div>
             <figure class="blog-figure">
@@ -513,7 +513,7 @@
           <h3 id="mppt-batterie">MPPT-Laderegler an die Batterie anschließen</h3>
           <p>Der MPPT-Laderegler hat zwei Anschlussseiten: <strong>PV</strong> für die Solarmodule und <strong>BAT</strong> für die Batterie. Bei der Verkabelung gehst du so vor:</p>
           <ol class="plan-path">
-            <li><span><strong>BAT-Plus zum Plus-Verteiler:</strong> mit dem Querschnitt und der Sicherung aus deinem Plan. In Stufe 1 sind das beim MPPT 75/10 6 mm² und 20 A, in Stufe 3 beim MPPT 100/20 10 mm² und 40 A. Die Sicherung sitzt nah am Verteiler bzw. an der Batterie.</span></li>
+            <li><span><strong>BAT-Plus zum Plus-Verteiler:</strong> mit dem Querschnitt und der Sicherung aus deinem Plan. Die Sicherung sitzt nah am Verteiler bzw. an der Batterie.</span></li>
             <li><span><strong>BAT-Minus zum Minus-Verteiler hinter dem Shunt:</strong> nicht direkt an den Minuspol der Batterie. Sonst zählt der Shunt den Solarstrom nicht mit, und die Ladezustandsanzeige stimmt nicht.</span></li>
             <li><span><strong>Erst die Batterie, dann die Solarmodule:</strong> Laut Victron-Handbuch wird beim SmartSolar zuerst die Batterieseite angeschlossen, damit der Regler die Systemspannung erkennt. Erst danach kommen die Module über den DC-Trennschalter dazu.</span></li>
             <li><span><strong>Laderegler einstellen:</strong> In der App den Batterietyp bzw. die Ladespannungen nach den Angaben deines Akkuherstellers einstellen, bei LiFePO4 nicht die Werte für Blei-Akkus lassen. Alle Einstellungen erkläre ich im Beitrag <a href="mppt-laderegler-wohnmobil.html#einstellen">MPPT-Laderegler richtig einstellen</a>.</span></li>
@@ -563,7 +563,7 @@
             </details>
             <details>
               <summary>Wie schließe ich den MPPT-Laderegler an die Batterie an?</summary>
-              <p>BAT-Plus geht mit der Sicherung aus dem Plan zum Plus-Verteiler, BAT-Minus zum Minus-Verteiler hinter dem Shunt. In meinem Stufe-1-Plan sind das beim MPPT 75/10 6 mm² und 20 A. Laut Victron-Handbuch wird zuerst die Batterie angeschlossen und erst danach die Solarmodule. Anschließend stellst du in der App die Ladespannungen nach den Angaben deines Akkuherstellers ein.</p>
+              <p>BAT-Plus geht mit der Sicherung aus dem Plan zum Plus-Verteiler, BAT-Minus zum Minus-Verteiler hinter dem Shunt. Querschnitt und Sicherung dafür stehen in meinen fertigen Stromlaufplänen. Laut Victron-Handbuch wird zuerst die Batterie angeschlossen und erst danach die Solarmodule. Anschließend stellst du in der App die Ladespannungen nach den Angaben deines Akkuherstellers ein.</p>
             </details>
             <details>
               <summary>Was kostet es, eine Solaranlage im Wohnmobil nachzurüsten?</summary>
@@ -571,7 +571,7 @@
             </details>
             <details>
               <summary>Wie wird der Ladebooster im Schaltplan angeschlossen?</summary>
-              <p>Der Ladebooster sitzt zwischen Starterbatterie und Aufbaubatterie. In meinem Stufe-1-Plan wird ein 30-A-Booster auf Ein- und Ausgangsseite mit 16 mm² angeschlossen und beidseitig mit 60 A abgesichert, je eine Sicherung nah an jeder Batterie. Ein vorhandenes Trennrelais muss bei einer LiFePO4-Umrüstung deaktiviert werden.</p>
+              <p>Der Ladebooster sitzt zwischen Starterbatterie und Aufbaubatterie. Der Booster wird auf Ein- und Ausgangsseite abgesichert, je eine Sicherung nah an jeder Batterie – Querschnitte und Sicherungswerte stehen im fertigen Stromlaufplan. Ein vorhandenes Trennrelais muss bei einer LiFePO4-Umrüstung deaktiviert werden.</p>
             </details>
           </div>
         </div>
