@@ -86,6 +86,8 @@ body::before{
 .nav ul a[href$="#beratung"]:hover{background:rgba(230,178,0,.12)}
 .nav-blog-mobile[href$="#beratung"]{border:2px solid var(--gold);box-shadow:0 8px 24px -10px rgba(230,178,0,.7)}
 @media (max-width:1060px) and (min-width:861px){.nav ul a[href$="#beratung"]{padding:5px 10px}}
+#heroCtaSecondary{border:2px solid var(--gold);box-shadow:0 8px 24px -10px rgba(230,178,0,.7)}
+#heroCtaSecondary:hover{background:rgba(230,178,0,.12);border-color:var(--gold)}
 @media (max-width:480px){
   .nav .brand-mark{display:none}
   .nav .cta{white-space:nowrap}
