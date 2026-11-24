@@ -80,12 +80,14 @@ body::before{
 .nav ul .nav-plaene a{display:inline-flex;align-items:center;padding:7px 14px;border:2px solid var(--gold);border-radius:999px;color:var(--text);font-weight:600;box-shadow:0 8px 24px -10px rgba(230,178,0,.7)}
 .nav ul .nav-plaene a::after{display:none}
 .nav ul .nav-plaene a:hover{background:rgba(230,178,0,.12)}
-/* Beratung: goldener Rand (Menü + Handy-Knopf) */
-.nav ul a[href$="#beratung"]{display:inline-flex;align-items:center;padding:7px 14px;border:2px solid var(--gold);border-radius:999px;color:var(--text);font-weight:600;box-shadow:0 8px 24px -10px rgba(230,178,0,.7)}
-.nav ul a[href$="#beratung"]::after{display:none}
-.nav ul a[href$="#beratung"]:hover{background:rgba(230,178,0,.12)}
+/* Beratung: goldener Rand, steht direkt neben „Stromlaufpläne →“ (Handy und Computer) */
 .nav-blog-mobile[href$="#beratung"]{border:2px solid var(--gold);box-shadow:0 8px 24px -10px rgba(230,178,0,.7)}
-@media (max-width:1060px) and (min-width:861px){.nav ul a[href$="#beratung"]{padding:5px 10px}}
+.nav-blog-mobile[href$="#beratung"]:hover{background:rgba(230,178,0,.12)}
+@media (min-width:861px){
+  .nav ul li:has(> a[href$="#beratung"]){display:none}
+  .nav-blog-mobile[href$="#beratung"]{display:inline-flex;min-height:40px;padding:0 18px;margin-right:12px;font-size:14px}
+}
+@media (max-width:1060px) and (min-width:861px){.nav-blog-mobile[href$="#beratung"]{min-height:36px;padding:0 14px;margin-right:8px;font-size:13px}}
 #heroCtaSecondary{border:2px solid var(--gold);box-shadow:0 8px 24px -10px rgba(230,178,0,.7)}
 #heroCtaSecondary:hover{background:rgba(230,178,0,.12);border-color:var(--gold)}
 @media (max-width:480px){
