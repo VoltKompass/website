@@ -573,3 +573,5 @@ article > .blog-section:nth-of-type(even){background:rgba(255,255,255,.014)}
 .plan-bild-link{display:inline-block;margin-top:10px;color:var(--gold);font-size:14px;font-weight:600}
 .plan-bild-link:hover{text-decoration:underline}
 @media (max-width:560px){.plan-hinweis{padding:16px}.plan-hinweis .btn{width:100%;justify-content:center}}
+.plan-tabelle-hinweis{margin-top:10px;font-size:14px;color:var(--text-2)}
+.plan-tabelle-hinweis a{color:var(--gold);font-weight:600}
