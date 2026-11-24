@@ -80,6 +80,12 @@ body::before{
 .nav ul .nav-plaene a{display:inline-flex;align-items:center;padding:7px 14px;border:2px solid var(--gold);border-radius:999px;color:var(--text);font-weight:600;box-shadow:0 8px 24px -10px rgba(230,178,0,.7)}
 .nav ul .nav-plaene a::after{display:none}
 .nav ul .nav-plaene a:hover{background:rgba(230,178,0,.12)}
+/* Beratung: goldener Rand (Menü + Handy-Knopf) */
+.nav ul a[href$="#beratung"]{display:inline-flex;align-items:center;padding:7px 14px;border:2px solid var(--gold);border-radius:999px;color:var(--text);font-weight:600;box-shadow:0 8px 24px -10px rgba(230,178,0,.7)}
+.nav ul a[href$="#beratung"]::after{display:none}
+.nav ul a[href$="#beratung"]:hover{background:rgba(230,178,0,.12)}
+.nav-blog-mobile[href$="#beratung"]{border:2px solid var(--gold);box-shadow:0 8px 24px -10px rgba(230,178,0,.7)}
+@media (max-width:1060px) and (min-width:861px){.nav ul a[href$="#beratung"]{padding:5px 10px}}
 @media (max-width:480px){
   .nav .brand-mark{display:none}
   .nav .cta{white-space:nowrap}
