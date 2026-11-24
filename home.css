@@ -308,33 +308,6 @@
    Stromlaufpläne im Mittelpunkt (November 2026)
    ========================================================= */
 
-/* Hero: Stapel aus PDF-Seiten statt Kompass */
-.hero-plaene{min-height:440px}
-.hero-plaene .hero-orbit{max-width:560px}
-.plan-stapel{position:relative;display:block;width:100%;max-width:560px;aspect-ratio:2/1.38;perspective:1400px}
-.ps-blatt{
-  position:absolute;left:0;right:0;top:12%;margin:0 auto;width:92%;aspect-ratio:2/1;
-  border-radius:12px;overflow:hidden;background:#fff;
-  border:1px solid rgba(255,255,255,.5);
-  box-shadow:0 30px 70px -24px rgba(0,0,0,.9),0 0 0 6px rgba(255,255,255,.04);
-  transition:transform .9s cubic-bezier(.2,.8,.2,1),opacity .9s,filter .9s;
-}
-.ps-blatt img{width:100%;height:100%;object-fit:cover;display:block}
-.ps-blatt figcaption{
-  position:absolute;left:12px;bottom:12px;padding:6px 12px;border-radius:999px;
-  background:rgba(8,13,24,.88);color:var(--text);font-size:12.5px;font-weight:600;
-  border:1px solid rgba(230,178,0,.5);transition:opacity .5s;
-}
-.ps-blatt[data-pos="0"]{z-index:3;transform:translate3d(0,0,0) rotate(-2deg)}
-.ps-blatt[data-pos="1"]{z-index:2;transform:translate3d(9%,-15%,-60px) rotate(5deg);filter:brightness(.72)}
-.ps-blatt[data-pos="2"]{z-index:1;transform:translate3d(-8%,-24%,-120px) rotate(-6deg);filter:brightness(.52)}
-.ps-blatt:not([data-pos="0"]) figcaption{opacity:0}
-.plan-stapel:hover .ps-blatt[data-pos="0"]{transform:translate3d(0,-6px,0) rotate(-1deg)}
-.hero-plaene .chip-a{left:-4%;bottom:18%}
-.hero-plaene .chip-b{right:-2%;top:auto;bottom:0}
-.hero-plaene .chip-d{left:-2%;top:6%;right:auto;background:linear-gradient(180deg,#ffd23f,var(--gold));border-color:transparent}
-.hero-plaene .chip-d b{color:#1a1200}
-.hero-plaene .chip-d span{color:#3a2a00;font-weight:600}
 .hero-aktion{
   display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin:-8px 0 26px;
   padding:10px 16px;border-radius:14px;border:1px solid rgba(230,178,0,.55);
@@ -425,14 +398,8 @@
 @media (max-width:960px){
   .pf-box,.beratung-box{grid-template-columns:1fr}
   .beratung-fakten{grid-template-columns:repeat(3,1fr)}
-  .hero-plaene{min-height:0;padding-top:20px}
 }
 @media (max-width:640px){
-  .hero-plaene{max-width:none}
-  .plan-stapel{aspect-ratio:2/1.45}
-  .hero-plaene .chip-a{display:none}
-  .hero-plaene .chip-b{right:-4px;left:auto;top:auto;bottom:-6px;transform:none}
-  .hero-plaene .chip-d{left:-4px;top:0}
   .pf-frage{padding:14px}
   .pf-opt{padding:11px 4px;font-size:14px;min-width:0;white-space:nowrap}
   .home .hero-meta b{white-space:nowrap;font-size:24px}
@@ -441,7 +408,4 @@
   .inhalt-grid{grid-template-columns:1fr}
   .beratung-fakten{grid-template-columns:1fr}
   .beratung-box .hero-ctas .btn{flex:1 1 100%;justify-content:center}
-}
-@media (prefers-reduced-motion:reduce){
-  .ps-blatt{transition:none}
 }

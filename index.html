@@ -30,7 +30,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Orbitron:wght@700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css?v=20261028-2" />
 <link rel="stylesheet" href="theme.css?v=20261121-1" />
-<link rel="stylesheet" href="home.css?v=20261124-4" />
+<link rel="stylesheet" href="home.css?v=20261124-8" />
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -295,17 +295,36 @@
       </div>
     </div>
 
-    <div class="hero-visual hero-plaene">
+    <div class="hero-visual">
       <div class="hero-orbit" aria-hidden="true"></div>
-      <!-- Stapel aus echten PDF-Seiten (unscharfe Vorschau), die vorderste Seite wechselt alle paar Sekunden -->
-      <a class="plan-stapel" id="planStapel" href="#planfinder" aria-label="Zum Schnellfinder für Stromlaufpläne">
-        <figure class="ps-blatt" data-pos="0"><img src="assets/stromlaufplaene/plan-solar200-booster50-akku200-1500w/2.webp?v=2" width="1200" height="600" alt="Vorschau Gesamtplan einer Wohnmobil-Anlage mit Solar, Ladebooster, LiFePO4-Akku und Wechselrichter" fetchpriority="high" decoding="async"/><figcaption>Gesamtplan</figcaption></figure>
-        <figure class="ps-blatt" data-pos="1"><img src="assets/stromlaufplaene/plan-solar200-booster50-akku200-1500w/3.webp?v=2" width="1200" height="600" alt="Vorschau Teilplan Batterie mit Geräteeinstellungen" decoding="async"/><figcaption>Teilplan Batterie + Einstellungen</figcaption></figure>
-        <figure class="ps-blatt" data-pos="2"><img src="assets/stromlaufplaene/plan-solar200-booster50-akku200-1500w/7.webp?v=2" width="1200" height="600" alt="Vorschau Materialliste mit Kosten" decoding="async"/><figcaption>Materialliste mit Links</figcaption></figure>
-      </a>
-      <div class="chip chip-a"><b>Querschnitte</b><span>eingetragen</span></div>
-      <div class="chip chip-b"><b>Sicherungen</b><span>passend gewählt</span></div>
-      <div class="chip chip-d" id="heroPreisChip"><b>ab 15 €</b><span>Sofort-Download</span></div>
+      <div class="compass-wrap" aria-hidden="true">
+        <div class="compass-rotor">
+          <img class="compass" src="compass.svg" alt="" width="500" height="500" decoding="async" fetchpriority="high"/>
+          <span class="compass-letter cl-n">N</span>
+          <span class="compass-letter cl-o">O</span>
+          <span class="compass-letter cl-s">S</span>
+          <span class="compass-letter cl-w">W</span>
+        </div>
+        <svg class="bolt" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="boltG" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#ffe27a"/>
+              <stop offset="50%" stop-color="#e6b200"/>
+              <stop offset="100%" stop-color="#6ab4f0"/>
+            </linearGradient>
+            <linearGradient id="boltEdge" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#fff"/>
+              <stop offset="100%" stop-color="#1d5f9f"/>
+            </linearGradient>
+          </defs>
+          <path d="M 265 80 L 210 250 L 255 250 L 225 420 L 310 225 L 260 225 L 295 80 Z"
+                fill="url(#boltG)" stroke="url(#boltEdge)" stroke-width="3" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="chip chip-a"><b>25 mm²</b><span>Querschnitt?</span></div>
+      <div class="chip chip-b"><b>150 A</b><span>Absicherung?</span></div>
+      <div class="chip chip-c"><b>450 W</b><span>Solar?</span></div>
+      <div class="chip chip-d"><b>200 Ah</b><span>LiFePO4?</span></div>
     </div>
   </div>
 
@@ -907,7 +926,6 @@
     if (meta[0]) meta[0].textContent = PLAENE.length;
     if (meta[1]) meta[1].textContent = abText;
     document.getElementById('pfAnzahl').textContent = PLAENE.length;
-    document.querySelector('#heroPreisChip b').textContent = aktionAn() ? `ab ${aktionsPreis({preis: String(ab)})}` : abText;
   }
 
   // Aktion (z. B. Black Week) im Hero anzeigen, solange sie läuft
@@ -916,16 +934,6 @@
     if (!aktionAn()) { el.hidden = true; return; }
     el.innerHTML = `<b>${AKTION.name}: alle Pläne −${AKTION.rabatt} %</b><span>nur bis ${AKTION.bisText}</span>`;
     el.hidden = false;
-  }
-
-  // Seitenstapel: vorderstes Blatt wandert alle 3,5 s nach hinten
-  function planStapel() {
-    const blaetter = [...document.querySelectorAll('#planStapel .ps-blatt')];
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    setInterval(() => {
-      if (document.hidden) return;
-      blaetter.forEach(b => b.dataset.pos = (Number(b.dataset.pos) + blaetter.length - 1) % blaetter.length);
-    }, 3500);
   }
 
   // Schnellfinder: 4 Fragen als Knopfgruppen, Ergebnis mit Preis und Link auf den Plan
@@ -993,7 +1001,6 @@
   document.documentElement.lang = lang;
   pfZeichnen();
   heroAktion();
-  planStapel();
   loadContent(lang);
   initVideo();
 </script>
