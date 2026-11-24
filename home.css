@@ -303,3 +303,145 @@
 @media (prefers-reduced-motion:reduce){
   .ticker-track,.chip,.hero-orbit{animation:none}
 }
+
+/* =========================================================
+   Stromlaufpläne im Mittelpunkt (November 2026)
+   ========================================================= */
+
+/* Hero: Stapel aus PDF-Seiten statt Kompass */
+.hero-plaene{min-height:440px}
+.hero-plaene .hero-orbit{max-width:560px}
+.plan-stapel{position:relative;display:block;width:100%;max-width:560px;aspect-ratio:2/1.38;perspective:1400px}
+.ps-blatt{
+  position:absolute;left:0;right:0;top:12%;margin:0 auto;width:92%;aspect-ratio:2/1;
+  border-radius:12px;overflow:hidden;background:#fff;
+  border:1px solid rgba(255,255,255,.5);
+  box-shadow:0 30px 70px -24px rgba(0,0,0,.9),0 0 0 6px rgba(255,255,255,.04);
+  transition:transform .9s cubic-bezier(.2,.8,.2,1),opacity .9s,filter .9s;
+}
+.ps-blatt img{width:100%;height:100%;object-fit:cover;display:block}
+.ps-blatt figcaption{
+  position:absolute;left:12px;bottom:12px;padding:6px 12px;border-radius:999px;
+  background:rgba(8,13,24,.88);color:var(--text);font-size:12.5px;font-weight:600;
+  border:1px solid rgba(230,178,0,.5);transition:opacity .5s;
+}
+.ps-blatt[data-pos="0"]{z-index:3;transform:translate3d(0,0,0) rotate(-2deg)}
+.ps-blatt[data-pos="1"]{z-index:2;transform:translate3d(9%,-15%,-60px) rotate(5deg);filter:brightness(.72)}
+.ps-blatt[data-pos="2"]{z-index:1;transform:translate3d(-8%,-24%,-120px) rotate(-6deg);filter:brightness(.52)}
+.ps-blatt:not([data-pos="0"]) figcaption{opacity:0}
+.plan-stapel:hover .ps-blatt[data-pos="0"]{transform:translate3d(0,-6px,0) rotate(-1deg)}
+.hero-plaene .chip-a{left:-4%;bottom:18%}
+.hero-plaene .chip-b{right:-2%;top:auto;bottom:0}
+.hero-plaene .chip-d{left:-2%;top:6%;right:auto;background:linear-gradient(180deg,#ffd23f,var(--gold));border-color:transparent}
+.hero-plaene .chip-d b{color:#1a1200}
+.hero-plaene .chip-d span{color:#3a2a00;font-weight:600}
+.hero-aktion{
+  display:inline-flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin:-8px 0 26px;
+  padding:10px 16px;border-radius:14px;border:1px solid rgba(230,178,0,.55);
+  background:rgba(230,178,0,.1);font-size:14px;color:var(--text);
+}
+.hero-aktion b{color:var(--gold)}
+.hero-aktion span{color:var(--mute);font-size:13px}
+.hero-aktion[hidden]{display:none}
+
+/* Schnellfinder */
+.home .planfinder{padding-top:clamp(56px,6vw,88px)}
+.pf-box{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px);align-items:stretch;
+  padding:clamp(20px,3vw,36px);border-radius:26px;border:1px solid transparent;
+  background:
+    linear-gradient(180deg,var(--ink-2),var(--ink-3)) padding-box,
+    linear-gradient(160deg,rgba(230,178,0,.7),rgba(230,178,0,.1) 45%,rgba(106,180,240,.35)) border-box;
+  box-shadow:0 40px 100px -50px rgba(230,178,0,.4);
+}
+.pf-fragen{display:flex;flex-direction:column;gap:18px}
+.pf-frage{padding:16px 18px;border-radius:16px;border:1px solid var(--line);background:rgba(255,255,255,.02)}
+.pf-kopf{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.pf-n{
+  display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;
+  background:rgba(230,178,0,.16);color:var(--gold);font-family:var(--font);font-weight:700;font-size:13px;
+}
+.pf-kopf b{font-family:var(--font);font-size:16px}
+.pf-kopf small{color:var(--mute);font-size:12.5px}
+.pf-optionen{display:flex;flex-wrap:wrap;gap:8px}
+.pf-opt{
+  flex:1 1 0;white-space:nowrap;min-width:64px;padding:10px 12px;border-radius:12px;cursor:pointer;
+  border:1px solid var(--line-2);background:rgba(255,255,255,.03);color:var(--text);
+  font:600 15px/1 var(--font);transition:background .2s,border-color .2s,color .2s,transform .15s;
+}
+.pf-opt:hover{border-color:rgba(230,178,0,.6)}
+.pf-opt:active{transform:scale(.97)}
+.pf-opt.an{background:linear-gradient(180deg,#ffd23f,var(--gold));border-color:transparent;color:#1a1200}
+.pf-opt.anders:not(.an){color:var(--mute);border-style:dashed}
+.pf-ergebnis{display:flex;flex-direction:column;gap:20px}
+.pf-bild{display:block;border-radius:16px;overflow:hidden;border:1px solid var(--line-2);background:#fff;aspect-ratio:2/1}
+.pf-bild img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.pf-bild:hover img{transform:scale(1.04)}
+.pf-text h3{font-size:clamp(18px,1.6vw,22px);line-height:1.3;margin:10px 0 6px}
+.pf-meta{color:var(--mute);font-size:14px}
+.pf-hinweis{margin-top:10px;font-size:13px;color:var(--blue-hi,#6ab4f0)}
+.pf-preis{margin:16px 0 18px;font-family:var(--font);font-weight:700;font-size:34px;line-height:1;color:var(--text)}
+.pf-preis .slp-alt{font-weight:500;font-size:.6em;color:var(--mute);text-decoration-thickness:2px;margin-right:6px}
+.pf-preis .slp-neu{color:var(--gold)}
+.pf-knoepfe{display:flex;flex-wrap:wrap;gap:12px}
+
+/* Was im Plan steckt */
+.home .plan-inhalt{background:linear-gradient(180deg,transparent,rgba(29,95,159,.08) 50%,transparent)}
+.inhalt-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.inhalt-karte{
+  display:flex;flex-direction:column;padding:14px 14px 24px;border-radius:var(--radius);
+  border:1px solid var(--line);background:linear-gradient(180deg,var(--ink-2),var(--ink-3));
+}
+.inhalt-bild{aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:#fff;margin-bottom:18px}
+.inhalt-bild img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.inhalt-bild-zoom{position:relative}
+.inhalt-bild-zoom img{position:absolute;width:240%;height:auto;max-width:none;left:-39%;top:12%}
+.inhalt-karte:hover .inhalt-bild img{transform:scale(1.06)}
+.inhalt-nr{padding:0 8px;font-size:11.5px;font-weight:600;letter-spacing:.18em;color:var(--gold)}
+.inhalt-karte h3{padding:0 8px;margin:6px 0 8px;font-size:19px}
+.inhalt-karte p{padding:0 8px;color:var(--mute);font-size:14.5px}
+.inhalt-cta{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:14px 22px;margin-top:40px}
+.inhalt-cta span{color:var(--mute);font-size:14px}
+
+/* Beratung als zweites Angebot */
+.home .beratung-band{padding-bottom:0}
+.beratung-box{
+  display:grid;grid-template-columns:1.3fr .7fr;gap:clamp(28px,4vw,56px);align-items:center;
+  padding:clamp(28px,4vw,52px);border-radius:26px;border:1px solid var(--line-2);
+  background:
+    radial-gradient(60% 90% at 100% 0%,rgba(29,95,159,.35),transparent 65%),
+    linear-gradient(180deg,var(--ink-2),var(--ink-3));
+}
+.beratung-box h2{font-size:clamp(28px,3vw,42px);margin:14px 0 14px}
+.beratung-box p{color:var(--mute);font-size:16.5px;max-width:580px;margin-bottom:26px}
+.beratung-fakten{display:grid;gap:12px}
+.beratung-fakten div{padding:16px 20px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.02)}
+.beratung-fakten b{display:block;font-family:var(--font);font-size:28px;color:var(--gold);line-height:1.1}
+.beratung-fakten span{font-size:13px;color:var(--mute)}
+
+@media (max-width:1100px){
+  .inhalt-grid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:960px){
+  .pf-box,.beratung-box{grid-template-columns:1fr}
+  .beratung-fakten{grid-template-columns:repeat(3,1fr)}
+  .hero-plaene{min-height:0;padding-top:20px}
+}
+@media (max-width:640px){
+  .hero-plaene{max-width:none}
+  .plan-stapel{aspect-ratio:2/1.45}
+  .hero-plaene .chip-a{display:none}
+  .hero-plaene .chip-b{right:-4px;left:auto;top:auto;bottom:-6px;transform:none}
+  .hero-plaene .chip-d{left:-4px;top:0}
+  .pf-frage{padding:14px}
+  .pf-opt{padding:11px 4px;font-size:14px;min-width:0;white-space:nowrap}
+  .home .hero-meta b{white-space:nowrap;font-size:24px}
+  .pf-preis{font-size:28px}
+  .pf-knoepfe .btn{flex:1 1 100%;justify-content:center}
+  .inhalt-grid{grid-template-columns:1fr}
+  .beratung-fakten{grid-template-columns:1fr}
+  .beratung-box .hero-ctas .btn{flex:1 1 100%;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  .ps-blatt{transition:none}
+}

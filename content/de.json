@@ -2,20 +2,20 @@
   "nav": {
     "links": [
       {
-        "text": "Fachbereiche",
-        "href": "#fachbereiche"
+        "text": "Plan finden",
+        "href": "#planfinder"
+      },
+      {
+        "text": "Was drin ist",
+        "href": "#inhalt"
       },
       {
         "text": "Rechner",
         "href": "#solaranlage-beratung"
       },
       {
-        "text": "Ablauf",
-        "href": "#ablauf"
-      },
-      {
-        "text": "Preise",
-        "href": "#preise"
+        "text": "Beratung",
+        "href": "#beratung"
       },
       {
         "text": "Blog",
@@ -24,17 +24,13 @@
       {
         "text": "Über mich",
         "href": "#ueber"
-      },
-      {
-        "text": "Stromlaufpläne",
-        "href": "stromlaufplaene.html"
       }
     ],
-    "cta": "Beratung buchen →"
+    "cta": "Stromlaufpläne →"
   },
   "meta": {
-    "title": "Wohnmobil-Elektrik & Solaranlage nachrüsten: 1:1 Beratung | VoltKompass",
-    "description": "Solaranlage, LiFePO4-Batterie, Ladebooster, Wechselrichter, Kabel und Sicherungen im Wohnmobil: persönliche 1:1-Beratung und individueller Stromlaufplan von Andreas."
+    "title": "Stromlaufpläne fürs Wohnmobil & 1:1 Beratung zur Elektrik | VoltKompass",
+    "description": "Fertig verdrahtete Stromlaufpläne fürs Wohnmobil ab 15 €: Solar, Ladebooster, LiFePO4-Akku und Wechselrichter mit Querschnitten, Sicherungen und Materialliste als PDF. Dazu persönliche 1:1-Beratung von Andreas."
   },
   "ablauf": {
     "eyebrow": "So läuft es ab",
@@ -116,7 +112,11 @@
     "image": "andreas.jpg",
     "imageAlt": "Andreas — dein persönlicher Womo-Berater",
     "captionName": "Andreas",
-    "captionSub": "Dein VoltKompass"
+    "captionSub": "Dein VoltKompass",
+    "badge": {
+      "value": "230+",
+      "label": "Beratungen"
+    }
   },
   "cta": {
     "eyebrow": "Bereit?",
@@ -159,6 +159,14 @@
     "subtext": "Kurze Antworten auf das, was ich am häufigsten gefragt werde.",
     "items": [
       {
+        "question": "Was ist in einem fertigen Stromlaufplan enthalten?",
+        "answer": "Ein PDF mit 6 oder 7 Seiten: der Gesamtplan mit allen Leitungen, Querschnitten und Sicherungen, Teilpläne für Batterie, Ladebooster, Solar und gegebenenfalls 230 Volt, eine Materialliste mit Links zu jedem Teil und die Einstellungen für Laderegler und Ladebooster. Du lädst ihn direkt nach dem Kauf herunter."
+      },
+      {
+        "question": "Was mache ich, wenn kein fertiger Plan zu meiner Anlage passt?",
+        "answer": "Dann buchst du eine Beratung oder den Elektroplan. Ich plane deine Anlage mit dir und erstelle einen Stromlaufplan nur für dein Fahrzeug."
+      },
+      {
         "question": "Kann ich die Solaranlage im Wohnmobil selbst einbauen?",
         "answer": "Ja, viele meiner Kunden bauen selbst. Wichtig ist, dass Kabel, Sicherungen und Geräte zusammenpassen. Dabei helfe ich dir. Arbeiten, die Fachwissen erfordern, sollte eine Fachkraft prüfen."
       },
@@ -167,7 +175,7 @@
         "answer": "Das hängt vor allem von Batteriegröße, Solarleistung und Wechselrichter ab. Eine kleine Anlage mit 150 W und 100 Ah kostet deutlich weniger als eine große mit 450 W und 320 Ah. Meine vier Beispielanlagen im Blog zeigen die Materialkosten im Detail."
       },
       {
-        "question": "Was bekomme ich beim Elektroplan?",
+        "question": "Was bekomme ich beim individuellen Elektroplan?",
         "answer": "Einen Stromlaufplan für deine Anlage: alle Geräte, Plus und Minus, Kabelquerschnitte, Sicherungen und Verteilerpunkte, passend zu deinem Fahrzeug und deinen Kabelwegen. Dazu 60 Minuten Beratung und Begleitung beim Einbau."
       },
       {
@@ -182,8 +190,8 @@
   },
   "preise": {
     "eyebrow": "Preise",
-    "heading": "Beratung oder <span class=\"accent\">fertiger Stromlaufplan</span>",
-    "subtext": "Drei Pakete, je nachdem, wie viel du wissen willst. Kein Abo, keine versteckten Kosten.",
+    "heading": "Persönliche Beratung oder <span class=\"accent\">Plan nur für dich</span>",
+    "subtext": "Für alles, was die fertigen Pläne nicht abdecken. Kein Abo, keine versteckten Kosten.",
     "plans": [
       {
         "key": "kurz-beratung",
@@ -234,19 +242,19 @@
     ]
   },
   "hero": {
-    "eyebrow": "Wohnmobil-Elektrik · 1:1 Beratung",
-    "serviceTitle": "Strom im Wohnmobil, sauber geplant",
-    "claim": "Ich helfe dir, deine <b>Solaranlage, Batterie und Verkabelung</b> so zu planen, dass alles zusammenpasst, sicher ist und im Alltag funktioniert. Persönlich per WhatsApp, Telegram oder Signal.",
-    "ctaPrimary": "Beratung anfragen",
-    "ctaSecondary": "Was ich mache",
+    "eyebrow": "Fertig verdrahtet · PDF zum Ausdrucken",
+    "serviceTitle": "Stromlaufpläne für dein Wohnmobil",
+    "claim": "Wähle Solar, Ladebooster, Akku und Wechselrichter und bekomm den passenden Plan: <b>alle Leitungen, Querschnitte und Sicherungen</b>, Materialliste mit Links und die Einstellungen für deine Geräte. Sofort als PDF.",
+    "ctaPrimary": "Passenden Plan finden",
+    "ctaSecondary": "Lieber persönlich beraten?",
     "stats": [
       {
-        "value": "230+",
-        "label": "Beratungen"
+        "value": "60",
+        "label": "Fertige Pläne"
       },
       {
-        "value": "1:1",
-        "label": "Persönlich, kein Callcenter"
+        "value": "ab 15 €",
+        "label": "Sofort-Download als PDF"
       },
       {
         "value": "18+",
@@ -262,7 +270,7 @@
     "videoAlt": "Video-Vorschau"
   },
   "footer": {
-    "copyright": "© 2026 VoltKompass — Wohnmobil-Beratung für Strom & Autarkie",
+    "copyright": "© 2026 VoltKompass — Stromlaufpläne & Beratung für Wohnmobil-Elektrik",
     "links": [
       {
         "text": "Stromlaufpläne",
@@ -294,12 +302,12 @@
       {
         "num": "01 — Planung",
         "title": "Was brauche ich wirklich?",
-        "text": "Wie viel Solar, wie groß die Batterie, welcher Ladebooster? Das hängt davon ab, wie du reist und was du verbrauchst, nicht vom größten Set im Angebot."
+        "text": "Wie viel Solar, wie groß die Batterie, welcher Ladebooster? Im Schnellfinder wählst du die Größen, die zu deiner Reiseart passen, und bekommst den fertigen Plan dazu."
       },
       {
         "num": "02 — Sicherheit",
         "title": "Welches Kabel, welche Sicherung?",
-        "text": "Querschnitt, Sicherung, Abstand zur Batterie: Hier passieren die meisten Fehler. Ich zeige dir, was Normen und Herstellerhandbücher dazu sagen."
+        "text": "Querschnitt, Sicherung, Abstand zur Batterie: Hier passieren die meisten Fehler. In meinen Plänen ist jede Leitung mit Querschnitt und Sicherung eingetragen, abgestimmt auf Normen und Herstellerhandbücher."
       },
       {
         "num": "03 — Kosten",
