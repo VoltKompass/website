@@ -22,6 +22,10 @@
         "href": "#ueber"
       },
       {
+        "text": "Einkaufsliste",
+        "href": "einkaufsliste.html"
+      },
+      {
         "text": "Beratung",
         "href": "#beratung"
       }

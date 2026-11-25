@@ -26,6 +26,10 @@
         "href": "#ueber"
       },
       {
+        "text": "Список покупок",
+        "href": "einkaufsliste.html"
+      },
+      {
         "text": "Схемы",
         "href": "stromlaufplaene.html"
       }
