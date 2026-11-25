@@ -29,7 +29,9 @@
     .teil-bild.leer span{position:static;font-size:.85rem}
     .teil .product-btn{margin-top:auto;color:var(--gold);font-weight:600;font-size:.92rem;text-decoration:none}
     .teil .product-btn:hover{text-decoration:underline}
-    .teil.gewaehlt{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold),0 10px 40px rgba(0,0,0,.45)}
+    .teil.gewaehlt{position:relative;z-index:1;border-color:var(--gold);box-shadow:0 0 0 2px var(--gold),0 10px 40px rgba(0,0,0,.45)}
+    @keyframes teil-puls{0%,100%{transform:scale(1);box-shadow:0 0 0 2px var(--gold),0 10px 40px rgba(0,0,0,.45)}50%{transform:scale(1.045);box-shadow:0 0 0 3px var(--gold),0 0 34px rgba(242,193,78,.45),0 16px 50px rgba(0,0,0,.5)}}
+    @media (prefers-reduced-motion:no-preference){.teil.gewaehlt{animation:teil-puls 1.6s ease-in-out .6s 6}}
     .teil.gewaehlt::before{content:"Aus deinem Stromlaufplan";font-size:.72rem;font-weight:600;color:var(--gold)}
   </style>
 </head>
