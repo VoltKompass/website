@@ -70,6 +70,36 @@ let PLAENE = [
   {solar:100, booster:50, akku:320, inverter:2000, regler:"MPPT 75/10",  seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/772068"},
   {solar:200, booster:50, akku:320, inverter:2000, regler:"MPPT 75/15",  seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/772074"},
   {solar:300, booster:50, akku:320, inverter:2000, regler:"MPPT 100/20", seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/772076"},
+  {solar:100, booster:30, akku:640, inverter:0,    regler:"MPPT 75/10",  seiten:6, preis:"15 €", digistore:"https://www.checkout-ds24.com/product/773849"},
+  {solar:100, booster:30, akku:640, inverter:1000, regler:"MPPT 75/10",  seiten:7, preis:"17 €", digistore:"https://www.checkout-ds24.com/product/773850"},
+  {solar:100, booster:30, akku:640, inverter:1500, regler:"MPPT 75/10",  seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/773852"},
+  {solar:100, booster:30, akku:640, inverter:2000, regler:"MPPT 75/10",  seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/773853"},
+  {solar:100, booster:30, akku:640, inverter:3000, regler:"MPPT 75/10",  seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/773854"},
+  {solar:100, booster:50, akku:640, inverter:0,    regler:"MPPT 75/10",  seiten:6, preis:"15 €", digistore:"https://www.checkout-ds24.com/product/773855"},
+  {solar:100, booster:50, akku:640, inverter:1000, regler:"MPPT 75/10",  seiten:7, preis:"17 €", digistore:"https://www.checkout-ds24.com/product/773856"},
+  {solar:100, booster:50, akku:640, inverter:1500, regler:"MPPT 75/10",  seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/773857"},
+  {solar:100, booster:50, akku:640, inverter:2000, regler:"MPPT 75/10",  seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/773858"},
+  {solar:100, booster:50, akku:640, inverter:3000, regler:"MPPT 75/10",  seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/773859"},
+  {solar:200, booster:30, akku:640, inverter:0,    regler:"MPPT 75/15",  seiten:6, preis:"15 €", digistore:"https://www.checkout-ds24.com/product/773860"},
+  {solar:200, booster:30, akku:640, inverter:1000, regler:"MPPT 75/15",  seiten:7, preis:"17 €", digistore:"https://www.checkout-ds24.com/product/773861"},
+  {solar:200, booster:30, akku:640, inverter:1500, regler:"MPPT 75/15",  seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/773862"},
+  {solar:200, booster:30, akku:640, inverter:2000, regler:"MPPT 75/15",  seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/773863"},
+  {solar:200, booster:30, akku:640, inverter:3000, regler:"MPPT 75/15",  seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/773864"},
+  {solar:200, booster:50, akku:640, inverter:0,    regler:"MPPT 75/15",  seiten:6, preis:"15 €", digistore:"https://www.checkout-ds24.com/product/773865"},
+  {solar:200, booster:50, akku:640, inverter:1000, regler:"MPPT 75/15",  seiten:7, preis:"17 €", digistore:"https://www.checkout-ds24.com/product/773866"},
+  {solar:200, booster:50, akku:640, inverter:1500, regler:"MPPT 75/15",  seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/773867"},
+  {solar:200, booster:50, akku:640, inverter:2000, regler:"MPPT 75/15",  seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/773868"},
+  {solar:200, booster:50, akku:640, inverter:3000, regler:"MPPT 75/15",  seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/773869"},
+  {solar:300, booster:30, akku:640, inverter:0,    regler:"MPPT 100/20", seiten:6, preis:"15 €", digistore:"https://www.checkout-ds24.com/product/773870"},
+  {solar:300, booster:30, akku:640, inverter:1000, regler:"MPPT 100/20", seiten:7, preis:"17 €", digistore:"https://www.checkout-ds24.com/product/773871"},
+  {solar:300, booster:30, akku:640, inverter:1500, regler:"MPPT 100/20", seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/773872"},
+  {solar:300, booster:30, akku:640, inverter:2000, regler:"MPPT 100/20", seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/773873"},
+  {solar:300, booster:30, akku:640, inverter:3000, regler:"MPPT 100/20", seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/773874"},
+  {solar:300, booster:50, akku:640, inverter:0,    regler:"MPPT 100/20", seiten:6, preis:"15 €", digistore:"https://www.checkout-ds24.com/product/773875"},
+  {solar:300, booster:50, akku:640, inverter:1000, regler:"MPPT 100/20", seiten:7, preis:"17 €", digistore:"https://www.checkout-ds24.com/product/773876"},
+  {solar:300, booster:50, akku:640, inverter:1500, regler:"MPPT 100/20", seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/773877"},
+  {solar:300, booster:50, akku:640, inverter:2000, regler:"MPPT 100/20", seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/773878"},
+  {solar:300, booster:50, akku:640, inverter:3000, regler:"MPPT 100/20", seiten:7, preis:"18 €", digistore:"https://www.checkout-ds24.com/product/773848"},
 ];
 
 // Rabatt-Aktion: Streichpreis + Aktionspreis bis zum Ende-Zeitpunkt, danach automatisch wieder Normalpreis.
@@ -89,8 +119,8 @@ const VORSCHAU = {
 };
 PLAENE.forEach(p => p.vorschau ||= VORSCHAU[p.seiten]);
 
-// Ladestrom des Wechselrichters am Landstrom, in A (Ective 1000 W: 20 A, Ective CSI 15 PRO 1500 W: 30 A, Ective CSI 20 PRO Gen2 2000 W: 40 A)
-const LADER = {1000: 20, 1500: 30, 2000: 40};
+// Ladestrom des Wechselrichters am Landstrom, in A (Ective 1000 W: 20 A, Ective CSI 15 PRO 1500 W: 30 A, Ective CSI 20 PRO Gen2 2000 W: 40 A, Ective CSI 30 PRO Gen2 3000 W: 40 A)
+const LADER = {1000: 20, 1500: 30, 2000: 40, 3000: 40};
 const KEYS = ["solar","booster","akku","inverter"];
 const NAME = {solar:"Solarleistung", booster:"Ladebooster", akku:"Akku", inverter:"Spannungswandler"};
 const LABEL = {
