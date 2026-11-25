@@ -388,6 +388,14 @@
                   <div class="inp"><input id="inL" type="text" inputmode="decimal" value="2" autocomplete="off"><span class="unit">m</span></div>
                   <small>Einfacher Weg. Plus und Minus rechnet der Rechner doppelt.</small>
                 </div>
+                <div class="calc-field" data-for="querschnitt laenge strom abfall">
+                  <label for="inK">Kabeltyp</label>
+                  <div class="inp"><select id="inK">
+                    <option value="pvc" selected>PVC, Leiter bis 70 °C (wie meine Tabelle)</option>
+                    <option value="sgx">SGX-Batteriekabel, Leiter bis 125 °C</option>
+                  </select></div>
+                  <small id="hintK">Normales flexibles Kupferkabel mit PVC-Isolierung.</small>
+                </div>
                 <div class="calc-field" data-for="laenge strom abfall">
                   <label for="inA">Querschnitt</label>
                   <div class="inp"><select id="inA" aria-label="Querschnitt"></select></div>
@@ -406,10 +414,11 @@
                 <div class="calc-field" data-for="querschnitt laenge strom abfall">
                   <label for="inT">Kabeltemperatur</label>
                   <div class="inp"><select id="inT">
+                    <option value="125" disabled>heiß, Leiter 125 °C (SGX an der Grenze)</option>
                     <option value="70" selected>warm, Leiter 70 °C (wie meine Tabelle)</option>
                     <option value="20">kalt, Leiter 20 °C</option>
                   </select></div>
-                  <small>Warmes Kupfer hat rund 20 % mehr Widerstand.</small>
+                  <small id="hintT">Warmes Kupfer hat rund 20 % mehr Widerstand.</small>
                 </div>
               </div>
             </div>
@@ -426,7 +435,7 @@
                 <summary id="ovTitle">Alle Querschnitte im Vergleich</summary>
                 <div class="calc-wrap-table"><table class="calc-table" id="ovTable"></table></div>
               </details>
-              <p class="calc-foot">Grundlage: Kupfer, feindrähtig (Klasse 5), Leiterwiderstand nach EN 60228. Wärmegrenze als Planwert für eine einadrige PVC-Leitung mit 70 °C Leitertemperatur, einzeln und frei verlegt, Staufach bis 40 °C (DIN VDE 0298-4 Tab. 11 × 0,87, mit Reserve abgerundet). Im Bündel, im Schutzrohr oder bei mehr Wärme ist sie niedriger. Kabelschuhe, Sicherungen und Schalter sind nicht eingerechnet. Richtwerte zur Orientierung, keine Installationsanleitung. Die Anleitung deines Geräts geht immer vor.</p>
+              <p class="calc-foot">Grundlage: Kupfer, feindrähtig (Klasse 5), Leiterwiderstand nach EN 60228. Wärmegrenze als Planwert für eine einadrige PVC-Leitung mit 70 °C Leitertemperatur, einzeln und frei verlegt, Staufach bis 40 °C (DIN VDE 0298-4 Tab. 11 × 0,87, mit Reserve abgerundet). SGX bis 125 °C: eigene Rechnung, höchstens die FraRon-Angabe, × 0,94 für 40 °C. Im Bündel, im Schutzrohr oder bei mehr Wärme ist sie niedriger. Kabelschuhe, Sicherungen und Schalter sind nicht eingerechnet. Richtwerte zur Orientierung, keine Installationsanleitung. Die Anleitung deines Geräts geht immer vor.</p>
             </div>
           </div>
           <p>Welche Sicherung zu deinem Kabel passt, rechnest du im <a href="sicherung-kabel-wohnmobil-sicherungsrechner.html#rechner">Sicherungsrechner</a> aus.</p>
@@ -788,11 +797,13 @@
             <li><a href="https://www.bayka.de/wp-content/uploads/2022/03/TD06DE-Strombelastbarkeit-flexible-Kupferkabel-und-Leitungen.pdf" target="_blank" rel="noopener">Strombelastbarkeit nach DIN VDE 0298-4, Tabelle 11 (Bayka TD06DE, 07/2022, PDF)</a>: einadrig, frei in Luft, 30 °C; die Werte gelten laut Bayka auch für Gleichstrom</li>
             <li><a href="https://contentmedia.lappcdn.com/e/lapp/fuk2Jf1cPlV6EesaZZFavA~~" target="_blank" rel="noopener">Umrechnungsfaktoren Temperatur und Häufung nach DIN VDE 0298-4 (Lapp, Technische Tabellen T12)</a>: Faktor 0,87 bei 40 °C für 70-°C-Leiter</li>
             <li><a href="https://www.bayka.de/en/service/technical-information/conductor-resistance" target="_blank" rel="noopener">Leiterwiderstände nach EN 60228 (Bayka, abgerufen 06.11.2026)</a>: Klasse 5, 20 °C</li>
+            <li><a href="https://www.fraron.de/downloads/flyer/FraRon_Katalog_SGX_Konfektion_low.pdf" target="_blank" rel="noopener">FraRon, Datenblatt SGX-Batteriekabel (PDF)</a>: XLPE-Mantel, −40 bis +125 °C, SAE J-1127, Leiteraufbau, Strombelastbarkeit 115 bis 505 A (ohne Angabe der Bedingungen)</li>
           </ul>
           <ul>
             <li><strong>Spannungsabfall:</strong> ΔU = I × R′ × 2 × Abstand, R′ = Leiterwiderstand pro Meter, × 1,1965 für 70 °C Leitertemperatur</li>
             <li><strong>Verlust:</strong> P = I² × R = ΔU × I</li>
             <li><strong>Wärmegrenze im Rechner:</strong> Tabelle 11 × 0,87, mit Reserve abgerundet: 1,5 → 20 A · 2,5 → 27 A · 4 → 36 A · 6 → 46 A · 10 → 60 A · 16 → 80 A · 25 → 110 A · 35 → 135 A · 50 → 170 A · 70 → 200 A · 95 → 250 A · 120 → 290 A</li>
+            <li><strong>SGX 125 °C (eigene Rechnung):</strong> Wärmeabgabe wächst mit dem Abstand Leiter–Luft, der Widerstand mit der Temperatur: Tab. 11 × √((125 − 30) ÷ (70 − 30) ÷ 1,18) = × 1,42 bei 30 °C, × 0,94 für 40 °C, höchstens der FraRon-Wert, auf 5 A abgerundet: 14 → 105 A · 22 → 150 A · 34 → 200 A · 42 → 235 A · 54 → 285 A · 70 → 320 A · 95 → 375 A · 110 → 445 A. Widerstand aus dem Litzenaufbau (z. B. 95 mm² = 1615 × 0,254 mm = 82 mm² Kupfer, 0,214 Ω/km bei 20 °C), × 1,4126 bei 125 °C</li>
             <li><strong>Einstieg:</strong> 1,5 mm², 24 A, 10 m Kabel bei 20 °C: 3,19 Volt, 76,6 W von 307 W (24 A × 12,8 V)</li>
             <li><strong>70er:</strong> 0,272 Ω/km × 1,1965 = 0,325 mΩ/m; 200 A × 2 m Kabel → 0,13 Volt, 26 W; × 10 m Kabel → 0,65 Volt, 130 W</li>
             <li><strong>Verbindung:</strong> 1 mΩ ist ein angenommener Wert für eine schlechte Verbindung; 200² × 0,001 = 40 W, 200 × 0,001 = 0,2 Volt</li>
@@ -928,6 +939,16 @@
     var R20   = [13.3, 7.98, 4.95, 3.3, 1.91, 1.21, 0.78, 0.554, 0.386, 0.272, 0.206, 0.161];
     var PLAN  = [20, 27, 36, 46, 60, 80, 110, 135, 170, 200, 250, 290];
     var K70 = 1.1965;
+    // SGX-Batteriekabel (XLPE bis 125 °C, SAE J-1127), Größen wie im FraRon-Datenblatt.
+    // Wärmegrenze: eigene Rechnung für 125 °C Leiter (Tab. 11 × 1,42, höchstens FraRon-Angabe), × 0,94 für Staufach 40 °C,
+    // auf 5 A abgerundet. Widerstand: 0,017241 Ω·mm²/m × 1,02 ÷ Litzenquerschnitt laut Datenblatt.
+    var SETS = {
+      pvc: { S: SIZES.slice(), R: R20.slice(), P: PLAN.slice() },
+      sgx: { S: [14, 22, 34, 42, 54, 70, 95, 110], R: [1.295, 0.814, 0.554, 0.418, 0.337, 0.275, 0.214, 0.168],
+             P: [105, 150, 200, 235, 285, 320, 375, 445] }
+    };
+    var KT = { '20': 1, '70': K70, '125': 1.4126 };
+    var aktSet = 'pvc';
     var SYS = { '12': { ub: 12.8, du: 0.3 }, '24': { ub: 25.6, du: 0.6 }, '48': { ub: 51.2, du: 1.2 } };
 
     var $ = function (id) { return document.getElementById(id); };
@@ -959,7 +980,7 @@
     function fM(x) { return fmt(x, x < 1 ? 2 : 1) + ' m'; }
     function fS(i) { var s = SIZES[i]; return fmt(s, s % 1 ? 1 : 0) + ' mm²'; }
     function radio(name) { return root.querySelector('input[name="' + name + '"]:checked').value; }
-    function rpm(i) { return R20[i] / 1000 * ($('inT').value === '70' ? K70 : 1); } // Ω pro Meter Leiter
+    function rpm(i) { return R20[i] / 1000 * KT[$('inT').value]; } // Ω pro Meter Leiter
 
     function kpi(label, value) { return '<div><span>' + label + '</span><strong>' + value + '</strong></div>'; }
     function msg(cls, text) { return '<div class="calc-msg ' + cls + '">' + text + '</div>'; }
@@ -972,9 +993,35 @@
       });
     }
 
+    function fuelle(arr, neu) { arr.length = 0; neu.forEach(function (x) { arr.push(x); }); }
+    function setzeKabelSatz() {
+      var soll = $('inK').value;
+      if (soll === aktSet) return;
+      var alt = SIZES[Number(sel.value)] || 35;
+      aktSet = soll;
+      fuelle(SIZES, SETS[soll].S); fuelle(R20, SETS[soll].R); fuelle(PLAN, SETS[soll].P);
+      sel.innerHTML = '';
+      var best = 0;
+      SIZES.forEach(function (q, i) {
+        var o = document.createElement('option'); o.value = i; o.textContent = fS(i); sel.appendChild(o);
+        if (Math.abs(q - alt) < Math.abs(SIZES[best] - alt)) best = i;
+      });
+      sel.value = best;
+      var o125 = $('inT').querySelector('option[value="125"]');
+      o125.disabled = soll !== 'sgx';
+      $('inT').value = soll === 'sgx' ? '125' : ($('inT').value === '125' ? '70' : $('inT').value);
+      $('hintK').innerHTML = soll === 'sgx'
+        ? 'Hochtemperatur-Kabel mit XLPE-Mantel (SAE J-1127), Größen wie bei <a href="https://www.fraron.de/downloads/flyer/FraRon_Katalog_SGX_Konfektion_low.pdf" target="_blank" rel="noopener">FraRon</a>.'
+        : 'Normales flexibles Kupferkabel mit PVC-Isolierung.';
+      $('hintT').textContent = soll === 'sgx'
+        ? 'An der Wärmegrenze wird SGX bis 125 °C heiß und hat dann rund 41 % mehr Widerstand als kalt.'
+        : 'Warmes Kupfer hat rund 20 % mehr Widerstand.';
+    }
+
     function calc() {
       var mode = radio('mode');
       var sys = radio('sys');
+      setzeKabelSatz();
       syncFields(mode);
 
       var ub = num('inUb');
@@ -1022,9 +1069,9 @@
         lbl.textContent = 'Mindestens nötiger Querschnitt';
         ot.textContent = 'Alle Querschnitte bei ' + fA(I) + ' und ' + fM(L) + ' Abstand';
         if (rec < 0) {
-          big.textContent = 'über 120 mm²';
+          big.textContent = 'über ' + fS(SIZES.length - 1);
           sub.textContent = 'bei ' + fA(I) + wNote + ' und ' + fM(L) + ' Abstand';
-          M.push(msg('bad', 'Selbst 120 mm² reicht hier nicht. Verkürze den Weg, verringere den Strom oder plane eine höhere Systemspannung. Parallele Leitungen nur nach Anleitung des Geräts und mit passender Absicherung.'));
+          M.push(msg('bad', 'Selbst ' + fS(SIZES.length - 1) + ' reicht hier nicht. Verkürze den Weg, verringere den Strom oder plane eine höhere Systemspannung. Parallele Leitungen nur nach Anleitung des Geräts und mit passender Absicherung.'));
         } else {
           var du = I * rpm(rec) * 2 * L, p = du * I;
           big.textContent = fS(rec);
@@ -1114,6 +1161,7 @@
         ot.textContent = 'Alle Querschnitte bei ' + fA(I) + ' und ' + fM(L) + ' Abstand';
       }
 
+      if (aktSet === 'sgx') M.push(msg('warn', 'SGX: Wärmegrenze aus meiner eigenen Rechnung für 125 °C Leitertemperatur im 40 °C warmen Staufach, höchstens die Angabe von FraRon. Kabelschuhe, Sicherungshalter, Busbar und Geräteklemmen werden genauso heiß: Prüf, ob sie das aushalten.'));
       if (unit === 'W' && needI) M.push(msg('info', 'Aus ' + fmt(raw, 0) + ' W bei ' + fmt(ub, 1) + ' Volt' + (eta < 100 ? ' und ' + fmt(eta, 0) + ' % Wirkungsgrad' : '') + ' ergeben sich ' + fA(I) + ' aus der Batterie. Sinkt die Batteriespannung, steigt der Strom.'));
       if (sys !== '12' && !duTouched) M.push(msg('info', 'Startwert ' + fV(dmax) + ': derselbe Anteil wie meine 0,3 Volt bei 12 Volt. Du kannst ihn ändern.'));
 

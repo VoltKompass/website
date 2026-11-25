@@ -534,6 +534,7 @@
                     <option value="pvc" selected>PVC, Leiter bis 70 °C (z. B. H07V-K)</option>
                     <option value="gummi">Gummi, Leiter bis 60 °C (z. B. H07RN-F)</option>
                     <option value="xlpe">vernetzt, Leiter bis 90 °C</option>
+                    <option value="sgx">SGX-Batteriekabel, Leiter bis 125 °C</option>
                     <option value="eigen">Wert aus dem Datenblatt</option>
                   </select></div>
                   <small id="hintTyp">Steht auf dem Kabel oder im Datenblatt.</small>
@@ -672,7 +673,7 @@
                 <summary id="ovTitle">Alle Querschnitte im Vergleich</summary>
                 <div class="calc-wrap-table"><table class="calc-table" id="ovTable"></table></div>
               </details>
-              <p class="calc-foot">Grundlage: Kabel verträgt nach DIN VDE 0298-4 Tabelle 11, einadrig, frei in Luft, 30 °C (Bayka TD06DE). Wärmer: Umrechnungsfaktoren nach VDE 0298-4 Tabelle 17, Bündel nach Tabelle 21 (Lapp, Technische Tabellen T12). Sicherung höchstens = größter gängiger Wert, der nicht über dem Kabelwert liegt (Regel aus ISO 10133:2012, 8.2 und Victron „Wiring Unlimited“ 4.6). Die Wertereihe der Sicherungen ist eine Auswahl gängiger Größen, keine Norm. Spannungsabfall wie im Kabelrechner: Leiter warm (70 °C), Plus und Minus. Richtwerte zur Orientierung, keine Installationsanleitung. Die Anleitung deines Geräts und das Datenblatt deines Kabels gehen immer vor.</p>
+              <p class="calc-foot">Grundlage: Kabel verträgt nach DIN VDE 0298-4 Tabelle 11, einadrig, frei in Luft, 30 °C (Bayka TD06DE). SGX 125 °C: eigene Rechnung nach derselben Formel wie die Temperaturfaktoren der Norm, höchstens die FraRon-Angabe. Wärmer: Umrechnungsfaktoren nach VDE 0298-4 Tabelle 17, Bündel nach Tabelle 21 (Lapp, Technische Tabellen T12). Sicherung höchstens = größter gängiger Wert, der nicht über dem Kabelwert liegt (Regel aus ISO 10133:2012, 8.2 und Victron „Wiring Unlimited“ 4.6). Die Wertereihe der Sicherungen ist eine Auswahl gängiger Größen, keine Norm. Spannungsabfall wie im Kabelrechner: Leiter warm (70 °C), Plus und Minus. Richtwerte zur Orientierung, keine Installationsanleitung. Die Anleitung deines Geräts und das Datenblatt deines Kabels gehen immer vor.</p>
             </div>
           </div>
           <p>Wie viel Spannung auf langen Wegen verloren geht und welcher Querschnitt dafür nötig ist, rechnest du ausführlich im <a href="kabelquerschnitt-wohnmobil-kabelrechner.html">Kabelrechner für 12, 24 und 48 Volt</a>.</p>
@@ -1091,10 +1092,12 @@
             <li>MTA MegaVAL, Datenblatt nach ISO 8820-5: 1,35 × Nennstrom 120 bis 1800 s, Schaltvermögen 2000 A bei 32 V DC</li>
             <li><a href="https://www.victronenergy.com/upload/documents/Datasheet-Inverter-Smart-1600VA-5000VA-EN-.pdf" target="_blank" rel="noopener">Victron Phoenix Inverter Smart, Datenblatt</a> (12/3000: 2400 W dauerhaft bei 25 °C) und Handbuch, Abschnitt 3.2.1 Batterieanschluss (2 × 95 mm², 400 A, Fußnote zum Kabel)</li>
             <li>Ective CSI 30 PRO, Bedienungsanleitung (Angaben für SGX-Kabel bis 125 °C) · SGX-Batteriekabel 70 mm², Händlerangabe 390 A ohne Bedingungen</li>
+            <li><a href="https://www.fraron.de/downloads/flyer/FraRon_Katalog_SGX_Konfektion_low.pdf" target="_blank" rel="noopener">FraRon, Datenblatt SGX-Batteriekabel (PDF)</a>: XLPE-Mantel, −40 bis +125 °C, SAE J-1127, Leiteraufbau und Strombelastbarkeit 14 mm² 115 A · 22 mm² 160 A · 34 mm² 215 A · 42 mm² 250 A · 54 mm² 335 A · 70 mm² 390 A · 95 mm² 450 A · 110 mm² 505 A (ohne Angabe der Bedingungen)</li>
           </ul>
           <ul>
             <li><strong>Kabel verträgt:</strong> I<sub>z</sub> = Wert Tabelle 11 × Temperaturfaktor × Bündelfaktor</li>
             <li><strong>Temperaturfaktoren (Tab. 17):</strong> PVC 70 °C: 40 °C 0,87 · 50 °C 0,71 · 60 °C 0,50 · Gummi 60 °C: 40 °C 0,82 · 50 °C 0,58 · vernetzt 90 °C: 40 °C 0,91 · 50 °C 0,82 · 60 °C 0,71</li>
+            <li><strong>SGX 125 °C (eigene Rechnung):</strong> Die Faktoren der Tab. 17 folgen der Formel √((Leitergrenze − Umgebung) ÷ (Leitergrenze − 30 °C)), z. B. PVC bei 40 °C √(30/40) = 0,87. Für 125 °C Leitergrenze statt 70 °C gibt das bei 30 °C × √(95/40 ÷ 1,18) = × 1,42 (1,18 = Mehrwiderstand von Kupfer bei 125 °C gegenüber 70 °C). Eingeordnet über den Leiterwiderstand laut Litzenaufbau, abgerundet und höchstens der FraRon-Wert: 14 → 115 A · 22 → 160 A · 34 → 215 A · 42 → 250 A · 54 → 305 A · 70 → 345 A · 95 → 404 A · 110 → 474 A. Wärmer: 40 °C 0,94 · 50 °C 0,88 · 60 °C 0,82</li>
             <li><strong>Bündel (Tab. 21):</strong> 2 Stromkreise oder Kabelkanal 0,80 · 3 → 0,70 · 4 → 0,65 · 6 → 0,57</li>
             <li><strong>Sicherung höchstens:</strong> größter Wert aus 5 · 7,5 · 10 · 15 · 20 · 25 · 30 · 35 · 40 · 50 · 60 · 70 · 80 · 100 · 125 · 150 · 175 · 200 · 225 · 250 · 300 · 350 · 400 · 500 A, der nicht über I<sub>z</sub> liegt</li>
             <li><strong>Wechselrichter:</strong> 2400 W ÷ (12,8 V × 0,93) ≈ 202 A, bei 12 V ≈ 215 A → „gut 200 A“</li>
@@ -1246,13 +1249,25 @@
     // Leiterwiderstand Klasse 5, 20 °C (Ω/km, EN 60228)
     var R20 = [13.3, 7.98, 4.95, 3.3, 1.91, 1.21, 0.78, 0.554, 0.386, 0.272, 0.206, 0.161, 0.129];
     var K70 = 1.1965;
+    // SGX-Batteriekabel (XLPE, bis 125 °C, SAE J-1127), Größen wie im FraRon-Datenblatt (6 AWG bis 4/0 AWG).
+    // Kabel verträgt bei 30 °C: eigene Rechnung für 125 °C Leiter (Tab. 11 × √((125−30)/(70−30) ÷ R125/R70) = × 1,42,
+    // über den Leiterwiderstand eingeordnet), höchstens die FraRon-Angabe (115/160/215/250/335/390/450/505 A).
+    // Widerstand: Kupfer 0,017241 Ω·mm²/m × 1,02 (Verseilung) ÷ Litzenquerschnitt laut Datenblatt (z. B. 1615 × 0,254 mm = 82 mm²).
+    var SETS = {
+      norm: { S: SIZES.slice(), IZ: IZ30.slice(), R: R20.slice(), K: K70 },
+      sgx:  { S: [14, 22, 34, 42, 54, 70, 95, 110], IZ: [115, 160, 215, 250, 305, 345, 404, 474],
+              R: [1.295, 0.814, 0.554, 0.418, 0.337, 0.275, 0.214, 0.168], K: 1.4126 }
+    };
+    var aktSet = 'norm';
     // VDE 0298-4 Tab. 17 (Lapp T12-2)
     var TEMP = {
       pvc:   { 30: 1, 40: 0.87, 50: 0.71, 60: 0.50 },
       gummi: { 30: 1, 40: 0.82, 50: 0.58, 60: null },
-      xlpe:  { 30: 1, 40: 0.91, 50: 0.82, 60: 0.71 }
+      xlpe:  { 30: 1, 40: 0.91, 50: 0.82, 60: 0.71 },
+      // gleiche Formel wie Tab. 17: √((125 − Umgebung) ÷ (125 − 30)), abgerundet
+      sgx:   { 30: 1, 40: 0.94, 50: 0.88, 60: 0.82 }
     };
-    var TYPNAME = { pvc: 'PVC 70 °C', gummi: 'Gummi 60 °C', xlpe: 'vernetzt 90 °C', eigen: 'Datenblatt' };
+    var TYPNAME = { pvc: 'PVC 70 °C', gummi: 'Gummi 60 °C', xlpe: 'vernetzt 90 °C', sgx: 'SGX 125 °C', eigen: 'Datenblatt' };
     // VDE 0298-4 Tab. 21 (Lapp T12-5)
     var BUND = { 1: 1, 2: 0.80, 3: 0.70, 4: 0.65, 6: 0.57 };
     var FUSES = [5, 7.5, 10, 15, 20, 25, 30, 35, 40, 50, 60, 70, 80, 100, 125, 150, 175, 200, 225, 250, 300, 350, 400, 500];
@@ -1282,6 +1297,25 @@
     function num(id) {
       var v = String($(id).value).trim().replace(/\s/g, '').replace(',', '.');
       return v === '' ? NaN : Number(v);
+    }
+    function fuelle(arr, neu) { arr.length = 0; neu.forEach(function (x) { arr.push(x); }); }
+    function setzeKabelSatz() {
+      var soll = $('inTyp').value === 'sgx' ? 'sgx' : 'norm';
+      if (soll === aktSet) return;
+      var alt = SIZES[Number(sel.value)] || 35;
+      aktSet = soll;
+      var s = SETS[soll];
+      fuelle(SIZES, s.S); fuelle(IZ30, s.IZ); fuelle(R20, s.R); K70 = s.K;
+      sel.innerHTML = '';
+      var best = 0;
+      SIZES.forEach(function (q, i) {
+        var o = document.createElement('option'); o.value = i; o.textContent = fS(i); sel.appendChild(o);
+        if (Math.abs(q - alt) < Math.abs(SIZES[best] - alt)) best = i;
+      });
+      sel.value = best;
+      $('hintTyp').innerHTML = soll === 'sgx'
+        ? 'Hochtemperatur-Kabel mit XLPE-Mantel (SAE J-1127), Größen wie bei <a href="' + 'https://www.fraron.de/downloads/flyer/FraRon_Katalog_SGX_Konfektion_low.pdf' + '" target="_blank" rel="noopener">FraRon</a>.'
+        : 'Steht auf dem Kabel oder im Datenblatt.';
     }
     function fA(x) { return fmt(x, x < 10 && x % 1 ? 1 : 0) + ' A'; }
     function fV(x) { return fmt(x, x < 10 ? 2 : 1) + ' Volt'; }
@@ -1334,6 +1368,7 @@
 
     function calc() {
       var mode = radio('mode'), sys = radio('sys');
+      setzeKabelSatz();
       syncFields(mode);
       var ub = SYS[sys].ub;
       $('tBat').textContent = fmt(ub, 1) + ' V';
@@ -1413,11 +1448,11 @@
         if (useL && !(dmax > 0)) return fail('Bitte prüfe den erlaubten Spannungsabfall.');
         if (rec < 0) {
           lbl.textContent = 'Kabel und Sicherung';
-          big.textContent = 'über 150 mm²';
+          big.textContent = 'über ' + fS(SIZES.length - 1);
           sub.textContent = 'für ' + ibTxt;
-          M.push(msg('bad', 'Kein einzelnes Kabel bis 150 mm² reicht. Verkürze den Weg, plane eine höhere Systemspannung oder zwei parallele Kabel nach Anleitung des Geräts.'));
+          M.push(msg('bad', 'Kein einzelnes Kabel bis ' + fS(SIZES.length - 1) + ' reicht. Verkürze den Weg, plane eine höhere Systemspannung oder zwei parallele Kabel nach Anleitung des Geräts.'));
           overview(-1);
-          vis = { ib: ib, fuse: 0, iz: 0, size: 150, n: 1 };
+          vis = { ib: ib, fuse: 0, iz: 0, size: SIZES[SIZES.length - 1], n: 1 };
         } else {
           var izr = izOf(rec), fmr = maxFuse(izr), rng2 = fusesBetween(ib, izr);
           lbl.textContent = 'Mindestens nötig';
@@ -1477,6 +1512,7 @@
         vis = { ib: hasIb ? ib : 0, fuse: fin, iz: tot, size: SIZES[aj], n: n };
       }
       if (mode !== 'vorgabe') big.classList.remove('is-bad');
+      if ($('inTyp').value === 'sgx') M.push(msg('warn', 'SGX darf bis 125 °C heiß werden. Die Werte sind meine eigene Rechnung für 125 °C Leitertemperatur, höchstens die Angabe von FraRon. Kabelschuhe, Sicherungshalter, Busbar und die Klemmen am Gerät werden genauso heiß: Prüf, ob sie das aushalten. Ein heißes Kabel hat außerdem rund 18 % mehr Widerstand als bei 70 °C.'));
 
       kp.innerHTML = K.join('');
       ms.innerHTML = M.join('');
@@ -1575,7 +1611,7 @@
       }
       if (e.target.name === 'mode') {
         if (e.target.value === 'geraet' && !(num('inI') > 0)) $('inI').value = unit === 'W' ? '1000' : '60';
-        if (e.target.value === 'vorgabe') { sel.value = SIZES.indexOf(95); $('inN').value = '2'; if (!(num('inI') > 0)) { unit = 'A'; setUnitBtns(); $('inI').value = '215'; } }
+        if (e.target.value === 'vorgabe') { sel.value = Math.max(0, SIZES.indexOf(95)); $('inN').value = '2'; if (!(num('inI') > 0)) { unit = 'A'; setUnitBtns(); $('inI').value = '215'; } }
         simMode = 'normal';
         root.querySelectorAll('.sim-btn').forEach(function (x) { x.setAttribute('aria-pressed', x.dataset.sim === 'normal' ? 'true' : 'false'); });
       }
