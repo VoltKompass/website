@@ -9,7 +9,7 @@
   if (!document.querySelector('link[href^="plan-box.css"]')) {
     const l = document.createElement('link');
     l.rel = 'stylesheet';
-    l.href = 'plan-box.css?v=1';
+    l.href = 'plan-box.css?v=2';
     document.head.appendChild(l);
   }
 
@@ -23,7 +23,7 @@
 
   function zeichnen(box, plaene, i) {
     const p = plaene[i];
-    const link = `stromlaufplaene.html?plan=${slug(p)}`;
+    const link = `/schaltplan/wohnmobil-${p.akku}ah-lifepo4-${p.inverter ? p.inverter + 'w-wechselrichter' : '12v-ohne-wechselrichter'}.html#solar${p.solar}-booster${p.booster}`;   // eigene Plan-Seite (werkzeuge/plan_seiten.py)
     const aktion = aktionAn() ? `<p class="planbox-aktion"><b>${AKTION.name}: −${AKTION.rabatt} %</b> nur bis ${AKTION.bisText}</p>` : '';
     box.querySelector('.planbox-plan').innerHTML = `
       <a class="planbox-bild" href="${link}"><img src="${bild(p)}" width="1200" height="600" loading="lazy" decoding="async" alt="Vorschau Stromlaufplan ${titel(p)}"></a>

@@ -45,3 +45,7 @@
   .planbox-knoepfe .btn{flex:1 1 100%;justify-content:center}
   .planbox-knoepfe{justify-content:center}
 }
+
+/* feste Links unter dem Plan-Kasten zu den Plan-Seiten (/schaltplan/) */
+.planbox-seiten{margin:16px 0 0;text-align:center;font-size:14.5px;color:var(--mute,#9aa6bd)}
+.planbox-seiten a{color:var(--gold,#e6b200);font-weight:600}

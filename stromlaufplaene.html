@@ -188,6 +188,20 @@
         </div>
       </section>
 
+      <!-- PLAN-SEITEN-LINKS START -->
+      <section class="blog-section" id="nach-akku">
+        <style>.sp-links{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}.sp-links a{display:inline-block;padding:7px 13px;border-radius:999px;border:1px solid var(--line-2);color:var(--text-2);text-decoration:none;font-size:.9rem}.sp-links a:hover{border-color:rgba(230,178,0,.55);color:#fff}</style>
+        <div class="wrap">
+          <p class="blog-eyebrow">Nach Akku und Wechselrichter</p>
+          <h2>Alle Schaltpläne mit Details</h2>
+          <p style="max-width:62ch">Jede Seite zeigt Querschnitte, Sicherungen und alle Varianten mit Solar und Ladebooster.</p>
+          <h3 style="margin:18px 0 8px;font-size:1rem">100 Ah LiFePO4</h3><ul class="sp-links"><li><a href="/schaltplan/wohnmobil-100ah-lifepo4-12v-ohne-wechselrichter.html">100 Ah · nur 12 V</a></li><li><a href="/schaltplan/wohnmobil-100ah-lifepo4-1000w-wechselrichter.html">100 Ah · 1000 W</a></li></ul><h3 style="margin:18px 0 8px;font-size:1rem">200 Ah LiFePO4</h3><ul class="sp-links"><li><a href="/schaltplan/wohnmobil-200ah-lifepo4-12v-ohne-wechselrichter.html">200 Ah · nur 12 V</a></li><li><a href="/schaltplan/wohnmobil-200ah-lifepo4-1000w-wechselrichter.html">200 Ah · 1000 W</a></li><li><a href="/schaltplan/wohnmobil-200ah-lifepo4-1500w-wechselrichter.html">200 Ah · 1500 W</a></li><li><a href="/schaltplan/wohnmobil-200ah-lifepo4-2000w-wechselrichter.html">200 Ah · 2000 W</a></li></ul><h3 style="margin:18px 0 8px;font-size:1rem">320 Ah LiFePO4</h3><ul class="sp-links"><li><a href="/schaltplan/wohnmobil-320ah-lifepo4-12v-ohne-wechselrichter.html">320 Ah · nur 12 V</a></li><li><a href="/schaltplan/wohnmobil-320ah-lifepo4-1000w-wechselrichter.html">320 Ah · 1000 W</a></li><li><a href="/schaltplan/wohnmobil-320ah-lifepo4-1500w-wechselrichter.html">320 Ah · 1500 W</a></li><li><a href="/schaltplan/wohnmobil-320ah-lifepo4-2000w-wechselrichter.html">320 Ah · 2000 W</a></li></ul><h3 style="margin:18px 0 8px;font-size:1rem">640 Ah LiFePO4</h3><ul class="sp-links"><li><a href="/schaltplan/wohnmobil-640ah-lifepo4-12v-ohne-wechselrichter.html">640 Ah · nur 12 V</a></li><li><a href="/schaltplan/wohnmobil-640ah-lifepo4-1000w-wechselrichter.html">640 Ah · 1000 W</a></li><li><a href="/schaltplan/wohnmobil-640ah-lifepo4-1500w-wechselrichter.html">640 Ah · 1500 W</a></li><li><a href="/schaltplan/wohnmobil-640ah-lifepo4-2000w-wechselrichter.html">640 Ah · 2000 W</a></li><li><a href="/schaltplan/wohnmobil-640ah-lifepo4-3000w-wechselrichter.html">640 Ah · 3000 W</a></li></ul>
+          <h3 style="margin:22px 0 8px;font-size:1rem">Übersichten</h3>
+          <ul class="sp-links"><li><a href="/schaltplan/akku-100ah.html">Schaltpläne mit 100 Ah LiFePO4</a></li><li><a href="/schaltplan/akku-200ah.html">Schaltpläne mit 200 Ah LiFePO4</a></li><li><a href="/schaltplan/akku-320ah.html">Schaltpläne mit 320 Ah LiFePO4</a></li><li><a href="/schaltplan/akku-640ah.html">Schaltpläne mit 640 Ah LiFePO4</a></li><li><a href="/schaltplan/ohne-wechselrichter.html">Schaltpläne ohne Wechselrichter (nur 12 V)</a></li><li><a href="/schaltplan/wechselrichter-1000w.html">Schaltpläne mit 1000-W-Wechselrichter</a></li><li><a href="/schaltplan/wechselrichter-1500w.html">Schaltpläne mit 1500-W-Wechselrichter</a></li><li><a href="/schaltplan/wechselrichter-2000w.html">Schaltpläne mit 2000-W-Wechselrichter</a></li><li><a href="/schaltplan/wechselrichter-3000w.html">Schaltplan mit 3000-W-Wechselrichter</a></li><li><a href="/schaltplan/solar-100w.html">Schaltpläne mit 100 W Solar</a></li><li><a href="/schaltplan/solar-200w.html">Schaltpläne mit 200 W Solar</a></li><li><a href="/schaltplan/solar-300w.html">Schaltpläne mit 300 W Solar</a></li><li><a href="/schaltplan/ladebooster-30a.html">Schaltpläne mit 30-A-Ladebooster</a></li><li><a href="/schaltplan/ladebooster-50a.html">Schaltpläne mit 50-A-Ladebooster</a></li></ul>
+        </div>
+      </section>
+      <!-- PLAN-SEITEN-LINKS ENDE -->
+
       <section class="blog-section" id="inhalt">
         <div class="wrap">
           <p class="blog-eyebrow">Das steckt in jedem Plan</p>
@@ -237,6 +251,8 @@
 <script>
 // Plan-Liste, Aktion und Hilfsfunktionen (slug, titel, preisHtml …) stehen in plaene-daten.js
 
+// Eigene Seite je Akku + Wechselrichter (erzeugt von werkzeuge/plan_seiten.py), Variante per #solarX-boosterY
+const planSeite = p => `/schaltplan/wohnmobil-${p.akku}ah-lifepo4-${p.inverter ? p.inverter + "w-wechselrichter" : "12v-ohne-wechselrichter"}.html#solar${p.solar}-booster${p.booster}`;
 const werte = k => [...new Set(PLAENE.map(p => p[k]))].sort((a, b) => a - b);
 const passt = sel => PLAENE.find(p => KEYS.every(k => p[k] === sel[k]));
 let auswahl;
@@ -311,7 +327,8 @@ function zeichne(hinweis = "") {
     <div class="slp-buy">
       <div class="slp-price">${aktionAn() && p.preis ? `<span class="slp-badge">${AKTION.name} −${AKTION.rabatt} %</span>` : ""}${preisHtml(p)}<small>${aktionAn() && p.preis ? `Nur bis ${AKTION.bisText} · ` : ""}${kaufbar ? "Sofort-Download über Digistore24" : "Bald verfügbar"}</small></div>
       <a class="btn btn-primary" href="${kaufbar ? kaufLink(p) : "#"}" ${kaufbar ? 'target="_blank" rel="noopener"' : 'aria-disabled="true" tabindex="-1"'}>Plan kaufen →</a>
-    </div>`;
+    </div>
+    <p style="margin:12px 0 0;font-size:.9rem"><a href="${planSeite(p)}">Alle Details und Werte zu diesem Plan →</a></p>`;
 
   if (p.vorschau) starteKarussell(r.querySelector(".slp-3d"), p);
 
