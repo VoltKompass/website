@@ -104,8 +104,14 @@ let PLAENE = [
 
 // Rabatt-Aktion: Streichpreis + Aktionspreis bis zum Ende-Zeitpunkt, danach automatisch wieder Normalpreis.
 // Rabatt über Digistore24-Rabattcode (code, gleiches Ablaufdatum wie bis); der Kauf-Link bekommt ?voucher=<code>.
-const AKTION = {name: "Black Week", rabatt: 30, code: "BLACKWEEK", bis: "2026-11-29T23:59:59+01:00", bisText: "Sonntag, 29.11., 23:59 Uhr"};
-const aktionAn = () => Date.now() <= Date.parse(AKTION.bis);
+// Mehrere Stufen möglich: Es gilt die erste Stufe, deren Zeitraum (von … bis) gerade läuft.
+const AKTIONEN = [
+  {name: "Black Friday", rabatt: 40, code: "BLACKFRIDAY", von: "2026-11-27T00:00:00+01:00", bis: "2026-11-27T23:59:59+01:00", bisText: "heute, Freitag 27.11., 23:59 Uhr"},
+  {name: "Black Week", rabatt: 30, code: "BLACKWEEK", bis: "2026-11-29T23:59:59+01:00", bisText: "Sonntag, 29.11., 23:59 Uhr"},
+];
+const aktionLaeuft = a => Date.now() >= (a.von ? Date.parse(a.von) : 0) && Date.now() <= Date.parse(a.bis);
+const AKTION = AKTIONEN.find(aktionLaeuft) || AKTIONEN[AKTIONEN.length - 1];
+const aktionAn = () => aktionLaeuft(AKTION);
 const kaufLink = p => aktionAn() ? `${p.digistore}?voucher=${AKTION.code}` : p.digistore;
 const euro = n => (Number.isInteger(n) ? String(n) : n.toFixed(2).replace(".", ",")) + " €";
 const aktionsPreis = p => euro(Math.round(parseFloat(p.preis.replace(",", ".")) * (100 - AKTION.rabatt)) / 100);
