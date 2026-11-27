@@ -67,13 +67,20 @@ CSS = """
     .sp-hero p.blog-lead{max-width:64ch}
     .sp-top{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:clamp(20px,3vw,40px);align-items:start}
     .sp-panel{padding:clamp(18px,2.4vw,28px);border-radius:20px;border:1px solid var(--line-2);background:linear-gradient(180deg,var(--ink-2),var(--ink-3))}
-    .sp-bild{margin:0 0 10px;border-radius:14px;overflow:hidden;border:1px solid var(--line-2);background:#fff;aspect-ratio:2/1}
-    .sp-bild img{display:block;width:100%;height:100%;object-fit:cover}
-    .sp-thumbs{display:grid;grid-template-columns:repeat(auto-fill,minmax(88px,1fr));gap:8px;margin:0}
-    .sp-thumbs button{padding:0;border:1px solid var(--line-2);border-radius:8px;overflow:hidden;background:#fff;cursor:pointer;aspect-ratio:2/1}
-    .sp-thumbs button.is-on{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold)}
-    .sp-thumbs img{display:block;width:100%;height:100%;object-fit:cover}
-    .sp-thumbs-name{margin:8px 0 0;font-size:.85rem !important;color:var(--text-2) !important}
+    /* 3D-Karussell aller Seiten, dreht sich von selbst (wie im Planfinder) */
+    .sp-3d{margin:0;overflow:hidden}
+    .sp-stage{position:relative;aspect-ratio:2/.88;perspective:1400px;user-select:none}
+    .sp-slide{position:absolute;left:12%;top:4%;width:76%;aspect-ratio:2/1;border-radius:12px;overflow:hidden;background:#fff;border:1px solid var(--line-2);
+      box-shadow:0 18px 40px -18px rgba(0,0,0,.8);transition:transform .6s cubic-bezier(.2,.7,.2,1),opacity .6s,filter .6s;will-change:transform}
+    .sp-slide img{display:block;width:100%;height:100%;object-fit:cover;pointer-events:none}
+    .sp-slide.is-on{box-shadow:0 26px 60px -20px rgba(0,0,0,.9),0 0 0 2px var(--gold)}
+    .sp-3d-bar{margin-top:6px;text-align:center}
+    .sp-3d-bar b{font:600 .95rem/1.2 var(--font);color:#fff}
+    .sp-3d-bar small{color:var(--text-2);font-size:.8rem}
+    .sp-dots{display:flex;justify-content:center;gap:6px;margin-top:6px}
+    .sp-dots span{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.2);transition:width .3s,background .3s}
+    .sp-dots span.is-on{width:22px;background:var(--gold)}
+    @media (prefers-reduced-motion:reduce){.sp-slide{transition:none}}
     .sp-wahl{margin:0 0 18px}
     .sp-wahl b{display:block;margin:0 0 8px;font:600 1rem/1.3 var(--font);color:#fff}
     .sp-knoepfe{display:flex;flex-wrap:wrap;gap:8px}
@@ -262,9 +269,11 @@ def plan_seite(akku, wr, gruppe, alle_gruppen):
 
     vorschau = [(2, "Gesamtplan"), (3, "Teilplan Batterie"), (4, "Teilplan Ladebooster"), (5, "Teilplan Solar")]
     vorschau += [(6, "Teilplan 230 V"), (7, "Materialliste")] if seiten == 7 else [(6, "Materialliste")]
-    thumbs = "".join(f'<button type="button" data-s="{s}" data-n="{n}"{" class=\"is-on\"" if i == 0 else ""} aria-label="{n} ansehen">'
-                     f'<img src="/assets/stromlaufplaene/{slug(std)}/{s}.webp?v={BILD_V}" width="1200" height="600" alt="" loading="lazy"></button>'
+    slides = "".join(f'<div class="sp-slide{" is-on" if i == 0 else ""}" data-s="{s}" data-n="{n}">'
+                     f'<img src="/assets/stromlaufplaene/{slug(std)}/{s}.webp?v={BILD_V}" width="1200" height="600" '
+                     f'alt="{n} {e(t["kurz"])}"{" loading=\"lazy\"" if i > 1 else ""}></div>'
                      for i, (s, n) in enumerate(vorschau))
+    punkte = "".join(f'<span{" class=\"is-on\"" if i == 0 else ""}></span>' for i in range(len(vorschau)))
 
     abschnitte = "".join(f'<section class="blog-section{" blog-section-alt" if i % 2 else ""}"><div class="wrap sp-text"><h2>{e(h)}</h2>{body}</div></section>'
                          for i, (h, body) in enumerate(t["abschnitte"]))
@@ -303,9 +312,11 @@ def plan_seite(akku, wr, gruppe, alle_gruppen):
       <section class="blog-section" id="plan" style="padding-top:8px">
         <div class="wrap sp-top">
           <div>
-            <figure class="sp-bild"><img id="spBild" src="/assets/stromlaufplaene/{slug(std)}/2.webp?v={BILD_V}" width="1200" height="600" alt="Gesamtplan {e(t["kurz"])}"></figure>
-            <div class="sp-thumbs" id="spThumbs">{thumbs}</div>
-            <p class="sp-thumbs-name" id="spThumbName">Gesamtplan</p>
+            <figure class="sp-3d" id="sp3d" aria-roledescription="Karussell" aria-label="Vorschau aller Seiten">
+              <div class="sp-stage">{slides}</div>
+              <div class="sp-3d-bar"><b id="spSeiteName">Gesamtplan</b><br><small id="spSeiteNr">Seite 1 von {len(vorschau)}</small></div>
+              <div class="sp-dots" aria-hidden="true">{punkte}</div>
+            </figure>
           </div>
           <div class="sp-panel">
             <div class="sp-wahl"><b>Solarleistung</b><div class="sp-knoepfe" id="spSolar">{knopf_solar}</div></div>
@@ -371,7 +382,7 @@ def plan_seite(akku, wr, gruppe, alle_gruppen):
 (() => {{
   const V = {json.dumps(var_json, ensure_ascii=False)};
   const AKKU = {akku}, WR = {wr};
-  let akt = V.find(v => v.id === "{var_id(std)}"), seite = 2;
+  let akt = V.find(v => v.id === "{var_id(std)}");
   const P = s => (typeof PLAENE !== "undefined" ? PLAENE.find(p => slug(p) === s) : null);
   const preisZeigen = (el, v, klein) => {{
     const p = P(v.slug);
@@ -380,10 +391,8 @@ def plan_seite(akku, wr, gruppe, alle_gruppen):
   }};
   const link = v => {{ const p = P(v.slug); return p && typeof kaufLink === "function" ? kaufLink(p) : v.kauf; }};
   function zeige() {{
-    document.getElementById("spBild").src = `/assets/stromlaufplaene/${{akt.slug}}/${{seite}}.webp?v={BILD_V}`;
-    document.querySelectorAll("#spThumbs button").forEach(b => {{
-      b.querySelector("img").src = `/assets/stromlaufplaene/${{akt.slug}}/${{b.dataset.s}}.webp?v={BILD_V}`;
-      b.classList.toggle("is-on", +b.dataset.s === seite);
+    document.querySelectorAll("#sp3d .sp-slide").forEach(s => {{
+      s.querySelector("img").src = `/assets/stromlaufplaene/${{akt.slug}}/${{s.dataset.s}}.webp?v={BILD_V}`;
     }});
     document.getElementById("spTitel").textContent = `Solar ${{akt.solar}} W · Ladebooster ${{akt.booster}} A · ${{AKKU}} Ah` + (WR ? ` · ${{WR}} W` : "");
     document.getElementById("spRegler").textContent = "Laderegler " + akt.regler;
@@ -398,10 +407,30 @@ def plan_seite(akku, wr, gruppe, alle_gruppen):
     document.querySelectorAll("#spVarianten tr").forEach(tr => tr.classList.toggle("is-on", tr.dataset.v === akt.id));
   }}
   function ausHash() {{ const v = V.find(x => x.id === location.hash.slice(1)); if (v) {{ akt = v; zeige(); document.getElementById("plan").scrollIntoView({{behavior: "smooth"}}); }} }}
-  document.getElementById("spThumbs").addEventListener("click", ev => {{
-    const b = ev.target.closest("button"); if (!b) return;
-    seite = +b.dataset.s; document.getElementById("spThumbName").textContent = b.dataset.n; zeige();
-  }});
+  // 3D-Karussell: dreht sich von selbst weiter, ohne Bedienung
+  (() => {{
+    const fig = document.getElementById("sp3d");
+    const slides = [...fig.querySelectorAll(".sp-slide")], dots = [...fig.querySelectorAll(".sp-dots span")], n = slides.length;
+    let nr = 0;
+    const dreh = i => {{
+      nr = (i + n) % n;
+      slides.forEach((s, j) => {{
+        let o = j - nr; if (o > n / 2) o -= n; if (o < -n / 2) o += n;   // Ring: kürzester Weg
+        const a = Math.abs(o);
+        s.style.transform = `translateX(${{o * 34}}%) translateZ(${{-a * 170}}px) rotateY(${{-o * 38}}deg)`;
+        s.style.opacity = a > 2 ? 0 : 1 - a * .28;
+        s.style.filter = a ? `brightness(${{1 - a * .25}})` : "none";
+        s.style.zIndex = 10 - a;
+        s.classList.toggle("is-on", !o);
+        s.setAttribute("aria-hidden", o ? "true" : "false");
+      }});
+      dots.forEach((d, j) => d.classList.toggle("is-on", j === nr));
+      document.getElementById("spSeiteName").textContent = slides[nr].dataset.n;
+      document.getElementById("spSeiteNr").textContent = `Seite ${{nr + 1}} von ${{n}}`;
+    }};
+    dreh(0);
+    setInterval(() => document.hidden || dreh(nr + 1), 1600);   // 0,6 s Drehung + 1 s Pause
+  }})();
   document.querySelectorAll("#spVarianten tr").forEach(tr => {{
     const v = V.find(x => x.id === tr.dataset.v);
     preisZeigen(tr.querySelector(".sp-preis"), v, false);
