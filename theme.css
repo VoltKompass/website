@@ -599,22 +599,35 @@ article > .blog-section:nth-of-type(even){background:rgba(255,255,255,.014)}
   .nav .cta{padding:7px 6px;font-size:10px}
 }
 
-/* 27.11.: Handy-Kopfzeile entlasten. „Blog“ steht am Handy nur noch im Fuß und im Blog-Teaser,
+/* 27.11.: Handy-Kopfzeile entlasten. „Blog“ wird am Handy zum Buch-Symbol (wie der Warenkorb),
    dafür bekommt der Schriftzug mehr Platz */
 @media (max-width:560px){
-  .nav-actions .nav-blog-mobile[href="blog.html"]{display:none}
+  .nav-actions .nav-blog-mobile[href$="blog.html"]{font-size:0;padding:0 7px;gap:0}
+  .nav-actions .nav-blog-mobile[href$="blog.html"]::before{
+    content:"";width:17px;height:17px;flex:none;background:currentColor;
+    -webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z'/%3E%3Cpath d='M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z'/%3E%3C/svg%3E") center/contain no-repeat;
+            mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z'/%3E%3Cpath d='M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z'/%3E%3C/svg%3E") center/contain no-repeat;
+  }
 }
 @media (max-width:480px){
-  .nav .brand{font-size:17px}
-  .nav-blog-mobile{margin-right:6px;padding:0 10px}
-  .nav .cta{padding:8px 11px;font-size:12px}
+  .nav .brand{font-size:16px}
+  .nav-blog-mobile{margin-right:4px;padding:0 9px}
+  .nav-actions .nav-blog-mobile[href$="blog.html"],.nav-blog-mobile.nav-einkauf{padding:0 6px}
+  .nav .cta{padding:8px 10px;font-size:11.5px}
 }
-@media (max-width:370px){
-  .nav .brand{font-size:15px}
-  .nav .cta{padding:7px 9px;font-size:11px}
+@media (max-width:400px){
+  .nav .brand{font-size:14px}
+  .nav-blog-mobile{margin-right:3px;padding:0 7px;font-size:11px}
+  .nav-actions .nav-blog-mobile[href$="blog.html"],.nav-blog-mobile.nav-einkauf{padding:0 5px}
+  .nav .cta{padding:7px 8px;font-size:11px}
 }
-@media (max-width:340px){
-  .nav .brand{font-size:13.5px}
+@media (max-width:350px){
+  .nav .wrap.nav-inner{padding:0 6px;gap:3px}
+  .nav .brand{font-size:12px}
+  .nav-blog-mobile{margin-right:2px;padding:0 5px;font-size:10px}
+  .nav-actions .nav-blog-mobile[href$="blog.html"],.nav-blog-mobile.nav-einkauf{padding:0 4px}
+  .nav-actions .nav-blog-mobile[href$="blog.html"]::before,.nav-einkauf svg{width:15px;height:15px}
+  .nav .cta{padding:6px 6px;font-size:10px}
 }
 
 /* 27.11.: Einblendung beim Scrollen kürzer und mit weniger Weg, damit nichts dunkel-auf-dunkel stehen bleibt */
