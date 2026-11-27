@@ -386,8 +386,14 @@
 .inhalt-bild img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
 .inhalt-bild-zoom{position:relative}
 /* Karte 01: scharfer Gesamtplan des kleinsten Setups, ganz sichtbar statt angeschnitten */
-.inhalt-bild-ganz img{object-fit:contain;padding:6px}
-@media (max-width:640px){.inhalt-bild-ganz{aspect-ratio:2/1}.inhalt-bild-ganz img{padding:4px}}
+/* Plan sitzt unten, oben rechts bleibt Platz für den Hinweis, damit er nichts verdeckt */
+.inhalt-bild-ganz{position:relative}
+.inhalt-bild-ganz img{object-fit:contain;object-position:center bottom;padding:6px}
+@media (max-width:640px){.inhalt-bild-ganz{aspect-ratio:1.6/1}.inhalt-bild-ganz img{padding:4px}}
+.inhalt-hinweis{position:absolute;top:6px;right:6px;max-width:66%;padding:4px 8px;border-radius:8px;
+  background:rgba(11,18,32,.9);border:1px solid rgba(230,178,0,.6);color:#f2f4f8;
+  font-size:10px;line-height:1.25;font-weight:600;text-align:left;pointer-events:none}
+@media (min-width:641px){.inhalt-hinweis{max-width:72%}}
 .inhalt-bild-zoom img{position:absolute;width:240%;height:auto;max-width:none;left:-39%;top:12%}
 .inhalt-karte:hover .inhalt-bild img{transform:scale(1.06)}
 .inhalt-nr{padding:0 8px;font-size:11.5px;font-weight:600;letter-spacing:.18em;color:var(--gold)}
