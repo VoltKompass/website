@@ -247,7 +247,7 @@
   },
   "hero": {
     "eyebrow": "Fertig verdrahtet · PDF zum Ausdrucken",
-    "serviceTitle": "Stromlaufpläne für dein Wohnmobil",
+    "serviceTitle": "Fertige Stromlaufpläne fürs Wohnmobil",
     "claim": "Wähle Solar, Ladebooster, Akku und Wechselrichter und bekomm den passenden Plan: <b>alle Leitungen, Querschnitte und Sicherungen</b>, Materialliste mit Links und die Einstellungen für deine Geräte. Sofort als PDF.",
     "ctaPrimary": "Passenden Plan finden",
     "ctaSecondary": "Lieber persönlich beraten?",
@@ -268,10 +268,13 @@
   },
   "video": {
     "eyebrow": "Video",
-    "heading": "Schau <span class=\"accent\">rein</span>",
-    "subtext": "Ein Einblick in meine Arbeit",
+    "heading": "Eine Anlage <span class=\"accent\">mit Schaltplan</span>",
+    "subtext": "150 W Solar, 100 Ah LiFePO4, Ladebooster und Wechselrichter: Im Video gehe ich die Verdrahtung Schritt für Schritt durch, so wie sie auch in den fertigen Plänen steht.",
     "youtubeId": "cgR8RWLKXtM",
-    "videoAlt": "Video-Vorschau"
+    "videoAlt": "Video: Wohnmobil-Solaranlage Stufe 1 mit Schaltplan und Verdrahtung",
+    "poster": "assets/blog/stufe-1/wohnmobil-solaranlage-stufe-1-schaltplan-960.webp",
+    "linkHref": "blog-stufe-1.html",
+    "linkLabel": "Zum Beitrag mit Schaltplan →"
   },
   "footer": {
     "copyright": "© 2026 VoltKompass — Stromlaufpläne & Beratung für Wohnmobil-Elektrik",
@@ -279,6 +282,10 @@
       {
         "text": "Stromlaufpläne",
         "href": "stromlaufplaene.html"
+      },
+      {
+        "text": "Beratung",
+        "href": "beratung.html"
       },
       {
         "text": "Impressum",

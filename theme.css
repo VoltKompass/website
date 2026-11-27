@@ -598,3 +598,31 @@ article > .blog-section:nth-of-type(even){background:rgba(255,255,255,.014)}
   .nav-blog-mobile{margin-right:2px;padding:0 5px;font-size:10px}
   .nav .cta{padding:7px 6px;font-size:10px}
 }
+
+/* 27.11.: Handy-Kopfzeile entlasten. „Blog“ steht am Handy nur noch im Fuß und im Blog-Teaser,
+   dafür bekommt der Schriftzug mehr Platz */
+@media (max-width:560px){
+  .nav-actions .nav-blog-mobile[href="blog.html"]{display:none}
+}
+@media (max-width:480px){
+  .nav .brand{font-size:17px}
+  .nav-blog-mobile{margin-right:6px;padding:0 10px}
+  .nav .cta{padding:8px 11px;font-size:12px}
+}
+@media (max-width:370px){
+  .nav .brand{font-size:15px}
+  .nav .cta{padding:7px 9px;font-size:11px}
+}
+@media (max-width:340px){
+  .nav .brand{font-size:13.5px}
+}
+
+/* 27.11.: Einblendung beim Scrollen kürzer und mit weniger Weg, damit nichts dunkel-auf-dunkel stehen bleibt */
+.reveal{transform:translateY(12px);transition:opacity .45s ease,transform .45s cubic-bezier(.2,.8,.2,1)}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* Link zur Beratungsseite im Beratungs-Band */
+.beratung-mehr{display:inline-block;margin-top:18px;color:var(--gold);font-weight:600;font-size:15px}
+.beratung-mehr:hover{color:var(--gold-hi,#ffe27a)}
+.beratung-seite .beratung-lead{color:var(--mute);font-size:17px;max-width:680px;margin-top:14px}
+.beratung-seite .beratung-band{padding-top:0}
