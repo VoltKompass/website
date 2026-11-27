@@ -187,7 +187,11 @@
 .about-badge span{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
 .about-badge:empty{display:none}
 .home .about p{font-size:16.5px;margin-top:20px}
-.home .about-stats{grid-template-columns:repeat(auto-fit,minmax(160px,1fr));margin-top:32px}
+/* min(…,100%) + min-width:0: sonst drückt das Kennzahlen-Raster die Spalte am schmalen Handy breiter als den Bildschirm */
+.home .about-stats{grid-template-columns:repeat(auto-fit,minmax(min(160px,100%),1fr));margin-top:32px}
+.home .about-grid > *{min-width:0}
+/* „Industriemechatroniker,“ soll am schmalen Handy ganz in eine Zeile passen */
+@media (max-width:420px){.home .about h2{font-size:min(32px,calc((100vw - 28px) * .088))}}
 .home .stat{padding:20px 22px;border:1px solid var(--line);border-radius:16px;background:rgba(255,255,255,.02)}
 
 /* Kundenstimmen als Raster */
